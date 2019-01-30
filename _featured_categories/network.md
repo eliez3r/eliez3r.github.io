@@ -1,10 +1,10 @@
 ---
 layout: list
-title: WriteUp
-slug: writeup
+title: Network
+slug: network
 menu: true
 submenu: true
 order: 1
 description: >
-  Write-Up 기록 저장소
+  Network 기록 저장소
 ---
