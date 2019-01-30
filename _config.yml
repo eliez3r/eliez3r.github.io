@@ -3,6 +3,9 @@ gems:
   - jemoji
   - jekyll-paginate
 
+remote_theme : mmistakes/minimal-mistakes
+minimal_mistakes_skin    : "default"
+
 # Site settings
 title: "eli_ez3r Story"
 description: > # this means to ignore newlines until "email:"
