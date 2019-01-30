@@ -3,7 +3,7 @@ layout: post
 title:  "02"
 subtitle:   "log"
 categories: writeup
-tags: lob gremlin 02
+tags: lob gremlin level01
 
 ---
 # gremlin
