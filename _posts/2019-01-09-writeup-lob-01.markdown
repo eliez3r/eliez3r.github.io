@@ -3,7 +3,7 @@ layout: post
 title:  "01"
 subtitle:   "log"
 categories: writeup
-tags: writeup
+tags: lob
 
 ---
 # zsh
