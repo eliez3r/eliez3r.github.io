@@ -2,7 +2,7 @@
 layout: tag-blog
 title: LOB
 slug: lob
-category: write-up
+category: writeup
 menu: false
 order: 1
 ---

@@ -1,10 +1,10 @@
 ---
 layout: list
-title: Write-up
-slug: write-up
+title: WriteUp
+slug: writeup
 menu: true
 submenu: true
 order: 1
 description: >
-  Write-up 기록장소
+  WriteUp 기록장소
 ---
