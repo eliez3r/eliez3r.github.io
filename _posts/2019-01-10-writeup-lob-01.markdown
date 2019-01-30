@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "zsh"
+title:  "01"
 subtitle:   "log"
 categories: writeup
 tags: writeup

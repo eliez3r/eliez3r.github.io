@@ -1,0 +1,61 @@
+---
+layout: post
+title:  "02"
+subtitle:   "log"
+categories: writeup
+tags: writeup
+
+---
+# zsh
+
+apt-get install zsh curl git vim
+
+chsh -s $(which zsh)
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+vim ~/.zshrc
+
+- zsh_theme를 찾아서 변경합니다.
+
+  ZSH_THEME="agnoster"
+
+
+source ~/.zshrc
+
+
+#### Autojump
+
+apt-get install autojump
+
+```
+echo "plugins=(autojump)" >> ${ZDOTDIR:-$HOME}/.zshrc
+```
+
+autojump 설치 후 설정
+
+source ~/.zshrc
+
+
+
+#### syntax highlighter
+
+cd ~/.oh-my-zsh/custom/plugins
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+```
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+```
+
+source ~/.zshrc
+
+
+
+#### autosuggestions
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
