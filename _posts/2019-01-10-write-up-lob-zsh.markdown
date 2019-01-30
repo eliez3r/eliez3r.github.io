@@ -2,7 +2,7 @@
 layout: post
 title:  "zsh"
 subtitle:   "log"
-categories: write-up
+categories: writeup
 tags: writeup
 
 ---
