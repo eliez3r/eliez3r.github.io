@@ -4,6 +4,7 @@ title:  "gremlin"
 subtitle:   "[LOB]gremlin_Level01"
 categories: writeup
 tags: lob gremlin level01
+header-img: "/img/writeup-lob-logo.png"
 
 ---
 # gremlin
@@ -54,7 +55,7 @@ argv인자로 받은 값을 strcpy함수를 이용하여 buffer에 저장하는�
 
 
 
-<img src="/assets/lob/01.gremlinimage-20180827153846747.png" width="400px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827153846747.png" width="400px">
 
 
 
@@ -66,7 +67,7 @@ gdb로 gremlin 바이너리를 열어보면 buffer변수의 시작주소는 [ebp
 
 
 
-<img src="/assets/lob/01.gremlinimage-20180827160952522.png" width="400px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827160952522.png" width="400px">
 
 ebp-256의 주소는 0xbffffb88인 것으로 확인되었다.
 
@@ -74,7 +75,7 @@ ebp-256의 주소는 0xbffffb88인 것으로 확인되었다.
 
 
 
-<img src="/assets/lob/01.gremlinimage-20180827155432259.png" width="500px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827155432259.png" width="500px">
 
 정상적으로 값이 들어가는 것을 확인하였다.
 
@@ -84,7 +85,7 @@ ebp-256의 주소는 0xbffffb88인 것으로 확인되었다.
 
 
 
-<img src="/assets/lob/01.gremlinimage-20180827161306733.png" width="400px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827161306733.png" width="400px">
 
 `ulimit -a` 명령어로 core 생성 사이즈가 설정되어 있는지 확인하자. 만약 0으로 설정되어 있다면 `ulimit -c unlimited` 명령을 주어 설정하자.
 
@@ -98,7 +99,7 @@ ret주소를 "CCCC"로 덮어 core덤프가 생성되도록 해보자.
 
 
 
-<img src="/assets/lob/01.gremlinimage-20180827161634020.png" width="700px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827161634020.png" width="700px">
 
 
 
@@ -108,15 +109,15 @@ core덤프가 생성되었다고 하니 core덤프를 분석해보자.
 
 `gdb -q -c core` 명령어로 core덤프를 분석할 수 있다.
 
-<img src="/assets/lob/01.gremlinimage-20180827161824108.png" width="700px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827161824108.png" width="700px">
 
-<img src="/assets/lob/01.gremlinimage-20180827162010840.png" width="400px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827162010840.png" width="400px">
 
 예상한대로 ebp가 "BBBB"로 채워졌으며, EIP가 "CCCC"로 채워졌음을 확인 할 수 있다.
 
 
 
-<img src="/assets/lob/01.gremlinimage-20180827162123236.png" width="500px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827162123236.png" width="500px">
 
 프로그램이 종료된 스택 상태를 살펴보면 "A"라는 문자열이 0xbffffcf0 언저리에서 부터 들어간 것을 확인 할 수 있다.
 
@@ -140,7 +141,7 @@ core덤프가 생성되었다고 하니 core덤프를 분석해보자.
 
 buffer의 크기는 256바이트이고, 그 뒤에 SFP가 4바이트 존재하고, RET주소가 있으므로 스택주고는 다음과 같다고 할 수 있다.
 
-<img src="/assets/lob/01.gremlinimage-20180827160200021.png" width="500px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827160200021.png" width="500px">
 
 
 
@@ -162,7 +163,7 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
  
 
-<img src="/assets/lob/01.gremlinimage-20180827162535728.png" width="700px">
+<img src="/assets/img/writeup/lob/01.gremlin/image-20180827162535728.png" width="700px">
 
 
 
@@ -170,4 +171,4 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 
 
-![banner](/assets/lob/01.gremlinbanner.png)
+![banner](/assets/img/writeup/lob/01.gremlin/banner.png)
