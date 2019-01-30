@@ -3,6 +3,7 @@ layout: tag-blog
 title: LOB
 slug: lob
 category: writeup
-menu: true
+menu: false
 order: 1
+header-img: "/img/writeup-lob-logo.png"
 ---
