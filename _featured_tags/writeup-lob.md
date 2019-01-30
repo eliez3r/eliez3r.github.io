@@ -3,6 +3,6 @@ layout: tag-blog
 title: LOB
 slug: lob
 category: writeup
-menu: false
+menu: true
 order: 1
 ---
