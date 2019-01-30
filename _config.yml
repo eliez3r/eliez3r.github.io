@@ -22,7 +22,7 @@ author_image: "/assets/images/dragonfly_moon.jpg"
 
 paginate:	5
 
-url: "https://dreamgonfly.github.io" # the base hostname & protocol for your site
+url: "https://eliez3r.github.io" # the base hostname & protocol for your site
 baseurl: ""
 #used to display twitter cards
 twitter_handle: '@dreamgonfly'
