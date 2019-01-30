@@ -4,8 +4,6 @@ title:  "Level01. gremlin"
 subtitle:   "[LOB]Level01. gremin"
 categories: writeup
 tags: lob gremlin level01
-header-img: "/img/writeup-lob-logo.png"
-
 ---
 # gate → gremlin
 
