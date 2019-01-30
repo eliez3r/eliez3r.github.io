@@ -2,8 +2,8 @@
 layout: post
 title:  "zsh"
 subtitle:   "log"
-categories: text
-tags: tool nodejs react-native
+categories: write-up
+tags: writeup
 
 ---
 # zsh
