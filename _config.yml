@@ -19,7 +19,7 @@ tagline:             삽질 기록 공간
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
   삽질하는 순간 행복하고,
-  삽질하는 순간 배워나간다.
+  삽질하는 순간부터 배워나간다.
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
