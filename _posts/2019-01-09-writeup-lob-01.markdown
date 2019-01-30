@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "01"
-subtitle:   "log"
+title:  "Readme"
+subtitle:   "[LOB]Readme"
 categories: writeup
 tags: lob readme
 
