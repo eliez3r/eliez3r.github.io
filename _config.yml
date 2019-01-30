@@ -2,7 +2,7 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               Aiden
+title:               eli_ez3r 삽질공간
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
@@ -13,18 +13,18 @@ url:                 https://eliez3r.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             가장 게으르기위해 가장 부지런한 개발자
+tagline:             삽질.삽질.삽질.삽질
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  게으르기 때문에 게발자.
-  글쓰는 걸 좋아하고, 디자인과 개발을 좋아한다.
+  인생은 삽질이다.
+  삽질을 통해 배워나가고 싶다.
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              aiden min
-  email:             zoqozqz@gmail.com
+  name:              eli_ez3r
+  email:             0.0eli.ez3r@gmail.com
 
 # Fallback image and color
 image:               /assets/img/nap.jpg
@@ -45,13 +45,13 @@ google_fonts:        Lato
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:    UA-92346434-1
+google_analytics:    UA-133503906-1
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    isme2n
+disqus_shortname:    eli_ez3r
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. by isme2n'
+copyright:           '&copy; . by eli_ez3r'
 
 # Format of the permalinks
 permalink:           pretty
