@@ -2,7 +2,7 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               eli_ez3r 삽질공간
+title:               eli_ez3r
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
@@ -13,7 +13,7 @@ url:                 https://eliez3r.github.io
 baseurl:             ""
 
 # A very short description of your page
-tagline:             삽질.삽질.삽질.삽질
+tagline:             삽질 기록 공간
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
