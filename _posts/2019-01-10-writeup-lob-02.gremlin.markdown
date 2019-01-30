@@ -7,7 +7,7 @@ tags: lob gremlin level01
 header-img: "/img/writeup-lob-logo.png"
 
 ---
-# gremlin
+# gate → gremlin
 
 ## keyword : BoF
 
