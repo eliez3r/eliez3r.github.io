@@ -3,59 +3,29 @@ layout: post
 title:  "01"
 subtitle:   "log"
 categories: writeup
-tags: lob
+tags: lob 01
 
 ---
-# zsh
-
-apt-get install zsh curl git vim
-
-chsh -s $(which zsh)
-
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-```
-
-vim ~/.zshrc
-
-- zsh_theme를 찾아서 변경합니다.
-
-  ZSH_THEME="agnoster"
-
-
-source ~/.zshrc
-
-
-#### Autojump
-
-apt-get install autojump
-
-```
-echo "plugins=(autojump)" >> ${ZDOTDIR:-$HOME}/.zshrc
+LEVEL1 (gate -> gremlin) :  simple bof
+LEVEL2 (gremlin -> cobolt) : small buffer
+LEVEL3 (cobolt -> goblin) : small buffer + stdin
+LEVEL4 (goblin -> orc) : egghunter
+LEVEL5 (orc -> wolfman) : egghunter + bufferhunter
+LEVEL6 (wolfman -> darkelf) : check length of argv[1] + egghunter + bufferhunter
+LEVEL7 (darkelf -> orge) : check argv[0]
+LEVEL8 (orge -> troll) : check argc
+LEVEL9 (troll -> vampire) : check 0xbfff
+LEVEL10 (vampire -> skeleton) : argv hunter
+LEVEL11 (skeleton -> golem) : stack destroyer
+LEVEL12 (golem -> darkknight) : sfp 
+LEVEL13 (darkknight -> bugbear) : RTL1
+LEVEL14 (bugbear -> giant) : RTL2, only execve
+LEVEL15 (giant -> assassin) : no stack, no RTL
+LEVEL16 (assassin -> zombie_assassin) : fake ebp
+LEVEL17 (zombie_assassin -> succubus) : function calls
+LEVEL18 (succubus -> nightmare) : plt
+LEVEL19 (nightmare -> xavis) : fgets + destroyers
+LEVEL20 (xavis -> death_knight) : remote BOF 
 ```
 
-autojump 설치 후 설정
-
-source ~/.zshrc
-
-
-
-#### syntax highlighter
-
-cd ~/.oh-my-zsh/custom/plugins
-
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-
-```
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-```
-
-source ~/.zshrc
-
-
-
-#### autosuggestions
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
