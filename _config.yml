@@ -11,7 +11,7 @@ description: > # this means to ignore newlines until "email:"
 email: 0.0eli.ez3r@gmail.com
 
 #blog logo
-logo: "/assets/images/dragonfly_moon.jpg"
+logo: "/assets/images/eli_ez3r_circle.png"
 float_logo: false # true, false (default)
 
 # blog cover
@@ -19,7 +19,7 @@ cover: "/assets/images/cA4aKEIPQrerBnp1yGHv_IMG_9534-3-2.jpg"
 
 name: 'eli_ez3r'
 author: 'eli_ez3r'
-author_image: "/assets/images/eli_ez3r_circle.jpg"
+author_image: "/assets/images/eli_ez3r_circle.png"
 
 paginate:	5
 
