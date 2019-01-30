@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Event
-slug: event
-category: review
+title: LOB
+slug: lob
+category: writeup
 menu: false
 order: 1
 ---
