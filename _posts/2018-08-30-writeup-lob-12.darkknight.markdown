@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[LOB]Level04. orc"
+title:  "[LOB]Level12. darkknight"
 subtitle:   "[LOB]golem → darkknight"
 categories: writeup
 tags: lob darkknight level12

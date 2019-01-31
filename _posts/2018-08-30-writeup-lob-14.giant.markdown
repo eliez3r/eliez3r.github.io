@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[LOB]Level04. orc"
+title:  "[LOB]Level14. giant"
 subtitle:   "[LOB]bugbear → giant"
 categories: writeup
 tags: lob giant level14
