@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Readme"
-subtitle:   "[LOB]Readme"
+subtitle:   "[LOB] Readme"
 categories: writeup
 tags: lob readme
 
@@ -28,4 +28,3 @@ LEVEL18 (succubus -> nightmare) : plt
 LEVEL19 (nightmare -> xavis) : fgets + destroyers
 LEVEL20 (xavis -> death_knight) : remote BOF 
 ```
-
