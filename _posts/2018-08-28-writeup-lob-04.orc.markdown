@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "[LOB]Level04. orc"
-subtitle:   "[LOB]Level04. orc"
+subtitle:   "[LOB]goblin → orc"
 categories: writeup
 tags: lob orc level04
 ---
 
 # goblin → orc
 
-## keyword : BoF+egghunter
+## keyword : egghunter
 
 ```c
 /*

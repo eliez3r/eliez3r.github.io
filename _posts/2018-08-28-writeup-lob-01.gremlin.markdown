@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "[LOB]Level01. gremlin"
-subtitle:   "[LOB]Level01. gremin"
+subtitle:   "[LOB]gate → gremlin"
 categories: writeup
 tags: lob gremlin level01
 ---
 # gate → gremlin
 
-## keyword : BoF
+## keyword : simple bof
 
 ------
 

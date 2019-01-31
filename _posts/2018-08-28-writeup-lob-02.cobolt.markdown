@@ -1,13 +1,13 @@
 ---
 layout: post
 title:  "[LOB]Level02. cobolt"
-subtitle:   "[LOB]Level02. cobolt"
+subtitle:   "[LOB]gremln → cobolt"
 categories: writeup
 tags: lob cobolt level02
 ---
 # gremln → cobolt
 
-## keyword : BoF+env
+## keyword : small buffer
 
 ------
 

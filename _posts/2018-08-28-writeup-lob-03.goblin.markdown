@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[LOB]Level03. goblin"
-subtitle:   "[LOB]Level03. goblin"
+subtitle:   "[LOB]cobolt → goblin"
 categories: writeup
 tags: lob goblin level03
 
@@ -9,7 +9,7 @@ tags: lob goblin level03
 
 # cobolt → goblin
 
-## keyword : BoF+env+argv
+## keyword : small buffer + stdin
 
 ```c
 /*
