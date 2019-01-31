@@ -4,10 +4,8 @@ title:  "Level02. cobolt"
 subtitle:   "[LOB] Level02. cobolt"
 categories: writeup
 tags: lob cobolt level02
-
 ---
-
-# Cobolt
+# gremln → cobolt
 
 ## keyword : BoF+env
 
