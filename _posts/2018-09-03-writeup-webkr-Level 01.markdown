@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "[Webkr]Level 01"
-subtitle:   "[Webkr]Level 01"
+title:  "[Web.kr]Level 01"
+subtitle:   "[Web.kr]Level 01"
 categories: writeup
 tags: webkr level1
 
