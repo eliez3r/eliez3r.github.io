@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Level03. goblin"
-subtitle:   "[LOB] Level03. goblin"
+title:  "[LOB]Level03. goblin"
+subtitle:   "[LOB]Level03. goblin"
 categories: writeup
 tags: lob goblin level03
 

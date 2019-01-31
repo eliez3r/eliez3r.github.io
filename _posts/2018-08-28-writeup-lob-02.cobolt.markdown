@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Level02. cobolt"
-subtitle:   "[LOB] Level02. cobolt"
+title:  "[LOB]Level02. cobolt"
+subtitle:   "[LOB]Level02. cobolt"
 categories: writeup
 tags: lob cobolt level02
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Level04. orc"
-subtitle:   "[LOB] Level04. orc"
+title:  "[LOB]Level04. orc"
+subtitle:   "[LOB]Level04. orc"
 categories: writeup
 tags: lob orc level04
 ---

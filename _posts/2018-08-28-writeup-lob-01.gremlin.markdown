@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Level01. gremlin"
-subtitle:   "[LOB] Level01. gremin"
+title:  "[LOB]Level01. gremlin"
+subtitle:   "[LOB]Level01. gremin"
 categories: writeup
 tags: lob gremlin level01
 ---
