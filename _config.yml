@@ -48,7 +48,7 @@ google_fonts:        Lato
 google_analytics:    UA-133503906-1
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    eli_ez3r
+disqus_shortname:    eliez3r
 
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           '&copy; 2019. by eli_ez3r'
