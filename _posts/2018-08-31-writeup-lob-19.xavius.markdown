@@ -1,0 +1,147 @@
+---
+layout: post
+title:  "[LOB]Level19. xavius"
+subtitle:   "[LOB]nightmare → xavius"
+categories: writeup
+tags: lob xavius level19
+
+---
+
+# nightmare → xavius
+
+## keyword : fgets + destroyers
+
+```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - xavius
+        - arg
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <dumpcode.h>
+
+main()
+{
+    char buffer[40];
+    char *ret_addr;
+
+    // overflow!
+    fgets(buffer, 256, stdin);
+    printf("%s\n", buffer);
+
+    if(*(buffer+47) == '\xbf')
+    {
+        printf("stack retbayed you!\n");
+        exit(0);
+    }
+
+    if(*(buffer+47) == '\x08')
+    {
+        printf("binary image retbayed you, too!!\n");
+        exit(0);
+    }
+
+    // check if the ret_addr is library function or not
+    memcpy(&ret_addr, buffer+44, 4);
+    while(memcmp(ret_addr, "\x90\x90", 2) != 0) // end point of function
+    {
+        if(*ret_addr == '\xc9'){        // leave
+            if(*(ret_addr+1) == '\xc3'){    // ret
+                printf("You cannot use library function!\n");
+                exit(0);
+            }
+        }
+        ret_addr++;
+    }
+
+    // stack destroyer
+    memset(buffer, 0, 44);
+    memset(buffer+48, 0, 0xbfffffff - (int)(buffer+48));
+
+    // LD_* eraser
+    // 40 : extra space for memset function
+    memset(buffer-3000, 0, 3000-40);
+}
+```
+
+- RET 부분에 '/xbf' 영역 '/0x08' 영역이 필터링된다.
+- RET 부분에 leave-ret 도 사용하지 못한다.
+- 버퍼영역이 초기화
+- RET 이후 모든 영역 초기화(arg, 환경변수, 파일이름영역 등...)
+
+
+
+처음 문제를 접하고 멘붕에 빠졌다. 어떠한 방법으로 접근해야 될지 몰라 별에별 시도는 다해본것 같다.
+
+결국 Write-up을 보고 알게 되었다.
+
+
+
+다른 문제들을 살펴보면 fget나 strcpy 함수를 이용하여 argv[1]에 값을 가져오는데, 이번 문제는 쌩뚱맞게 stdin 으로 가져온다. (이 부분을 캐치하지 못함 😭)
+
+
+
+stdin에 대해 살펴보자.
+
+<img src="/assets/img/writeup/lob/19.xavius/image-20180802124706226.png" width="400px">
+
+
+
+fgets에서 값을 가져오는 부분을 보면 stdin의 주소를 알 수 있다.
+
+
+
+<img src="/assets/img/writeup/lob/19.xavius/image-20180802125145631.png" width="400px">
+
+
+
+해당 주소를 따라가면 \x40주소 영역에 주소가 들어있다.(stdin@@GLIBC_2.0) 이라고 되어있다.
+
+![image-20180802125342227](/assets/img/writeup/lob/19.xavius/image-20180802125342227.png)
+
+
+
+해당 주소살펴보면 위와 같이 보여지고 있으며, 실제 0x401068c0 은 stdin의 주소와 같다고 볼 수 있다.
+
+이제 값을 입력해보고 stdin 영역에 어떻게 변화 되는지 살펴보자.
+
+
+
+![image-20180802130439045](/assets/img/writeup/lob/19.xavius/image-20180802130439045.png)
+
+printf 함수에 브레이크를 걸고 값을 입력한 뒤에 다시 살펴보면 std+4, std+8, std+12 등이 변했다.
+
+stdin 구조체에 따라 보면, std+4는 어디까지 읽었는지, stdin+8은 얼마나 입력 받았는지, stdin+12는 stdin의 시작 주소를 의미한다.
+
+그러면 stdin+12의 주소를 살펴보자.
+
+<img src="/assets/img/writeup/lob/19.xavius/image-20180802130810548.png" width="300px">
+
+입력한 값이 들어 있음을 알 수 있다.
+
+
+
+<img src="/assets/img/writeup/lob/19.xavius/image-20180802131232591.png" width="500px">
+
+
+
+실제 메모리 맵을 살펴보면, 해당 영역은 실행 권한이 존재하지 않는다. 하지만 maps에 대한 정보는 100% 정확하지 않다는 얘기를 들어서 시도해 보았다.
+
+
+
+shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+
+
+
+<img src="/assets/img/writeup/lob/19.xavius/image-20180802131641059.png" width="700px">
+
+
+
+공격에 성공 하는것으로 보아 **maps에 대한 정보는 정확하지 않다는 것이 증명되었다.**
+
+> stdin시작주소에 1을 더한 이유는 \x00 을 없애기 위함이다.
+
+
+
+**xavius / throw me away**
