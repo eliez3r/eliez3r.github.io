@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: pwnable.tw
+title: Pwnable.tw
 slug: pwntw
 category: writeup
 menu: false

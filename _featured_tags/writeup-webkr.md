@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: webhacking.kr
+title: Webhacking.kr
 slug: webkr
 category: writeup
 menu: false

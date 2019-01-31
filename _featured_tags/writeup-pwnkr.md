@@ -1,6 +1,6 @@
 ---
 layout: tag-blog
-title: pwnable.kr
+title: Pwnable.kr
 slug: pwnkr
 category: writeup
 menu: false
