@@ -47,7 +47,7 @@ google_fonts:        Lato
 # To remove Google Anaylics from your page, remove the line below.
 google_analytics:    UA-133503906-1
 
-# Comments 
+# disqus
 comments:
   disqus: true
   disqus_username: eliez3r
