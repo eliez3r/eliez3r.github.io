@@ -3,8 +3,10 @@ layout: post
 title:  "Format String Attack"
 subtitle:   "Format String Attack"
 categories: study
-tags: system FormatStringAttack
-
+tags: [system FormatStringAttack]
+cover:
+comments: True
+hidden: False
 ---
 
 # Format String Attack
