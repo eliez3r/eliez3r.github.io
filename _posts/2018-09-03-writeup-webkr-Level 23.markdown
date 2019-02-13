@@ -4,7 +4,7 @@ title:  "[Web.kr]Level 23"
 subtitle:   "[Web.kr]Level 23"
 categories: writeup
 tags: webkr level23
-hidden:true
+hidden:false
 ---
 
 # Level 23
