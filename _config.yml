@@ -53,7 +53,7 @@ comments:
   disqus_username:   eliez3r
 
 #disqus
-shortname: eliez3r
+disqus_shortname: eliez3r
 
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           '&copy; 2019. by eli_ez3r'
