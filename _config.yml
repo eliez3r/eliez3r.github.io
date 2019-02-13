@@ -47,8 +47,10 @@ google_fonts:        Lato
 # To remove Google Anaylics from your page, remove the line below.
 google_analytics:    UA-133503906-1
 
-# Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    eliez3r
+# Comments 
+comments:
+  disqus: true
+  disqus_username: eliez3r
 
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           '&copy; 2019. by eli_ez3r'
