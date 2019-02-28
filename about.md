@@ -11,11 +11,15 @@ order: 10
 
 
 
+
+
 ## Contact
 
 Mail : [0.0eli.ez3r@gmail.com](mailto:0.0eli.ez3r@gmail.com)
 
 Instagram : [@eli_ez3r](instagram.com/eli_ez3r)
+
+
 
 
 
@@ -26,9 +30,13 @@ Instagram : [@eli_ez3r](instagram.com/eli_ez3r)
 **BoB 7th Vulnerability Analysis Track,** at Kitri (2018.07 ~ 2019.02)
 
 
+
+
 ## Project
 
 **IoT Hub Exploitation and Countermeasure**, BoB Project (2018.09 ~ 2019.02)
+
+
 
 
 ## Certificate
