@@ -7,7 +7,7 @@ order: 10
 
 ## Name
 
-**eli_ez3r (Hak-Jin Kim)**
+**eli_ez3r (Kim Hak Jin)**
 
 
 
