@@ -35,6 +35,7 @@ Instagram : [@eli_ez3r](instagram.com/eli_ez3r)
 ## Project
 
 **IoT Hub Exploitation and Countermeasure**, BoB Project (2018.09 ~ 2019.02)
+
 **Kiwoom Securities**, Penetration Testing Project (2019.03)
 
 
