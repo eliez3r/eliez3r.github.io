@@ -17,7 +17,7 @@ order: 10
 
 Mail : [0.0eli.ez3r@gmail.com](mailto:0.0eli.ez3r@gmail.com)
 
-Instagram : [@eli_ez3r](instagram.com/eli_ez3r)
+Instagram : [@eli_ez3r](https://www.instagram.com/eli_ez3r/)
 
 
 
