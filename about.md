@@ -19,6 +19,8 @@ Mail : [0.0eli.ez3r@gmail.com](mailto:0.0eli.ez3r@gmail.com)
 
 Instagram : [@eli_ez3r](https://www.instagram.com/eli_ez3r/)
 
+Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
+
 
 
 
