@@ -18,8 +18,7 @@ tagline:             삽질 기록 공간
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  삽질하는 순간 행복하고,
-  삽질하는 순간부터 배워나간다.
+  I can do all things through Christ which strengtheneth me. (Philippians 4:13, KJV)
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
