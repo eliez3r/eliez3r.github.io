@@ -40,6 +40,12 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 **Kiwoom Securities**, Penetration Testing Project (2019.03)
 
+**PAYCO**, Mobile Application Penetration Testing Project (2019.05)
+
+**OKCOIN**, Web Penetration Testing Project (2019.05)
+
+**여행박사**, Web Penetration Testing Project (2019.06)
+
 
 
 
