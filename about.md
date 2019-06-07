@@ -11,7 +11,6 @@ order: 10
 
 
 
-#
 
 ## Contact
 
@@ -23,7 +22,6 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 
 
-#
 
 ## Experience
 
@@ -32,7 +30,7 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 **BoB 7th Vulnerability Analysis Track,** at Kitri (2018.07 ~ 2019.02)
 
 
-#
+
 
 ## Project
 
@@ -48,7 +46,7 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 
 
-#
+
 ## Certificate
 
 Industrial Engineer Information Security(2017.6), KISA
