@@ -49,12 +49,12 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 ## Certificate
 
-Industrial Engineer Information Security(2017.6), KISA
+Industrial Engineer Information Security(2017.6), **KISA**
 
-Industrial Engineer Information Processing(2016.11), HRDkorea
+Industrial Engineer Information Processing(2016.11), **HRDkorea**
 
-Oracle certified Professional, Java SE 6 Programmer(2014.12), Oracle
+Oracle certified Professional, Java SE 6 Programmer(2014.12), **Oracle**
 
-Linux Professional Institute Certification(2014.5), LPI
+Linux Professional Institute Certification(2014.5), **LPI**
 
-Cisco Certified Network Associate Routing and Switching(2014.1), Cisco
+Cisco Certified Network Associate Routing and Switching(2014.1), **Cisco**
