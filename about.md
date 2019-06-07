@@ -38,13 +38,13 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 **IoT Hub Exploitation and Countermeasure**, BoB Project (2018.09 ~ 2019.02)
 
-**Kiwoom Securities**, Penetration Testing Project (2019.03)
+**키움증권(Kiwoom Securities)**, Penetration Testing Project (2019.03)
 
-**PAYCO**, Mobile Application Penetration Testing Project (2019.05)
+**페이코(PAYCO)**, Mobile Application Penetration Testing Project (2019.05)
 
-**OKCOIN**, Web Penetration Testing Project (2019.05)
+**오케이코인(OKCOIN)**, Web Penetration Testing Project (2019.05)
 
-**여행박사**, Web Penetration Testing Project (2019.06)
+**여행박사(drtour)**, Web Penetration Testing Project (2019.06)
 
 
 
