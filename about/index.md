@@ -10,6 +10,8 @@ type: about
 
  
 
+------
+
 
 
 ## Contact
@@ -22,6 +24,8 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
  
 
+------
+
 
 
 ## Experience
@@ -30,9 +34,11 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 **BoB 7th Vulnerability Analysis Track,** at Kitri (2018.07 ~ 2019.02)
 
- 
 
- 
+
+------
+
+
 
 ## Project
 
@@ -46,9 +52,11 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 **여행박사(drtour)**, Web Penetration Testing Project (2019.06)
 
- 
 
- 
+
+------
+
+
 
 ## Certificate
 
