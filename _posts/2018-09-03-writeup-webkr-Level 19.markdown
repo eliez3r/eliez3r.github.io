@@ -2,12 +2,12 @@
 layout: post
 title:  "[Web.kr]Level 19"
 subtitle:   "[Web.kr]Level 19"
-categories: writeup
-tags: webkr level19
-
+categories: Wargame[webkr]
+tags:
+- Wargame
+- webhacking.kr
+- Write-up
 ---
-
-# Level 19
 
 ```
 Warning: Cannot modify header information - headers already sent by (output started at /home/hosting_users/webhacking/www/challenge/javascript/js6.html:11) in /home/hosting_users/webhacking/www/challenge/javascript/js6.html on line 29

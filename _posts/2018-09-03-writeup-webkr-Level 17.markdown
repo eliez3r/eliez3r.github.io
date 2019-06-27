@@ -2,12 +2,12 @@
 layout: post
 title:  "[Web.kr]Level 17"
 subtitle:   "[Web.kr]Level 17"
-categories: writeup
-tags: webkr level17
-
+categories: Wargame[webkr]
+tags:
+- Wargame
+- webhacking.kr
+- Write-up
 ---
-
-# Level 17
 
 ```php+HTML
 <html>

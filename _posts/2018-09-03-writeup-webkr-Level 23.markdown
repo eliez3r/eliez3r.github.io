@@ -2,11 +2,12 @@
 layout: post
 title:  "[Web.kr]Level 23"
 subtitle:   "[Web.kr]Level 23"
-categories: Wargame[Web.kr]
-tags: webkr level23
+categories: Wargame[webkr]
+tags:
+- Wargame
+- webhacking.kr
+- Write-up
 ---
-
-# Level 23
 
 ![4](/assets/img/writeup/webkr/Level 23/image-20180726154434963.png)
 

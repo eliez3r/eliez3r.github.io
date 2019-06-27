@@ -2,12 +2,12 @@
 layout: post
 title:  "[Web.kr]Level 01"
 subtitle:   "[Web.kr]Level 01"
-categories: writeup
-tags: webkr level1
-
+categories: Wargame[webkr]
+tags:
+- Wargame
+- webhacking.kr
+- Write-up
 ---
-
-# Level 1
 
 ## keyword : cookie 변조
 

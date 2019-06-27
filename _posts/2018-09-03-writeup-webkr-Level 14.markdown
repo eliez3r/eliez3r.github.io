@@ -2,12 +2,12 @@
 layout: post
 title:  "[Web.kr]Level 14"
 subtitle:   "[Web.kr]Level 14"
-categories: writeup
-tags: webkr level14
-
+categories: Wargame[webkr]
+tags:
+- Wargame
+- webhacking.kr
+- Write-up
 ---
-
-# Level 14
 
 <img src="/assets/img/writeup/webkr/Level 14/5F9BF4BF-6EB1-4E74-B763-6DF6BCF4F9F9.png" width="400px">
 

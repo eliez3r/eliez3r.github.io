@@ -2,12 +2,12 @@
 layout: post
 title:  "[Web.kr]Level 18"
 subtitle:   "[Web.kr]Level 18"
-categories: writeup
-tags: webkr level18
-
+categories: Wargame[webkr]
+tags:
+- Wargame
+- webhacking.kr
+- Write-up
 ---
-
-# Level 18
 
 ![1803B656-F722-44A1-B725-4C4C33E1B6E2](/assets/img/writeup/webkr/Level 18/1803B656-F722-44A1-B725-4C4C33E1B6E2.png)
 
