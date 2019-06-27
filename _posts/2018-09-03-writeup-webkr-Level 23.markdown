@@ -8,7 +8,7 @@ tags: webkr level23
 
 # Level 23
 
-<img src="/assets/img/writeup/webkr/Level 23/image-20180726154434963.png", width="400px">
+![4](/assets/img/writeup/webkr/Level 23/image-20180726154434963.png)
 
 `<sciprt>alert(1);</script>` 를 넣는 것이 미션이란다. 
 
