@@ -3,15 +3,12 @@ layout: post
 title:  "Format String Attack"
 subtitle:   "Format String Attack"
 categories: study
-tags: [system FormatStringAttack]
+tags: 
+- System Hacking
+- Format String Attack
 cover:
 comments: True
-hidden: False
 ---
-
-# Format String Attack
-
-
 
 ## 1. Format String이란?
 
