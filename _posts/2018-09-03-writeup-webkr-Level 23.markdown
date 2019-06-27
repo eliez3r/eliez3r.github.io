@@ -2,7 +2,7 @@
 layout: post
 title:  "[Web.kr]Level 23"
 subtitle:   "[Web.kr]Level 23"
-categories: writeup
+categories: Wargame[Web.kr]
 tags: webkr level23
 ---
 

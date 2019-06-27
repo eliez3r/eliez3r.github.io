@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level18. nightmare"
 subtitle:   "[LOB]succubus → nightmare"
-categories: writeup
-tags: lob nightmare level18
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# succubus → nightmare
 
 ## keyword : plt
 

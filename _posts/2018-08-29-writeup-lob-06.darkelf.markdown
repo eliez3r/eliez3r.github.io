@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level06. darkelf"
 subtitle:   "[LOB]wolfman → darkelf"
-categories: writeup
-tags: lob darkelf level06
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# wolfman → darkelf
 
 ## keyword : check length of argv[1] + egghunter + bufferhunter
 

@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level11. golem"
 subtitle:   "[LOB]skeleton → golem"
-categories: writeup
-tags: lob golem level11
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# skeleton → golem
 
 ## keyword : stack destroyer
 

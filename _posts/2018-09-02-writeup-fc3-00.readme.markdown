@@ -2,11 +2,12 @@
 layout: post
 title:  "[FC3]Readme"
 subtitle:   "[FC3]Readme"
-categories: writeup
-tags: fc3 readme
+categories: Wargame[FC3]
+tags:
+- Wargame
+- Fedora Catle 3
+- Write-up
 ---
-
-# Fedora Catle 3
 
 ##### [FC3 - 총 5문제] 
 

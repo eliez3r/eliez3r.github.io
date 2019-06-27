@@ -2,12 +2,12 @@
 layout: post
 title:  "[FC3]Level4. evil_wizard"
 subtitle:   "[FC3]dark_eyes → evil_wizard"
-categories: writeup
-tags: fc3 evil_wizard level4
-
+categories: Wargame[FC3]
+tags:
+- Wargame
+- Fedora Catle 3
+- Write-up
 ---
-
-# dark_eyes → evil_wizard
 
 ## keyword : POP POP RET 
 

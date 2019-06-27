@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Format String Attack"
-subtitle:   "Format String Attack"
-categories: study
+subtitle: "Format String Attack"
+categories: Study
 tags: 
 - System Hacking
 - Format String Attack

@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level10. skeleton"
 subtitle:   "[LOB]vampire → skeleton"
-categories: writeup
-tags: lob skeleton level10
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# vampire → skeleton
 
 ## keyword : argv hunter
 

@@ -2,16 +2,13 @@
 layout: post
 title:  "[LOB]Level01. gremlin"
 subtitle:   "[LOB]gate → gremlin"
-categories: writeup
-tags: lob gremlin level01
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-# gate → gremlin
-
 ## keyword : simple bof
-
-------
-
-
 
 ### 0x01. Static Analysis
 

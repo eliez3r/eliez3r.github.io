@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level16. zombie_assassin"
 subtitle:   "[LOB]assassin → zombie_assassin"
-categories: writeup
-tags: lob zombie_assassin level16
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# assassin → zombie_assassin
 
 ## Keyword : fake ebp
 

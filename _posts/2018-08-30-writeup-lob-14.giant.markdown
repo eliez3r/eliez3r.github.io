@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level14. giant"
 subtitle:   "[LOB]bugbear → giant"
-categories: writeup
-tags: lob giant level14
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# bugbear → giant
 
 ## keyword : RTL2, only execve
 

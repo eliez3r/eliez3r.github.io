@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level17. succubus"
 subtitle:   "[LOB]zombie_assassin → succubus"
-categories: writeup
-tags: lob succubus level17
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# zombie_assassin → succubus
 
 ## keyword : function calls
 

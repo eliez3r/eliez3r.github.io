@@ -2,12 +2,13 @@
 layout: post
 title:  "[LOB]Level03. goblin"
 subtitle:   "[LOB]cobolt → goblin"
-categories: writeup
-tags: lob goblin level03
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 
 ---
-
-# cobolt → goblin
 
 ## keyword : small buffer + stdin
 

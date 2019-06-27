@@ -2,14 +2,13 @@
 layout: post
 title:  "[LOB]Level02. cobolt"
 subtitle:   "[LOB]gremln → cobolt"
-categories: writeup
-tags: lob cobolt level02
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-# gremln → cobolt
-
 ## keyword : small buffer
-
-------
 
 
 

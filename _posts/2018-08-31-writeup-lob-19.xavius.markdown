@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level19. xavius"
 subtitle:   "[LOB]nightmare → xavius"
-categories: writeup
-tags: lob xavius level19
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# nightmare → xavius
 
 ## keyword : fgets + destroyers
 

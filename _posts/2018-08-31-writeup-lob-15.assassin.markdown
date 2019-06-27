@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level15. assassin"
 subtitle:   "[LOB]giant → assassin"
-categories: writeup
-tags: lob assassin level15
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# giant → assassin
 
 ## keyword : no stack, no RTL
 

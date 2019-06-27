@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level09. vampire"
 subtitle:   "[LOB]troll → vampire"
-categories: writeup
-tags: lob vampire level09
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# troll → vampire
 
 ## keyword : check 0xbfff
 

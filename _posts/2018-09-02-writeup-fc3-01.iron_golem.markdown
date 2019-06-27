@@ -2,12 +2,12 @@
 layout: post
 title:  "[FC3]Level1. iron_golem"
 subtitle:   "[FC3]gate → iron_golem"
-categories: writeup
-tags: fc3 iron_golem level1
-
+categories: Wargame[FC3]
+tags:
+- Wargame
+- Fedora Catle 3
+- Write-up
 ---
-
-# gate → iron_golem
 
 ## keyword : Fake_SFP + Ascii
 

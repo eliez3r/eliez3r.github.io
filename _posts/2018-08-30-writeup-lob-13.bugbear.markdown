@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level13. bugbear"
 subtitle:   "[LOB]darkknight → bugbear"
-categories: writeup
-tags: lob bugbear level13
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# darkknight → bugbear
 
 ## keyword : RTL1
 

@@ -2,12 +2,12 @@
 layout: post
 title:  "[FC3]Level5. dark_stone"
 subtitle:   "[FC3]evil_wizard → dark_stone"
-categories: writeup
-tags: fc3 dark_stone level5 final
-
+categories: Wargame[FC3]
+tags:
+- Wargame
+- Fedora Catle 3
+- Write-up
 ---
-
-# evil_wizard → dark_stone
 
 ## keyword : POP POP RET / Remote
 

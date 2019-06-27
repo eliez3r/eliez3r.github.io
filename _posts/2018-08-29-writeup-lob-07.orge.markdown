@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level07. orge"
 subtitle:   "[LOB]darkelf → orge"
-categories: writeup
-tags: lob orge level07
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# darkelf → orge
 
 ## keyword : check argv[0]
 

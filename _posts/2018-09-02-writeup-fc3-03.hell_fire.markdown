@@ -2,12 +2,12 @@
 layout: post
 title:  "[FC3]Level3. hell_fire"
 subtitle:   "[FC3]dark-eyes → hell_fire"
-categories: writeup
-tags: fc3 hell_fire level3
-
+categories: Wargame[FC3]
+tags:
+- Wargame
+- Fedora Catle 3
+- Write-up
 ---
-
-# dark-eyes → hell_fire
 
 ## keyword : another fake_ebp or got overwriting
 

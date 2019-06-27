@@ -2,8 +2,11 @@
 layout: post
 title:  "[LOB]Readme"
 subtitle:   "[LOB]Readme"
-categories: writeup
-tags: lob readme
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 
 ---
 ```

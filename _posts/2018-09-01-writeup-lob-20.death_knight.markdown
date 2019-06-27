@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level20. death_knight"
 subtitle:   "[LOB]xavius → death_knight"
-categories: writeup
-tags: lob death_knight level20 final
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# xavius → death_knight
 
 ## keyword : remote BOF 
 

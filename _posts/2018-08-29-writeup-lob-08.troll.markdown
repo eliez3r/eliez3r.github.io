@@ -2,12 +2,12 @@
 layout: post
 title:  "[LOB]Level08. troll"
 subtitle:   "[LOB]orge → troll"
-categories: writeup
-tags: lob troll level08
-
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
 ---
-
-# orge → troll
 
 ## keyword : check argc
 
