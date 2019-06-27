@@ -213,8 +213,8 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-#social:
-  #LinkLabel: Link
+social:
+  Instagram: https://www.instagram.com/eli_ez3r/
 
 
 # Social Links Icons
@@ -345,8 +345,8 @@ post_copyright:
 #   enabled: [true/false] - Replace with specific image
 #   image: url-of-image   - Images's url
 custom_logo:
-  enabled: false
-  image:
+  enabled: true
+  image: /assets/images/logo.png
 
 
 # Code Highlight theme
@@ -436,7 +436,7 @@ gitalk:
 #google_site_verification:
 
 # Google Analytics
-google_analytics: UA-140480797-1
+google_analytics: UA-133503906-1
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
