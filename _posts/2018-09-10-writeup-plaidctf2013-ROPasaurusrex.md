@@ -10,9 +10,6 @@ tags:
 ---
 
 ### 0x01. Static Analysis
-
-바이너리 다운 주소 : http://shell-storm.org/repo/CTF/PlaidCTF-2013/Pwnable/ropasaurusrex-200/
-
 ```sh
 root@kali:~/Desktop/BoB7/study# checksec ropasaurusrex
 [*] '/root/Desktop/BoB7/study/ropasaurusrex'
@@ -22,7 +19,7 @@ root@kali:~/Desktop/BoB7/study# checksec ropasaurusrex
     NX:       NX enabled
     PIE:      No PIE (0x8048000)
 ```
-
+바이너리 다운 주소 : http://shell-storm.org/repo/CTF/PlaidCTF-2013/Pwnable/ropasaurusrex-200/
 보호기법은 NX만 설정되어 있다.
 
 > stack에서 실행 불가능 하다.(쉘코드로 공격 불가능)
