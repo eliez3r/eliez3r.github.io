@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ROPasaurusrex"
+title:  "[Plaid CTF 2013] ROPasaurusrex"
 subtitle: "Plaid CTF 2013"
 categories: Write-up
 tags: 
@@ -8,17 +8,10 @@ tags:
 - WriteUp
 - Plaid CTF 2013
 ---
-## keyword : ROP
-
-바이너리 다운 주소 : http://shell-storm.org/repo/CTF/PlaidCTF-2013/Pwnable/ropasaurusrex-200/
-
-
-
-------
-
-
 
 ### 0x01. Static Analysis
+
+바이너리 다운 주소 : http://shell-storm.org/repo/CTF/PlaidCTF-2013/Pwnable/ropasaurusrex-200/
 
 ```sh
 root@kali:~/Desktop/BoB7/study# checksec ropasaurusrex
