@@ -301,7 +301,7 @@ bss주소 : 0x08049628
 
 위 정보를 다른 방법으로 구하는 방법.
 
-<img src="/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231757695.png" width="500px">
+![](/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231757695.png)
 
 
 
@@ -311,7 +311,7 @@ ropper를 이용하여 가젯을 구하면 쉽지만, ropper가 없는 환경 �
 
 
 
-<img src="/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231705197.png" width="500px">
+![](/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231705197.png)
 
 위에서 나온 가젯들 중 pop-pop-pop-ret이 연속적인 주소로 된 것을 고르면 된다. 
 
@@ -438,7 +438,7 @@ p.send(p32(system_addr))
 p.interactive()
 ```
 
-<img src="/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826232159051.png" width="500px">
+![](/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826232159051.png)
 
 
 
