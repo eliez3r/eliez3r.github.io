@@ -319,7 +319,7 @@ ropper를 이용하여 가젯을 구하면 쉽지만, ropper가 없는 환경 �
 
 
 
-<img src="/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231440053.png" width="500px">
+!["ropper는 좀 더 이쁘게보여진다"](/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231440053.png)
 
 ropper는 좀 더 이뿌게 보여진다.
 
