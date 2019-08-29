@@ -307,7 +307,7 @@ bss주소 : 0x08049628
 
 이제 pop-pop-pop-ret 가젯만 구하면 된다.
 
-ropper를 이용하여 가젯을 구하면 쉽지만, ropper가 없는 환경 일 수 있으니 objdump와 ropper 로 구하는 방법을 소개하겠다.
+ropper를 이용하여 가젯을 구하면 쉽지만, ropper가 없는 환경 일 수 있으니 objdump로 구하는 방법을 소개하겠다.
 
 
 
