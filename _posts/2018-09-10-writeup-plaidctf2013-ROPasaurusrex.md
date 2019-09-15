@@ -301,7 +301,7 @@ bss주소 : 0x08049628
 
 위 정보를 다른 방법으로 구하는 방법.
 
-![](/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231757695.png)
+![](http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231757695.png)
 
 
 
