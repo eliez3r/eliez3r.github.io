@@ -57,7 +57,7 @@ key값의 길이를 알아보니 32바이트였다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731215259261.png", width="500px">
+<img src="/assets/img/writeup/webkr/Level 22/image-20180731215259261.png" width="500px">
 
 예상대로 MD5였다. 복호화 문자는 '1234zombie' 였다. 즉, 비밀번호를 생성하면 비밀번호 뒤에 'zombie'를 붙이고 md5 해싱을 하여 key값으로 사용한다.
 
