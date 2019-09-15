@@ -72,17 +72,17 @@ strcpy로  printf@got 주소에 system주소로 덮어씌워 printf를 실행 �
 준비물 : 
 
 - ppr : 0x804854f
-  - <img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809170708362.png" width="500px">
+  - <img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809170708362.png" width="500px">
 - strcpy@plt : 0x8048494
-  - <img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809174715247.png" width="500px">
+  - <img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809174715247.png" width="500px">
 - printf@plt : 0x8048424
-  - <img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809174758872.png" width="500px">
+  - <img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809174758872.png" width="500px">
 - printf@got : 0x8049884
-  - <img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809170948428.png" width="500px">
+  - <img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809170948428.png" width="500px">
 - system : 0x7507c0
-  - <img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809171126383.png" width="500px">
+  - <img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809171126383.png" width="500px">
 - "/bin/sh" : 0x833603
-  - <img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809171716207.png" width="500px">
+  - <img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809171716207.png" width="500px">
 
 
 
@@ -96,19 +96,19 @@ src와 dest가 포인터이다. 즉, 주소값에 데이터를 복사한다. 따
 
 
 
-<img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809172445160.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809172445160.png" width="500px">
 
 0x00 : 0x8048138
 
-<img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809172532184.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809172532184.png" width="500px">
 
 0x75 : 0x80482c8
 
-<img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809172727779.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809172727779.png" width="500px">
 
 0x07 : 0x8048148 + 0xc = 0x8048154
 
-<img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809172859044.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809172859044.png" width="500px">
 
 0xc0 : 0x8048414 + 0xc = 0x8048420
 
@@ -142,7 +142,7 @@ payload += p32(binsh)
 print payload
 ```
 
-<img src="/assets/img/writeup/fc3/4.evil_wizard/image-20180809175043616.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/4.evil_wizard/image-20180809175043616.png" width="700px">
 
 
 

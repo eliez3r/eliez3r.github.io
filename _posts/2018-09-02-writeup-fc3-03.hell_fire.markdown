@@ -50,7 +50,7 @@ int main()
 
 
 
-<img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809135427000.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809135427000.png" width="500px">
 
 파일을 보면 setuid가 설정되어 있지 않는다.
 
@@ -76,11 +76,11 @@ system함수는 내부적으로 `/bin/sh -c [string]` 을 실행시킨다. syste
 
 
 
-<img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809140252702.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809140252702.png" width="500px">
 
 
 
-<img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809140344649.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809140344649.png" width="500px">
 
 
 
@@ -114,11 +114,11 @@ FC3에서는 Stack ASLR, NX bit, ASCII-Armor가 걸려있다. 따라서 stack에
 
 stdin 임시버퍼 주소를 구하는 과정은 다음과 같다.
 
-<img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809143651092.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809143651092.png" width="500px">
 
 fgets함수 실행 부분이다. 빨간 네모 부분이 stdin의 주소이다.
 
-<img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809143945605.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809143945605.png" width="700px">
 
 해당 주소를 따라가면 stdin@GLIBC_2.0 영역이 나오고 그 주소를 찾아가면 stdin영역이 나오게 되는데,
 
@@ -126,7 +126,7 @@ stdin+12주소가 stdin의 임시버퍼 주소가 된다.
 
 stdin 버퍼주소 : 0xf6ffe000
 
-<img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809144700946.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809144700946.png" width="600px">
 
 또 다른 문제는 해당 주소의 권한을 보니 실행 권한이 존재하지 않는다. 따라서 실행권한을 부여할 방법을 찾아야 한다.
 
@@ -148,17 +148,17 @@ mprotecrt 함수는 메모리 영역의 접근 권한을 제어할 수 있는 �
 
 하지만, main함수의 SFP는 복구되어 사용하지 못하기 때문에, main함수의 caller인 __libc_start_main() 함수의 EBP를 사용한다.
 
-<img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809150011412.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809150011412.png" width="400px">
 
 main함수의 SFP와 start함수의 SFP의 거리는 96Byte이다.
 
-<img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809151811142.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809151811142.png" width="600px">
 
 위와 같은 형태로 페이로드를 작성하면 된다.
 
 최종적으로 살펴보면 다음과 같다.
 
-![image-20180809152851986](/assets/img/writeup/fc3/3.hell_fire/image-20180809152851986.png)
+![image-20180809152851986](http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809152851986.png)
 
 
 
@@ -172,9 +172,9 @@ main함수의 SFP와 start함수의 SFP의 거리는 96Byte이다.
 
 - stdin : 0xf6ffe000
 - leave-ret Gadget : 0x8048369
-  - <img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809153237628.png" width="500px">
+  - <img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809153237628.png" width="500px">
 - mprotect : 0x714670
-  - <img src="/assets/img/writeup/fc3/3.hell_fire/image-20180809153345938.png" width="500px">
+  - <img src="http://eliez3r.synology.me/assets/img/writeup/fc3/3.hell_fire/image-20180809153345938.png" width="500px">
 
 
 
