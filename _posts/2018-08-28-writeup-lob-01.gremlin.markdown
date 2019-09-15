@@ -38,7 +38,7 @@ argv인자로 받은 값을 strcpy함수를 이용하여 buffer에 저장하는�
 
 여기서 Buffer OverFlow 취약점이 존재한다.
 
-**buffer의 크기와 상관없이 strcpy로 값을 넣기 때문.**
+**buffer의 크기와 상관없이 strcpy로 값을 넣기 때문이다.**
 
 
 
