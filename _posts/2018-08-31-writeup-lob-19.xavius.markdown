@@ -84,7 +84,7 @@ main()
 
 stdin에 대해 살펴보자.
 
-<img src="/assets/img/writeup/lob/19.xavius/image-20180802124706226.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802124706226.png" width="400px">
 
 
 
@@ -92,13 +92,13 @@ fgets에서 값을 가져오는 부분을 보면 stdin의 주소를 알 수 있�
 
 
 
-<img src="/assets/img/writeup/lob/19.xavius/image-20180802125145631.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802125145631.png" width="400px">
 
 
 
 해당 주소를 따라가면 \x40주소 영역에 주소가 들어있다.(stdin@@GLIBC_2.0) 이라고 되어있다.
 
-![image-20180802125342227](/assets/img/writeup/lob/19.xavius/image-20180802125342227.png)
+![image-20180802125342227](http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802125342227.png)
 
 
 
@@ -108,7 +108,7 @@ fgets에서 값을 가져오는 부분을 보면 stdin의 주소를 알 수 있�
 
 
 
-![image-20180802130439045](/assets/img/writeup/lob/19.xavius/image-20180802130439045.png)
+![image-20180802130439045](http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802130439045.png)
 
 printf 함수에 브레이크를 걸고 값을 입력한 뒤에 다시 살펴보면 std+4, std+8, std+12 등이 변했다.
 
@@ -116,13 +116,13 @@ stdin 구조체에 따라 보면, std+4는 어디까지 읽었는지, stdin+8은
 
 그러면 stdin+12의 주소를 살펴보자.
 
-<img src="/assets/img/writeup/lob/19.xavius/image-20180802130810548.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802130810548.png" width="300px">
 
 입력한 값이 들어 있음을 알 수 있다.
 
 
 
-<img src="/assets/img/writeup/lob/19.xavius/image-20180802131232591.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802131232591.png" width="500px">
 
 
 
@@ -134,7 +134,7 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 
 
-<img src="/assets/img/writeup/lob/19.xavius/image-20180802131641059.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802131641059.png" width="700px">
 
 
 

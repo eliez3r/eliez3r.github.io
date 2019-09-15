@@ -68,7 +68,7 @@ orc문제 풀이와 똑같은 방법으로 ex하면 될것 같다.
 
 
 
-<img src="/assets/img/writeup/lob/05.wolfman/image-20180829012518015.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/image-20180829012518015.png" width="600px">
 
 ------
 
@@ -86,19 +86,19 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 
 
-<img src="/assets/img/writeup/lob/05.wolfman/image-20180829011701272.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/image-20180829011701272.png" width="700px">
 
 "S"부분이 쉘코드 24바이트가 들어갈 자리이다.
 
 
 
-<img src="/assets/img/writeup/lob/05.wolfman/image-20180829011803090.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/image-20180829011803090.png" width="600px">
 
 0xbffffa64부분 언저리를 RET주소에 넣으면 NOP슬라이드를 타고 쉘코드가 실행 될거 같다.
 
 
 
-<img src="/assets/img/writeup/lob/05.wolfman/image-20180829012158062.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/image-20180829012158062.png" width="700px">
 
 
 

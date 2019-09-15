@@ -92,7 +92,7 @@ main()
 
 이때 buffer의 크기는 40Byte로 선언되어 있어 BoF가 발생하게 된다.
 
-<img src="/assets/img/writeup/lob/20.death_knight/image-20180802151138540.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802151138540.png" width="500px">
 
  
 
@@ -109,7 +109,7 @@ main()
 
 #### 바이너리분석
 
-<img src="/assets/img/writeup/lob/20.death_knight/image-20180802145921094.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802145921094.png" width="400px">
 
 recv함수 호출 부분을 살펴보니 buffer의 주소는 ebp-40인것으로 보아 RET에서 44Byte만큼 떨어져 있음으로 알 수 있다.
 
@@ -133,7 +133,7 @@ recv함수 호출 부분을 살펴보니 buffer의 주소는 ebp-40인것으로 
 
 쉘코드는 peda에서 쉽게 생성 할 수 있다.
 
-<img src="/assets/img/writeup/lob/20.death_knight/image-20180802150332084.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802150332084.png" width="600px">
 
 peda를 실행하기 위해 아무 바이너리를 불러오고 `shellcode generate x86/linux connect [port] [ip]` 를 적어주면 쉘코드가 생성된다.
 
@@ -147,7 +147,7 @@ peda를 실행하기 위해 아무 바이너리를 불러오고 `shellcode gener
 
 이제 kali에서 쉘코드에 작성한 대로 port를 열고 기다려야 한다.
 
-<img src="/assets/img/writeup/lob/20.death_knight/image-20180802150648768.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802150648768.png" width="600px">
 
 그리고 kali에서 따른 터미널을 열어 exploit 코드를 작성하였다.
 
@@ -192,7 +192,7 @@ for i in range(0xbfff0000, 0xbfffffff, 10):
 
 
 
-<img src="/assets/img/writeup/lob/20.death_knight/image-20180802150859876.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802150859876.png" width="600px">
 
 먼저 LOB 머신에서 Kali 머신으로 통신이 되는지 확인하자. (필자는 계속 ex가 안되서 삽질했었다. 결국 통신문제였음.😒)
 
@@ -200,17 +200,17 @@ for i in range(0xbfff0000, 0xbfffffff, 10):
 
 코드를 보면 for문을 통해 0xbfff0000 ~ 0xbfffffff까지 주소를 10씩 증가시키면서 Brute-Force 하고있다.
 
-<img src="/assets/img/writeup/lob/20.death_knight/image-20180802151250632.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802151250632.png" width="500px">
 
 공격을 하게되면 브루트포싱 하며 공격이 진행되어 진다.
 
 
 
-<img src="/assets/img/writeup/lob/20.death_knight/image-20180802151418859.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802151418859.png" width="500px">
 
 공격에 성공하면 접속을 기다리던 Kali 터미널에서 접속되었다는 메시지가 뜨면서 쉘을 획득하게 된다.
 
-<img src="/assets/img/writeup/lob/20.death_knight/image-20180802151540168.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802151540168.png" width="600px">
 
 
 

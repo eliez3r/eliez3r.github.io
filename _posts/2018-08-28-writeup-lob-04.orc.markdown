@@ -66,13 +66,13 @@ main(int argc, char *argv[])
 
 buffer의 크기가 40바이트 이고, SFP 4바이트, 그리고 RET 4바이트가 들어가므로 argv[1] 배열에 47번째가 "\xbf"라는 것은 RET에 들어가는 첫번째 주소가 "\xbfxxxxxx"라는 점이다. 아래 사진을 보면 알 수 있다.
 
-<img src="/assets/img/writeup/lob/04.orc/image-20180828141855222.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828141855222.png" width="600px">
 
 그러면 "\xbf"로 시작하는 주소는 어느 부분일까?
 
 
 
-<img src="/assets/img/writeup/lob/04.orc/image-20180828142321577.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828142321577.png" width="700px">
 
 `cat /proc/self/maps` 명령어를 주면 현 시스템의 map 테이블을 볼 수 있다.
 
@@ -84,13 +84,13 @@ buffer의 크기가 40바이트 이고, SFP 4바이트, 그리고 RET 4바이트
 
 
 
-<img src="/assets/img/writeup/lob/04.orc/image-20180828142622818.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828142622818.png" width="500px">
 
 main함수를 디스어셈하면 0x80부분에 코드들이 올라와 있는 것을 알 수 있다.
 
 
 
-<img src="/assets/img/writeup/lob/04.orc/image-20180828142749016.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828142749016.png" width="600px">
 
 스택영역을 보면 역시나 0xbfxxxxxx 주소들로 이루어 진 것을 알 수 있다.
 
@@ -114,23 +114,23 @@ buffer의 크기가 40바이트이므로 쉘코드(24바이트)가 들어갈 수
 
 
 
-<img src="/assets/img/writeup/lob/04.orc/image-20180829012542829.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180829012542829.png" width="600px">
 
 
 
-![image-20180828143818177](/assets/img/writeup/lob/04.orc/image-20180828143818177.png)
+![image-20180828143818177](http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828143818177.png)
 
 정확한 스택 주소를 얻기 위해 core를 떨궈준다.
 
 "S"가 들어간 위치가 쉘코드 24바이트를 넣을 자리이다.
 
-![image-20180828143927598](/assets/img/writeup/lob/04.orc/image-20180828143927598.png)
+![image-20180828143927598](http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828143927598.png)
 
 NOP 주소 중 대충 0xbffffa60 주소를 RET에 넣으면 될 것 같다.
 
 
 
-<img src="/assets/img/writeup/lob/04.orc/image-20180828144129370.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828144129370.png" width="700px">
 
 
 

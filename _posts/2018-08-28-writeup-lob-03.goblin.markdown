@@ -55,7 +55,7 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 
 
-<img src="/assets/img/writeup/lob/03.goblin/image-20180828135809460.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135809460.png" width="700px">
 
 EUNICE 환경변수에 NOP슬라이드와 쉘코드를 넣는다.
 
@@ -72,14 +72,14 @@ EUNICE 환경변수의 주소를 구하는 프로그램을 만들어서
 
 
 
-<img src="/assets/img/writeup/lob/03.goblin/image-20180828135852712.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135852712.png" width="400px">
 
 EUNICE환경변수의 주소를 구해온다. (0xbffffc33)
 
 
 
-<img src="/assets/img/writeup/lob/03.goblin/image-20180828135928174.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135928174.png" width="600px">
 
 
 
-**goblin / hackers proof
+**goblin / hackers proof**

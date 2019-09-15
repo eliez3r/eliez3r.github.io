@@ -89,17 +89,17 @@ argv[2]에 NOP슬라이드와 쉘코드를 넣기 위해 core덤프를 통해 �
 
 
 
-<img src="/assets/img/writeup/lob/06.darkelf/image-20180829014308881.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829014308881.png" width="700px">
 
 
 
-<img src="/assets/img/writeup/lob/06.darkelf/image-20180829015830365.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829015830365.png" width="600px">
 
 argv[2]의 주소는 0xbffffbde로 확인되었다.
 
 
 
-<img src="/assets/img/writeup/lob/06.darkelf/image-20180829014955949.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829014955949.png" width="700px">
 
 
 

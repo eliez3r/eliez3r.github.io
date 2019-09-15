@@ -48,7 +48,7 @@ main(int argc, char *argv[])
 }
 ```
 
-![image-20180727182321698](/assets/img/writeup/lob/18.nightmare/image-20180727182321698.png)
+![image-20180727182321698](http://eliez3r.synology.me/assets/img/writeup/lob/18.nightmare/image-20180727182321698.png)
 
 strcpy = 0x8048410
 
