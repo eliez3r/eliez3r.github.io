@@ -311,7 +311,7 @@ ropper를 이용하여 가젯을 구하면 쉽지만, ropper가 없는 환경 �
 
 
 
-![](/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231705197.png)
+![](http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231705197.png)
 
 위에서 나온 가젯들 중 pop-pop-pop-ret이 연속적인 주소로 된 것을 고르면 된다. 
 
@@ -319,7 +319,7 @@ ropper를 이용하여 가젯을 구하면 쉽지만, ropper가 없는 환경 �
 
 
 
-!["ropper는 좀 더 이쁘게보여진다"](/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231440053.png)
+!["ropper는 좀 더 이쁘게보여진다"](http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231440053.png)
 
 ropper는 좀 더 이뿌게 보여진다.
 
@@ -438,7 +438,7 @@ p.send(p32(system_addr))
 p.interactive()
 ```
 
-![](/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826232159051.png)
+![](http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826232159051.png)
 
 
 
