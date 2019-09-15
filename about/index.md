@@ -44,7 +44,7 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 **IoT Hub Exploitation and Countermeasure**, BoB Project (2018.09 ~ 2019.02)
 
-**LIME Security**, Project (2018.03.11 ~)
+**LIME Security**, Project (19.03 ~)
 
 
 
