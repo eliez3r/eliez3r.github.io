@@ -9,7 +9,7 @@ tags:
 - Write-up
 ---
 
-<img src="/assets/img/writeup/webkr/Level 14/5F9BF4BF-6EB1-4E74-B763-6DF6BCF4F9F9.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 14/5F9BF4BF-6EB1-4E74-B763-6DF6BCF4F9F9.png" width="400px">
 
 ```php+HTML
 <html>
@@ -40,7 +40,7 @@ function ck()
 
 ```
 
-![F1C654AA-1C82-4944-BFB3-C7288B41545E](/assets/img/writeup/webkr/Level 14/F1C654AA-1C82-4944-BFB3-C7288B41545E.png)
+![F1C654AA-1C82-4944-BFB3-C7288B41545E](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 14/F1C654AA-1C82-4944-BFB3-C7288B41545E.png)
 
 check버튼을 누르면 ".kr"까지 인덱스 크기를 구하고, 그 크기에 30을 곱한 값이 ul에 담기게 된다.
 
@@ -48,7 +48,7 @@ check버튼을 누르면 ".kr"까지 인덱스 크기를 구하고, 그 크기�
 
 즉, 510을 넣고 버튼 누르면 끝.
 
-![72584E58-4BA5-473C-887D-DE4EA5521185](/assets/img/writeup/webkr/Level 14/72584E58-4BA5-473C-887D-DE4EA5521185.png)
+![72584E58-4BA5-473C-887D-DE4EA5521185](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 14/72584E58-4BA5-473C-887D-DE4EA5521185.png)
 
 
 

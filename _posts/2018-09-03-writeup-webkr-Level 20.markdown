@@ -9,7 +9,7 @@ tags:
 - Write-up
 ---
 
-<img src="/assets/img/writeup/webkr/Level 20/image-20180726143450823.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 20/image-20180726143450823.png" width="500px">
 
 ```php+HTML
 <input type=button value="Submit" onclick=ck()>
@@ -29,7 +29,7 @@ lv5frm.submit();
 
 
 
-<img src="/assets/img/writeup/webkr/Level 20/image-20180726143708550.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 20/image-20180726143708550.png" width="500px">
 
  입력하고 "Submit"하니 "Wrong"이라고 뜬다. time limit:2 인것 보니 2초 안에 해야 되는 것같다.
 
@@ -42,7 +42,7 @@ javascript:(lv5frm.hack.value=lv5frm.attackme.value);
 javasecript:ck();
 ```
 
-![image-20180726144251890](/assets/img/writeup/webkr/Level 20/image-20180726144251890.png)
+![image-20180726144251890](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 20/image-20180726144251890.png)
 
-<img src="/assets/img/writeup/webkr/Level 20/image-20180726144230888.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 20/image-20180726144230888.png" width="500px">
 

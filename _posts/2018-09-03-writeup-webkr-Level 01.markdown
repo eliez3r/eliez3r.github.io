@@ -60,6 +60,6 @@ user_lv가 5보다 크면 문제가 풀리게 된다.
 
 내용을 종합하면 user_lv가 5보다 크고, 6보다 작은 값이면 된다.
 
-<img src="/assets/img/writeup/webkr/Level 01/image-20180728234027339.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 01/image-20180728234027339.png" width="400px">
 
 크롬 확장플러그인을 이용하여 쿠키 값을 5.5로 바꾸면 된다.

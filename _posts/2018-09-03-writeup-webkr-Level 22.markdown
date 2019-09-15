@@ -9,7 +9,7 @@ tags:
 - Write-up
 ---
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731213530251.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731213530251.png" width="400px">
 
 ```html
 <form method=post action=index.php>
@@ -39,7 +39,7 @@ tags:
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731214938890.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731214938890.png" width="400px">
 
 key값을 보아 특정 암호화가 이루어 지는것 같다.
 
@@ -47,7 +47,7 @@ key값을 보아 특정 암호화가 이루어 지는것 같다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731215327315.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731215327315.png" width="400px">
 
 key값의 길이를 알아보니 32바이트였다.
 
@@ -57,7 +57,7 @@ key값의 길이를 알아보니 32바이트였다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731215259261.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731215259261.png" width="500px">
 
 예상대로 MD5였다. 복호화 문자는 '1234zombie' 였다. 즉, 비밀번호를 생성하면 비밀번호 뒤에 'zombie'를 붙이고 md5 해싱을 하여 key값으로 사용한다.
 
@@ -71,7 +71,7 @@ key값의 길이를 알아보니 32바이트였다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731220217394.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731220217394.png" width="500px">
 
 
 
@@ -81,7 +81,7 @@ admin으로 회원가입하기 위해 우회도 해보고 다해봤지만 안되
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731220343620.png" width="200px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731220343620.png" width="200px">
 
 그래서 주석을 '--' 대신 '#'을 사용 하였더니 위와 같이 출력되었다.
 
@@ -123,7 +123,7 @@ if __name__=="__main__":
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180801000450015.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180801000450015.png" width="400px">
 
 파싱을 통해 md5값을 추출해 냈다.
 
@@ -131,7 +131,7 @@ if __name__=="__main__":
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731235148792.png? width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731235148792.png? width="400px">
 
 
 
@@ -141,8 +141,8 @@ MD5 Decrypt 사이트에 넣었더니 'rainbowzombie' 라는 값이 나왔다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731235245302.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731235245302.png" width="300px">
 
 
 
-<img src="/assets/img/writeup/webkr/Level 22/image-20180731235307383.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 22/image-20180731235307383.png" width="400px">

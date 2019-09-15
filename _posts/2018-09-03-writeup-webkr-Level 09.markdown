@@ -9,25 +9,25 @@ tags:
 - Write-up
 ---
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731082324421.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731082324421.png" width="300px">
 
 숫자 버튼이 1~3 까지 있고, 패스워드 입력 창이 보인다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731082413982.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731082413982.png" width="400px">
 
 1번을 누르면 "Apple"이 보여지고, no값이 1이 된다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731082513664.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731082513664.png" width="400px">
 
 2번은 "Banana" 이다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731082600076.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731082600076.png" width="400px">
 
 3번은 "Secret" 이라고 나오면, 힌트들이 보여진다.
 
@@ -49,7 +49,7 @@ tags:
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731083925332.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731083925332.png" width="400px">
 
 위와 같은 쿼리문으로 id값이 맞는지 확인해 보려고 했으나, (') 문자 필터링 되어 있었다.
 
@@ -61,7 +61,7 @@ tags:
 
 먼저 조건의 결과 값으로 파싱해야 될 것 같아서 if문을 사용하였다.
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731091757513.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731091757513.png" width="500px">
 
 > if(조건문, '참'일때, '거짓'일때)
 
@@ -71,7 +71,7 @@ tags:
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731085613262.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731085613262.png" width="500px">
 
 
 
@@ -87,7 +87,7 @@ tags:
 
 문자열을 비교하면서 싱글쿼터를 사용하지 않는 방법 찾다가 substr()함수를 찾았다. 아래는 예시이다.
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731091956224.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731091956224.png" width="500px">
 
 > substr(파라미터, 오프셋, 크기)
 
@@ -95,7 +95,7 @@ tags:
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731091104531.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731091104531.png" width="500px">
 
 id의 1번째 값부터 1글자가 'A'(0x41) 인지 확인한다.
 
@@ -109,11 +109,11 @@ id의 1번째 값부터 1글자가 'A'(0x41) 인지 확인한다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731123115742.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731123115742.png" width="500px">
 
 정상적으로 잘 동작한다.
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731125505354.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731125505354.png" width="500px">
 
 여기서 확인할 점이 있다. if분의 true부분이 무엇이냐에 따라서 결과값이 달라진다.
 
@@ -150,17 +150,17 @@ print "[*] Parsing Finish! Password : %s" % password
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731143333354.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731143333354.png" width="500px">
 
 
 
 이제 찾은 id값을 넣어주자.
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731143630522.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731143630522.png" width="300px">
 
 
 
-<img src="/assets/img/writeup/webkr/Level 09/image-20180731143521309.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 09/image-20180731143521309.png" width="400px">
 
 
 

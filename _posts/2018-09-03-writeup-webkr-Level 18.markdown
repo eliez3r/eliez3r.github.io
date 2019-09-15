@@ -9,7 +9,7 @@ tags:
 - Write-up
 ---
 
-![1803B656-F722-44A1-B725-4C4C33E1B6E2](/assets/img/writeup/webkr/Level 18/1803B656-F722-44A1-B725-4C4C33E1B6E2.png)
+![1803B656-F722-44A1-B725-4C4C33E1B6E2](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 18/1803B656-F722-44A1-B725-4C4C33E1B6E2.png)
 
 ```php
 <? 

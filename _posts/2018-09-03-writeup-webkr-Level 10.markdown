@@ -9,7 +9,7 @@ tags:
 - Write-up
 ---
 
-![image-20180728232337075](/assets/img/writeup/webkr/Level 10/image-20180728232337075.png)
+![image-20180728232337075](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 10/image-20180728232337075.png)
 
 ```html
 <a id=hackme style="position:relative;left:0;top:0" onclick="this.style.posLeft+=1;if(this.style.posLeft==800)this.href='?go='+this.style.posLeft" onmouseover=this.innerHTML='yOu' onmouseout=this.innerHTML='O'>O</a><br>
@@ -41,4 +41,4 @@ Internet Explorer로 한번 클릭할 때 1이 아니라 800씩 움직이도록 
 
 (이렇게 쉬운걸....😫)
 
-<img src="/assets/img/writeup/webkr/Level 10/image-20180728232302009.png" width="200px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 10/image-20180728232302009.png" width="200px">

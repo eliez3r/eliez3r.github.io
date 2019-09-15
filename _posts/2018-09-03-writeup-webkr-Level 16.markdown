@@ -9,7 +9,7 @@ tags:
 - Write-up
 ---
 
-<img src="/assets/img/writeup/webkr/Level 16/4E5A62F4-0F2D-4C82-86D1-14DF4F8AC772.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 16/4E5A62F4-0F2D-4C82-86D1-14DF4F8AC772.png" width="400px">
 
 키보드 를 누르면 '*' 문자가 생기고 마우스를 갖다 대면 지워진다...
 
@@ -55,13 +55,13 @@ mv 함수를 자세히 보니 cd의 값을 비교하며 작업을 수행하는�
 
 cd값을 어떻게 변경해야 할까?
 
-<img src="/assets/img/writeup/webkr/Level 16/F7E5C168-3DA2-4B5D-BA10-B86CECCA696F.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 16/F7E5C168-3DA2-4B5D-BA10-B86CECCA696F.png" width="400px">
 
 
 
 python으로 확인해보니 ascii값 124는 '|'(파이프) 였다.
 
-<img src="/assets/img/writeup/webkr/Level 16/09CCD8A1-F443-4CCE-AF33-BA4742144046.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 16/09CCD8A1-F443-4CCE-AF33-BA4742144046.png" width="400px">
 
 
 

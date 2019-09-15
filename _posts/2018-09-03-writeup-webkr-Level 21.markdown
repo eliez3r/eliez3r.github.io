@@ -9,9 +9,9 @@ tags:
 - Write-up
 ---
 
-<img src="/assets/img/writeup/webkr/Level 21/image-20180726144412211.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 21/image-20180726144412211.png" width="400px">
 
-<img src="/assets/img/writeup/webkr/Level 21/image-20180726144840924.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 21/image-20180726144840924.png" width="400px">
 
 Blind SQL Injection이라고 되어 있다. 주소창을 보니 no, id, pw값을 입력받고 있다.
 
@@ -19,9 +19,9 @@ no에 숫자들을 입력해 보니 True라고 나오는 숫자는 1과 2뿐이�
 
 이제 각 id에 맞는 id와 pw를 찾아내야 한다.
 
-<img src="/assets/img/writeup/webkr/Level 21/image-20180726145056313.png", width="300px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 21/image-20180726145056313.png" width="300px">
 
-<img src="/assets/img/writeup/webkr/Level 21/image-20180726145219268.png", width="300px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 21/image-20180726145219268.png" width="300px">
 
 `1 and length(id)=5` 를 이용하여 id의 길이가 5인 것과, pw의 길이가 5인 것을 알아 냈다. 똑같은 방법으로 no가 2인 id와 pw의 길이도 알아내면 id는 5, pw는 19의 길이를 가지고 있다.
 
@@ -38,7 +38,7 @@ no에 숫자들을 입력해 보니 True라고 나오는 숫자는 1과 2뿐이�
 
 위 명령어는 no가 1이고, id의 첫번째 인덱스에서 1byte가 ascii코드로 97('a')인지 확인하는 명령어이다.
 
-<img src="/assets/img/writeup/webkr/Level 21/image-20180726145852871.png", width="300px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 21/image-20180726145852871.png" width="300px">
 
 생각처럼 no=1의 id는 'admin'이 아닌것 같다. 하지만 같은 방식으로 no=2의 id를 비교해보니 'admin'이 맞았다.
 

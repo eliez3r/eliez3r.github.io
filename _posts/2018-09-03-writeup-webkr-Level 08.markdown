@@ -119,7 +119,7 @@ lv0 테이이블에서 id 레코드를 조회하는데 agent로 조건으로 조
 
 먼저 알아야 할 개념은, values를 이용해 값을 넣을때 ','를 이용하여 여러 데이터를 넣을 수 있다.
 
-<img src="/assets/img/writeup/webkr/Level 08/image-20180730133907271.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 08/image-20180730133907271.png" width="600px">
 
 
 
@@ -131,7 +131,7 @@ lv0 테이이블에서 id 레코드를 조회하는데 agent로 조건으로 조
 
 
 
-<img src="/assets/img/writeup/webkr/Level 08/image-20180730134322534.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 08/image-20180730134322534.png" width="700px">
 
 fiddler로 User-Agent 부분을 수정하여 패킷을 보낸다.
 
@@ -139,13 +139,13 @@ fiddler로 User-Agent 부분을 수정하여 패킷을 보낸다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 08/image-20180730134400578.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 08/image-20180730134400578.png" width="700px">
 
 그리고 또다시 접속을 하고, 이번에는 User-Agent를 'eunice'로 수정하여 보내게 되면 문제가 풀리게 된다.
 
 
 
-<img src="/assets/img/writeup/webkr/Level 08/image-20180730132805720.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 08/image-20180730132805720.png" width="400px">
 
 
 
