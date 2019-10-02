@@ -1,11 +1,13 @@
-title: eli_ez3r hacking blog
-email: 0.0eli.ez3r@gmail.com
+title: kakao 기술 블로그
+email: opensource@kakaocorp.com
 description: |
-  I can do all things through Christ which strengtheneth me.
-  (Philippians 4:13, KJV)
+  Connect Everything 새로운 연결, 새로운 세상.
+  연결의 혁신으로 세상은 더욱 가깝고 새로워진다고 카카오는 믿습니다.
 baseurl: ''
-url: 'https://eliez3r.github.io'
+url: 'http://tech.kakao.com'
 timezone: Asia/Seoul 
+
+repository: kakao/kakao.github.io
 
 permalink: /:year/:month/:day/:title/
 
@@ -48,20 +50,19 @@ exclude: [README.md, Gemfile, Gemfile.lock]
 keep_files: [assets, files]
 github: [metadata]
 # iolo's custom
-author: 0.0eli.ez3r@gmail.com
+author: opensource@kakaocorp.com
 image: '/assets/images/default_blog_cover.jpg'
 asset_url: /assets
-
+#asset_url: //meta-kage.kakaocdn.net/dn/osa/blog/assets
+#asset_url: //t1.daumcdn.net/osa/blog/assets
 google_analytics:
-  ua: 'UA-133503906-1'
-instagram:
-  username: eli_ez3r
-#facebook:
-#  app_id: '1204347326263800'
-#  username: nkakao
-#twitter:
-#  username: kakaodev
-#google_plus:
-#  username: kakaodev
-#github_url:
-#  username: kakao
+  ua: 'UA-72007721-1'
+facebook:
+  app_id: '1204347326263800'
+  username: nkakao
+twitter:
+  username: kakaodev
+google_plus:
+  username: kakaodev
+github_url:
+  username: kakao
