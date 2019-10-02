@@ -117,16 +117,12 @@ troll.c
 ```
 
 ```sh
-0xbffffa87:	 ""
-0xbffffa88:	 ""
 0xbffffa89:	 ""
 0xbffffa8a:	 ""
 0xbffffa8b:	 "i686"
 0xbffffa90:	 "./", '\220' <repeats 105 times>, "�\021^1ɱ2\200l\016�\001\200�\001u��\005�����2�Qi00tii0cjo\212�QT\212�\232�\f�\201"
 0xbffffb2c:	 ""
 0xbffffb2d:	 ""
-0xbffffb2e:	 ""
-0xbffffb2f:	 ""
 ```
 
 ```
