@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level02. cobolt"
 subtitle:   "[LOB]gremln → cobolt"
-categories: Wargame[LOB]
+categories: LOB
 tags:
 - Wargame
 - LOB

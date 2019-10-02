@@ -2,10 +2,10 @@
 layout: post
 title:  "[Plaid CTF 2013] ROPasaurusrex"
 subtitle: "Plaid CTF 2013"
-categories: Write-up
+categories: Plaid_CTF_2013
 tags: 
 - ROPasaurusrex
-- WriteUp
+- Write-Up
 - Plaid CTF 2013
 ---
 

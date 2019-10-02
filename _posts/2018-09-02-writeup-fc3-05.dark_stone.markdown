@@ -2,7 +2,7 @@
 layout: post
 title:  "[FC3]Level5. dark_stone"
 subtitle:   "[FC3]evil_wizard → dark_stone"
-categories: Wargame[FC3]
+categories: Fedora_Catle_3
 tags:
 - Wargame
 - Fedora Catle 3

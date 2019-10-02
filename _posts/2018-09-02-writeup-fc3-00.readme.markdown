@@ -2,7 +2,7 @@
 layout: post
 title:  "[FC3]Readme"
 subtitle:   "[FC3]Readme"
-categories: Wargame[FC3]
+categories: Fedora_Catle_3
 tags:
 - Wargame
 - Fedora Catle 3

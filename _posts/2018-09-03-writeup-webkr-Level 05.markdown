@@ -1,11 +1,11 @@
 ---
-layout: post
+slayout: post
 title:  "[Web.kr]Level 05"
 subtitle:   "[Web.kr]Level 05"
-categories: Wargame[webkr]
+categories: Webhacking.kr(Old)
 tags:
 - Wargame
-- webhacking.kr
+- webhacking.kr(Old)
 - Write-up
 ---
 

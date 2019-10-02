@@ -6,8 +6,6 @@ categories: Study
 tags: 
 - System Hacking
 - Format String Attack
-cover:
-comments: True
 ---
 
 ## 1. Format String이란?

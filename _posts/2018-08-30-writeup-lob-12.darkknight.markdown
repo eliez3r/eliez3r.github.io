@@ -2,8 +2,7 @@
 layout: post
 title:  "[LOB]Level12. darkknight"
 subtitle:   "[LOB]golem → darkknight"
-categories: writeup
-categories: Wargame[LOB]
+categories: LOB
 tags:
 - Wargame
 - LOB

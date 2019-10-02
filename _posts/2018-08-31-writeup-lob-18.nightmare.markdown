@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level18. nightmare"
 subtitle:   "[LOB]succubus → nightmare"
-categories: Wargame[LOB]
+categories: LOB
 tags:
 - Wargame
 - LOB

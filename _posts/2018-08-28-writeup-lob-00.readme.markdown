@@ -1,13 +1,9 @@
 ---
 layout: post
 title:  "[LOB]Readme"
-subtitle:   "[LOB]Readme"
-categories: Wargame[LOB]
-tags:
-- Wargame
-- LOB
-- Write-up
-
+authors: bryan.j
+categories: LOB
+tags:[Wargame, LOB, Write-up]
 ---
 ```
 LEVEL1 (gate -> gremlin) :  simple bof
