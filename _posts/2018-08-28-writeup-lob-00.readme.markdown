@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[LOB]Readme"
-authors: bryan.j
+subtitle:   "[LOB]Readme"
 categories: LOB
 tags:[Wargame, LOB, Write-up]
 ---
