@@ -5,7 +5,7 @@ subtitle:   "[LOB]nightmare → xavius"
 categories: Write-up
 tags:
 - Wargame
-- LOB
+- LOB(The Lord of Bufferoverflow)
 - Write-up
 ---
 

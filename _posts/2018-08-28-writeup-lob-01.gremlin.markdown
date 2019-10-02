@@ -5,7 +5,7 @@ subtitle:   "[LOB]gate → gremlin"
 categories: Write-up
 tags:
 - Wargame
-- LOB
+- LOB(The Lord of Bufferoverflow)
 - Write-up
 ---
 ## keyword : simple bof

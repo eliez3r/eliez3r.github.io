@@ -5,7 +5,7 @@ subtitle:   "[LOB]zombie_assassin → succubus"
 categories: Write-up
 tags:
 - Wargame
-- LOB
+- LOB(The Lord of Bufferoverflow)
 - Write-up
 ---
 

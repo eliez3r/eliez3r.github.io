@@ -5,7 +5,7 @@ subtitle:   "[LOB]gremln → cobolt"
 categories: Write-up
 tags:
 - Wargame
-- LOB
+- LOB(The Lord of Bufferoverflow)
 - Write-up
 ---
 ## keyword : small buffer
