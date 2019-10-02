@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level09. vampire"
 subtitle:   "[LOB]troll → vampire"
-categories: Wargame[LOB]
+categories: Write-up
 tags:
 - Wargame
 - LOB

@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level16. zombie_assassin"
 subtitle:   "[LOB]assassin → zombie_assassin"
-categories: Wargame[LOB]
+categories: Write-up
 tags:
 - Wargame
 - LOB

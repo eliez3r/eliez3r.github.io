@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level08. troll"
 subtitle:   "[LOB]orge → troll"
-categories: Wargame[LOB]
+categories: Write-up
 tags:
 - Wargame
 - LOB

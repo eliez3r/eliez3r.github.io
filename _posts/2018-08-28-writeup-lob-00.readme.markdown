@@ -2,12 +2,11 @@
 layout: post
 title:  "[LOB]Readme"
 subtitle:   "[LOB]Readme"
-categories: Wargame/LOB
+categories: Write-up
 tags:
 - Wargame
 - LOB
 - Write-up
-
 ---
 ```
 LEVEL1 (gate -> gremlin) :  simple bof

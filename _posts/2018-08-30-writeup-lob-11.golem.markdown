@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level11. golem"
 subtitle:   "[LOB]skeleton → golem"
-categories: Wargame[LOB]
+categories: Write-up
 tags:
 - Wargame
 - LOB
