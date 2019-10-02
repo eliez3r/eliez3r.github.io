@@ -5,7 +5,7 @@ subtitle: "Plaid CTF 2013"
 categories: Write-up
 tags: 
 - ROPasaurusrex
-- WriteUp
+- Write-Up
 - Plaid CTF 2013
 ---
 
