@@ -2,7 +2,7 @@
 layout: post
 title:  "[FC3]Level1. iron_golem"
 subtitle:   "[FC3]gate → iron_golem"
-categories: Fedora Catle 3
+categories: Fedora_Catle_3
 tags:
 - Wargame
 - Fedora Catle 3

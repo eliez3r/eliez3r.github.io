@@ -2,7 +2,7 @@
 layout: post
 title:  "[FC3]Level2. dark_eyes"
 subtitle:   "[FC3]iron_golem → dark_eyes"
-categories: Fedora Catle 3
+categories: Fedora_Catle_3
 tags:
 - Wargame
 - Fedora Catle 3

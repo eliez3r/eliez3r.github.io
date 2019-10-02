@@ -2,7 +2,7 @@
 layout: post
 title:  "[FC3]Level3. hell_fire"
 subtitle:   "[FC3]dark-eyes → hell_fire"
-categories: Fedora Catle 3
+categories: Fedora_Catle_3
 tags:
 - Wargame
 - Fedora Catle 3
