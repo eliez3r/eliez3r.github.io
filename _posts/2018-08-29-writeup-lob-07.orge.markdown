@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level07. orge"
 subtitle:   "[LOB]darkelf → orge"
-categories: Write-up
+categories: LOB
 tags:
 - Wargame
 - LOB

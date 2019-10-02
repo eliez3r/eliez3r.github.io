@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level01. gremlin"
 subtitle:   "[LOB]gate → gremlin"
-categories: Write-up
+categories: LOB
 tags:
 - Wargame
 - LOB

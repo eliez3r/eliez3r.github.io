@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Readme"
 subtitle:   "[LOB]Readme"
-categories: Write-up
+categories: LOB
 tags:
 - Wargame
 - LOB

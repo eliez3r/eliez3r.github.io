@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level15. assassin"
 subtitle:   "[LOB]giant → assassin"
-categories: Write-up
+categories: LOB
 tags:
 - Wargame
 - LOB

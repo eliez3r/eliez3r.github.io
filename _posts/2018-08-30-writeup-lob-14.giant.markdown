@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level14. giant"
 subtitle:   "[LOB]bugbear → giant"
-categories: Write-up
+categories: LOB
 tags:
 - Wargame
 - LOB

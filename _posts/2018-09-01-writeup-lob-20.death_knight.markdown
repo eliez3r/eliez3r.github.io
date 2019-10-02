@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level20. death_knight"
 subtitle:   "[LOB]xavius → death_knight"
-categories: Write-up
+categories: LOB
 tags:
 - Wargame
 - LOB

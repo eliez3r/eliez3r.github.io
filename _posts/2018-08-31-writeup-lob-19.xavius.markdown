@@ -2,7 +2,7 @@
 layout: post
 title:  "[LOB]Level19. xavius"
 subtitle:   "[LOB]nightmare → xavius"
-categories: Write-up
+categories: LOB
 tags:
 - Wargame
 - LOB
