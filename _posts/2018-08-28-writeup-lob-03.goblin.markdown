@@ -5,7 +5,7 @@ subtitle:   "[LOB]cobolt → goblin"
 categories: Write-up
 tags:
 - Wargame
-- LOB(The Lord of Bufferoverflow)
+- LOB
 - Write-up
 
 ---

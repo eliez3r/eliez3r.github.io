@@ -5,7 +5,7 @@ subtitle:   "[LOB]succubus → nightmare"
 categories: Write-up
 tags:
 - Wargame
-- LOB(The Lord of Bufferoverflow)
+- LOB
 - Write-up
 ---
 

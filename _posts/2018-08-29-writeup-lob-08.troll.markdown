@@ -5,7 +5,7 @@ subtitle:   "[LOB]orge → troll"
 categories: Write-up
 tags:
 - Wargame
-- LOB(The Lord of Bufferoverflow)
+- LOB
 - Write-up
 ---
 

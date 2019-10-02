@@ -5,7 +5,7 @@ subtitle:   "[LOB]darkknight → bugbear"
 categories: Write-up
 tags:
 - Wargame
-- LOB(The Lord of Bufferoverflow)
+- LOB
 - Write-up
 ---
 
