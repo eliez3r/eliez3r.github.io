@@ -2,7 +2,7 @@
 layout: post
 title:  "[Web.kr]Level 14"
 subtitle:   "[Web.kr]Level 14"
-categories: Wargame[webkr]
+categories: Write-up
 tags:
 - Wargame
 - webhacking.kr

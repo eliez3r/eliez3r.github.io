@@ -2,7 +2,7 @@
 layout: post
 title:  "[FC3]Level4. evil_wizard"
 subtitle:   "[FC3]dark_eyes → evil_wizard"
-categories: Wargame[FC3]
+categories: Write-up
 tags:
 - Wargame
 - Fedora Catle 3
