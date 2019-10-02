@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: http://eliez3r.github.io/sitemap.xml
