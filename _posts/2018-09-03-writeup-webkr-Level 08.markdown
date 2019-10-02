@@ -5,7 +5,7 @@ subtitle:   "[Web.kr]Level 08"
 categories: Write-up
 tags:
 - Wargame
-- webhacking.kr
+- webhacking.kr(Old)
 - Write-up
 ---
 
