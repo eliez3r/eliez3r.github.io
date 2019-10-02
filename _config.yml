@@ -1,0 +1,67 @@
+title: eli_ez3r hacking blog
+email: 0.0eli.ez3r@gmail.com
+description: |
+  I can do all things through Christ which strengtheneth me.
+  (Philippians 4:13, KJV)
+baseurl: ''
+url: 'https://eliez3r.github.io'
+timezone: Asia/Seoul 
+
+permalink: /:year/:month/:day/:title/
+
+excerpt_separator: <!--more-->
+
+markdown: kramdown
+
+krandown:
+  input: GFM
+  highlighter: rouge
+
+plugins:
+  - jekyll-paginate
+
+paginate: 5
+paginate_path: '/page/:num/'
+
+collections:
+  authors:
+    output: true
+    permalink: /authors/:path/
+  tags:
+    output: true
+    permalink: /tags/:path/
+
+defaults:
+  - scope:
+      path: ''
+      type: authors
+    values:
+      layout: author
+  - scope:
+      path: ''
+      type: tags
+    values:
+      layout: tag
+
+exclude: [README.md, Gemfile, Gemfile.lock]
+
+keep_files: [assets, files]
+github: [metadata]
+# iolo's custom
+author: 0.0eli.ez3r@gmail.com
+image: '/assets/images/default_blog_cover.jpg'
+asset_url: /assets
+
+google_analytics:
+  ua: 'UA-133503906-1'
+instagram:
+  username: eli_ez3r
+#facebook:
+#  app_id: '1204347326263800'
+#  username: nkakao
+#twitter:
+#  username: kakaodev
+#google_plus:
+#  username: kakaodev
+#github_url:
+#  username: kakao
