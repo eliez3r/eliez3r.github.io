@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Readme"
-subtitle:   "[LOB]Readme"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Readme"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 ```
 LEVEL1 (gate -> gremlin) :  simple bof
@@ -30,3 +28,6 @@ LEVEL18 (succubus -> nightmare) : plt
 LEVEL19 (nightmare -> xavis) : fgets + destroyers
 LEVEL20 (xavis -> death_knight) : remote BOF 
 ```
+
+
+

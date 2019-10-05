@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level09. vampire"
-subtitle:   "[LOB]troll → vampire"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level09. vampire"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : check 0xbfff

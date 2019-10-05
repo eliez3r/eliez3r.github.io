@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[Web.kr]Level 08"
-subtitle:   "[Web.kr]Level 08"
-categories: Webhacking.kr(Old)
-tags:
-- Wargame
-- webhacking.kr(Old)
-- Write-up
+title: "[Web.kr]Level 08"
+tags: [Wargame, webhacking.kr(Old), Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ```php

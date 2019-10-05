@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level19. xavius"
-subtitle:   "[LOB]nightmare → xavius"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level19. xavius"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : fgets + destroyers

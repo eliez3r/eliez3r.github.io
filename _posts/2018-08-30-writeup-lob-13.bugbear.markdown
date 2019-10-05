@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level13. bugbear"
-subtitle:   "[LOB]darkknight → bugbear"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level13. bugbear"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : RTL1

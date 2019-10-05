@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level11. golem"
-subtitle:   "[LOB]skeleton → golem"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level11. golem"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : stack destroyer

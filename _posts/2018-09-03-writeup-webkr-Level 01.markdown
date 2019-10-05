@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[Web.kr]Level 01"
-subtitle:   "[Web.kr]Level 01"
-categories: Webhacking.kr(Old)
-tags:
-- Wargame
-- webhacking.kr(Old)
-- Write-up
+title: "[Web.kr]Level 01"
+tags: [Wargame, webhacking.kr(Old), Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : cookie 변조

@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level16. zombie_assassin"
-subtitle:   "[LOB]assassin → zombie_assassin"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level16. zombie_assassin"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## Keyword : fake ebp

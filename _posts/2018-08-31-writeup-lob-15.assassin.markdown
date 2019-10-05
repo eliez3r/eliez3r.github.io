@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level15. assassin"
-subtitle:   "[LOB]giant → assassin"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level15. assassin"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : no stack, no RTL

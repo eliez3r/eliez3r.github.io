@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[Plaid CTF 2013] ROPasaurusrex"
-subtitle: "Plaid CTF 2013"
-categories: Plaid_CTF_2013
-tags: 
-- ROPasaurusrex
-- Write-Up
-- Plaid CTF 2013
+title: "[Plaid CTF 2013] ROPasaurusrex"
+tags: [ROPasaurusrex, Plaid CTF 2013, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ### 0x01. Static Analysis
@@ -301,7 +299,7 @@ bss주소 : 0x08049628
 
 위 정보를 다른 방법으로 구하는 방법.
 
-![](http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231757695.png)
+![Image](http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231757695.png){:.rounded.shadow}
 
 
 

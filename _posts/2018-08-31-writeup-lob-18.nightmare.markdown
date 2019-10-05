@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level18. nightmare"
-subtitle:   "[LOB]succubus → nightmare"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level18. nightmare"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : plt

@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level06. darkelf"
-subtitle:   "[LOB]wolfman → darkelf"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level06. darkelf"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : check length of argv[1] + egghunter + bufferhunter

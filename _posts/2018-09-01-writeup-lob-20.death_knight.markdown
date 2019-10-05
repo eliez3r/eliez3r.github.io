@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level20. death_knight"
-subtitle:   "[LOB]xavius → death_knight"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level20. death_knight"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : remote BOF 

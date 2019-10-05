@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level02. cobolt"
-subtitle:   "[LOB]gremln → cobolt"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level02. cobolt"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 ## keyword : small buffer
 

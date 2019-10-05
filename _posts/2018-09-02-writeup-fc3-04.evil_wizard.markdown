@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[FC3]Level4. evil_wizard"
-subtitle:   "[FC3]dark_eyes → evil_wizard"
-categories: Fedora_Catle_3
-tags:
-- Wargame
-- Fedora Catle 3
-- Write-up
+title: "[FC3]Level4. evil_wizard"
+tags: [Wargame, Fedora Catle 3, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : POP POP RET 

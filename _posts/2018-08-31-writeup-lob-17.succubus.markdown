@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level17. succubus"
-subtitle:   "[LOB]zombie_assassin → succubus"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level17. succubus"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : function calls

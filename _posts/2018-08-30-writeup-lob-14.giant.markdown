@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level14. giant"
-subtitle:   "[LOB]bugbear → giant"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level14. giant"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : RTL2, only execve

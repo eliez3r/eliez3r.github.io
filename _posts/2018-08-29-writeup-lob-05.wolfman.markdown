@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level05. wolfman"
-subtitle:   "[LOB]orc → wolfman"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level05. wolfman"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : egghunter + bufferhunter

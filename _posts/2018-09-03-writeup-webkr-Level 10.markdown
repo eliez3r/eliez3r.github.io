@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[Web.kr]Level 10"
-subtitle:   "[Web.kr]Level 10"
-categories: Webhacking.kr(Old)
-tags:
-- Wargame
-- webhacking.kr(Old)
-- Write-up
+title: "[Web.kr]Level 10"
+tags: [Wargame, webhacking.kr(Old), Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ![image-20180728232337075](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 10/image-20180728232337075.png)

@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level01. gremlin"
-subtitle:   "[LOB]gate → gremlin"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level01. gremlin"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 ## keyword : simple bof
 

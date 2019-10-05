@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[FC3]Level3. hell_fire"
-subtitle:   "[FC3]dark-eyes → hell_fire"
-categories: Fedora_Catle_3
-tags:
-- Wargame
-- Fedora Catle 3
-- Write-up
+title: "[FC3]Level3. hell_fire"
+tags: [Wargame, Fedora Catle 3, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : another fake_ebp or got overwriting

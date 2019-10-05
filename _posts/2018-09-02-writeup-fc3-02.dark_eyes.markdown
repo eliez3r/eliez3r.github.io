@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[FC3]Level2. dark_eyes"
-subtitle:   "[FC3]iron_golem → dark_eyes"
-categories: Fedora_Catle_3
-tags:
-- Wargame
-- Fedora Catle 3
-- Write-up
+title: "[FC3]Level2. dark_eyes"
+tags: [Wargame, Fedora Catle 3, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## Keyword : RET Sleding

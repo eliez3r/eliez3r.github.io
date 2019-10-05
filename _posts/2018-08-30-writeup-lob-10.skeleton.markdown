@@ -1,12 +1,10 @@
 ---
-layout: post
-title:  "[LOB]Level10. skeleton"
-subtitle:   "[LOB]vampire → skeleton"
-categories: LOB
-tags:
-- Wargame
-- LOB
-- Write-up
+title: "[LOB]Level10. skeleton"
+tags: [Wargame, LOB, Write-up]
+article_header:
+  type: cover
+  image:
+    src: 
 ---
 
 ## keyword : argv hunter
