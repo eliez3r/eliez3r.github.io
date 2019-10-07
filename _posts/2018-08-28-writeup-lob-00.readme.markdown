@@ -1,5 +1,7 @@
 ---
 title: "[LOB]Readme"
+author: eli_ez3r
+show_author_profile: true
 tags: [Wargame, LOB, Write-up]
 article_header:
   type: cover
