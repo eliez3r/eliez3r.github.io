@@ -52,7 +52,23 @@ title: "About"
 
 **LIME Security**, Project (19.03 ~)
 
+: KIWOOM SECURITIES
 
+: EBS Malicious mail training
+
+: NHN PAYCO Mobile App Penetration testing
+
+: OKCoin Korea Web Penetration testing
+
+: NHN Doctortour Web/App Penetration testing
+
+: Korea University C/S Penetration testing
+
+: KOREA INVESTMENT SAVINGS BANK Web Penetration testing
+
+: LOTTEWORLD Web/App Penetration testing
+
+: AK S&D Web/App Penetration testing
 
 ------
 
