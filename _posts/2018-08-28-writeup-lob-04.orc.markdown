@@ -106,13 +106,13 @@ buffer의 크기가 40byte이므로 쉘코드(24byte)가 들어갈 수 있는 �
 
 
 
-![image-20180828143818177](http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828143818177.png)
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828143818177.png" width="800px">
 
 정확한 스택 주소를 얻기 위해 core를 떨궈준다.
 
 "S"가 들어간 위치가 쉘코드 24byte를 넣을 자리이다.
 
-![image-20180828143927598](http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828143927598.png)
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828143927598.png" width="800px">
 
 NOP 주소 중 적당한 0xbffffa60 주소를 RET에 넣으면 될 것 같다.
 
