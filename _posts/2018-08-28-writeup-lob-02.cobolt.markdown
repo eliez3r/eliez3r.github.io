@@ -3,7 +3,7 @@ title: "[LOB]Level02. cobolt"
 tags: [Wargame, LOB, Write-up]
 author: eli_ez3r
 key: 20180828
-modify_date: 2018-08-28
+modify_date: 2019-10-07
 article_header:
   type: cover
   image:
@@ -12,8 +12,6 @@ article_header:
 [+ Small Buffer](#){:.button.button--outline-success.button--pill}
 
 ### 0x01. Static Analysis
-
-
 
 ```c
 /*
@@ -34,33 +32,34 @@ int main(int argc, char *argv[])
 }
 ```
 
-주어진 cobolt바이너리의 소스코드를 살펴보자.
+cobolt의 소스코드를 살펴보자.
 
-buffer의 크기는 16바이트인데 strcpy로 크기 제한없이 argv의 인자값을 buffer로 복사한다.
+앞서 gremlin과 동일하게
 
-전 문제인 gremlin과 마찬가지로 BoF 취약점이 존재한다.
+argv[1]의 값을 buffer배열로 복사할때 복사되는 크기가 정해져있지 않아 BoF(Buffer OverFlow) 취약점이 존재한다.
+{:.info}
 
-하지만 다른점을 찾는다면 buffer배열의 크기가 16바이트라는 점이다. 앞서 사용한 shellcode는 24바이트 짜리였는데 buffer배열에 들어가지 않는다.
+하지만 다른점은 **buffer배열의 크기가 16바이트**라는 점이다. **앞서 사용한 shellcode는 24바이트이기 때문에 해당 shellcode를 buffer배열에 넣지 못한다.**
 
 이런 경우 shellcode를 넣을 수 있는 방법은 여러가지가 있다.
 
-먼저는 ret주소 이후에 shellcode를 넣는 방법이 있고, 환경변수 부분에 shellcode를 넣는 방법, argv[2] 인자 부분에 shellcode를 넣는 방법 등... 방법은 많다. 
+1.  ret주소 이후 스택공간에 shellcode를 넣는 방법
+2. 환경변수 부분에 shellcode를 넣는 방법
+3. argv[2] 인자에 shellcode를 넣는 방법 등...
+
+등등.. 방법은 연구하기 나름이다. 
 
 
 
-필자는 2가지 방법으로 문제를 풀어 볼 것이다.
-
-
+필자는 1, 2번 방법으로 문제를 풀어 볼 것이다.
 
 ------
-
-
 
 ### 0x02. Dyamic Analysis & Exploit
 
 
 
-#### i) RET 아래 영역(?) 사용하기.
+#### 1) RET 아래 스택 영역 사용하기.
 
 ```
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
@@ -76,13 +75,17 @@ shellcode가 들어가는 주소를 알기 위해 core dump를 만들자.
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225219317.png" width="700px">
 
-buffer 배열에는 "A", SFP에는 "B", RET에는 "C", 그 뒤로는 "NOP"를 50바이트 그위로 쉘이 들어갈 공간 24바이트에 "S"를 넣었다. 이점을 잘 생각하고 core dump를 보자.
+```
+./aobolt `python -c 'print "A"*16+"BBBB"+"CCCC"+"\x90"*50+"S"*24'`
+```
+
+> BBBB는 SFP, CCCC는 RET, '\x90'은 NOP슬라이드, S는 쉘코드가 들어갈 공간(24byte)
 
 
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225429938.png" width="700px">
 
-core dump를 살펴보면 우리가 shellcode를 넣을 공간은 "S"(\x53)가 들어간 공간이다. NOP를 넣은 이유는 NOP Sliding을 이용하여 쉽게 shellcode에 접근하기 위함으로 NOP(\x90)이 있는 주소 아무곳을 RET주소에 넣으면 NOP를 따라 내려가다가 shellcode를 만나 실행하게 된다.
+core dump를 살펴보면 우리가 **shellcode를 넣을 공간은 "S"(\x53)가 들어간 공간**이다. NOP를 넣은 이유는 NOP Sliding을 이용하여 쉽게 shellcode에 접근하기 위함으로 NOP(\x90)이 있는 주소 아무곳을 RET주소에 넣으면 NOP를 따라 내려가다가 shellcode를 만나 실행하게 된다.
 
 RET주소에 대략 0xbffffa6c주소 언저리를 넣어주면 될 것 같다.
 
@@ -92,13 +95,15 @@ RET주소에 대략 0xbffffa6c주소 언저리를 넣어주면 될 것 같다.
 
 
 
+-----
 
+#### 2) 환경변수 사용하기.
 
-#### ii) 환경변수 사용하기.
+linux 시스템에는 환경변수라는 것이 존재한다. `export` 명령어를 치면 환경변수들이 나타나게 되는데, 이러한 변수들이 프로그램이 동작할 때 마다 스택에 쌓여 하나의 변수처럼 사용되게 된다.
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225742065.png" width="700px">
 
-linux 시스템에는 환경변수라는 것이 존재한다. `export` 명령어를 치면 환경변수들이 나타나게 되는데, 이러한 변수들이 프로그램이 동작할 때 마다 스택에 쌓여 하나의 변수처럼 사용되게 된다.
+
 
 실제 프로그램이 실행되면 스택 어느 부분에 쌓이게 되는지 알아보자.
 
@@ -106,7 +111,7 @@ linux 시스템에는 환경변수라는 것이 존재한다. `export` 명령어
 
 cobolt를 복사한 abolt 파일을 기준으로 ebp+281부분부터 보게되면 환경변수들이 스택에 쌓여 있는 것을 볼 수 있다.
 
-ebp+281이라는 것은 환경변수가 먼저 스택에 쌓이고 프로그램이 실행된다는 것을 알 수 있다.
+ebp+281이라는 것은 **환경변수가 먼저 스택에 쌓이고 프로그램이 실행된다**는 것을 알 수 있다.
 
 따라서 우리는 이 부분에 shellcode를 올리고, RET에 환경변수 주소를 넣어 shellcode가 실행되도록 해보자.
 
@@ -134,7 +139,7 @@ ebp+281이라는 것은 환경변수가 먼저 스택에 쌓이고 프로그램�
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231441368.png" width="700px">
 
-NOP 50바이트와 쉘코드를 EUNICE 라는 환경변수에 넣었다.
+NOP 50byte와 shellcode를 EUNICE 라는 환경변수에 넣었다.
 
 
 
@@ -146,20 +151,16 @@ main(){
 }
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231752514.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231752514.png" width="400px">
 
-EUNICE 환경 변수의 주소는 0xbffffc21 이다. (쉽죠잉?😁)
+EUNICE 환경 변수의 주소는 **0xbffffc21**이다. (쉽죠잉?😁)
 
-이제 이 주소를 RET에 넣으면 끄읏..👌
+이제 이 주소를 RET에 넣으면 끄읏...
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231937161.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231937161.png" width="800px">
 
+-----
 
+### 0x03. 정리
 
-### 0x30. 정리
-
-cobolt 문제는 buffer배열의 크기가 작아 배열 내에 shellcode를 넣는 것이 불가능 했다. 따라서 buffer배열이 아닌 또 다른 스택 영역에 공간에 shellcode를 넣어 실행하였으며 그 스택 공간은 main함수의 arg인자 영역과 환경변수 영역을 이용하였다. 이 외에도 실행가능한 스택영역 어디든 프로그램이 동작하는데에 영향을 주지 않는 곳이라면 모두 가능하다.
-
-
-
-##### **cobolt / hacking exposed**
+cobolt 문제는 buffer배열의 크기가 작아 배열 내에 shellcode를 넣는 것이 불가능 했다. 따라서 buffer배열이 아닌 또 다른 스택 영역에 공간에 shellcode를 넣어 실행하였으며 그 스택 공간은 main함수의 RET 이후 스택 영역과 환경변수 영역을 이용하였다. 이 외에도 실행가능한 스택영역 어디든 프로그램이 동작하는데에 영향을 주지 않는 곳이라면 모두 가능하다.
