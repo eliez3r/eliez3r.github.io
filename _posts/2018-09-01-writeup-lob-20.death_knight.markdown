@@ -79,9 +79,9 @@ main()
 }
 ```
 
- 
+-----
 
-#### 코드분석
+### 0x01. Analysis
 
 소스코드를 살펴보니 6666포트를 열고있는 서버 프로그램이다.
 
@@ -156,7 +156,7 @@ peda를 실행하기 위해 아무 바이너리를 불러오고 `shellcode gener
 
 ------
 
-#### Exploit
+### 0x02. Exploit
 
 ```python
 import sys
@@ -213,9 +213,7 @@ for i in range(0xbfff0000, 0xbfffffff, 10):
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/20.death_knight/image-20180802151540168.png" width="600px">
 
-
-
-**death_knight / got the life**
+-----
 
 
 
