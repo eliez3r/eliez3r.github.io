@@ -7,7 +7,7 @@ modify_date: 2018-09-10
 article_header:
   type: cover
   image:
-    src: 
+    src:
 ---
 
 ### 0x01. Static Analysis

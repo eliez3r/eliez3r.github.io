@@ -9,7 +9,12 @@ article_header:
   image:
     src: 
 ---
-## keyword : simple bof
+[simple bof](#){:.button.button--outline-success.button--pill}
+
+`Simple BOF`{:.info}
+
+Simple BOF.
+{:.info}
 
 ### 0x01. Static Analysis
 
