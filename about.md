@@ -1,18 +1,30 @@
 ---
-layout: page
+layout: article
 title: "About"
-type: about
 ---
 
-# Name
 
-**eli_ez3r (Kim Hak Jin)**
 
- 
+## Name
 
-------
+<div class="item">
+  <div class="item__image">
+    <img class="image image--sm" src="/assets/img/me.jpeg"/>
+  </div>
+  <div class="item__content">
+    <div class="item__header">
+      <h4>eli_ez3r (Kim Hak Jin)</h4>
+    </div>
+  </div>
+</div>
 
-# Contact
+
+
+-----
+
+
+
+## Contact
 
 Mail : [0.0eli.ez3r@gmail.com](mailto:0.0eli.ez3r@gmail.com)
 
@@ -22,7 +34,7 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 ------
 
-# Experience
+## Experience
 
 **Republic Of Korea Air Force,** Main computer information protection (2015.07 ~ 2017.07)
 
@@ -34,7 +46,7 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 
 
-# Project
+## Project
 
 **IoT Hub Exploitation and Countermeasure**, BoB Project (2018.09 ~ 2019.02)
 
@@ -46,7 +58,7 @@ Open KaKaoTalk : [eli_ez3r 오픈톡](https://open.kakao.com/o/sVU369mb)
 
 
 
-# Certificate
+## Certificate
 
 Industrial Engineer Information Security(2017.6), **KISA**
 
