@@ -1,13 +1,15 @@
 ---
 title: "[LOB]Readme"
-author: eli_ez3r
-show_author_profile: true
 tags: [Wargame, LOB, Write-up]
+author: eli_ez3r
+key: 20180828
+modify_date: 2018-08-28
 article_header:
   type: cover
   image:
-    src: 
+    src:
 ---
+
 ```
 LEVEL1 (gate -> gremlin) :  simple bof
 LEVEL2 (gremlin -> cobolt) : small buffer
@@ -30,6 +32,3 @@ LEVEL18 (succubus -> nightmare) : plt
 LEVEL19 (nightmare -> xavis) : fgets + destroyers
 LEVEL20 (xavis -> death_knight) : remote BOF 
 ```
-
-
-

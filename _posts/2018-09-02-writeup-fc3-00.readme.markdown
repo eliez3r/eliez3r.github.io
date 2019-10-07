@@ -1,6 +1,9 @@
 ---
 title: "[FC3]Readme"
 tags: [Wargame, Fedora Catle 3, Write-up]
+author: eli_ez3r
+key: 20180902
+modify_date: 2018-09-02
 article_header:
   type: cover
   image:

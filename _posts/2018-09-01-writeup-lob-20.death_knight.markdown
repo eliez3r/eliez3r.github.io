@@ -1,6 +1,9 @@
 ---
 title: "[LOB]Level20. death_knight"
 tags: [Wargame, LOB, Write-up]
+author: eli_ez3r
+key: 20180901
+modify_date: 2018-09-01
 article_header:
   type: cover
   image:

@@ -28,7 +28,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 ## => Language and Timezone
 ##############################
 lang: en # the language of your site, default as "en"
-timezone: Asia/Soeul # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
+timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
 ## => Author and Social
@@ -148,13 +148,13 @@ comments:
 ## => Pageview
 ##############################
 pageview:
-  provider: false # false (default), "leancloud", "custom"
+  provider: leancloud # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
-    app_id    : # LeanCloud App id
-    app_key   : # LeanCloud App key
-    app_class : # LeanCloud App class
+    app_id    : uAG3OhdcH8H4fxSqXLyBljA7-gzGzoHsz # LeanCloud App id
+    app_key   : Mzf5m9skSwYVWVXhGiYMNyXs # LeanCloud App key
+    app_class : TeXtDemo # LeanCloud App class
 
 
 ## => Search

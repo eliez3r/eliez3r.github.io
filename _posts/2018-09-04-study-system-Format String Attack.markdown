@@ -1,6 +1,9 @@
 ---
 title:  "Format String Attack"
 tags: System
+author: eli_ez3r
+key: 20180904
+modify_date: 2018-09-04
 article_header:
   type: cover
   image:

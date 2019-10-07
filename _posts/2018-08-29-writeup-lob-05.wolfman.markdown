@@ -1,6 +1,9 @@
 ---
 title: "[LOB]Level05. wolfman"
 tags: [Wargame, LOB, Write-up]
+author: eli_ez3r
+key: 20180829
+modify_date: 2018-08-29
 article_header:
   type: cover
   image:

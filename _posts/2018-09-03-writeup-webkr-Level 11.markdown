@@ -1,6 +1,9 @@
 ---
 title: "[Web.kr]Level 11"
 tags: [Wargame, webhacking.kr(Old), Write-up]
+author: eli_ez3r
+key: 20180903
+modify_date: 2018-09-03
 article_header:
   type: cover
   image:
