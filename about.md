@@ -52,7 +52,7 @@ title: "About"
 
 **LIME Security**, Project (19.03 ~)
 
-: KIWOOM SECURITIES
+: KIWOOM SECURITIES Penetration testing
 
 : EBS Malicious mail training
 
