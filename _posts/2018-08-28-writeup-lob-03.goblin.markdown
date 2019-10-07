@@ -3,7 +3,7 @@ title: "[LOB]Level03. goblin"
 tags: [Wargame, LOB, Write-up]
 author: eli_ez3r
 key: 20180828
-modify_date: 2018-08-28
+modify_date: 2019-10-07
 article_header:
   type: cover
   image:
@@ -95,3 +95,6 @@ EUNICE 환경변수의 주소를 구하는 프로그램을 만들어 EUNICE환�
 Cobolt 문제에서 BoF 취약점이 존재했던 strcpy함수 외에도 gets함수도 입력값 크기 검증이 없기때문에 동일하게 BoF 취약점이 존재하는 것을 확인할 수 있는 문제였다.
 
 그리고 프로그램 내부에서 사용자 입력값을 받을 때 어떻게 입력값을 넘겨주어야 하는지도 알게되는 문제였다.
+
+-----
+
