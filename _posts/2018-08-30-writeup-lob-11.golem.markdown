@@ -10,7 +10,7 @@ article_header:
     src: 
 ---
 
-## keyword : stack destroyer
+[+ Stack Destroyer](#){:.button.button--outline-success.button--pill}
 
 ```c
 /*

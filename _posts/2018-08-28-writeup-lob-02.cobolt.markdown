@@ -9,9 +9,7 @@ article_header:
   image:
     src: 
 ---
-## keyword : small buffer
-
-
+[+ Small Buffer](#){:.button.button--outline-success.button--pill}
 
 ### 0x01. Static Analysis
 

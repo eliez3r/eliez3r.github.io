@@ -12,6 +12,8 @@ article_header:
 
 ## keyword : check argv[0]
 
+[+ Check argv[0]](#){:.button.button--outline-success.button--pill}
+
 
 
 ```c

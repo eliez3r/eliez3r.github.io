@@ -10,7 +10,7 @@ article_header:
     src: 
 ---
 
-## keyword : function calls
+[Function Calls](#){:.button.button--outline-success.button--pill}
 
 ```c
 /*

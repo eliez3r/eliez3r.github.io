@@ -10,7 +10,7 @@ article_header:
     src: 
 ---
 
-## keyword : check argc
+[+ Check argc](#){:.button.button--outline-success.button--pill}
 
 ```c
 /*

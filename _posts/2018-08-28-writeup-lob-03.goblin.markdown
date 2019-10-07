@@ -11,7 +11,7 @@ article_header:
 
 ---
 
-## keyword : small buffer + stdin
+[+ stdin](#){:.button.button--outline-success.button--pill}
 
 ```c
 /*

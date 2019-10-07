@@ -10,7 +10,7 @@ article_header:
     src: 
 ---
 
-## keyword : egghunter
+[+ EggHunter](#){:.button.button--outline-success.button--pill}
 
 ```c
 /*

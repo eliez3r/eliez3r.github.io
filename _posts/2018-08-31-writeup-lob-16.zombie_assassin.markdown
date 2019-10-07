@@ -10,7 +10,7 @@ article_header:
     src: 
 ---
 
-## Keyword : fake ebp
+[Fake EBP](#){:.button.button--outline-success.button--pill}
 
 ```c
 /*

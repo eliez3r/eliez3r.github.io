@@ -10,7 +10,7 @@ article_header:
     src: 
 ---
 
-## keyword : remote BOF 
+[Remote BoF](#){:.button.button--outline-success.button--pill}
 
 ```c
 /*
