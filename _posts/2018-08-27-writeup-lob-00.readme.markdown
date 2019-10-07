@@ -2,8 +2,8 @@
 title: "[LOB]Readme"
 tags: [Wargame, LOB, Write-up]
 author: eli_ez3r
-key: 20180828
-modify_date: 2018-08-28
+key: 20180827
+modify_date: 2018-08-27
 article_header:
   type: cover
   image:
