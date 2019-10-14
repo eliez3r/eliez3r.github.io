@@ -72,7 +72,7 @@ main(int argc, char *argv[])
 - argv[1] 48byte 길이 제한
 - 환경변수 초기화
 - buffer배열 초기화
-- argv 인자값 모두 초기화
+- **argv 인자값 모두 초기화**
 
 argv 인자값 모두 초기화되기 때문에 이전문제처럼 argv[0]값을 이용한 풀이는 불가능해 보인다.
 

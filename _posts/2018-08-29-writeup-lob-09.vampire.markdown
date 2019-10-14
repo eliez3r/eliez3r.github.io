@@ -52,7 +52,7 @@ main(int argc, char *argv[])
 
 ### 0x01. Analysis
 
-lret의 2번째 값이 '\xff'이면 안된다..;;
+RET 주소의 2번째 값이 '\xff'이면 안된다..;;
 
 그외에는 별거 없다.
 
