@@ -113,7 +113,7 @@ new attacker
 
 일단 main함수에서 problem_child를 호출하고 buffer배열 공간을 할당하게 되었을 때에 스택의 구조는 다음과 같다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/12.darkknight/1571214325423.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/12.darkknight/1571214325423.png" width="600px">
 
 ```sh
 [golem@localhost golem]$ ./aarkknight `python -c 'print "A"*4+"\x90"*12+"S"*24+"C"'`
