@@ -1,6 +1,6 @@
 ---
 title: "Stack Frame이란?"
-tags: System
+tags: [System, Stack Frame]
 author: eli_ez3r
 key: 20191016
 modify_date: 2019-10-16
