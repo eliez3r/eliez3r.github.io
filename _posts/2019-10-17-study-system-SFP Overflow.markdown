@@ -56,7 +56,7 @@ main(int argc, char *argv[])
 }
 ```
 
-LOB Level 12번 문제(darkknight) 문제가 SFP Overflow 실습에 있어 가장 적합한 문제라고 생각되어진다.
+[LOB Level 12번 문제]( https://eliez3r.github.io/post/2018/08/30/writeup-lob-12.darkknight.html )(darkknight) 문제가 SFP Overflow 실습에 있어 가장 적합한 문제라고 생각되어진다.
 
 problem_child 함수를 보면 strncpy함수를 통해 main함수 argv[1] 인자의 41byte를 buffer에 저장하는데 buffer의 크기는 40byte이다. 따라서 1byte가 Overflow되어 problem_child함수의 sfp가 영향을 받게 된다.
 
