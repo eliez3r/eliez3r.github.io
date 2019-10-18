@@ -46,6 +46,7 @@ article_header:
 
 ```c
 //stack.c
+//gcc -m32 -mpreferred-stack-boundary=2 -fno-stack-protector -z execstack -no-pie -fno-pic -o stack stack.c
 void func(){
         char str1[10];
         printf("Called func()\n");
