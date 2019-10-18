@@ -1,4 +1,4 @@
-```
+---
 title: "Stack Frame이란?"
 tags: [System, Stackframe]
 author: eli_ez3r
@@ -8,7 +8,7 @@ article_header:
   type: cover
   image:
     src:
-```
+---
 
 ### 스택 프레임(Stack Frame)이란?
 
