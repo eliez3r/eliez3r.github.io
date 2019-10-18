@@ -12,7 +12,7 @@ article_header:
 
 
 
-## SFP Overflow란?
+# SFP Overflow란?
 
 SFP(Stack Frame Pointer) Overflow, FPO(Frame Pointer Overwrite), 1 Byte Overflow 라고도 불리는 공격기법이다.
 
@@ -32,7 +32,7 @@ SFP는 Saved Frame Pointer라고도 불리며, **이전 함수의 EBP 주소**�
 
 -----
 
-### SFP Overflw 실습(LOB level12번 darkknight 문제)
+## SFP Overflw 실습(LOB level12번 darkknight 문제)
 
 ```c
 #include <stdio.h>
@@ -100,13 +100,13 @@ problem_child SFP의 값을 보면 마지막에 **0x43**이 들어간 것을 볼
 
 problem_child 함수의 에필로그가 시작하기 직전에 eip, ebp, esp 레지의 상태값이다.
 
-앞서 말한것 처럼 leave 명령어는 `mov esp, ebp` 와 `pop ebp`로 구성된 명령어이다.
+leave 명령어는 `mov esp, ebp` 와 `pop ebp`로 구성된 명령어이다.
 
-leave명령어를 2단계로 쪼개서 살펴보자.
+leave명령어를 2단계로 쪼개서 사진으로 살펴보자.
 
 -----
 
-##### 1) problem_child 함수의 leave
+### 1) problem_child 함수의 leave
 
 <img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571214508497.png" width="600px">
 
@@ -120,7 +120,7 @@ leave명령어를 2단계로 쪼개서 살펴보자.
 
 
 
-##### 2) problem_child 함수의 ret
+### 2) problem_child 함수의 ret
 
 그리고 ret는 `pop eip`, `jmp eip`로 진행되어진다.
 
@@ -141,7 +141,7 @@ Dump of assembler code for function main:
 
 
 
-##### 3) main함수에서 problem_child함수 스택 정리
+### 3) main함수에서 problem_child함수 스택 정리
 
 <img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571215063447.png" width="600px">
 
@@ -151,7 +151,7 @@ Dump of assembler code for function main:
 
 
 
-##### 4) main 함수의 leave
+### 4) main 함수의 leave
 
 <img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571275687784.png" width="600px">
 
@@ -168,7 +168,7 @@ Dump of assembler code for function main:
 
 
 
-##### 5) main 함수의 ret
+### 5) main 함수의 ret
 
 <img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571276427498.png" width="600px">
 
