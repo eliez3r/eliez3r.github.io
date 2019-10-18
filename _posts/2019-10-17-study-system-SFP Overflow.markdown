@@ -180,7 +180,7 @@ Dump of assembler code for function main:
 
 이렇게 하나하나보면 장황해보이지만 정리하면 간단하다.
 
-처음 우리가 problem_child함수의 SFP를 1byte 조작하여 `0xbffffc43` 으로 조작되었고, 최종적으로 실행되는 명령주소는 `0xbffffc47` 주소에 들어있는 주소값(조작한 값의 +4한 주소)이다.
+처음 우리가 problem_child함수의 SFP를 1byte 조작하여 `0xbffffc43` 으로 조작되었고, **최종적으로 실행되는 명령주소는 `0xbffffc47` 주소에 들어있는 주소값(조작한 값의 +4한 주소)이다.**
 
 정확하게 확인해보자.
 
@@ -208,8 +208,8 @@ Program terminated with signal 11, Segmentation fault.
 #0  0x41414141 in ?? ()
 ```
 
-buffer배열의 첫 4byte("AAAA")를 실행하려는 모습을 볼 수 있다.
+buffer배열의 첫 4byte("AAAA")를 실행하려는 모습을 볼 수 있다. 만약 buffer배열에 Shell Code를 넣어두었다면 Shell Code가 실행되는 상황이 된다.
 
-이처럼 sfp값의 1byte만을 조작해서 프로그램의 흐름을 바꿀수 있게 된다.
+이처럼 sfp값의 1byte만을 Overwrite하여 프로그램의 흐름을 바꿀수 있게 된다.
 
 -----
