@@ -157,7 +157,7 @@ No symbol table is loaded.  Use the "file" command.
 
 
 
-```assembly
+```
 gdb-peda$ info file
 Symbols from "/root/Desktop/BoB7/study/ropasaurusrex".
 Local exec file:
@@ -175,7 +175,7 @@ gdb 안에서 `info file` 명령어를 통해 **Entry point(0x8048340)**를 알�
 
 
 
-```assembly
+```
 gdb-peda$ x/16i 0x8048340
    0x8048340:	xor    ebp,ebp
    0x8048342:	pop    esi
@@ -203,7 +203,7 @@ main : 0x0804841d
 
 
 
-```assembly
+```
 gdb-peda$ x/16i 0x804841d
    0x804841d:	push   ebp
    0x804841e:	mov    ebp,esp
@@ -234,7 +234,7 @@ ssize_t __cdecl main()
 
 write@plt를 따라가보면 
 
-```assembly
+```
 gdb-peda$ x/3i 0x804830c
    0x804830c <write@plt>:	jmp    DWORD PTR ds:0x8049614
    0x8048312 <write@plt+6>:	push   0x8
@@ -247,7 +247,7 @@ write@plt에서 jmp하는 주소가 write@got주소가 된다.
 
 
 
-```assembly
+```
 gdb-peda$ x/32i 0x080483f4
    0x80483f4:	push   ebp
    0x80483f5:	mov    ebp,esp
@@ -267,7 +267,7 @@ input 함수 내부이다.
 
 
 
-```assembly
+```
 gdb-peda$ x/3i 0x804832c
    0x804832c <read@plt>:	jmp    DWORD PTR ds:0x804961c
    0x8048332 <read@plt+6>:	push   0x18
