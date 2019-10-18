@@ -256,13 +256,13 @@ Dump of assembler code for function func:
 
 esp값이 ebp를 가리키게 된다. 그리고 `pop ebp` 명령을 수행하면, 현재 가리키고 있는 esp의 값을 ebp로 넣고 esp값이 4증가한다. 그러면 ebp값은 caller(main함수)의 ebp 값이 들어간다.
 
-![1571374657748](http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374657748.png)
+<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374657748.png" width="600px">
 
 이제 `ret` 명령에 의해 `pop eip`, `jmp eip`를 수행하게 된다.
 
 `pop eip` 명령에 의해 esp가 가리키고 있는 값이 eip로 들어가고 esp는 4증가 한다.
 
-![1571374760558](http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374760558.png)
+<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374760558.png" width="600px">
 
 그리고 eip의 값으로 점프하게 되는데 해당 eip주소 (0x08048400)의 값은 main함수에서 func함수를 호출한 다음의 주소가 된다.
 
