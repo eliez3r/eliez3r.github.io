@@ -62,7 +62,7 @@ int main(){
 
 main함수 내에서 func함수를 호출하는 단순한 코드이다.
 
-```assembly
+```
 [gate@localhost /tmp]$ gdb -q stack
 (gdb) set dis int
 (gdb) disas main
@@ -85,7 +85,7 @@ main함수를 살펴보면 앞서말한 함수 프롤로그와 에필로그가 �
 
 main함수 처음에 브레이크포인트를 걸고 하나씩 살펴보자.
 
-```assembly
+```
 Breakpoint 1, 0x80483e8 in main ()
 4: /x $eip = 0x80483e8
 3: /x $ebp = 0xbffffd18
