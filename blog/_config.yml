@@ -19,12 +19,12 @@ timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for
 ##############################
 author:
   type      : # "person" (default), "organization"
-  name      : eli_ez3r
-  url       : https://eliez3r.github.io
-  avatar    : /assets/logo.png # path or url of avatar image (square)
-  bio       : I can do all things through Christ which strengtheneth me. (Philippians 4:13, KJV)
-  email     : 0.0eli.ez3r@gmail.com
-  instagram : https://www.instagram.com/eli_ez3r
+  name      : 
+  url       : 
+  avatar    : # path or url of avatar image (square)
+  bio       : 
+  email     : 
+  instagram : 
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
   twitter   : # "user_name" the last part of your profile url, e.g. https://twitter.com/user_name
   weibo     : # "user_id"   the last part of your profile url, e.g. https://www.weibo.com/user_id/profile?...
