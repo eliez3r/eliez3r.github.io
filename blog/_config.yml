@@ -2,7 +2,7 @@
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
 highlight_theme: tomorrow-night-eighties # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : https://eliez3r.github.io// # the base hostname & protocol for your site e.g. https://www.someone.com
+url     : https://eliez3r.github.io # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
 title   : eli_ez3r Hacking Blog
 description: > # this means to ignore newlines until "Language & timezone"
@@ -20,7 +20,7 @@ timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for
 author:
   type      : # "person" (default), "organization"
   name      : eli_ez3r
-  url       : https://eliez3r.github.io/
+  url       : https://eliez3r.github.io/a
   avatar    : /assets/logo.png # path or url of avatar image (square)
   bio       : I can do all things through Christ which strengtheneth me. (Philippians 4:13, KJV)
   email     : 0.0eli.ez3r@gmail.com
