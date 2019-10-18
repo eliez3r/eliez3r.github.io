@@ -128,7 +128,7 @@ ebp의 값은 `0xbffffd18`의 값을 가지고있다. 이 값은 앞서 말한�
 
 그리고 나서 현재 main함수의 스택 프레임을 설정하기 위해 `mov esp, ebp` 명령어를 수행한다. 스택을 그림으로 표현하면 다음과 같다.
 
-![1571371679806](http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571371679806.png)
+<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571371679806.png" width="600px">
 
 이렇게 함수 프롤로그를 통하여 main함수의 스택 프레임이 생성된다. 
 
@@ -172,7 +172,7 @@ printf함수가 호출되고 나면 `add esp, 4` 명령어를 통해 printf함�
 
 현재까지 스택의 상태를 살펴보면 다음과 같다.
 
-![1571373529487](http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571373529487.png)
+<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571373529487.png" width="600px">
 
 이제 func 함수를 호출한다. 
 
@@ -192,11 +192,11 @@ Dump of assembler code for function func:
 
 func함수도 마찬가지로 함수 프롤로그를 통해 ebp를 저장한다. 이때 ebp는 caller의 ebp, 즉 main함수의 ebp값이 저장된다. (func의 RET값은 main함수에서 func를 호출하고 다음 주소가 들어가게 된다.)
 
-![1571373928369](http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571373928369.png)
+<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571373928369.png" width="600px">
 
 그리고 str1배열의 10byte 공간을 할당하는데 32bit체제에서는 4byte(32bit) 배수로 공간을 할당하므로 12byte의 공간을 할당하는 것을 볼 수 있다.
 
-![1571374299559](http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374299559.png)
+<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374299559.png" width="600px">
 
 -----
 
@@ -248,11 +248,11 @@ Dump of assembler code for function func:
 
 현재 스택의 모습은 다음과 같다.
 
-![1571374299559](http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374299559.png)
+<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374299559.png" width="600px">
 
 이상태에서 `mov esp, ebp`명령이 수행되면
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374563968.png" alt="1571374563968" style="zoom:150%;" />
+<img src="http://eliez3r.synology.me/assets/img/study/system/Stack Frame/1571374563968.png" width="600px">
 
 esp값이 ebp를 가리키게 된다. 그리고 `pop ebp` 명령을 수행하면, 현재 가리키고 있는 esp의 값을 ebp로 넣고 esp값이 4증가한다. 그러면 ebp값은 caller(main함수)의 ebp 값이 들어간다.
 
