@@ -6,8 +6,8 @@ key: 20191016
 modify_date: 2019-10-16
 article_header:
   type: cover
-  image: http://eliez3r.synology.me/assets/img/study/study-system-logo.jpg
-    src:
+  image:
+    src: http://eliez3r.synology.me/assets/img/study/study-system-logo.jpg
 ---
 
 ## 스택 프레임(Stack Frame)이란?
