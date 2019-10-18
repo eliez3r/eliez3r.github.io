@@ -4,7 +4,6 @@ url     : https://eliez3r.github.io # the base hostname & protocol for your site
 baseurl : # does not include hostname
 title   : eli_ez3r Hacking Blog
 description: > # this means to ignore newlines until "Language & timezone"
-  eli_ez3r Hacking Blog
 
 
 ## => Language and Timezone
