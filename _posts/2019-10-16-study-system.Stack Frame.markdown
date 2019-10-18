@@ -6,7 +6,7 @@ key: 20191016
 modify_date: 2019-10-16
 article_header:
   type: cover
-  image:
+  image: http://eliez3r.synology.me/assets/img/study/study-system-logo.jpg
     src:
 ---
 
