@@ -150,7 +150,7 @@ int main(){
 }
 ```
 
-```assembly
+```
 0x80483e8 <main>:       push   ebp
 0x80483e9 <main+1>:     mov    ebp,esp
 0x80483eb <main+3>:     sub    esp,20
@@ -163,7 +163,7 @@ main함수에서 str2배열을 20byte 선언을 하였다. 따라서 해당 배�
 
 그리고나서 printf함수를 호출하기 위해 `push 0x804846f` 명령어로 스택에 특정 주소를 push한다. 해당 주소에는 printf에서 출력될 문자열("Called main()\n")이 들어있을 것이다.
 
-```assembly
+```
 (gdb) x/s 0x804846f
 0x804846f <_IO_stdin_used+19>:   "Called main()\n"
 ```
@@ -176,7 +176,7 @@ printf함수가 호출되고 나면 `add esp, 4` 명령어를 통해 printf함�
 
 이제 func 함수를 호출한다. 
 
-```assembly
+```
 Dump of assembler code for function func:
 0x80483d0 <func>:       push   ebp
 0x80483d1 <func+1>:     mov    ebp,esp
@@ -230,7 +230,7 @@ func함수도 마찬가지로 함수 프롤로그를 통해 ebp를 저장한다.
 
 func함수가 종료될때 에필로그를 자세히 살펴보자.
 
-```assembly
+```
 Dump of assembler code for function func:
 0x80483d0 <func>:       push   ebp
 0x80483d1 <func+1>:     mov    ebp,esp
@@ -266,7 +266,7 @@ esp값이 ebp를 가리키게 된다. 그리고 `pop ebp` 명령을 수행하면
 
 그리고 eip의 값으로 점프하게 되는데 해당 eip주소 (0x08048400)의 값은 main함수에서 func함수를 호출한 다음의 주소가 된다.
 
-```assembly
+```
 Dump of assembler code for function main:
 0x80483e8 <main>:       push   ebp
 0x80483e9 <main+1>:     mov    ebp,esp
