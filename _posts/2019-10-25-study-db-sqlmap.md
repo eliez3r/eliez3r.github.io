@@ -149,6 +149,10 @@ sqlmap 실습을 위해서 [PentesterLab의 From SQL Injection to Shell 훈련�
 
 ![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/2.png){:.border.rounded}
 
+SQL Injection to Shell 훈련장의 접속화면이다. 이미지를 보여주는 cat.php의 id변수를 대상으로 sqlmap을 이용하여 SQL Injection 취약점 점검을 진행한다.
+
+SQL Injection 취약점이 존재하면 실제 관리자 계정 탈취까지 가능하다.
+
 
 
 ### (1) GET 방식 입력 값 점검
@@ -233,11 +237,27 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users --dump
 
 user는 `admin` 계정이 존재하고 패스워드는 hash값으로 되어있지만, 해당 해쉬값이 P4ssw0rd 임을 알려준다.
 
+
+
+만약 수많은 컬럼들이 존재할 때 특정 컬럼만 덤프하고 싶을 것이다. (login, password 칼럼만 덤프)
+
+```
+sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users -C "login,password" --dump
+```
+
+
+
+
+
 -----
 
 
 
 ### (2) POST 방식 입력 값 점검
+
+![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/8.png){:.border.rounded}
+
+위 그림은 SQL Injection to Shell 훈련장의 관리자 페이지 접속화면이다. ID/PW를 이용하여 로그인하는 페이지이며 POST방식으로 구현되어 있다.
 
 POST방식일 경우 `--data` 옵션을 이용하면된다.
 
