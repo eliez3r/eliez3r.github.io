@@ -50,7 +50,7 @@ title: "About"
 
 **IoT Hub Exploitation and Countermeasure**, BoB Project (2018.09 ~ 2019.02)
 
-**LIME Security**, Project (19.03 ~)
+**LIME Security** (19.03 ~)
 
 : **KIWOOM SECURITIES**, Penetration testing
 
