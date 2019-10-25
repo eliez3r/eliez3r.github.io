@@ -1,6 +1,6 @@
 ---
-title: "SQLMap 사용법"
-tags: [database, sqlmap]
+title: "SQL Injection 분석도구 SQLMap 사용법"
+tags: [database, sqlmap, manual, sql injection, pentesterlab, 웹취약점분석]
 author: eli_ez3r
 key: 20191025
 modify_date: 2019-10-25
@@ -145,7 +145,7 @@ sqlmap 실습을 위해서 [PentesterLab의 From SQL Injection to Shell 훈련�
 [경고]실제 서버를 공격하여 생기는 법적 책임은 공격자 본인에게 있음을 경고합니다. 
 {:.warning} 
 
- ![Image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/1.png){:.border.rounded} 
+ ![Image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/1.png){:.border.rounded}
 
 ![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/2.png){:.border.rounded}
 
