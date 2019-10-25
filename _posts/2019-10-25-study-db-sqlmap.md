@@ -142,7 +142,7 @@ Options:
 
 sqlmap 실습을 위해서 [PentesterLab의 From SQL Injection to Shell 훈련장]( https://pentesterlab.com/exercises/from_sqli_to_shell/course )을 대상으로 진행한다.
 
-실제 서버를 공격하여 생기는 책임은 본인에게 있음을 경고합니다..{:.warning} 
+[경고]실제 서버를 공격하여 생기는 책임은 본인에게 있음을 경고합니다. .{:.warning} 
 
  ![Image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025114201321.png){:.border.rounded} 
 
