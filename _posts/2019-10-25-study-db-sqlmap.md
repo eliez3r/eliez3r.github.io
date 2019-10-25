@@ -159,13 +159,26 @@ SQL Injection 취약점이 존재하면 실제 관리자 계정 탈취까지 가
 
 다음 명령어를 이용하여 GET방식의 입력값 점검을 할 수 있다.
 
+먼저 URL만을 이용하여 SQL Injection 취약점이 존재하는지 살펴본다.
+
 ```
 sqlmap -u "http://192.168.23.131/cat.php?id=1"
 ```
 
- ![img](http://eliez3r.synology.me/assets/img/study/db/sqlmap/3.PNG){:.border.rounded}  
+ ![img](http://eliez3r.synology.me/assets/img/study/db/sqlmap/3.png){:.border.rounded}  
 
-OS정보와 Web Application정보, DBMS정보등을 알아오는 것을 알 수 있다.
+기본적임 점검에서 id변수가 취약하며, OS정보와 Web Application정보, DBMS정보등을 알아오는 것을 알 수 있다.
+
+> 일반적인 웹 취약점 분석에서는 SQL Injection 취약점 분석을 여기서 중단하여도 무방하다. 하지만, 관리자 페이지 내에 존재하는 취약점 점검 등이 필요한 경우에는 계정정보를 알아내기 위해서 추가적인 DB조회를 계속 진행할 수도 있을 것이다.
+
+일반적으로 sqlmap 분석순서는 다음과 같다.
+
+1. SQL Injection 판별
+2. 데이터베이스 목록 조회
+3. 테이블 목록 조회
+4. 테이블 스키마 조회
+5. 테이블 덤프
+6. 기타 등등...
 
 
 
@@ -186,6 +199,8 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbs
 ```
 
 ![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/4.png){:.border.rounded} 
+
+`--dbs`의 옵션으로 현재 웹 어플리케이션("cat.php")이 접근할 수 있는 MySQL 데이터베이스 이름을 모두 조회하였다. 조회된 데이터 베이스 중 `information_schema`는 MySQL의 시스템 카탈로그(System Catalog)이다. 따라서 이 서비스에서 사용하는 데이터베이스는 `photoblog`임을 알 수 있다.
 
 
 
@@ -209,19 +224,23 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog --tables
 
 ![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/5.png){:.border.rounded} 
 
-해당 데이터베이스의 테이블들을 조회한 모습을 볼수 있다.
+`--tables` 옵션을 사용하여 categories, pictures, users 3개의 테이블 이름을 찾아내었다.
 
 
 
 #### 컬럼 목록 조회
 
-이제 해당 테이블의 컬럼 목록을 조회해보자.
+회원정보는 users 테이블에 저장되어 있을 것이라고 추정가능 하기에 users 테이블의 칼럼 목록을 조회한다.
 
 ```
 sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users --columns
 ```
 
 ![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/6.png){:.border.rounded} 
+
+users 테이블은 id, login, password 3개 컬럼(column)으로 구성되어 있음을 확인하였다.
+
+이제 이 테이블을 조회하면 id, login, password의 값들을 확인 할수 있을것이다.
 
 
 
