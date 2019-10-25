@@ -84,3 +84,14 @@ LEVEL20 (xavis -> death_knight) : remote BOF
 
 -----
 
+
+
+
+
+참고
+
+ https://webhack.dynu.net/?idx=20161108.001 
+
+ https://m.blog.naver.com/PostView.nhn?blogId=koromoon&logNo=220413846103&proxyReferer=https%3A%2F%2Fwww.google.com%2F 
+
+ https://webhack.dynu.net/?idx=20161107.003&print=friendly 
