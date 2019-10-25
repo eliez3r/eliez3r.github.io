@@ -234,3 +234,5 @@ POST방식일 경우 `--data` 옵션을 이용하면된다.
 sqlmap -u "http://192.168.23.131/admin/index.php" --data "user=USER&password=PASS"
 ```
 
+-----
+
