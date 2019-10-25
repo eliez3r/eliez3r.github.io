@@ -144,6 +144,8 @@ sqlmap 실습을 위해서 [PentesterLab의 From SQL Injection to Shell 훈련�
 
 [경고]실제 서버를 공격하여 생기는 책임은 본인에게 있음을 경고합니다. .{:.warning} 
 
+Warning Text. {:.warning} 
+
  ![Image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025114201321.png){:.border.rounded} 
 
 ![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/image-20191025114516313.png){:.border.rounded}
