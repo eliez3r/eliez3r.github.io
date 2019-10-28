@@ -10,6 +10,8 @@ article_header:
     src:
 ---
 
+<img src="http://eliez3r.synology.me/assets/img/study/db/sqlmap/logo.png" width="600x">
+
 ## 0x00. 개요
 
  **[sqlmap]( http://sqlmap.org/ )(automatic SQL injection and database takeover tool)**은 공개 모의침투 도구로 SQL구문삽입(SQL Injection) 취약점을 탐지/진단하고 데이터베이스에 직간접적으로 접근할 수 있는 취약점 분석 도구이다. 
