@@ -1,6 +1,6 @@
 ---
-title:  "Format String Attack"
-tags: System
+title:  "포맷스트링 공격(Format String Attack)"
+tags: [Foramt String Attack, printf, 포맷인자, 포맷지시자, %n]
 author: eli_ez3r
 key: 20180904
 modify_date: 2018-09-04
@@ -10,9 +10,7 @@ article_header:
     src: http://eliez3r.synology.me/assets/img/study/system-logo.png
 ---
 
-## 1. Format String이란?
-
-### 0x01. Format String
+## 0x01. Format String
 
  다음은 일반 C프로그램에서 흔히 찾아볼 수 있는 printf함수이다.
 
@@ -27,7 +25,7 @@ printf("Hello, %s\n", str);
 
 
 
-### 0x02. Format String 사용시 문제점
+### 1. Format String 사용시 문제점
 
  일반적으로 프로그래머들이 printf 함수를 사용할 할때 다음과 같은 형식으로 작성한다.
 
@@ -63,7 +61,7 @@ int main(){
 
 
 
-### 0x03. 포맷 인자
+### 2. 포맷 인자
 
  printf와 같은 Format String을 사용하는 함수는 **포맷 인자(형식 인자)**를 함수에 인자로 넘겨 특정 동작을 수행한다.
 
@@ -79,7 +77,7 @@ int main(){
 
 
 
-### 0x04. 새로운 지시자(drective) "%n"
+### 3. 새로운 지시자(drective) "%n"
 
  Format String에 사용되는 형식 지시자들 중 **`%n` 은 지금까지 출력한 바이트 수를 <u>다음 변수에 저장</u>한다.**
 
@@ -141,9 +139,9 @@ int main(){
 
 
 
-## 2. printf 함수
+## 0x02. printf 함수
 
-### 0x01. printf 함수의 동작방식
+### 1. printf 함수의 동작방식
 
 ```c
 //ex05.c
@@ -221,7 +219,7 @@ int main(int argc, char **argv){
 
 
 
-### 0x02. Format String Attack(임의의 메모리 주소의 쓰기)
+### 2. Format String Attack(임의의 메모리 주소의 쓰기)
 
  앞서 printf함수의 특징을 살펴보았다. ex04 프로그램 예시에서 인자로 전달했던 `%x` 포맷인자 대신 `%n` 를 사용하면 어떻게 될까?
 
@@ -333,7 +331,7 @@ int main(int argc, char* argv[]){
 
 
 
-### 0x03. Format String Attack(인자에 직접 접근)
+### 3. Format String Attack(인자에 직접 접근)
 
  앞서 `임의의 메모리 주소의 쓰기` 방법은 각 포맷 인자에 해당하는 값을 찾으려고 여러 메모리 주소를 건너뛰어야 했다. 그래서 Format String의 맨 앞부분에 도달할 때 까지 `%x` 포맷 인자를 사용해야만 했다. 그리고 임의의 메모리 주소에 쓰려고 3개의 추가적인 4Byte 쓰레기 값("EUNI")을 넣어야 했다.
 
@@ -403,7 +401,7 @@ int main(int argc, char* argv[]){
 
 
 
-### 0x04. Format String Attack(쇼트 쓰기 기법)
+### 4. Format String Attack(쇼트 쓰기 기법)
 
  Format String Attack을 단순화 하는 또 다른 방법은 **쇼트 쓰기 기법** 이다.
 
@@ -415,7 +413,7 @@ int main(int argc, char* argv[]){
 
 
 
-### 0x05. 정리
+## 0x03. 정리
 
  임의의 메모리 주소에 데이터를 쓸 수 있다는 것은 프로그램 실행 흐름을 제어할 수 있음을 의미한다. 가장 대표적으로 Stack BufferOverflow에서 사용했던 방법인 Stack Frame의 리턴 주소(RET)를 덮어쓰는 방법이 있다. Foramt String Attack은 임의의 메모리 주소에 데이터를 쓸 수 있으므로 다양한 공격에 활용 할 수 있다.
 
