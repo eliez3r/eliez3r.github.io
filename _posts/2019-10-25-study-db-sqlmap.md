@@ -7,7 +7,7 @@ modify_date: 2019-10-25
 article_header:
   type: cover
   image:
-    src:
+    src: 
 ---
 
 ![logo](http://eliez3r.synology.me/assets/img/study/db/sqlmap/logo.png){:.border.rounded}

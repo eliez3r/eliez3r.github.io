@@ -7,7 +7,7 @@ modify_date: 2018-09-04
 article_header:
   type: cover
   image:
-    src:
+    src: 
 ---
 
 ## 0x01. Format String
