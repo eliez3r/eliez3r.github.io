@@ -10,7 +10,7 @@ article_header:
     src:
 ---
 
-<img src="http://eliez3r.synology.me/assets/img/study/db/sqlmap/logo.png" width="600x">
+![logo](http://eliez3r.synology.me/assets/img/study/db/sqlmap/logo.png){:.border.rounded}
 
 ## 0x00. 개요
 
