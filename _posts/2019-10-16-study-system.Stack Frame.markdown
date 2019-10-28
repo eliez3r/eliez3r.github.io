@@ -7,7 +7,7 @@ modify_date: 2019-10-16
 article_header:
   type: cover
   image:
-    src: http://eliez3r.synology.me/assets/img/study/system-logo.png
+    src:
 ---
 
 스택 프레임(Stack Frame)이란 함수가 호출될 때, 그 함수만의 스택 영역을 구분하기 위하여 생성되는 공간이다. 이 공간에는 함수와 관계되는 지역 번수, 매개변수가 저장되며, 함수 호출 시 할당되며, 함수가 종료되면서 소멸한다.

@@ -7,7 +7,7 @@ modify_date: 2019-10-17
 article_header:
   type: cover
   image:
-    src: http://eliez3r.synology.me/assets/img/study/system-logo.png
+    src:
 ---
 
 
