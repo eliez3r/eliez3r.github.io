@@ -1,6 +1,6 @@
 ---
 title: "[LOB]Level14. giant"
-tags: [Wargame, LOB, Write-up]
+tags: [LOB, writeup, RTL]
 author: eli_ez3r
 key: 20180830
 modify_date: 2018-08-30

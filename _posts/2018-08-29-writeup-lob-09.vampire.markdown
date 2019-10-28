@@ -1,6 +1,6 @@
 ---
 title: "[LOB]Level09. vampire"
-tags: [Wargame, LOB, Write-up]
+tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180829
 modify_date: 2019-10-14

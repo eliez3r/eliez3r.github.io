@@ -1,6 +1,6 @@
 ---
 title: "[LOB]Readme"
-tags: [Wargame, LOB, Write-up]
+tags: [LOB]
 author: eli_ez3r
 key: 20180827
 modify_date: 2018-08-27

@@ -1,6 +1,6 @@
 ---
 title: "[LOB]Level15. assassin"
-tags: [Wargame, LOB, Write-up]
+tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180831
 modify_date: 2018-08-31

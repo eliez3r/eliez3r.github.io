@@ -1,6 +1,6 @@
 ---
 title: "[FC3]Level3. hell_fire"
-tags: [Wargame, Fedora Catle 3, Write-up]
+tags: [Fedora Catle 3, writeup, fake EBP]
 author: eli_ez3r
 key: 20180902
 modify_date: 2018-09-02

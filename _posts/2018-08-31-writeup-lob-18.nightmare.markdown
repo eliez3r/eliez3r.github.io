@@ -1,6 +1,6 @@
 ---
 title: "[LOB]Level18. nightmare"
-tags: [Wargame, LOB, Write-up]
+tags: [LOB, writeup, PLT]
 author: eli_ez3r
 key: 20180831
 modify_date: 2018-08-31

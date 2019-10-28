@@ -1,6 +1,6 @@
 ---
 title: "[Web.kr]Level 08"
-tags: [Wargame, webhacking.kr(Old), Write-up]
+tags: [wargame, webhacking.kr(old), writeup]
 author: eli_ez3r
 key: 20180903
 modify_date: 2018-09-03

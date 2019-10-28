@@ -1,6 +1,6 @@
 ---
 title: "[FC3]Level5. dark_stone"
-tags: [Wargame, Fedora Catle 3, Write-up]
+tags: [Fedora Catle 3, writeup, GOT overwrite, remote]
 author: eli_ez3r
 key: 20180902
 modify_date: 2018-09-02

@@ -1,6 +1,6 @@
 ---
 title: "[LOB]Level12. darkknight"
-tags: [Wargame, LOB, Write-up]
+tags: [LOB, writeup, FPO]
 author: eli_ez3r
 key: 20180830
 modify_date: 2019-10-17

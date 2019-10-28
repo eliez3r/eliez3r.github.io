@@ -1,6 +1,6 @@
 ---
 title: "[LOB]Level02. cobolt"
-tags: [Wargame, LOB, Write-up]
+tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180828
 modify_date: 2019-10-07
