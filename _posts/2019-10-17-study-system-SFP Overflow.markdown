@@ -1,6 +1,6 @@
 ---
 title: "SFP(Stack Frame Pointer) Overflow"
-tags: [system, SFP, FPO, 1Byte Overflow]
+tags: [SFP, FPO, 1Byte Overflow]
 author: eli_ez3r
 key: 20191017
 modify_date: 2019-10-17
