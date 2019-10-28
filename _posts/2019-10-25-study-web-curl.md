@@ -10,7 +10,7 @@ article_header:
     src: 
 ---
 
-![Image](http://eliez3r.synology.me/assets/img/study/web/curl/1.jpg){:.border.rounded}
+![Image](http://eliez3r.synology.me/assets/img/study/web/curl/1.jpg)
 
 ## 0x00. 개요
 
