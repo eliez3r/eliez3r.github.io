@@ -7,7 +7,7 @@ modify_date: 2019-10-25
 article_header:
   type: cover
   image:
-    src:
+    src: /assets/img/study-logo_crop.jpg
 ---
 
 ![Image](http://eliez3r.synology.me/assets/img/study/web/curl/1.jpg){:.border.rounded}
