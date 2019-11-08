@@ -1,5 +1,5 @@
 ---
-title: "스탭프레임(Stack Frame) 이란?"
+title: "스택프레임(Stack Frame) 이란?"
 tags: [stack, frame, prolog, epilog]
 author: eli_ez3r
 key: 20191016
