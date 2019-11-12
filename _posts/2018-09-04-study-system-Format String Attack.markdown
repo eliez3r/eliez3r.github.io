@@ -1,6 +1,6 @@
 ---
 title: "포맷스트링 공격(Format String Attack)"
-tags: [Foramt String Attack, printf, 포맷인자, 포맷지시자, %n]
+tags: [Foramt String Attack, printf, 포맷인자, 포맷지시자]
 author: eli_ez3r
 key: 20180904
 modify_date: 2018-09-04
