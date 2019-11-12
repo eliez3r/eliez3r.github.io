@@ -77,7 +77,7 @@ system  함수의 인자로 "/bin/sh"의 주소를 넣어주면 payload가 완�
 
 
 
-execve_addr = ebp-56  => 0x080da023 / 0x400a9d48
+__execve : 0x400a9d48
 
 system : 0x40058ae0
 
