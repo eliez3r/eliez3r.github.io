@@ -91,9 +91,11 @@ payload 시나리오 :
 
 
 
-&[buf-4] : 0xbffffc60 - 0x4 : 0xbffffc5c
+&[buf-4] : 0xbffffc5c
 
-&[buf+4] : 0xbffffc60 + 0x4 : 0xbffffc64
+&buf : 0xbffffc60
+
+&[buf+4] : 0xbffffc64
 
 &leave-ret : 0x080484df
 
