@@ -3,7 +3,7 @@ title: "[LOB]Level01. gremlin"
 tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180828
-modify_date: 2019-10-07
+modify_date: 2019-11-13
 article_header:
   type: cover
   image:
