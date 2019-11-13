@@ -126,8 +126,6 @@ else:
         os.waitpid(pid, 0)
 ```
 
-
-
 ```python
 import os
 import struct
