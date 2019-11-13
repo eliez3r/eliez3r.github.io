@@ -121,6 +121,8 @@ payload 시나리오 :
 
 #### RTL (Return to Library)를 이용한 공격
 
+> RTL을 이용한 공격시 이전과 시간과 환경 차이가 있어 주소가 상이함
+
 ##### exploit 시나리오 :
 
 ```
