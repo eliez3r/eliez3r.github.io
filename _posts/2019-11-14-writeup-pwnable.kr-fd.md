@@ -44,7 +44,7 @@ int main(int argc, char* argv[], char* envp[]){
 
 16진수 `0x1234` 은 `4660` 이다.
 
--
+-----
 
 ssize_t read(int fd, void *buf, size_t nbytes)
 
@@ -53,7 +53,7 @@ void *buf :  파일을 읽어 들일 버퍼
 size_t nbytes : 버퍼의 크기
 return : 정상적으로 실행되었다면 읽어들인 바이트 수를 리턴, 실패시 -1을 반환
 
--
+-----
 
 **리눅스의 File descriptor**
 
