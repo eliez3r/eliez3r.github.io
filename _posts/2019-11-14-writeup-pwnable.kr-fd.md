@@ -1,5 +1,5 @@
 ---
-title: "[pwnable.kr][Toddler's Bottle] fd"
+title: "[pwnable.kr][Toddler] fd"
 tags: [pwnable.kr, Toddler's Bottle, IO]
 author: eli_ez3r
 key: 20191114
