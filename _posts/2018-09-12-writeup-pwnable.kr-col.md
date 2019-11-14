@@ -2,8 +2,8 @@
 title: "[pwnable.kr][Toddler] col"
 tags: [pwnable.kr, Toddler's Bottle, writeup]
 author: eli_ez3r
-key: 20191114
-modify_date: 2019-11-14
+key: 20180912
+modify_date: 2018-09-12
 article_header:
   type: cover
   image:
