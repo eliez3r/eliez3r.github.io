@@ -44,19 +44,18 @@ ex) atoi("a") -> 0	# 알파벳 같은 문자열은 0으로 변환된다.
 
 16진수 `0x1234` 은 `4660` 이다.
 
-**ssize_t read(int fd, void *buf, size_t nbytes)**
+-
+
+```
+ssize_t read(int fd, void *buf, size_t nbytes)
 
 fd : 파일 디스크립터
-
 void *buf :  파일을 읽어 들일 버퍼
-
 size_t nbytes : 버퍼의 크기
+return : 정상적으로 실행되었다면 읽어들인 바이트 수를 리턴, 실패시 -1을 반환
+```
 
-return : 정상적으로 실행되었다면 읽어들인 바이트 수를 리턴, 
-
-실패시 -1을 반환
-
-
+-
 
 **리눅스의 File descriptor**
 
@@ -70,7 +69,7 @@ return : 정상적으로 실행되었다면 읽어들인 바이트 수를 리턴
 
 
 
-#### 즉, fd값을 0으로 만들어 stdin으로 만들어 키보드로 부터 "LETMEWIN\n"을 입력받으면 flag가 출력된다.
+**즉, fd값을 0으로 만들어 stdin으로 만들어 키보드로 부터 "LETMEWIN\n"을 입력받으면 flag가 출력된다.**
 
 
 
