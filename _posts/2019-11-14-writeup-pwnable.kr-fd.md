@@ -1,6 +1,6 @@
 ---
 title: "[pwnable.kr]fd"
-tags: [pwnable.kr, ]
+tags: [pwnable.kr, IO]
 author: eli_ez3r
 key: 20191114
 modify_date: 2019-11-14
