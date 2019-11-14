@@ -3,7 +3,7 @@ title: "[LOB]Level20. death_knight"
 tags: [LOB, writeup, BOF, remote]
 author: eli_ez3r
 key: 20180901
-modify_date: 2018-09-01
+modify_date: 2019-11-14
 article_header:
   type: cover
   image:
@@ -104,8 +104,6 @@ main()
 - 클라이언트로 접속하여 쉘을 따면 되는데, 생각해야 할 점은, 보통처럼 쉘코드를 날리게 되면 서버측에서 쉘이 따진다. 그러면 아무런 의미가 없으므로 클라이언트에게 쉘이 떨어지도록 서버가 클라이언트로 접속 가능하도록 만들어야 한다. 
 - 서버측에서 ret주소가 어디인지 알 수 없으므로 BruteForce를 사용하여 공격해야 한다.
 
-
-
 ------
 
 #### 바이너리분석
@@ -114,8 +112,6 @@ main()
 
 recv함수 호출 부분을 살펴보니 buffer의 주소는 ebp-40인것으로 보아 RET에서 44Byte만큼 떨어져 있음으로 알 수 있다.
 
-
-
 ------
 
 #### 시나리오
@@ -123,8 +119,6 @@ recv함수 호출 부분을 살펴보니 buffer의 주소는 ebp-40인것으로 
 브루트포싱으로 ret주소를 찾아야 하기 때문에 쉘코드 전에 NOP를 어느정도 넣어주어야 한다. 
 
 `| dummy(44) | RET(4) | NOP(100) | shellcode |`
-
-
 
 ------
 
@@ -140,8 +134,6 @@ peda를 실행하기 위해 아무 바이너리를 불러오고 `shellcode gener
 
 이때 ip와 port를 공격당한 서버가 접속 할 곳이다. (필자는 kali로 접속하도록 하였다.)
 
-
-
 ------
 
 #### 환경 설정
@@ -152,8 +144,6 @@ peda를 실행하기 위해 아무 바이너리를 불러오고 `shellcode gener
 
 그리고 kali에서 따른 터미널을 열어 exploit 코드를 작성하였다.
 
-
-
 ------
 
 ### 0x02. Exploit
@@ -163,7 +153,7 @@ import sys
 import struct
 from socket import *
 
-p32 = lambda x: struct.pack('<L', x)
+p32 = lambda x: struct.pack('<I', x)
 
 host = "192.168.122.130"
 port = 6666
