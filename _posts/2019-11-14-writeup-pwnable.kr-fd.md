@@ -1,6 +1,6 @@
 ---
 title: "[pwnable.kr][Toddler] fd"
-tags: [pwnable.kr, Toddler's Bottle, IO]
+tags: [pwnable.kr, Toddler's Bottle, writeup, file discriptor]
 author: eli_ez3r
 key: 20191114
 modify_date: 2019-11-14
