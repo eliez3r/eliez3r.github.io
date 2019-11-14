@@ -1,5 +1,5 @@
 ---
-title: "[pwnable.kr][Toddler] col"
+title: "[pwnable.kr][Toddler] collision"
 tags: [pwnable.kr, Toddler's Bottle, writeup]
 author: eli_ez3r
 key: 20180912
