@@ -94,10 +94,10 @@ Static Link 방식으로 컴파일 하면 라이브러리가 프로그램 내부
 
 Dynamic Link 방식으로 프로그램이 만들어지면 함수를 호출 할 때 **PLT**를 참조하게 된다. PLT에서는 **GOT로 점프**를 하는데, **GOT에 라이브러리에 존재하는 실제 함수의 주소가 쓰여있어서 함수를 호출**하게 된다.
 
-하지만, 첫번째 호출이라면 GOT에 실제 함수의 주소가 있지 않다. 그래서 **첫 호출 시에는 Linker가 dl_resolve라는 함수를 사용해 필요한 함수의 주소를 알아오고, GOT에 그 주소를 써준 후 해당 함수를 호출한다.**
+하지만, 첫번째 호출이라면 GOT에 실제 함수의 주소가 있지 않다. 그래서 **첫 호출 시에는 Linker가 `dl_resolve`라는 함수를 사용해 필요한 함수의 주소를 알아오고, GOT에 그 주소를 써준 후 해당 함수를 호출한다.**
 
 ```
-root@kali:~/Desktop/BoB7/study# gdb -q ./test
+root@kali:~/study# gdb -q ./test
 Reading symbols from ./test...(no debugging symbols found)...done.
 gdb-peda$ set disassembly-flavor intel
 gdb-peda$ pdisas main
