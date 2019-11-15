@@ -171,9 +171,9 @@ gdb-peda$ x/x 0x804a004
 0x804a004:	0xf7ffd940       // link_map 구조체 포인터
 ```
 
-`0x80482d0`을 보니 어떤 값을 PUSH하고 다른 곳으로 점프한다. 여기서 PUSH되는 값(`0xf7ffd940`)은 **link_map 구조체 포인터**이다. 
+`0x80482d0`을 보니 어떤 값(`0x804a004`)을 PUSH하고 `0x804a008`으로 점프한다. 여기서 PUSH되는 값은 **link_map 구조체 포인터**이다. 
 
-linke_map 구조체는 말 그대로 ld loader가 참조하는 링크 지도로, 라이브러리의 정보를 담고 있다. 이 link_map 구조체를 통해 여러 가지 테이블의 주소를 구할 수 있다.
+linke_map 구조체는 말 그대로 **ld loader가 참조하는 링크 지도로 라이브러리의 정보를 담고 있다.** 이 link_map 구조체를 통해 여러 가지 테이블의 주소를 구할 수 있다.
 
 ```
 gdb-peda$ x/x 0x804a008
@@ -183,7 +183,7 @@ gdb-peda$ x/i 0xf7fead80
    0xf7fead80 <_dl_runtime_resolve>:	push   eax
 ```
 
-link_map구조체를 PUSH하고 점프하는 곳이 **“_dl_runtime_resolve”**라는 함수이다.
+link_map구조체를 PUSH하고 점프하는 곳(`0x804a008`)이 `_dl_runtime_resolve`라는 함수이다.
 
 ```
 gdb-peda$ pdisas 0xf7fead80
@@ -203,14 +203,14 @@ Dump of assembler code from 0xf7fead80 to 0xf7feada0::	Dump of assembler code fr
 End of assembler dump.
 ```
 
-_dl_runtime_resolve 함수는 _dl_fixup이라는 함수를 부른다. 이 함수는 eax와 edx값을 인자로 받아오는데 다음 그림을 살펴보자.
+`_dl_runtime_resolve` 함수는 `_dl_fixup`이라는 함수를 부른다. 이 함수는 eax와 edx값을 인자로 받아오는데 다음 그림을 살펴보자.
 
 ![6](http://eliez3r.synology.me/assets/img/study/system/plt and got/6.png)
 
 지금까지 PUSH 된 값들에 따른 스택의 상태이다. reloc_offset(ox10)을 PUSH했고 link_map 구조체(0xf7ffd940)를 PUSH 했다.
 
-다시 한 번 정리합시다!
-reloc_offsest을 push하고 Dynamic Linker를 불렀다. 그 후 link_map 구조체 포인터를 push하고 _dl_runtime_resolve를 불렀다.
+> 다시 한 번 정리,
+> reloc_offsest을 push하고 Dynamic Linker를 불렀다. 그 후 link_map 구조체 포인터를 push하고 _dl_runtime_resolve를 불렀다.
 
 push 했던 reloc_offset과 link_map 구조체 포인터를 인자로 하여 _dl_fixup함수가 불리고, _dl_fixup함수에서는 프로그램 내에서 쓰인 함수 이름의 문자열들이 저장된 STRTAB 주소와 GOT 주소 및 재배치 정보를 담고 있는 재배치 테이블인 JMPREL의 주소를 알아냈다.
 STRTAB내에 있는 함수이름의 주소를 넘겨주며 _dl_lookup_symbol_x함수를 부르고, 여기서는 라이브러리 시작 주소와 라이브러리 함수 내에 있는 SYMTAB의 주소를 얻어온다.
