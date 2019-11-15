@@ -151,14 +151,14 @@ gdb-peda$ x/3i 0x080482f0
    0x80482fb <putchar@plt+11>:	jmp    0x80482d0
 ```
 
-puchar는 PLT를 가리키고 있다. PLT에서는 GOT을 참조한다고 했으니, 이 0x0804a010은 GOT일 것이다. 확인해보자.
+puchar는 PLT를 가리키고 있다. PLT에서는 GOT을 참조한다고 했으니, 이 `0x0804a010`은 GOT일 것이다. 확인해보자.
 
 ```
 gdb-peda$ x/x 0x0804a010
 0x804a010 <putchar@got.plt>:	0x080482f6      // plt+6의 주소
 ```
 
-호출 관계를 정리해보면, 함수가 처음 호출되면 plt+6을 실행한다. plt+6에서는 0x8을 PUSH하고 또 0x80482d0 주소로 점프하게 된다. 여기서부터 Dynamic Linking의 시작이다.
+호출 관계를 정리해보면, 함수가 처음 호출되면 plt+6을 실행한다. plt+6에서는 `0x8`을 PUSH하고 또 `0x80482d0` 주소로 점프하게 된다. 여기서부터 Dynamic Linking의 시작이다.
 
 ```
 gdb-peda$ x/2i 0x080482d0
@@ -171,6 +171,10 @@ gdb-peda$ x/x 0x804a004
 0x804a004:	0xf7ffd940       // link_map 구조체 포인터
 ```
 
+`0x80482d0`을 보니 어떤 값을 PUSH하고 다른 곳으로 점프한다. 여기서 PUSH되는 값(`0xf7ffd940`)은 **link_map 구조체 포인터**이다. 
+
+linke_map 구조체는 말 그대로 ld loader가 참조하는 링크 지도로, 라이브러리의 정보를 담고 있다. 이 link_map 구조체를 통해 여러 가지 테이블의 주소를 구할 수 있다.
+
 ```
 gdb-peda$ x/x 0x804a008
 0x804a008:	0xf7fead80
@@ -178,10 +182,6 @@ gdb-peda$ x/x 0x804a008
 gdb-peda$ x/i 0xf7fead80
    0xf7fead80 <_dl_runtime_resolve>:	push   eax
 ```
-
-그 주소로 점프했더니 또 어떤 값을 PUSH하고 다른 곳으로 점프한다. 여기서 PUSH되는 값(0xf7ffd940)은 l**ink_map 구조체 포인터**이다. 
-
-linke_map 구조체는 말 그대로 ld loader가 참조하는 링크 지도로, 라이브러리의 정보를 담고 있다. 이 link_map 구조체를 통해 여러 가지 테이블의 주소를 구할 수 있다.
 
 link_map구조체를 PUSH하고 점프하는 곳이 **“_dl_runtime_resolve”**라는 함수이다.
 
