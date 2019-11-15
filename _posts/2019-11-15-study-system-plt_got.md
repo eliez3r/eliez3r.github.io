@@ -146,7 +146,7 @@ putchar가 호출되어 지는데 해당 주소로 가보자.
 
 ```
 gdb-peda$ x/3i 0x080482f0
-   0x80482f0 <putchar@plt>:	jmp    DWORD PTR ds:0x804a010
+   0x80482f0 <putchar@plt>:	jmp    DWORD PTR ds:0x804a010	<<<<<<<<<<<<<<
    0x80482f6 <putchar@plt+6>:	push   0x8
    0x80482fb <putchar@plt+11>:	jmp    0x80482d0
 ```
