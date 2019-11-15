@@ -7,7 +7,7 @@ modify_date: 2019-11-15
 article_header:
   type: cover
   image:
-    src: /assets/img/manual/pwntools_logo.png
+    src:
 ---
 
 ## PLT (Procedure Linkage Table)
