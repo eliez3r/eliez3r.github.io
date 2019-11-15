@@ -105,6 +105,8 @@ xor의 특징은 `A` xor `B` = `C` 라고 할 때, `A` xor `C` = `B` 이다.
 
 -----
 
+### 0x01. Exploit
+
 ```
 random@prowl:~$ ./random
 3039230856
@@ -148,4 +150,3 @@ Mommy, I thought libc random is unpredictable...
 ```
 
 -----
-
