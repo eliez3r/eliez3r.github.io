@@ -1,5 +1,5 @@
 ---
-title: "[pwnable.kr][Toddler] bof"
+title: "[pwnable.kr]Toddler/bof"
 tags: [pwnable.kr, Toddler's Bottle, writeup]
 author: eli_ez3r
 key: 20180913
