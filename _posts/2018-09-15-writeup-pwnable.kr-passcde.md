@@ -203,6 +203,8 @@ void login(){
 
 바로 fflush의 got를 이용하는 것 이였다. (참조 : [PLT와 GOT를 파헤쳐보자](https://eliez3r.github.io/post/2019/11/15/study-system-plt_got.html))
 
+![image](http://eliez3r.synology.me/assets/img/writeup/pwnable.kr/passcode/02.png)
+
 fflush의 got주소를 프로그램 내의 flag를 출력하는 코드 주소로 변경하면 fflush가 실행될 때 flag를 호출하지 않을까 하는 생각에 진행하였다.
 
 -----
