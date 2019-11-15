@@ -20,7 +20,7 @@ This is reversing task. all you need is binary
 
 이번 문제는 소스코드가 없고 바이너리 하나를 던져주고 리버싱으로 풀어야 한다.
 
-
+-----
 
 ### 0x00. Analysis
 
