@@ -111,13 +111,13 @@ Dump of assembler code for function main:
    0x000000000000065e <+20>:	ret
 End of assembler dump.
 gdb-peda$ p putchar
-$1 = {<text variable, no debug info>} 0x520 <putchar@plt>
+$1 = {<text variable, no debug info>} 0x520 <putchar@plt>	<<<<<<<<<<<<<<
 gdb-peda$ r
 Starting program: /root/Desktop/BoB7/study/test
 A[Inferior 1 (process 24523) exited normally]
 Warning: not running or target is remote
 gdb-peda$ p putchar
-$2 = {int (int)} 0x7ffff7a8f200 <putchar>
+$2 = {int (int)} 0x7ffff7a8f200 <putchar>					<<<<<<<<<<<<<<
 ```
 
 putchar의 함수 호출 전과 후가 다르고, 두 번째 호출부터 putchar함수의 주소를 가리키고 있다. 
