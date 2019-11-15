@@ -56,6 +56,8 @@ int main(){
 }
 ```
 
+-----
+
 ### 0x00. Analysis
 
 main함수에서는 welcome함수와 login함수를 순차적으로 호출한다.
@@ -175,7 +177,7 @@ gdb-peda$ x/wx $ebp
 
 welcome함수와 login함수의 ebp를 비교해보니 똑같은 것을 알 수 있다.
 
-![image](http://eliez3r.synology.me/assets/img/writeup/pwnable.kr/passcode/01.png)
+<img src="http://eliez3r.synology.me/assets/img/writeup/pwnable.kr/passcode/01.png" width="600px">
 
 각 함수의 메모리 스택을 비교해보면 위 그림과 같다.
 
@@ -203,7 +205,7 @@ void login(){
 
 바로 fflush의 got를 이용하는 것 이였다. (참조 : [PLT와 GOT를 파헤쳐보자](https://eliez3r.github.io/post/2019/11/15/study-system-plt_got.html))
 
-![image](http://eliez3r.synology.me/assets/img/writeup/pwnable.kr/passcode/02.png)
+<img src="http://eliez3r.synology.me/assets/img/writeup/pwnable.kr/passcode/02.png" width="600px">
 
 fflush의 got주소를 프로그램 내의 flag를 출력하는 코드 주소로 변경하면 fflush가 실행될 때 flag를 호출하지 않을까 하는 생각에 진행하였다.
 
