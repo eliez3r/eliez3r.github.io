@@ -212,9 +212,11 @@ End of assembler dump.
 > 다시 한 번 정리,
 > reloc_offsest을 push하고 Dynamic Linker를 불렀다. 그 후 link_map 구조체 포인터를 push하고 _dl_runtime_resolve를 불렀다.
 
-push 했던 reloc_offset과 link_map 구조체 포인터를 인자로 하여 _dl_fixup함수가 불리고, _dl_fixup함수에서는 프로그램 내에서 쓰인 함수 이름의 문자열들이 저장된 STRTAB 주소와 GOT 주소 및 재배치 정보를 담고 있는 재배치 테이블인 JMPREL의 주소를 알아냈다.
-STRTAB내에 있는 함수이름의 주소를 넘겨주며 _dl_lookup_symbol_x함수를 부르고, 여기서는 라이브러리 시작 주소와 라이브러리 함수 내에 있는 SYMTAB의 주소를 얻어온다.
-다시 _dl_fixup함수로 돌아오면, SYMTAB 내의 실제 함수의 오프셋과 라이브러리 시작 주소를 더해 실제 함수의 주소를 알아내고 GOT에 기록한다.
+push 했던 reloc_offset과 link_map 구조체 포인터를 인자로 하여 _dl_fixup함수가 불리고,` _dl_fixup`함수에서는 프로그램 내에서 쓰인 함수 이름의 문자열들이 저장된 **STRTAB 주소**와 GOT 주소 및 재배치 정보를 담고 있는 재배치 테이블인 **JMPREL의 주소**를 알아냈다.
+
+STRTAB내에 있는 함수이름의 주소를 넘겨주며` _dl_lookup_symbol_x`함수를 부르고, 여기서는 **라이브러리 시작 주소**와 라이브러리 함수 내에 있는 **SYMTAB의 주소**를 얻어온다.
+
+다시 _dl_fixup함수로 돌아오면, **SYMTAB 내의 실제 함수의 오프셋과 라이브러리 시작 주소를 더해 실제 함수의 주소를 알아내고 GOT에 기록**한다.
 
 ![7](http://eliez3r.synology.me/assets/img/study/system/plt and got/7.png)
 
