@@ -265,19 +265,46 @@ symbols = elf.symbols
 ```
 >>> plt = elf.plt
 >>> print plt
-{u'__gmon_start__': 1296, u'puts': 1264, u'system': 1280, u'__stack_chk_fail': 1232, u'__cxa_finalize': 1248, u'__libc_start_main': 1312, u'gets': 1216}
+{u'__gmon_start__': 1296, u'puts': 1264, u'system': 1280, u'__stack_chk_fail': 1232, 
+u'__cxa_finalize': 1248, u'__libc_start_main': 1312, u'gets': 1216}
 ```
 
 ```
 >>> got = elf.got
 >>> print got
-{u'__gmon_start__': 8212, u'puts': 8204, u'_Jv_RegisterClasses': 8176, u'system': 8208, u'__stack_chk_fail': 8196, u'__cxa_finalize': 8200, u'__libc_start_main': 8216, u'gets': 8192}
+{u'__gmon_start__': 8212, u'puts': 8204, u'_Jv_RegisterClasses': 8176, 
+u'system': 8208, u'__stack_chk_fail': 8196, u'__cxa_finalize': 8200, 
+u'__libc_start_main': 8216, u'gets': 8192}
 ```
 
 ```
 >>> symbols = elf.symbols
 >>> print symbols
-{'': 8228, u'_IO_stdin_used': 1928, u'_init': 1140, u'dtor_idx.6161': 8232, u'got.__libc_start_main': 8216, u'__libc_start_main': 1312, u'__dso_handle': 8224, u'_edata': 8228, u'data_start': 8220, u'__init_array_end': 7936, u'_fini': 1896, u'got.system': 8208, u'_start': 1328, u'__FRAME_END__': 2220, u'puts': 1264, u'plt.system': 1280, u'__DTOR_END__': 7948, u'got.puts': 8204, u'system': 1280, u'__JCR_END__': 7952, u'_end': 8236, u'__do_global_ctors_aux': 1840, u'__libc_csu_init': 1712, u'got.gets': 8192, u'_Jv_RegisterClasses': 8176, u'main': 1674, u'plt.__gmon_start__': 1296, u'plt.__cxa_finalize': 1248, u'_fp_hw': 1924, u'__CTOR_LIST__': 7936, u'got._Jv_RegisterClasses': 8176, u'_DYNAMIC': 7956, u'__libc_csu_fini': 1824, u'plt.gets': 1216, u'__cxa_finalize': 1248, u'frame_dummy': 1520, u'__DTOR_LIST__': 7944, u'plt.puts': 1264, u'_GLOBAL_OFFSET_TABLE_': 8180, u'func': 1580, u'completed.6159': 8228, u'gets': 1216, u'__gmon_start__': 1296, u'__CTOR_END__': 7940, u'got.__stack_chk_fail': 8196, u'__do_global_dtors_aux': 1392, u'got.__gmon_start__': 8212, u'__stack_chk_fail': 1232, u'__init_array_start': 7936, u'got.__cxa_finalize': 8200, u'plt.__libc_start_main': 1312, u'plt.__stack_chk_fail': 1232, u'__JCR_LIST__': 7952, u'__bss_start': 8228, u'__i686.get_pc_thunk.bx': 1575, u'__data_start': 8220}
+{'': 8228, u'_IO_stdin_used': 1928, u'_init': 1140, 
+u'dtor_idx.6161': 8232, u'got.__libc_start_main': 8216, 
+u'__libc_start_main': 1312, u'__dso_handle': 8224, 
+u'_edata': 8228, u'data_start': 8220, 
+u'__init_array_end': 7936, u'_fini': 1896, 
+u'got.system': 8208, u'_start': 1328, u'__FRAME_END__': 2220, 
+u'puts': 1264, u'plt.system': 1280, u'__DTOR_END__': 7948, 
+u'got.puts': 8204, u'system': 1280, u'__JCR_END__': 7952, u'_end': 8236, u'__do_global_ctors_aux': 1840, 
+u'__libc_csu_init': 1712, u'got.gets': 8192, 
+u'_Jv_RegisterClasses': 8176, u'main': 1674, 
+u'plt.__gmon_start__': 1296, u'plt.__cxa_finalize': 1248, 
+u'_fp_hw': 1924, u'__CTOR_LIST__': 7936, 
+u'got._Jv_RegisterClasses': 8176, u'_DYNAMIC': 7956, 
+u'__libc_csu_fini': 1824, u'plt.gets': 1216, 
+u'__cxa_finalize': 1248, u'frame_dummy': 1520, 
+u'__DTOR_LIST__': 7944, u'plt.puts': 1264, 
+u'_GLOBAL_OFFSET_TABLE_': 8180, u'func': 1580, 
+u'completed.6159': 8228, u'gets': 1216, 
+u'__gmon_start__': 1296, u'__CTOR_END__': 7940, 
+u'got.__stack_chk_fail': 8196, u'__do_global_dtors_aux': 1392, 
+u'got.__gmon_start__': 8212, u'__stack_chk_fail': 1232, 
+u'__init_array_start': 7936, u'got.__cxa_finalize': 8200, 
+u'plt.__libc_start_main': 1312, u'plt.__stack_chk_fail': 1232, 
+u'__JCR_LIST__': 7952, u'__bss_start': 8228, 
+u'__i686.get_pc_thunk.bx': 1575, u'__data_start': 8220}
 ```
 
 -----
