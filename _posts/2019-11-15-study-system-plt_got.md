@@ -60,7 +60,7 @@ article_header:
 
 **Static Link 방식**은 파일 생성시 라이브러리 내용을 포함한 실행파일을 만든다. gcc옵션 중 static옵션을 적용하면 Static Link 방식으로 컴파일 된다.
 
-```shell
+```
 root@kali:~/Desktop/BoB7/study# gcc -o test test.c -static
 root@kali:~/Desktop/BoB7/study# file test
 test: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, for GNU/Linux 3.2.0, BuildID[sha1]=d28b83f000e862ee5c91bc63b07ae115ab3d17e2, not stripped
@@ -76,7 +76,7 @@ test: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linke
 
 실행파일 안에 라이브러리 코드를 포함하지 않으므로 Static Link 방식을 사용해 컴파일 했을 때에 비해 파일 크기가 훨씬 작아진다. 실행시에도 상대적으로 적은 메모리를 차지한다. 또한 라이브러리를 업데이트 할 수 있기 때문에 유연한 방법이다. 하지만 실행파일이 라이브러리에 의존하기 때문에 라이브러리가 없으면 실행 불가능하다.
 
-```sh
+```
 root@kali:~/Desktop/BoB7/study# gcc -o test test.c
 root@kali:~/Desktop/BoB7/study# file test
 test: ELF 64-bit LSB pie executable x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=6bbcd278a8fe334d5c6bb2da4b19638baa7530f4, not stripped
@@ -94,7 +94,7 @@ Dynamic Link 방식으로 프로그램이 만들어지면 함수를 호출 할 �
 
 하지만, 첫번째 호출이라면 GOT에 실제 함수의 주소가 있지 않다. 그래서 **첫 호출 시에는 Linker가 dl_resolve라는 함수를 사용해 필요한 함수의 주소를 알아오고, GOT에 그 주소를 써준 후 해당 함수를 호출한다.**
 
-```sh
+```
 root@kali:~/Desktop/BoB7/study# gdb -q ./test
 Reading symbols from ./test...(no debugging symbols found)...done.
 gdb-peda$ set disassembly-flavor intel
@@ -132,13 +132,13 @@ putchar의 함수 호출 전과 후가 다르고, 두 번째 호출부터 putcha
 
 이제 본격적으로 함수의 호출 과정을 살펴보자.
 
-```sh
+```
 => 0x8048446 <main+32>:	call   0x80482f0 <putchar@plt>
 ```
 
 putchar가 호출되어 지는데 해당 주소로 가보자.
 
-```sh
+```
 gdb-peda$ x/3i 0x080482f0
    0x80482f0 <putchar@plt>:	jmp    DWORD PTR ds:0x804a010
    0x80482f6 <putchar@plt+6>:	push   0x8
@@ -147,25 +147,25 @@ gdb-peda$ x/3i 0x080482f0
 
 puchar는 PLT를 가리키고 있다. PLT에서는 GOT을 참조한다고 했으니, 이 0x0804a010은 GOT일 것이다. 확인해보자.
 
-```sh
+```
 gdb-peda$ x/x 0x0804a010
 0x804a010 <putchar@got.plt>:	0x080482f6      // plt+6의 주소
 ```
 
 호출 관계를 정리해보면, 함수가 처음 호출되면 plt+6을 실행한다. plt+6에서는 0x8을 PUSH하고 또 0x80482d0 주소로 점프하게 된다. 여기서부터 Dynamic Linking의 시작이다.
 
-```sh
+```
 gdb-peda$ x/2i 0x080482d0
    0x80482d0:	push   DWORD PTR ds:0x804a004
    0x80482d6:	jmp    DWORD PTR ds:0x804a008
 ```
 
-```sh
+```
 gdb-peda$ x/x 0x804a004
 0x804a004:	0xf7ffd940       // link_map 구조체 포인터
 ```
 
-```sh
+```
 gdb-peda$ x/x 0x804a008
 0x804a008:	0xf7fead80
 
@@ -179,7 +179,7 @@ linke_map 구조체는 말 그대로 ld loader가 참조하는 링크 지도로,
 
 link_map구조체를 PUSH하고 점프하는 곳이 **“_dl_runtime_resolve”**라는 함수이다.
 
-```sh
+```
 gdb-peda$ pdisas 0xf7fead80
 Dump of assembler code from 0xf7fead80 to 0xf7feada0::	Dump of assembler code from 0xf7fead80 to 0xf7feada0:
    0xf7fead80:	push   eax
