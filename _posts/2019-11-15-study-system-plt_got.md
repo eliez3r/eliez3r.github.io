@@ -130,7 +130,11 @@ putchar의 함수 호출 전과 후가 다르고, 두 번째 호출부터 putcha
 
 > 칼리리눅스 최신버전에서는 gcc 컴파일시 자동으로 PIE옵션이 enable되어 있다. PIE는 코드영역 주소를 랜덤화 시키는 보호기법이다. PIE를 disable하는 방법은 gcc 이용할 때 **-no-pie** 옵션을 넣어주면 된다.
 
+```
+root@kali:~/study# gcc -m32 -no-pie test.c -o test
+```
 
+-----
 
 이제 본격적으로 함수의 호출 과정을 살펴보자.
 
