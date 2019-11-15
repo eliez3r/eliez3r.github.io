@@ -52,13 +52,13 @@ article_header:
 이렇게 라이브러리 등 필요한 **오브젝트 파일들을 연결시키는 작업을 링킹(Linking)**이라고 한다.
 이렇게 링크 과정까지 마치면 최종적인 실행파일이 생기게 된다.
 
-링크를 하는 방법에는 Static과 Dynamic 방식이 있다.
+링크(Link)를 하는 방법에는 Static 방식과 Dynamic 방식이 있다.
 
 ![Static Link방식을 통한 실행파일 생성](http://eliez3r.synology.me/assets/img/study/system/plt and got/3.png)
 
 **Static Link 방식**은 파일 생성시 라이브러리 내용을 포함한 실행파일을 만든다. gcc옵션 중 static옵션을 적용하면 Static Link 방식으로 컴파일 된다.
 
-```sh
+```shell
 root@kali:~/Desktop/BoB7/study# gcc -o test test.c -static
 root@kali:~/Desktop/BoB7/study# file test
 test: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linked, for GNU/Linux 3.2.0, BuildID[sha1]=d28b83f000e862ee5c91bc63b07ae115ab3d17e2, not stripped
