@@ -83,7 +83,7 @@ End of assembler dump.
 
 `func+29` 부분을 보면 oeverflowme 배열의 주소를 eax에 저장하는데, `overflowme` 배열의 주소는 `ebp-0x2c` 이다. (0x2c = 44)
 
-그리고 `func+40` 부분을 보면 func함수의 인자 값과 `0xcafebabe`와 비교하는데 인자 값의 주소는 `ebp+0x8` 이다.
+그리고 `func+40` 부분을 보면 func함수의 인자 값과 `0xcafebabe`와 비교하는데 이때 인자 값의 주소는 `ebp+0x8` 이다.
 
 **따라서 overflowme 배열과 key값(func함수의 인자 값)의 주소의 거리는 52byte가 된다.**
 
