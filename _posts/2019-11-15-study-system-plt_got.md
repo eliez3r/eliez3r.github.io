@@ -1,6 +1,6 @@
 ---
 title: "PLT와 GOT를 파헤쳐보자"
-tags: [plt, got]
+tags: [plt, got, static link, dynamic link, linking]
 author: eli_ez3r
 key: 20191115
 modify_date: 2019-11-15
@@ -58,7 +58,7 @@ article_header:
 
 ![Static Link방식을 통한 실행파일 생성](http://eliez3r.synology.me/assets/img/study/system/plt and got/3.png)
 
-**Static Link 방식**은 파일 생성시 라이브러리 내용을 포함한 실행파일을 만든다. gcc옵션 중 static옵션을 적용하면 Static Link 방식으로 컴파일 된다.
+**Static Link 방식**은 파일 생성시 라이브러리 내용을 포함한 실행파일을 만든다. gcc옵션 중 `static`옵션을 적용하면 Static Link 방식으로 컴파일 된다.
 
 ```
 root@kali:~/Desktop/BoB7/study# gcc -o test test.c -static
@@ -82,7 +82,7 @@ root@kali:~/Desktop/BoB7/study# file test
 test: ELF 64-bit LSB pie executable x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=6bbcd278a8fe334d5c6bb2da4b19638baa7530f4, not stripped
 ```
 
-gcc는 디폴트로 Dynamic Link방식을 사용한다.
+> gcc는 디폴트로 Dynamic Link방식을 사용한다.
 
 이제 본론으로 돌아가서 Dynamic Link방식으로 컴파일 했을 때 PLT와 GOT를 사용한다고 하였다. 그 이유에 대해서 알아보자.
 
