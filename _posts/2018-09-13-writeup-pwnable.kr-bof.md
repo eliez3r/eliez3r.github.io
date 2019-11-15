@@ -39,11 +39,11 @@ main에서 func함수를 호출하는데 인자 값으로 `0xdeadbeef`값을 전
 
 func 함수에서 key값으로 `0xdeadbeef`를 받고, 사용자로 부터 입력 값을 받아 `overflowme` 배열에 저장한다.
 
-**이때 overflowme배열은 32byte크기지만, gets함수로 입력을 받아 buffer overflow가 발생한다.**
+<u>이때 overflowme배열은 32byte크기지만, gets함수로 입력을 받아 buffer overflow가 발생한다.</u>
 
 그리고 key값이 `0xcafebabe` 인지 체크하고 맞으면 쉘을 실행한다.
 
-즉, buffer overflow를 시켜 func함수의 인자 값을 `0xcafebabe`로 변조하면 문제가 풀린다.
+**즉, buffer overflow를 시켜 func함수의 인자 값을 `0xcafebabe`로 변조하면 문제가 풀린다.**
 
 -----
 
