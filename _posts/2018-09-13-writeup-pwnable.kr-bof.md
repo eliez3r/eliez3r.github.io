@@ -52,7 +52,7 @@ func 함수에서 key값으로 `0xdeadbeef`를 받고, 사용자로 부터 입�
 이제 func함수의 인자 값이 들어가는 스택 주소와, overflowme 배열의 주소의 거리를 구해야한다.
 
 ```
-gdb-peda$ pdisas func
+gdb-peda$ disas func
 Dump of assembler code for function func:
    0x0000062c <+0>:     push   ebp
    0x0000062d <+1>:     mov    ebp,esp

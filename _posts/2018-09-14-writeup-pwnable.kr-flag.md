@@ -75,7 +75,7 @@ root@ubuntu:~/pwnable/flag# checksec un_flag
 이제 gdb로 까보자.
 
 ```
-gdb-peda$ pdisas main
+gdb-peda$ disas main
 Dump of assembler code for function main:
    0x0000000000401164 <+0>:     push   rbp
    0x0000000000401165 <+1>:     mov    rbp,rsp
