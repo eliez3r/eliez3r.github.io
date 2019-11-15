@@ -169,6 +169,10 @@ main함수에서  welcome함수를 호출하고 곧바로 login함수를 호출�
 
 프로그램이 스택 메모리를 사용하는 원리를 알고 있다면, welcome함수 이후 login함수를 호출할 때 welcome함수에서 사용한 스택영역을 다시 사용해 login함수에서 사용하고 남은 쓰레기 값들이 있다는 것을 알것이다.
 
+-----
+
+두 함수가 각각 호출될 때 ebp를 확인해 봤다.
+
 ```
 Breakpoint 1, 0x0804860c in welcome ()
 gdb-peda$ x/wx $ebp
@@ -195,6 +199,8 @@ welcome함수에서 name배열에 100byte를 입력 받을 때 마지막 4byte�
 
 > 여기에서 2번째 삽질과 많은 고민이 있었다.
 
+-----
+
 결론적으로 passcode1의 scanf함수가 호출되고 바로 다음의 fflush함수가 호출되는 점을 이용하였다.
 
 ```c
@@ -213,7 +219,11 @@ void login(){
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/pwnable.kr/passcode/02.png" width="600px">
 
-fflush의 got주소를 프로그램 내의 flag를 출력하는 코드 주소로 변경하면 fflush가 실행될 때 flag를 호출하지 않을까 하는 생각에 진행하였다.
+fflush의 got주소를 프로그램 내의 flag를 출력하는 system 코드 주소로 변경하면 fflush가 실행될 때 system함수를 호출하여 flag를 출력하지 않을까 하는 생각에 진행하였다. (아래 코드 부분)
+
+```c
+system("/bin/cat flag");
+```
 
 -----
 
