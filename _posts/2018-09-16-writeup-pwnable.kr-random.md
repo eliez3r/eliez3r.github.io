@@ -10,7 +10,7 @@ article_header:
     src: /assets/img/write-up/pwnable_kr.png
 ---
 
------
+
 
 ```c
 #include <stdio.h>
@@ -32,6 +32,8 @@ int main(){
         return 0;
 }
 ```
+
+-----
 
 ### 0x00. Analysis
 
