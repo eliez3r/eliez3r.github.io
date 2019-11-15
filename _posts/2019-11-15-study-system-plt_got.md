@@ -86,11 +86,13 @@ test: ELF 64-bit LSB pie executable x86-64, version 1 (SYSV), dynamically linked
 
 이제 본론으로 돌아가서 Dynamic Link방식으로 컴파일 했을 때 PLT와 GOT를 사용한다고 하였다. 그 이유에 대해서 알아보자.
 
+-----
+
 Static Link 방식으로 컴파일 하면 라이브러리가 프로그램 내부에 있기 때문에 함수의 주소를 알아오는 과정이 필요 없지만, **Dynamic Link 방식으로 컴파일 하면 라이브러리가 프로그램 외부에 존재하기 때문에 함수의 주소를 알아오는 과정이 필요하다.**
 
 ![PLT와 GOT의 호출관계](http://eliez3r.synology.me/assets/img/study/system/plt and got/5.png)
 
-Dynamic Link 방식으로 프로그램이 만들어지면 함수를 호출 할 때 PLT를 참조하게 된다. PLT에서는 GOT로 점프를 하는데, GOT에 라이브러리에 존재하는 실제 함수의 주소가 쓰여있어서 함수를 호출하게 된다.
+Dynamic Link 방식으로 프로그램이 만들어지면 함수를 호출 할 때 **PLT**를 참조하게 된다. PLT에서는 **GOT로 점프**를 하는데, **GOT에 라이브러리에 존재하는 실제 함수의 주소가 쓰여있어서 함수를 호출**하게 된다.
 
 하지만, 첫번째 호출이라면 GOT에 실제 함수의 주소가 있지 않다. 그래서 **첫 호출 시에는 Linker가 dl_resolve라는 함수를 사용해 필요한 함수의 주소를 알아오고, GOT에 그 주소를 써준 후 해당 함수를 호출한다.**
 
