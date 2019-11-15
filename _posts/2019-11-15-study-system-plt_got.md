@@ -54,11 +54,11 @@ article_header:
 
 링크(Link)를 하는 방법에는 Static 방식과 Dynamic 방식이 있다.
 
-![Static Link방식을 통한 실행파일 생성](http://eliez3r.synology.me/assets/img/study/system/plt and got/3.png)
-
 -----
 
-Static Link 방식**은 파일 생성시 라이브러리 내용을 포함한 실행파일을 만든다. gcc옵션 중 static옵션을 적용하면 Static Link 방식으로 컴파일 된다.
+![Static Link방식을 통한 실행파일 생성](http://eliez3r.synology.me/assets/img/study/system/plt and got/3.png)
+
+**Static Link 방식**은 파일 생성시 라이브러리 내용을 포함한 실행파일을 만든다. gcc옵션 중 static옵션을 적용하면 Static Link 방식으로 컴파일 된다.
 
 ```shell
 root@kali:~/Desktop/BoB7/study# gcc -o test test.c -static
@@ -68,11 +68,11 @@ test: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linke
 
 실행 파일 안에 모든 코드가 포함되기 때문에 라이브러리 연동 과정이 따로 필요없고, 한번 생성한 파일에 대해서 필요한 라이브러리를 따로 관리하지 않아도 되기 때문에 편하다는 장점이 있다. 하지만 파일 크기가 커지는 단점이 있고 동일한 라이브러리를 사용하더라도 해당 라이브러리를 사용하는 모든 프로그램들은 라이브러리의 내용을 메모리에 맵핑시켜야 한다.
 
-![dynamic linking](http://eliez3r.synology.me/assets/img/study/system/plt and got/4.png)
-
 -----
 
-Dynamic Link 방식**은 공유 라이브러리를 사용한다. 라이브러리를 하나의 메모리 공간에 맵핑하고 여러 프로그램에서 공유하여 사용하게 된다.
+![dynamic linking](http://eliez3r.synology.me/assets/img/study/system/plt and got/4.png)
+
+**Dynamic Link 방식**은 공유 라이브러리를 사용한다. 라이브러리를 하나의 메모리 공간에 맵핑하고 여러 프로그램에서 공유하여 사용하게 된다.
 
 실행파일 안에 라이브러리 코드를 포함하지 않으므로 Static Link 방식을 사용해 컴파일 했을 때에 비해 파일 크기가 훨씬 작아진다. 실행시에도 상대적으로 적은 메모리를 차지한다. 또한 라이브러리를 업데이트 할 수 있기 때문에 유연한 방법이다. 하지만 실행파일이 라이브러리에 의존하기 때문에 라이브러리가 없으면 실행 불가능하다.
 
