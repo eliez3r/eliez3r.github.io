@@ -81,6 +81,8 @@ scanf("%d", &passcode1);
 
 scanf함수는 2번째 인자로 주소를 넘겨주어야 한다.
 
+-----
+
 따라서 변수  passcode1이 가리키고 있는 주소를 알아야 한다.
 
 ```
@@ -116,7 +118,9 @@ gdb-peda$ x/wx 0xffffd554
 
 `10`을 입력하여 `0xffffd554`에 저장되는 것을 알 수 있다.
 
-그런데 여기서 passcode1은 정의 시 초기화 되지 않았으며, 운 좋게 쓰레기 값으로 `0xffffd554`라는 값이 들어 있었으며 이 공간은 스택 공간으로 쓰기가 가능했다.
+그런데 여기서 passcode1은 정의 시 초기화 되지 않았으며, 운 좋게 **쓰레기 값**으로 `0xffffd554`라는 값이 들어 있었으며 이 공간은 스택 공간으로 쓰기가 가능했다.
+
+-----
 
 passcode2로 똑같이 살펴보면,
 
@@ -153,6 +157,8 @@ Program received signal SIGSEGV, Segmentation fault.
 
 역시나 `Segmentation fault.`가 출력 된다.
 
+-----
+
 그러면 우리는 초기화 되지 않는 passcode1 변수와 passcode2 변수를 덮어 씌워야 한다.
 
 > 이 부분에서 많은 고민과 삽질이 있었다.
@@ -161,7 +167,7 @@ Program received signal SIGSEGV, Segmentation fault.
 
 main함수에서  welcome함수를 호출하고 곧바로 login함수를 호출한다.
 
-프로그램이 스택 메모리를 사용하는 원리를 알고 있다면, welcome함수 이후 login함수를 호출할 때 welcome함수에서 사용하고 남은 쓰레기 값들에 접근 할 수 있다는 것을 알 것이다.
+프로그램이 스택 메모리를 사용하는 원리를 알고 있다면, welcome함수 이후 login함수를 호출할 때 welcome함수에서 사용한 스택영역을 다시 사용해 login함수에서 사용하고 남은 쓰레기 값들이 있다는 것을 알것이다.
 
 ```
 Breakpoint 1, 0x0804860c in welcome ()
