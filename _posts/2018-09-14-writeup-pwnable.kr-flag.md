@@ -96,7 +96,7 @@ Dump of assembler code for function main:
 End of assembler dump.
 ```
 
-`main+8` 부분(`mov edi,0x496658`)에 `0x496658` 주소를 `edi`에 넣고 puts를 실행하는데 아마 `0x496658`에는 아까 출력되었던 `I will malloc() and strcpy the flag there. take it.` 문자열이 들어있을 것이다. (확인사살)
+`main+8(mov edi,0x496658)` 부분에 `0x496658` 주소를 `edi`에 넣고 puts를 실행하는데 아마 `0x496658`에는 아까 출력되었던 "I will malloc() and strcpy the flag there. take it." 문자열이 들어있을 것이다. (확인사살)
 
 ```
 gdb-peda$ x/s 0x496658
@@ -107,7 +107,7 @@ gdb-peda$ x/s 0x496658
 
 마지막으로 호출되는 `0x400320`은 정황상 strcpy일것이라고 추축하고 그 앞을 보면, `rsi`에서 `rdi`로 복사가 이뤄지는데, `rdi`는 malloc한 주소 값이 들어가고,`rsi`에는 `rip+0x2c0ee5` 가 복사된다. 이 부분이 flag일 가능성이 크다.
 
-따라서 `rdx`에 복사되는 `main+32` 부분( `mov rdx,QWORD PTR [rip+0x2c0ee5]`)을 실행하고 나서 `rdx`를 살펴보면 flag가 있을 것이다.
+따라서 `rdx`에 복사되는 `main+32(mov rdx,QWORD PTR [rip+0x2c0ee5])` 부분을 실행하고 나서 `rdx`를 살펴보면 flag가 있을 것이다.
 
 ```
 [-------------------------------------code-------------------------------------]
