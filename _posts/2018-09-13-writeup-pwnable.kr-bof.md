@@ -8,7 +8,22 @@ article_header:
   type: cover
   image:
     src: /assets/img/write-up/pwnable_kr.png
+
 ---
+
+-----
+
+```
+Nana told me that buffer overflow is one of the most common software vulnerability. 
+Is that true?
+
+Download : http://pwnable.kr/bin/bof
+Download : http://pwnable.kr/bin/bof.c
+
+Running at : nc pwnable.kr 9000
+```
+
+-----
 
 ## keyword : Stack Canary
 

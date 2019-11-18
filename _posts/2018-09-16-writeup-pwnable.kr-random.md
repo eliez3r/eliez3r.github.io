@@ -10,7 +10,13 @@ article_header:
     src: /assets/img/write-up/pwnable_kr.png
 ---
 
+```
+Daddy, teach me how to use random value in programming!
 
+ssh random@pwnable.kr -p2222 (pw:guest)
+```
+
+-----
 
 ```c
 #include <stdio.h>
