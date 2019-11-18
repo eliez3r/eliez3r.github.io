@@ -70,6 +70,8 @@ title: "About"
 
 : **AK S&D**, Web/App Penetration testing
 
+: **KOREA PRESS FOUNDATION**, Web Penetration testing
+
 ------
 
 
