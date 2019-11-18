@@ -7,7 +7,7 @@ modify_date: 2019-11-14
 article_header:
   type: cover
   image:
-    src: /assets/img/study/arm/arm_logo.png
+    src: /assets/img/arm_logo.png
 ---
 
 -----
