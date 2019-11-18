@@ -7,7 +7,7 @@ modify_date: 2019-11-13
 article_header:
   type: cover
   image:
-    src: 
+    src: /assets/img/hackerschool_logo.png
 ---
 [Simple BoF](#){:.button.button--outline-success.button--pill}
 

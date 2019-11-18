@@ -7,7 +7,7 @@ modify_date: 2019-10-07
 article_header:
   type: cover
   image:
-    src: 
+    src: /assets/img/hackerschool_logo.png
 ---
 
 [+ EggHunter](#){:.button.button--outline-success.button--pill}

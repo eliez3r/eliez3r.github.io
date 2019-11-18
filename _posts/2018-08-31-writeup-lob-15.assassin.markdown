@@ -7,7 +7,7 @@ modify_date: 2018-08-31
 article_header:
   type: cover
   image:
-    src: 
+    src: /assets/img/hackerschool_logo.png
 ---
 
 [No Stack, No RTL](#){:.button.button--outline-success.button--pill}
