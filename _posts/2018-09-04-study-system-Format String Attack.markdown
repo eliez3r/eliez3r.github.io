@@ -10,6 +10,18 @@ article_header:
     src: 
 ---
 
+-----
+
+2000년도 후반에 해커들 사이에 큰 반향을 일으키 보고서 하나가 발표되었다.
+**Format String Attack**
+Format String Attack이란 무엇인가? 이것은 기존에 가장 널리 사용되고 있던 Buffer Overflow 공격 기법에 견줄 만한 강력한 해킹 기법이었다. 이 해킹 기법이 발표되고 나서 그 동안 별 문제 없어 보였던 각종 프로그램들에 대한 취약점이 속속 발표되고 해당 프로그램을 제작했던 회사들은 이 취약점을 해결하기 위해 분주해지기 시작했다.
+
+그렇다면 Format String Attack은 어떤 방식으로 이루어지는 것인가? 이것을 이해하기 위해서는 먼저 Format String이 무엇인지를 이해해야 하고, 일반 C프로그램에서 이러한 Format String이 어떻게 처리되는 지를 이해해야 한다. 
+
+기존의 Buffer Overflow 공격 기법보다 그 난이도가 매우 높기는 하지만 이미 많은 취약점이 발견되고 exploit code가 발표되고 있다.
+
+-----
+
 ## 0x01. Format String
 
  다음은 일반 C프로그램에서 흔히 찾아볼 수 있는 printf함수이다.
