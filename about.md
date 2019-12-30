@@ -73,6 +73,8 @@ modify_date: 2019-11-18
 
 : **KOREA PRESS FOUNDATION**, Web Penetration testing
 
+: **GIFTIEL, DAEHONG Communications INC**, Web Penetration testing
+
 ------
 
 
