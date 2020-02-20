@@ -73,7 +73,13 @@ modify_date: 2019-11-18
 
 : **KOREA PRESS FOUNDATION**, Web Penetration testing
 
-: **GIFTIEL, DAEHONG Communications Inc.**, Web Penetration testing
+: **GIFTIEL, DAEHONG Communications Inc**, Web Penetration testing
+
+:**NEXRICHFUNDING Corp**, Web Source code diagnostic
+
+:**Respect Small Money**, Web Source code diagnostic
+
+:**Brickst-ream**, App Source code diagnostic
 
 ------
 
