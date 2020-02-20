@@ -41,6 +41,8 @@ modify_date: 2019-11-18
 
 **BoB 7th Vulnerability Analysis Track,** at Kitri (2018.07 ~ 2019.02)
 
+**LIME Security Inc** (19.03 ~)
+
 
 
 ------
