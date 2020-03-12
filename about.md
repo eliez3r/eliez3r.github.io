@@ -20,7 +20,6 @@ modify_date: 2019-11-18
 </div>
 
 
-
 -----
 
 
@@ -82,6 +81,10 @@ modify_date: 2019-11-18
 : **Respect Small Money**, Web Source code diagnostic
 
 : **Brickst-ream**, App Source code diagnostic
+
+: **BUSAN BANK**, Web/App Penetration testing (Universal Windows Platform)
+
+: **LinkAll**, App Source code diagnostic
 
 ------
 
