@@ -63,9 +63,9 @@ GEM
     mercenary (0.3.6)
     mini_portile2 (2.4.0)
     multi_json (1.14.1)
-    nokogiri (1.10.4)
+    nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.4-x64-mingw32)
+    nokogiri (1.10.9-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
@@ -84,7 +84,6 @@ GEM
       concurrent-ruby (~> 1.0)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
-    wdm (0.1.1)
 
 PLATFORMS
   ruby
@@ -93,7 +92,6 @@ PLATFORMS
 DEPENDENCIES
   jekyll-text-theme
   tzinfo-data
-  wdm (~> 0.1.0)
 
 BUNDLED WITH
    1.17.2
