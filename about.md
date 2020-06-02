@@ -88,6 +88,10 @@ modify_date: 2019-11-18
 
 : **Tmoney**, Web/App Penetration testing
 
+: **Genie Music**, PC Player Penetration testing
+
+: **GAMEVIL**, App Penetration testing
+
 ------
 
 
