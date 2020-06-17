@@ -92,7 +92,7 @@ modify_date: 2019-11-18
 
 : **GAMEVIL**, App Penetration testing
 
-: **idus,backpac**, Malicious mail training
+: **idus,backpackr**, Malicious mail training
 
 ------
 
