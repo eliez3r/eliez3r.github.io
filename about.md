@@ -92,6 +92,8 @@ modify_date: 2019-11-18
 
 : **GAMEVIL**, App Penetration testing
 
+: **Marineworks**, Smartship Managerment System Penetration testing
+
 : **Idus,Backpackr**, Malicious mail training
 
 ------
