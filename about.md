@@ -96,6 +96,10 @@ modify_date: 2019-11-18
 
 : **Idus,Backpackr**, Malicious mail training
 
+: **EBS**, Malicious mail training
+
+: **Hancom Inc**, Web/App Penetration testing, Malicious mail training
+
 ------
 
 
