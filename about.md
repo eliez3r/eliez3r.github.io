@@ -100,6 +100,8 @@ modify_date: 2019-11-18
 
 : **Hancom Inc**, Web/App Penetration testing, Malicious mail training
 
+: **Koscom Corp**, WTS/MTS/HTS Penetration testing
+
 ------
 
 
