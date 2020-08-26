@@ -10,7 +10,7 @@ modify_date: 2019-11-18
 
 <div class="item">
   <div class="item__image">
-    <img class="image image--sm" src="/assets/img/me.jpeg"/>
+    <img class="image image--sm" src="/assets/me.png"/>
   </div>
   <div class="item__content">
     <div class="item__header">
