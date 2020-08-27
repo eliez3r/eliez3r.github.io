@@ -14,7 +14,7 @@ modify_date: 2019-11-18
   </div>
   <div class="item__content">
     <div class="item__header">
-      <h3>eli_ez3r (Kim Hak Jin)</h3><br>
+      <h3>eli_ez3r (Kim Hak Jin)</h3>
         <h4>Contect</h4>
       <i class="fas fa-envelope"></i> Mail : <a href="mailto:0.0eli.ez3r@gmail.com" target=_blank>0.0eli.ez3r@gmail.com</a><br>
       <i class="fas fa-comments"></i> Open KaKaoTalk : <a href="https://open.kakao.com/o/sVU369mb" target=_blank>eli_ez3r 오픈카톡</a><br>
