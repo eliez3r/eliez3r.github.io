@@ -19,12 +19,9 @@ modify_date: 2019-11-18
       <i class="fas fa-envelope"></i> Mail : <a href="mailto:0.0eli.ez3r@gmail.com">0.0eli.ez3r@gmail.com</a>
       <i class="fas fa-comments"></i> Open KaKaoTalk : <a href="https://open.kakao.com/o/sVU369mb">eli_ez3r 오픈카톡</a>
       <i class="fab fa-instagram"></i> Instagram : <a href="https://www.instagram.com/eli_ez3r">@eli_ez3r</a>
-
+      </div>
     </div>
-  </div>
 </div>
-
-
 
 -----
 
