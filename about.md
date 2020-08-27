@@ -14,8 +14,8 @@ modify_date: 2019-11-18
   </div>
   <div class="item__content">
     <div class="item__header">
-      <h3>eli_ez3r (Kim Hak Jin)</h3>
-      <h4><i class="fas fa-envelope"></i> Mail : <a href="mailto:0.0eli.ez3r@gmail.com">0.0eli.ez3r@gmail.com</a></h4>
+      <h3>eli_ez3r (Kim Hak Jin)</h3><br>
+      <i class="fas fa-envelope"></i> Mail : <a href="mailto:0.0eli.ez3r@gmail.com">0.0eli.ez3r@gmail.com</a>
     </div>
   </div>
 </div>
