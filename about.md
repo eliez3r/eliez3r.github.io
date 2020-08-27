@@ -16,9 +16,9 @@ modify_date: 2019-11-18
     <div class="item__header">
       <h3>eli_ez3r (Kim Hak Jin)</h3>
       <br>
-      <i class="fas fa-envelope"></i> Mail : <a href="mailto:0.0eli.ez3r@gmail.com">0.0eli.ez3r@gmail.com</a><br>
-      <i class="fas fa-comments"></i> Open KaKaoTalk : <a href="https://open.kakao.com/o/sVU369mb">eli_ez3r 오픈카톡</a><br>
-      <i class="fab fa-instagram"></i> Instagram : <a href="https://www.instagram.com/eli_ez3r">@eli_ez3r</a><br>
+      <i class="fas fa-envelope"></i> Mail : <a href="mailto:0.0eli.ez3r@gmail.com" target=_blank>0.0eli.ez3r@gmail.com</a><br>
+      <i class="fas fa-comments"></i> Open KaKaoTalk : <a href="https://open.kakao.com/o/sVU369mb" target=_blank>eli_ez3r 오픈카톡</a><br>
+      <i class="fab fa-instagram"></i> Instagram : <a href="https://www.instagram.com/eli_ez3r" target=_blank>@eli_ez3r</a><br>
       </div>
     </div>
 </div>
