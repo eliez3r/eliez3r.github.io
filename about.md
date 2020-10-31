@@ -95,6 +95,8 @@ modify_date: 2019-11-18
 
 : **Koscom Corp**, WTS/MTS/HTS Penetration testing
 
+: **NHN KCP Corp**, Web/App Penetration testing
+
 ------
 
 
