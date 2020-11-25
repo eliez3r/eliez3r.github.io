@@ -97,6 +97,10 @@ modify_date: 2019-11-18
 
 : **NHN KCP Corp**, Web/App Penetration testing
 
+: **LOTTE INSURANCE CO**, Web/App/HTS Penetration testing
+
+: **한국마사회**, Web Penetration testing
+
 ------
 
 
