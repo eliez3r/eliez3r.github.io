@@ -99,7 +99,7 @@ modify_date: 2019-11-18
 
 : **LOTTE INSURANCE CO**, Web/App/HTS Penetration testing
 
-: **한국마사회**, Web Penetration testing
+: **한국마사회 LetsRun**, Web Penetration testing
 
 ------
 
