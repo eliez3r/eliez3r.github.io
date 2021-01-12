@@ -101,6 +101,10 @@ modify_date: 2019-11-18
 
 : **한국마사회 LetsRun**, Web Penetration testing
 
+: **PLAYWITH Inc**, Web Penetration testing
+
+: **Olive Healthcare Inc**, App Penetration testing
+
 ------
 
 
