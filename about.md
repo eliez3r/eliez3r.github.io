@@ -105,6 +105,10 @@ modify_date: 2019-11-18
 
 : **Olive Healthcare Inc**, App Penetration testing
 
+: **SK Inforsec_SOMPO**,  Web Penetration testing
+
+: **SAMSUNG**,  Cloud System, Web Penetration testing
+
 ------
 
 
