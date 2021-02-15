@@ -10,7 +10,7 @@ modify_date: 2019-11-18
 
 <div class="item">
   <div class="item__image">
-    <img class="image image--sm" src="/assets/me.png"/>
+    <img class="image image--sm" src="https://eliez3r.synology.me:9103/assets/logo/me.jpeg"/>
   </div>
   <div class="item__content">
     <div class="item__header">
@@ -22,6 +22,7 @@ modify_date: 2019-11-18
       </div>
     </div>
 </div>
+
 
 -----
 
