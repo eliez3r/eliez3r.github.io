@@ -106,9 +106,15 @@ modify_date: 2019-11-18
 
 : **Olive Healthcare Inc**, App Penetration testing
 
-: **SK Inforsec_SOMPO**,  Web Penetration testing
+: **SK Infosec_SOMPO**,  Web Penetration testing
 
-: **SAMSUNG**,  Cloud System, Web Penetration testing
+: **SAMSUNG_Joyent**,  Cloud System, Web Penetration testing
+
+: **Humanscape**,  Web/App API Penetration testing
+
+: **BIGHIT**,  Web/App Penetration testing
+
+: **OPEN CYBER UNIVERSITY OF KOREA**,  Web Penetration testing
 
 ------
 
