@@ -116,6 +116,8 @@ modify_date: 2019-11-18
 
 : **OPEN CYBER UNIVERSITY OF KOREA**,  Web Penetration testing
 
+: **FLEX Corp**,  Web Penetration testing
+
 ------
 
 
