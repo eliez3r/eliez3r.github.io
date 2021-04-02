@@ -118,6 +118,8 @@ modify_date: 2019-11-18
 
 : **FLEX Corp**,  Web Penetration testing
 
+: **Daekyo CNS**,  Web Penetration testing
+
 ------
 
 
