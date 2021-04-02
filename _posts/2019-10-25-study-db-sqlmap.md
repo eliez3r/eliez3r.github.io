@@ -169,7 +169,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1"
 
  ![img](http://eliez3r.synology.me/assets/img/study/db/sqlmap/3.png){:.border.rounded}  
 
-기본적임 점검에서 id변수가 취약하며, OS정보와 Web Application정보, DBMS정보등을 알아오는 것을 알 수 있다.
+기본적인 점검에서 id변수가 취약하며, OS정보와 Web Application정보, DBMS정보등을 알아오는 것을 알 수 있다.
 
 > 일반적인 웹 취약점 분석에서는 SQL Injection 취약점 분석을 여기서 중단하여도 무방하다. 하지만, 관리자 페이지 내에 존재하는 취약점 점검 등이 필요한 경우에는 계정정보를 알아내기 위해서 추가적인 DB조회를 계속 진행할 수도 있을 것이다.
 
