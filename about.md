@@ -24,6 +24,7 @@ modify_date: 2021-07-19
 </div>
 
 
+
 -----
 
 
@@ -126,7 +127,7 @@ modify_date: 2021-07-19
 
 : **포스코건설(POSCO E&C)**,  IoT System, CCTV, Web/App Scenario Penetration testing
 
-: **현대자동차(HYUNDAI)**,  Web/App Scenario Penetration testing
+: **현대자동차(HYUNDAI)**,  Web/App Penetration testing
 
 
 
