@@ -10,7 +10,7 @@ modify_date: 2021-07-19
 
 <div class="item">
   <div class="item__image">
-    <img class="image image--sm" src="https://eliez3r.synology.me/assets/logo/me.jpeg"/>
+    <img class="image image--sm" src="https://eliez3r.synology.me/assets/profile/me_2021.jpeg"/>
   </div>
   <div class="item__content">
     <div class="item__header">
