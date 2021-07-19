@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "About"
-modify_date: 2019-11-18
+modify_date: 2021-07-19
 ---
 
 
@@ -48,77 +48,87 @@ modify_date: 2019-11-18
 
 **LIME Security Inc.** (19.03 ~)
 
-: **KIWOOM SECURITIES**, Penetration testing
+: **키움증권(KIWOOM Securities)**, Penetration testing
 
 : **EBS**, Malicious mail training
 
-: **NHN PAYCO**, Mobile App Penetration testing
+: **페이코(NHN PAYCO)**, Mobile App Penetration testing
 
-: **OKCoin Korea**, Web Penetration testing
+: **오케이코인(OKCoin Korea)**, Web Penetration testing
 
-: **NHN Doctortour**, Web/App Penetration testing
+: **닥터투어(NHN Doctortour)**, Web/App Penetration testing
 
-: **Korea University**, C/S Penetration testing
+: **고려대학교(Korea University)**, C/S Penetration testing
 
-: **KOREA INVESTMENT SAVINGS BANK**, Web Penetration testing
+: **한국투자저축은행(KOREA Investment Saving Bank)**, Web Penetration testing
 
-: **LOTTEWORLD**, Web/App Penetration testing
+: **롯데월드(LOTTEWORLD)**, Web/App Penetration testing
 
 : **AK S&D**, Web/App Penetration testing
 
-: **KOREA PRESS FOUNDATION**, Web Penetration testing
+: **한국언론재단(KOREA Press Foundation)**, Web Penetration testing
 
-: **GIFTIEL, DAEHONG Communications Inc**, Web Penetration testing
+: **대홍 기프티엘(GIFTIEL, DAEHONG Communications Inc)**, Web Penetration testing
 
-: **NEXRICHFUNDING Corp**, Web Source code diagnostic
+: **넥스리치(NEXRICHFUNDING Corp)**, Web Source code diagnostic
 
-: **Respect Small Money**, Web Source code diagnostic
+: **리스펙(Respect Small Money)**, Web Source code diagnostic
 
 : **Brickst-ream**, App Source code diagnostic
 
-: **BUSAN BANK**, Web/App Penetration testing (Universal Windows Platform)
+: **부산은행(BUSAN Bank)**, Web/App Penetration testing (Universal Windows Platform)
 
 : **LinkAll**, App Source code diagnostic
 
-: **Tmoney**, Web/App Penetration testing
+: **티머니(Tmoney)**, Web/App Penetration testing
 
-: **Genie Music**, PC Player Penetration testing
+: **지니뮤직(Genie Music)**, PC Player Penetration testing
 
-: **GAMEVIL**, App Penetration testing
+: **게임빌(GAMEVIL)**, App Penetration testing
 
-: **Marineworks**, Smartship Managerment System Penetration testing
+: **마린웍스(Marineworks)**, Smartship Managerment System Penetration testing
 
-: **Idus,Backpackr**, Malicious mail training
+: **백패커(Idus, Backpackr)**, Malicious mail training
 
 : **EBS**, Malicious mail training
 
-: **Hancom Inc**, Web/App Penetration testing, Malicious mail training
+: **한컴(Hancom Inc)**, Web/App Penetration testing, Malicious mail training
 
-: **Koscom Corp**, WTS/MTS/HTS Penetration testing
+: **코스콤(Koscom Corp)**, WTS/MTS/HTS Penetration testing
 
 : **NHN KCP Corp**, Web/App Penetration testing
 
-: **LOTTE INSURANCE CO**, Web/App/HTS Penetration testing
+: **롯데손해보험(LOTTE Insurance CO)**, Web/App/HTS Penetration testing
 
 : **한국마사회 LetsRun**, Web Penetration testing
 
-: **PLAYWITH Inc**, Web Penetration testing
+: **플레이위드(PLAYWITH Inc)**, Web Penetration testing
 
-: **Olive Healthcare Inc**, App Penetration testing
+: **올리브 헬스케어(Olive Healthcare Inc)**, App Penetration testing
 
-: **SK Infosec_SOMPO**,  Web Penetration testing
+: **솜포(SK Infosec_SOMPO)**,  Web Penetration testing
 
 : **SAMSUNG_Joyent**,  Cloud System, Web Penetration testing
 
-: **Humanscape**,  Web/App API Penetration testing
+: **휴먼스케이프(Humanscape)**,  Web/App API Penetration testing
 
-: **BIGHIT**,  Web/App Penetration testing
+: **빅히트(BIGHIT)**,  Web/App Penetration testing
 
-: **OPEN CYBER UNIVERSITY OF KOREA**,  Web Penetration testing
+: **한국열린사이버대학교(OPEN CYBER UNIVERSITY OF KOREA)**,  Web Penetration testing
 
 : **FLEX Corp**,  Web Penetration testing
 
-: **Daekyo CNS**,  Web Penetration testing
+: **대교CNS(Daekyo CNS)**,  Web Penetration testing
+
+: **한국공항공사(Korea Airport Corporation)**,  Scenario Penetration testing
+
+: **한국신용정보원(Korea Credit Information Services)**,  Web Penetration testing
+
+: **포스코건설(POSCO E&C)**,  IoT System, CCTV, Web/App Scenario Penetration testing
+
+: **현대자동차(HYUNDAI)**,  Web/App Scenario Penetration testing
+
+
 
 ------
 
