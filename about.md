@@ -101,7 +101,7 @@ modify_date: 2021-07-19
 
 : **롯데손해보험(LOTTE Insurance CO)**, Web/App/HTS Penetration testing
 
-: **한국마사회 LetsRun**, Web Penetration testing
+: **한국마사회 Let'sRun**, Web Penetration testing
 
 : **플레이위드(PLAYWITH Inc)**, Web Penetration testing
 
@@ -128,6 +128,8 @@ modify_date: 2021-07-19
 : **포스코건설(POSCO E&C)**,  IoT System, CCTV, Web/App Scenario Penetration testing
 
 : **현대자동차(HYUNDAI)**,  Web/App Penetration testing
+
+: **한국마사회 Let's Run**,  VPN Service Scenario Penetration testing
 
 
 
