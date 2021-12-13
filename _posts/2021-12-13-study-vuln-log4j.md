@@ -109,7 +109,7 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 
 
 
-## 점검 방법
+## 점검 방법(1)
 
 [참고 사이트](https://github.com/logpresso/CVE-2021-44228-Scanner)에서 서버 운영체제에 맞게 파일을 다운받는다.
 
@@ -158,6 +158,18 @@ Completed in 0.42 seconds
 
 
 
+## 점검 방법(2)
+
+[Log4j2 BurpSuite 수동 스캐닝 플러그인](https://github.com/whwlsfb/Log4j2Scan)
+
+
+
+
+
+
+
+
+
 ## 해결방법
 
 1. JDNI 취약점이 해결된 버전으로 패치한다
@@ -166,6 +178,8 @@ Completed in 0.42 seconds
 3. 2.10 ~ 2.14.1
    - log4j2.formatMsgNoLookups 또는 LOG4J_FORMAT_MSG_NO_LOOKUPS 환경변수를 true로 설정
 4. [제조사 홈페이지](https://logging.apache.org/log4j/2.x/download.html)를 통해 최신버전(2.15.0)으로 업데이트 적용
+
+
 
 
 
