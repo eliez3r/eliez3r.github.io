@@ -1,5 +1,5 @@
 ---
-title: "[Log4SHell] Log4j 보안 취약점"
+title: "[Log4Shell] Log4j 보안 취약점"
 tags: [보안뉴스, log4j, log4shell]
 author: eli_ez3r
 key: 20211213
