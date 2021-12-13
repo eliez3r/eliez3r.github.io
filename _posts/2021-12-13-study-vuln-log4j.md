@@ -37,7 +37,7 @@ Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸�
 
 ## Log4j 취약점
 
-현재 문제가 있는 log4j 라이브러리는 **log4j-core-<version>jar**이며, Log4j가 넘겨받은 변수를 그대로 로깅하는 것이 아니라 해당 변수를 분석해 할 수 있는 경우 실행하는 **Lookups** 기능에서 발견되었다.
+현재 문제가 있는 log4j 라이브러리는 `log4j-core-<version>jar`이며, Log4j가 넘겨받은 변수를 그대로 로깅하는 것이 아니라 해당 변수를 분석해 할 수 있는 경우 실행하는 `Lookups` 기능에서 발견되었다.
 
 예를들어, `log.info("Debug: {}", str)`에서 **str**이 **${env:USER}**라면 **USER**가 누군지 찾아서, `Debug: eli_ez3r`라고 문구를 완성하고 해당 문구를 출력하는 경우이다.
 
