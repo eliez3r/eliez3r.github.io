@@ -13,7 +13,7 @@ article_header:
 
 ![Log4j Logo](/assets/img/Apache-Log4j-Logo.jpg)
 
------
+
 
 2021년 12월 10일  Log4j보안 취약점에 대한 긴급패치가 발표되었다.
 
