@@ -135,7 +135,7 @@ java -jar logpresso-log4j2-scan-1.2.0.jar [--fix] target_path
 
 
 
-Example (Windows)
+- Example (Windows)
 
 ```
 CMD> log4j2-scan.exe D:\tmp
