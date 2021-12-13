@@ -7,7 +7,7 @@ modify_date: 2021-12-13
 article_header:
   type: cover
   image:
-    src: /assets/img/manual/Apache-Log4j-Logo.jpg
+    src: /assets/img/Apache-Log4j-Logo.jpg
 ---
 -----
 
