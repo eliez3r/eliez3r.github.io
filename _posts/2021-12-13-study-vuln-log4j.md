@@ -1,5 +1,5 @@
 ---
-title: "Log4j 보안 취약점 "
+title: "[Log4SHell] Log4j 보안 취약점"
 tags: [보안뉴스, log4j, log4shell]
 author: eli_ez3r
 key: 20211213
@@ -23,11 +23,15 @@ CVE : [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)
 
 
 
+
+
 ## Log4j 란?
 
 Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸리티 라이브러리](https://en.wikipedia.org/wiki/Log4j)로 Apache 오픈소스이다.
 
 전 세계 수 많은 서비스들이 Log4j를 이용하고 있으며 자바 프로그래밍 초보시절 `system.out.println("debug : " + str)` 로 디버깅 하던 것 대신, `log.info("debug {}", str)`하라고 조언 받은것 처럼 널리 사용하고 있는 라이브러리이다.
+
+
 
 
 
@@ -42,6 +46,8 @@ Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸�
 Apache Log4j 2의 일부 기능에는 재귀 분석 기능(Recursive Analysis Functions)이 있기 때문에 공격자가 직접 악성 요청을 구성하여 원격 코드 실행 취약점(RCE)을 유발시킬 수 있어 CVSS스코어 10점으로 가장 높은 심각도를 나타내고 있다.
 
 취약점 악용에는 특별한 구성이 필요하지 않으며, Alibaba Cloud 보안팀의 검증결과 Apache Struts2, Apache Solr, Apache Druid, Apache Flink 등이 모두 영향을 받는 것으로 알려있다.
+
+
 
 
 
@@ -105,13 +111,52 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 
 ## 점검 방법
 
-[참고 사이트](https://github.com/logpresso/CVE-2021-44228-Scanner)
+[참고 사이트](https://github.com/logpresso/CVE-2021-44228-Scanner)에서 서버 운영체제에 맞게 파일을 다운받는다.
+
+서버내에서 라이브러리가 설치되어 있는 경로를 넣어 점검한다.
+
+- Windows
+
+```
+log4j2-scan [--fix] target_path
+```
+
+- Linux
+
+```
+./log4j2-scan [--fix] target_path
+```
+
+- 유닉스(AIX, Solaris ...)
+
+```
+java -jar logpresso-log4j2-scan-1.2.0.jar [--fix] target_path
+```
+
+
+
+Example (Windows)
+
+```
+CMD> log4j2-scan.exe D:\tmp
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\elasticsearch-7.16.0\bin\elasticsearch-sql-cli-7.16.0.jar, log4j 2.11.1
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\elasticsearch-7.16.0\lib\log4j-core-2.11.1.jar, log4j 2.11.1
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\flink-1.14.0\lib\log4j-core-2.14.1.jar, log4j 2.14.1
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\logstash-7.16.0\logstash-core\lib\jars\log4j-core-2.14.0.jar, log4j 2.14.0
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\logstash-7.16.0\vendor\bundle\jruby\2.5.0\gems\logstash-input-tcp-6.2.1-java\vendor\jar-dependencies\org\logstash\inputs\logstash-input-tcp\6.2.1\logstash-input-tcp-6.2.1.jar, log4j 2.9.1
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\solr-7.7.3\solr-7.7.3\contrib\prometheus-exporter\lib\log4j-core-2.11.0.jar, log4j 2.11.0
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\solr-7.7.3\solr-7.7.3\server\lib\ext\log4j-core-2.11.0.jar, log4j 2.11.0
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\solr-8.11.0\contrib\prometheus-exporter\lib\log4j-core-2.14.1.jar, log4j 2.14.1
+[*] Found CVE-2021-44228 vulnerability in D:\tmp\solr-8.11.0\server\lib\ext\log4j-core-2.14.1.jar, log4j 2.14.1
+
+Scanned 5047 directories and 26251 files
+Found 9 vulnerable files
+Completed in 0.42 seconds
+```
 
 
 
 
-
-## 
 
 ## 해결방법
 
