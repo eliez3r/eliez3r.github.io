@@ -27,8 +27,6 @@ CVE : [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)
 
 
 
-
-
 ## Log4j 란?
 
 Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸리티 라이브러리](https://en.wikipedia.org/wiki/Log4j)로 Apache 오픈소스이다.
@@ -41,13 +39,15 @@ Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸�
 
 
 
-
-
 -----
 
 ## Log4j 취약점 & 동작원리
 
-현재 문제가 있는 log4j 라이브러리는 `log4j-core-<version>jar`이며, Log4j가 로그를 출력할 경우 <u>로그에 사용자ID등이 있을 때</u>[^3] 자동으로 내부에 운영중인 LDAP 서버등에 접속을 해서 변환하는 기능(Lookups 기능)이 존재한다. 이때 취약점이 발현되어 해커의 서버로 접속하여 악성코드를 서버로 다운로드하고 이 코드를 실행하여 서버가 탈취된다.
+취약점은 [Log4j 2.0-beta9](https://issues.apache.org/jira/browse/LOG4J2-313)에서 부터 시작되었다. Lookup 플러그인에 JNDI를 추가하는게 업데이트 목적이였고, 추가된 JNDI를 통해 취약점이 발생하게 되어 현재 알려졌다.
+
+문제가 되는 Log4j 라이브러리는 `log4j-core-<version>jar`이며, Log4j가 로그를 출력할 경우 <u>로그에 사용자ID등이 있을 때</u>[^3] 자동으로 내부에 운영중인 LDAP 서버등에 접속을 해서 변환하는 기능(Lookup 기능)에서 해커의 서버로 접속하여 악성코드를 서버로 다운로드 및 실행되어 서버가 탈취된다.
+
+
 
 예를들어 로그를 남길 때 다음과 같이 남긴다고 하면
 
@@ -159,6 +159,7 @@ Log4Shell의 취약점은 RCE취약점으로 취약점 중에서도 심각한 �
 2. 공격 방법이 간단하다. **=> 복잡한 과정없이 POC코드를 전송하기만 하면 공격이 성공한다.**
 3. 하나의 소프트웨어는 여러개의 소프트웨어가 조합되어 만들어지는데, 그중 한곳에서라도 Log4j를 사용하게 되면, 해당 소프트웨어는 취약하다. **=> Attack Vctor가 다양하다.**
 4. 내 서버가 이미 공격을 당했는지 분석하기 위해서는 Log4j를 사용한 시점부터 분석해야 한다. **=> 오랫동안 방치된 취약점으로 피해 범위 파악이 어렵다.**
+   - 해당 취약점은 Log4j 2.0-beta9에서 추가된 기능에서 발견되었는데, 이는 약 8년전 업데이트이다.
 
 
 
@@ -259,7 +260,7 @@ Completed in 0.42 seconds
 
 -----
 
-출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389), [Wiki](https://ko.wikipedia.org/wiki/Log4j), [popit.kr](https://www.popit.kr/log4j-%EB%B3%B4%EC%95%88-%EC%B7%A8%EC%95%BD%EC%A0%90-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC-%EB%B0%8F-jenkins-%EC%84%9C%EB%B2%84-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95/)
+출처: [ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389), [Wiki](https://ko.wikipedia.org/wiki/Log4j), [나무위키](https://namu.wiki/w/Log4j%20%EB%B3%B4%EC%95%88%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%82%AC%ED%83%9C?from=Log4j#Log4j), [popit.kr](https://www.popit.kr/log4j-%EB%B3%B4%EC%95%88-%EC%B7%A8%EC%95%BD%EC%A0%90-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC-%EB%B0%8F-jenkins-%EC%84%9C%EB%B2%84-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95/)
 
 
 
