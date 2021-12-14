@@ -17,7 +17,7 @@ article_header:
 
 2021년 12월 10일  Log4j보안 취약점에 대한 긴급공지가 발표되었다.
 
-이번 발견된 Log4j취약점 `Log4Shell`은 2021년 11월 24일 Alibaba Cloud 보안팀으로부터 발견된 <u>Zero-Day</u>[^1] 취약점으로 뉴스와 기사에서 발표될 당시에는 이미 취약점 패치를 진행한 후 발표된 <u>One-Day</u>[^2] 취약점인 상태였다.
+이번 발견된 Log4j취약점 `Log4Shell`은 2021년 11월 24일 Alibaba Cloud 보안팀의 Chen Zhaojun으로부터 발견된 <u>Zero-Day</u>[^1] 취약점으로 12월 9일 트위터에 올라온 게시글로 인해 본격적으로 알려지기 시작했다. 이후 12월 10일 뉴스와 기사에서 발표될 당시에는 이미 취약점 패치를 진행한 후 발표된 <u>One-Day</u>[^2] 취약점인 상태였다.
 
 KISA : [Apache Log4j 2 보안 업데이트 권고](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389)
 
@@ -31,7 +31,7 @@ CVE : [CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)
 
 Log4j는 Apache Software Foundation에서 개발한 인기있는 [로깅 유틸리티 라이브러리](https://en.wikipedia.org/wiki/Log4j)로 Apache 오픈소스이다.
 
-전 세계 수 많은 서비스들이 Log4j를 이용하고 있으며 자바 프로그래밍 초보시절 `system.out.println("debug : " + str)` 로 디버깅 하던 것 대신, `log.info("debug {}", str)`하라고 조언 받은것 처럼 널리 사용하고 있는 라이브러리이다.
+전 세계 수 많은 서비스들이 Log4j를 이용하고 있으며 자바를 처음 배우던 시절 `system.out.println("debug: " + str)`로 디버깅 하던 것 보다 `log.info("debug {}", str)`하라고 조언 받은것 처럼 널리 사용하고 있는 라이브러리이다.
 
 따라서, 자바로 개발한 환경(개발 코드, 사이드 솔루션 등등..)에서 모두 점검해봐야 한다. 일반적으로 자바로 개발된 서버 사이드 솔루션은 다음과 같다.
 
