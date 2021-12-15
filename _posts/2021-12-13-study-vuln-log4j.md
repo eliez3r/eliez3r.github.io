@@ -262,15 +262,7 @@ Completed in 0.42 seconds
 
 ### Reference
 
-https://blog.alyac.co.kr/4341
-
-https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389
-
-https://ko.wikipedia.org/wiki/Log4j
-
-https://namu.wiki/w/Log4j%20%EB%B3%B4%EC%95%88%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%82%AC%ED%83%9C?from=Log4j#Log4j
-
-https://www.popit.kr/log4j-%EB%B3%B4%EC%95%88-%EC%B7%A8%EC%95%BD%EC%A0%90-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC-%EB%B0%8F-jenkins-%EC%84%9C%EB%B2%84-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95/
+[ESTsecurity](https://blog.alyac.co.kr/4341), [KISA 침해사고분석단 취약점분석팀](https://www.krcert.or.kr/data/secNoticeView.do?bulletin_writing_sequence=36389), [Wiki](https://ko.wikipedia.org/wiki/Log4j), [나무위키](https://namu.wiki/w/Log4j%20%EB%B3%B4%EC%95%88%20%EC%B7%A8%EC%95%BD%EC%A0%90%20%EC%82%AC%ED%83%9C?from=Log4j#Log4j), [popit.kr](https://www.popit.kr/log4j-%EB%B3%B4%EC%95%88-%EC%B7%A8%EC%95%BD%EC%A0%90-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC-%EB%B0%8F-jenkins-%EC%84%9C%EB%B2%84-%ED%99%95%EC%9D%B8-%EB%B0%A9%EB%B2%95/)
 
 
 
