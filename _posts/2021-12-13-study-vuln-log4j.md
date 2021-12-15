@@ -1,5 +1,5 @@
 ---
-title: "[Log4Shell] Log4j 보안 취약점 CVE-2021-44228"
+title: "[Log4Shell] Log4j 보안 취약점(CVE-2021-44228) 동작원리와 대응방안"
 tags: [보안뉴스, log4j, log4shell, CVE-2021-44228]
 author: eli_ez3r
 key: 20211213
