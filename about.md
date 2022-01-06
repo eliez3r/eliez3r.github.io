@@ -65,13 +65,11 @@ modify_date: 2021-07-19
 
 : **롯데월드(LOTTEWORLD)**, Web/App Penetration testing
 
-: **지니뮤직(Genie Music)**, Web/App/CS Penetration testing
-
 : **AK S&D**, Web/App Penetration testing
 
 : **한국언론재단(KOREA Press Foundation)**, Web Penetration testing
 
-: **대홍 기프티엘(GIFTIEL, DAEHONG Communications Inc)**, Web Penetration testing
+: **대홍 기프티엘(GIFTIEL, DAEHONG Communications Inc)**, Web/App Penetration testing
 
 : **넥스리치(NEXRICHFUNDING Corp)**, Web Source code diagnostic
 
@@ -97,7 +95,7 @@ modify_date: 2021-07-19
 
 : **한컴(Hancom Inc)**, Web/App Penetration testing, Malicious mail training
 
-: **코스콤(Koscom Corp)**, WTS/MTS/HTS Penetration testing
+: **코스콤(Koscom Corp)**, Wwb/App/CS Penetration testing
 
 : **NHN KCP Corp**, Web/App Penetration testing
 
