@@ -57,7 +57,7 @@ modify_date: 2021-07-19
 
 : **오케이코인(OKCoin Korea)**, Web Penetration testing
 
-: **닥터투어(NHN Doctortour)**, Web/App Penetration testing
+: **여행박사(NHN Doctortour)**, Web/App Penetration testing
 
 : **고려대학교(Korea University)**, C/S Penetration testing
 
