@@ -59,11 +59,13 @@ modify_date: 2021-07-19
 
 : **여행박사(NHN Doctortour)**, Web/App Penetration testing
 
-: **고려대학교(Korea University)**, C/S Penetration testing
+: **고려대학교(Korea University)**, CS Penetration testing
 
 : **한국투자저축은행(KOREA Investment Saving Bank)**, Web Penetration testing
 
 : **롯데월드(LOTTEWORLD)**, Web/App Penetration testing
+
+: **지니뮤직(Genie Music)**, Web/App/CS Penetration testing
 
 : **AK S&D**, Web/App Penetration testing
 
