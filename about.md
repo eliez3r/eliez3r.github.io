@@ -99,7 +99,7 @@ modify_date: 2021-07-19
 
 : **NHN KCP Corp**, Web/App Penetration testing
 
-: **롯데손해보험(LOTTE Insurance CO)**, Web/App/HTS Penetration testing
+: **롯데손해보험(LOTTE Insurance CO)**, Web/App/CS Penetration testing
 
 : **한국마사회 Let'sRun**, Web Penetration testing
 
