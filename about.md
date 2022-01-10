@@ -49,11 +49,11 @@ modify_date: 2021-07-19
 
 **LIME Security Inc.** (19.03 ~)
 
-: **키움증권(KIWOOM Securities)**, Penetration testing
+: **키움증권(KIWOOM Securities)**, Web/App/HTS Penetration testing
 
 : **EBS**, Malicious mail training
 
-: **페이코(NHN PAYCO)**, Mobile App Penetration testing
+: **페이코(NHN PAYCO)**, App Penetration testing
 
 : **오케이코인(OKCoin Korea)**, Web Penetration testing
 
