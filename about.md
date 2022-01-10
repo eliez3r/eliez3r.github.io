@@ -109,7 +109,7 @@ modify_date: 2021-07-19
 
 : **솜포(SK Infosec_SOMPO)**,  Web Penetration testing
 
-: **SAMSUNG_Joyent**,  Cloud System, Web Penetration testing
+: **SAMSUNG_Joyent**,  Cloud System/Web Penetration testing
 
 : **휴먼스케이프(Humanscape)**,  Web/App API Penetration testing
 
