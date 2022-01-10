@@ -131,7 +131,7 @@ modify_date: 2021-07-19
 
 : **한국마사회 Let's Run**,  VPN Service Scenario Penetration testing
 
-: **SundayToz**,  Web/App Penetration testing
+: **선데이토즈(SundayToz)**,  Web/App Penetration testing
 
 
 
