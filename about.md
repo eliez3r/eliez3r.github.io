@@ -133,6 +133,8 @@ modify_date: 2021-07-19
 
 : **선데이토즈(SundayToz)**,  Web/App Penetration testing
 
+: **고려대학교 CMS (Korea University)**,  Web Penetration testing
+
 
 
 ------
