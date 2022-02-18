@@ -159,6 +159,6 @@ Cisco Certified Network Associate Routing and Switching(2014.1), **Cisco**
 
 ## Report a vulnerability
 
-알뜰통신 웹페이지 개인정보 노출 취약점, KVE-2022-0132
+**KVE-2022-0132**, 알뜰통신 웹페이지 개인정보 노출 취약점
 
 -----
