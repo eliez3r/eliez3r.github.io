@@ -135,6 +135,8 @@ modify_date: 2021-07-19
 
 : **고려대학교 CMS (Korea University)**,  Web Penetration testing
 
+: **Astron Cloud Platform Security Guide**,  Making Cloud Platform Security Guide
+
 
 
 ------
