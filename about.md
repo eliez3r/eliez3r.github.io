@@ -95,7 +95,7 @@ modify_date: 2021-07-19
 
 : **한컴(Hancom Inc)**, Web/App Penetration testing, Malicious mail training
 
-: **코스콤(Koscom Corp)**, Wwb/App/CS Penetration testing
+: **코스콤(Koscom Corp)**, Web/App/CS Penetration testing
 
 : **NHN KCP Corp**, Web/App Penetration testing
 
