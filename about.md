@@ -137,6 +137,12 @@ modify_date: 2021-07-19
 
 : **Astron Cloud Platform Security Guide**,  Making Cloud Platform Security Guide
 
+: **위버스컴퍼니(WEVERSE COMPANY)**,  Web/App Penetration testing
+
+: **디엔에이브로(DNABRO)**,  Web Penetration testing
+
+: **SK하이닉스(Sk Hynix)**,  Scenario Penetration testing
+
 
 
 ------
@@ -156,6 +162,8 @@ Linux Professional Institute Certification(2014.5), **LPI**
 Cisco Certified Network Associate Routing and Switching(2014.1), **Cisco**
 
 -----
+
+
 
 ## Report a vulnerability
 
