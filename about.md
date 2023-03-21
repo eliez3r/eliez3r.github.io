@@ -1,10 +1,8 @@
 ---
 layout: article
 title: "About"
-modify_date: 2021-07-19
+modify_date: 2023-03-21
 ---
-
-
 
 ## Name
 
@@ -23,11 +21,7 @@ modify_date: 2021-07-19
     </div>
 </div>
 
-
-
 -----
-
-
 
 ## Experience
 
@@ -37,11 +31,7 @@ modify_date: 2021-07-19
 
 **Security Inc** (19.03 ~)
 
-
-
 ------
-
-
 
 ## Project
 
@@ -149,10 +139,7 @@ modify_date: 2021-07-19
 
 : **마이리얼트립(myrealtrip)**, App Penetration testing
 
-
 ------
-
-
 
 ## Certificate
 
@@ -167,8 +154,6 @@ Linux Professional Institute Certification(2014.5), **LPI**
 Cisco Certified Network Associate Routing and Switching(2014.1), **Cisco**
 
 -----
-
-
 
 ## Report a vulnerability
 
