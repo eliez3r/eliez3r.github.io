@@ -143,8 +143,6 @@ modify_date: 2021-07-19
 
 : **SK하이닉스(Sk Hynix)**,  Scenario Penetration testing
 
-: **SK하이닉스(Sk Hynix)**,  Scenario Penetration testing
-
 : **SK하이닉스(Sk Hynix)**, Web/App Penetration testing
 
 : **한글과컴퓨터(Hancom Inc)**, Web/App Penetration testing
