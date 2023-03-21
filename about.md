@@ -35,7 +35,7 @@ modify_date: 2021-07-19
 
 **BoB 7th Vulnerability Analysis Track,** at Kitri (2018.07 ~ 2019.02)
 
-**LIME Security Inc** (19.03 ~)
+**···· Security Inc** (19.03 ~)
 
 
 
@@ -47,7 +47,7 @@ modify_date: 2021-07-19
 
 **IoT Hub Exploitation and Countermeasure**, BoB Project (2018.09 ~ 2019.02)
 
-**LIME Security Inc.** (19.03 ~)
+**···· Security Inc.** (19.03 ~)
 
 : **키움증권(KIWOOM Securities)**, Web/App/HTS Penetration testing
 
@@ -143,6 +143,13 @@ modify_date: 2021-07-19
 
 : **SK하이닉스(Sk Hynix)**,  Scenario Penetration testing
 
+: **SK하이닉스(Sk Hynix)**,  Scenario Penetration testing
+
+: **SK하이닉스(Sk Hynix)**, Web/App Penetration testing
+
+: **한글과컴퓨터(Hancom Inc)**, Web/App Penetration testing
+
+: **마이리얼트립(myrealtrip)**, App Penetration testing
 
 
 ------
