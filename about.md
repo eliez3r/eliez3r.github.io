@@ -29,7 +29,7 @@ modify_date: 2023-03-21
 
 **BoB 7th Vulnerability Analysis Track,** at Kitri
 
-**Security Inc** (19.03 ~)
+**Security Inc**
 
 ------
 
@@ -37,7 +37,7 @@ modify_date: 2023-03-21
 
 **IoT Hub Exploitation and Countermeasure**, BoB Project
 
-**Security Inc.**
+** ＊ Security Inc**
 
 : **키움증권(KIWOOM Securities)**, Web/App/HTS Penetration testing
 
