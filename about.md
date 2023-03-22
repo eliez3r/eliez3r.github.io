@@ -25,9 +25,9 @@ modify_date: 2023-03-21
 
 ## Experience
 
-**Republic Of Korea Air Force,** Main computer information protection (2015.07 ~ 2017.07)
+**Republic Of Korea Air Force,** Main computer information protection
 
-**BoB 7th Vulnerability Analysis Track,** at Kitri (2018.07 ~ 2019.02)
+**BoB 7th Vulnerability Analysis Track,** at Kitri
 
 **Security Inc** (19.03 ~)
 
@@ -35,9 +35,9 @@ modify_date: 2023-03-21
 
 ## Project
 
-**IoT Hub Exploitation and Countermeasure**, BoB Project (2018.09 ~ 2019.02)
+**IoT Hub Exploitation and Countermeasure**, BoB Project
 
-**Security Inc.** (19.03 ~)
+**Security Inc.**
 
 : **키움증권(KIWOOM Securities)**, Web/App/HTS Penetration testing
 
