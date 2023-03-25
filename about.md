@@ -137,6 +137,8 @@ modify_date: 2023-03-21
 
 **마이리얼트립(myrealtrip)**, App Penetration testing
 
+**KT Cloud**, Web/App Penetration testing
+
 ------
 
 ## Certificate
