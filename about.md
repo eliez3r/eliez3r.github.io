@@ -29,7 +29,7 @@ modify_date: 2023-03-21
 
 **BoB 7th Vulnerability Analysis Track,** at Kitri
 
-**Lime Security,** IT Consulting Compony
+**Lime Security,** IT Consulting Company
 
 ------
 
