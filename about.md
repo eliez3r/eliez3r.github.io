@@ -139,6 +139,12 @@ modify_date: 2023-03-21
 
 **KT Cloud**, Web/App Penetration testing
 
+**리디(RIDI)**, Web/App Penetration testing
+
+**LS그룹(LS Corp)**, Web Penetration testing
+
+**신한DS(Shinhan DS)**, Web/App Penetration testing
+
 ------
 
 ## Certificate
