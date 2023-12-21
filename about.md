@@ -145,6 +145,16 @@ modify_date: 2023-03-21
 
 **신한DS(Shinhan DS)**, Web/App Penetration testing
 
+**메가박스(MegaboxJoongAng Inc)**, Web/App Penetration testing
+
+**한글과컴퓨터(Hancom Inc)**, Web/App Penetration testing
+
+**SK텔링크(SK Telink CO LTD)**, Scenario Penetration testing
+
+**자이S&D(Xi S&D Inc)**, Scenario Penetration testing
+
+**바디프랜드(BODYFRIEND Inc)**, Web/App Penetration testing
+
 ------
 
 ## Certificate
