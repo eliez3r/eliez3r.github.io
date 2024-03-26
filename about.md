@@ -149,11 +149,23 @@ modify_date: 2023-03-21
 
 **한글과컴퓨터(Hancom Inc)**, Web/App Penetration testing
 
-**SK텔링크(SK Telink CO LTD)**, Scenario Penetration testing
+**SK텔링크(SK Telink)**, Scenario Penetration testing
 
 **자이S&D(Xi S&D Inc)**, Scenario Penetration testing
 
 **바디프랜드(BODYFRIEND Inc)**, Web/App Penetration testing
+
+**위메이드플레이(Wemade Play)**, Web/App Penetration testing
+
+**하이브(HIVE)**, App Penetration testing
+
+**KG에듀원(KG ITBANK)**, WEB/App Penetration testing
+
+**다올투자증권(DAOL Investment&Securities)**, WEB/MTS/HTS Penetration testing
+
+**천재교과서(CHUNJAETEXTBOOK)**, WEB Penetration testing
+
+**신한DS(Shinhan DS)**, Web/App Penetration testing
 
 ------
 
