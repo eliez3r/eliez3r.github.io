@@ -10,7 +10,7 @@ article_header:
     src: 
 ---
 
-```php+HTML
+```php
 <html>
 <head>
 <title>Challenge 17</title>

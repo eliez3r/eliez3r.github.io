@@ -12,7 +12,7 @@ article_header:
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 14/5F9BF4BF-6EB1-4E74-B763-6DF6BCF4F9F9.png" width="400px">
 
-```php+HTML
+```php
 <html>
 <head>
 <title>Challenge 14</title>
