@@ -12,7 +12,7 @@ article_header:
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 20/image-20180726143450823.png" width="500px">
 
-```php+HTML
+```php
 <input type=button value="Submit" onclick=ck()>
 <script>
 function ck()

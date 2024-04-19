@@ -14,7 +14,7 @@ article_header:
 
 Login 버튼과 Join 버튼이 존재한다. 소스코드를 보자.
 
-```php+HTML
+```php
 <input type=button value='Login' style=border:0;width:100;background=black;color=green onmouseover=this.focus(); onclick=move('login');>
 <input type=button value='Join' style=border:0;width:100;background=black;color=blue onmouseover=this.focus(); onclick=no();>
 
@@ -61,7 +61,7 @@ login.php는 우리가 접속했던 페이지이고, join.php 파일을 열어�
 
 "access_denied"라는 경고창이 뜬다. join.php 파일을 다운받아서 소스코드를 살펴보았다.
 
-```php+HTML
+```php
 <html>
 <title>Challenge 5</title></head><body bgcolor=black><center>
 <script>
@@ -75,7 +75,7 @@ lIIIIIIIIIIIIIIIIIIl=llll+lllllllllllllll+lll+lllllllllllllllllllll+llllllllllll
 
 난독화가 되어있다. http://jsbeautifier.org 에 접속하여 소스코드를 이쁘게 보이도록 먼저 수정하였다.
 
-```php+HTML
+```php
 <html>
 <title>Challenge 5</title>
 </head>

@@ -12,7 +12,7 @@ article_header:
 
 ## keyword : cookie 변조
 
-```php+HTML
+```php
 <?
 if(!$_COOKIE[user_lv])
 {

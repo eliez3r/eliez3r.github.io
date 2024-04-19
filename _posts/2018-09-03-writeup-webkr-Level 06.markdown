@@ -12,7 +12,7 @@ article_header:
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 06/B2AE219F-AC72-4011-AA48-75D1CB29645F.png" width="400px">
 
-```php+HTML
+```php
 <?php 
 if(!$_COOKIE[user]) 
 { 
