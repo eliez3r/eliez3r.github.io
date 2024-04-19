@@ -20,7 +20,7 @@ article_header:
 
 소스코드를 살펴보자.
 
-```php+HTML
+```php
 <!--
 db에는 val=2가 존재하지 않습니다.
 
