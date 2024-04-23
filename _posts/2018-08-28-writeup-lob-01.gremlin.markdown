@@ -97,9 +97,9 @@ ret주소를 "CCCC"로 덮어 core덤프가 생성되도록 해보자.
 buffer배열을 "A"로 채우고, SFP에는 "B"를 RET주소에는 "C"를 채우는 payload이다. 
 
 ```
-./aremlin `python -c 'print "A"*256+"BBB"+"CCC"'`
+./aremlin `python -c 'print "A"*256+"BBBB"+"CCCC"'`
 ```
-
+> aremlin은 원본 gremlin 파일을 복사한 파일이다.
 
 
 생성된 core덤프를 분석해보자. `gdb -q -c core` 
