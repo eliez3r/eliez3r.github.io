@@ -66,9 +66,8 @@ ssize_t input()
 }
 ```
 
-input함수에는 buf를 선언하고 read함수를 통해 stdin에서 100byte만큼 읽어들여 buf에 저장하는데,
-
-buf의 크기는 0x88(136)바이트인데, 0x100(256)바이트 만큼 저장하기 때문에 BoF가 발생한다.
+input함수에는 buf를 선언하고 read함수를 통해 stdin에서 0x100(256)byte만큼 읽어들여 buf에 저장한다.  
+이때, buf의 크기는 0x88(136)byte인데, 0x100(256)byte 만큼 저장하기 때문에 BoF(Buffer Overflow)가 발생한다.
 
 
 
