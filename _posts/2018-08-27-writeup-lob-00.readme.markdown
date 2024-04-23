@@ -38,9 +38,11 @@ BOF 원정대는 도메인이나 IP가 아닌, vmware 이미지 형태로 제공
 
 ###   기본 룰
 
-\1. single boot 금지
-\2. root exploit 금지
-\3. /bin/my-pass 명령에 LD_PRELOAD 사용 금지
+```
+1. single boot 금지
+2. root exploit 금지
+3. /bin/my-pass 명령에 LD_PRELOAD 사용 금지
+```
 
 [레벨업 패스워드 확인]
 /bin/my-pass
