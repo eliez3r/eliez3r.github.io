@@ -52,7 +52,7 @@ BOF 원정대는 도메인이나 IP가 아닌, vmware 이미지 형태로 제공
 
 ### [전용 게시판]
 
-http://www.hackerschool.org/HS_Boards/zboard.php?id=bof_fellowship  
+[http://www.hackerschool.org/HS_Boards/zboard.php?id=bof_fellowship](http://www.hackerschool.org/HS_Boards/zboard.php?id=bof_fellowship)
 
 
 
