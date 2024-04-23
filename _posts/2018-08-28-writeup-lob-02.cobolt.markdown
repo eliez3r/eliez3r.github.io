@@ -166,14 +166,14 @@ NOP 50byte와 shellcode를 `shellcode` 라는 환경변수에 넣었다.
 
 ```c
 main(){
-    printf("addr : %08x\n", getenv("shellcode"));
+    printf("addr : 0x%08x\n", getenv("shellcode"));
 }
 ```
 
 ```shell
 [gremlin@localhost gremlin]$ gcc -o env env.c
 [gremlin@localhost gremlin]$ ./env
-addr : bfffff3c
+addr : 0xbfffff3c
 ```
 
 `shellcode` 환경 변수의 주소는 **0xbfffff3c**이다. (쉽죠잉?😁)
