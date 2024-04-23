@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 argv로 받은 값을 strcpy함수를 이용하여 크기가 256byte인 buffer배열에 저장한다.
 
 argv[1]의 값을 buffer배열로 복사할때 복사되는 크기가 정해져있지 않아 BoF(Buffer OverFlow) 취약점이 존재한다.
-{:.info}
+{:.error}
 
 
 
