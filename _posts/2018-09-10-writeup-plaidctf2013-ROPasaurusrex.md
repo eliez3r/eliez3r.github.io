@@ -78,7 +78,7 @@ ssize_t write(int fd, const void *buf, size_t n)
 }
 ```
 
->**ssize_t read(int fd, void *buf, size_t nbytes)**
+> ssize_t read(int fd, void *buf, size_t nbytes)
 >
 >	fd : 파일 디스크립터  
 >	void *buf :  파일을 읽어 들일 버퍼  
@@ -87,8 +87,8 @@ ssize_t write(int fd, const void *buf, size_t n)
 
 <br>
 
->**ssize_t write (int fd, const void *buf, size_t n)**
-
+> ssize_t write (int fd, const void *buf, size_t n)
+> 
 >	fd : 파일 디스크립터  
 > void *buf : 파일에 쓰기를 할 내용을 담은 버퍼  
 > size_t n : 쓰기할 바이트 개수  
