@@ -58,28 +58,28 @@ BOF 원정대는 도메인이나 IP가 아닌, vmware 이미지 형태로 제공
 
 -----
 
-```
-LEVEL1 (gate -> gremlin) :  simple bof
-LEVEL2 (gremlin -> cobolt) : small buffer
-LEVEL3 (cobolt -> goblin) : small buffer + stdin
-LEVEL4 (goblin -> orc) : egghunter
-LEVEL5 (orc -> wolfman) : egghunter + bufferhunter
-LEVEL6 (wolfman -> darkelf) : check length of argv[1] + egghunter + bufferhunter
-LEVEL7 (darkelf -> orge) : check argv[0]
-LEVEL8 (orge -> troll) : check argc
-LEVEL9 (troll -> vampire) : check 0xbfff
-LEVEL10 (vampire -> skeleton) : argv hunter
-LEVEL11 (skeleton -> golem) : stack destroyer
-LEVEL12 (golem -> darkknight) : sfp 
-LEVEL13 (darkknight -> bugbear) : RTL1
-LEVEL14 (bugbear -> giant) : RTL2, only execve
-LEVEL15 (giant -> assassin) : no stack, no RTL
-LEVEL16 (assassin -> zombie_assassin) : fake ebp
-LEVEL17 (zombie_assassin -> succubus) : function calls
-LEVEL18 (succubus -> nightmare) : plt
-LEVEL19 (nightmare -> xavis) : fgets + destroyers
-LEVEL20 (xavis -> death_knight) : remote BOF 
-```
+
+1. LEVEL1 (gate -> gremlin) :  **simple bof**
+2. LEVEL2 (gremlin -> cobolt) : **small buffer**
+3. LEVEL3 (cobolt -> goblin) : **small buffer + stdin**
+4. LEVEL4 (goblin -> orc) : **egghunter**
+5. LEVEL5 (orc -> wolfman) : **egghunter + bufferhunter**
+6. LEVEL6 (wolfman -> darkelf) : **check length of argv[1] + egghunter + bufferhunter**
+7. LEVEL7 (darkelf -> orge) : **check argv[0]**
+8. LEVEL8 (orge -> troll) : **check argc**
+9. LEVEL9 (troll -> vampire) : **check 0xbfff**
+10. LEVEL10 (vampire -> skeleton) : **argv hunter**
+11. LEVEL11 (skeleton -> golem) : **stack destroyer**
+12. LEVEL12 (golem -> darkknight) : **sfp** 
+13. LEVEL13 (darkknight -> bugbear) : **RTL1**
+14. LEVEL14 (bugbear -> giant) : **RTL2, only execve**
+15. LEVEL15 (giant -> assassin) : **no stack, no RTL**
+16. LEVEL16 (assassin -> zombie_assassin) : **fake ebp**
+17. LEVEL17 (zombie_assassin -> succubus) : **function calls**
+18. LEVEL18 (succubus -> nightmare) : **plt**
+19. LEVEL19 (nightmare -> xavis) : **fgets + destroyers**
+20. LEVEL20 (xavis -> death_knight) : **remote BOF** 
+
 
 출처 : [Hacker School](https://www.hackerschool.org/HS_Boards/zboard.php?id=HS_Notice&no=1170881885)
 
