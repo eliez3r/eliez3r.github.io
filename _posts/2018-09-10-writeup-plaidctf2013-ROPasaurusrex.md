@@ -69,15 +69,7 @@ ssize_t input()
 input함수에는 buf를 선언하고 read함수를 통해 stdin에서 0x100(256)byte만큼 읽어들여 buf에 저장한다.  
 이때, buf의 크기는 0x88(136)byte인데, 0x100(256)byte 만큼 저장하기 때문에 BoF(Buffer Overflow)가 발생한다.
 
-
->**ssize_t read(int fd, void *buf, size_t nbytes)**
->
->	fd : 파일 디스크립터  
->	void *buf :  파일을 읽어 들일 버퍼  
->	size_t nbytes : 버퍼의 크기  
->	return : 정상적으로 실행되었다면 읽어들인 바이트 수를 리턴, 실패시 -1을 반환
-
-
+<br>
 
 ```c
 ssize_t write(int fd, const void *buf, size_t n)
@@ -86,15 +78,23 @@ ssize_t write(int fd, const void *buf, size_t n)
 }
 ```
 
-**ssize_t write (int fd, const void *buf, size_t n)**
+>**ssize_t read(int fd, void *buf, size_t nbytes)**
+>
+>	fd : 파일 디스크립터  
+>	void *buf :  파일을 읽어 들일 버퍼  
+>	size_t nbytes : 버퍼의 크기  
+>	return : 정상적으로 실행되었다면 읽어들인 바이트 수를 리턴, 실패시 -1을 반환
 
-	fd : 파일 디스크립터
-	
-	void *buf : 파일에 쓰기를 할 내용을 담은 버퍼
-	
-	size_t n : 쓰기할 바이트 개수
-	
-	return : 정상적 쓰기를 했다면 쓰기 한 바이트 수, 실패시 -1
+<br>
+
+>**ssize_t write (int fd, const void *buf, size_t n)**
+
+>	fd : 파일 디스크립터  
+> void *buf : 파일에 쓰기를 할 내용을 담은 버퍼  
+> size_t n : 쓰기할 바이트 개수  
+> return : 정상적 쓰기를 했다면 쓰기 한 바이트 수, 실패시 -1
+
+<br>
 
 main함수에서 fd값으로 1(stdout), buf값으로 "WIN\n", size값으로 4를 넣어주었으로 화면에 "WIN"이 출력된다..
 
