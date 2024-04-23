@@ -60,7 +60,7 @@ LOB에서 제공되는 바이너리에서는 gdb로 실행 불가능하므로,
 {:.info}
 
 
-
+![Image](http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827160952522.png){:.rounded}
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827160952522.png" width="400px">
 
 ebp-256의 주소는 **0xbffffb88**인 것으로 확인되었다.
