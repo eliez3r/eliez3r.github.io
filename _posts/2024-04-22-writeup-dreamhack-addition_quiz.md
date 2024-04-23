@@ -121,8 +121,8 @@ with remote("host3.dreamhack.games", 14055) as conn:
         print(f"[>] {res}")
 
         if '=' in res:
-            a = res[:res.index('=')]
-            num1, num2 = a.split("+")
+            exam = res[:res.index('=')]
+            num1, num2 = exam.split("+")
             result = int(num1) + int(num2)
 
             conn.sendline(str(result))
