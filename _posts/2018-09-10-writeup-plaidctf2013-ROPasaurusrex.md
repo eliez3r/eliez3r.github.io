@@ -72,12 +72,9 @@ input함수에는 buf를 선언하고 read함수를 통해 stdin에서 0x100(256
 
 >**ssize_t read(int fd, void *buf, size_t nbytes)**
 >
->	fd : 파일 디스크립터
->	
->	void *buf :  파일을 읽어 들일 버퍼
->	
->	size_t nbytes : 버퍼의 크기
->	
+>	fd : 파일 디스크립터  
+>	void *buf :  파일을 읽어 들일 버퍼  
+>	size_t nbytes : 버퍼의 크기  
 >	return : 정상적으로 실행되었다면 읽어들인 바이트 수를 리턴, 실패시 -1을 반환
 
 
