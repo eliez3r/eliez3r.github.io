@@ -1,5 +1,5 @@
 ---
-title: "[DreamHack] addition-quiz Write-up"
+title: "[DreamHack] addition-quiz"
 tags: [dreamhack, pwntools, writeup, misc, beginner]
 author: eli_ez3r
 key: 20240422
