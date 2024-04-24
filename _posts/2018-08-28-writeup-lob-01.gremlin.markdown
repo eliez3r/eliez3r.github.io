@@ -10,6 +10,7 @@ article_header:
     src: /assets/img/hackerschool_logo.png
 ---
 [Simple BoF](#){:.button.button--outline-success.button--pill}
+> gate / gate
 
 ### 0x01. Static Analysis
 
