@@ -4,6 +4,7 @@ tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180828
 modify_date: 2019-10-07
+mathjax: false
 article_header:
   type: cover
   image:
@@ -28,19 +29,17 @@ int main()
 }
 ```
 
-
-
 ------
 
 ### 0x01. Static Analysis
 
-16byte크기의  buffer배열을 선언하고 gets함수를 이용하여 buffer에 값을 입력받아 저장한다.
+16byte크기의 buffer배열을 선언하고 gets함수를 이용하여 buffer에 값을 입력받아 저장한다.
 
 cobolt 문제와 다른점은 cobolt에서는 main함수의 argv로 사용자에게 입력값을 받았다면, 이 문제는 gets를 이용하여 사용자에게 입력값을 받는다.
 
 따라서 값을 넘겨주는 방식의 차이만 있을 뿐 앞 문제와 풀이 과정은 동일하다.
 
-gets를 이용하여 사용자가 입력한 값을 buffer배열로 복사할때 복사되는 크기가 정해져있지 않아 BoF(Buffer OverFlow) 취약점이 존재한다.
+gets를 이용하여 사용자가 입력한 값을 buffer배열로 복사할때 복사되는 크기가 정해져있지 않아 **BoF(Buffer OverFlow) 취약점**이 존재한다.
 {:.info}
 
 ------
@@ -55,11 +54,9 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135809460.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135809460.png" width="800px">{:.rounded.shadow}
 
 EUNICE 환경변수에 Shellcode를 넣는다.
-
-
 
 ```c
 //env.c
@@ -68,7 +65,7 @@ main(){
 }
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135852712.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135852712.png" width="400px">{:.rounded.shadow}
 
 EUNICE 환경변수의 주소를 구하는 프로그램을 만들어 EUNICE환경변수의 주소를 구해온다. (0xbffffc33)
 
@@ -80,13 +77,29 @@ EUNICE 환경변수의 주소를 구하는 프로그램을 만들어 EUNICE환�
 
 하지만 이번 문제는 프로그램 내부에서 입력값을 받기 때문에 같은 방법으로는 Payload를 넘겨줄 수 없다.
 
-따라서 Pipe('|')를 사용해야 한다. (Pipe명령어는 왼쪽 **표준출력**을 오른쪽에 **표준입력**으로 넘겨주는 역할을 한다.)
+따라서 Pipe('\|')를 사용해야 한다. (Pipe명령어는 왼쪽 **표준출력**을 오른쪽에 **표준입력**으로 넘겨주는 역할을 한다.)
 
 표준입력으로 넘겨주어야 하기 때문에 `cat` 와 `;`명령어를 함께 사용해야 한다. (FTZ 12번 문제를 풀었다면 쉽게 이해할 수 있을 것이다.)
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135928174.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135928174.png" width="700px">{:.rounded.shadow}
 
 > Cobolt문제와 풀이방법이 동일하므로 상세설명은 생략했다.
+
+<br>
+
+**[!] gdb에서 run 명령 시 user input 주는 방법 1**  
+1) 입력하고나 하는 문자열을 파일로 생성  
+$ python -c 'print "A"*10>tmp  
+2) gdb에서 run 명령어 실행 시 파일 내용 입력   
+(gdb) r<tmp   
+{:.info}
+
+**[!] gdb에서 run 명령 시 user input 주는 방법 2**   
+1) 스크립트 실행 결과를 임시파일 생성 후 바로 임시파일의 내용 입력  
+(gdb) r \`python -c 'print "A"*10'>tmp\`<tmp
+{:.info}
+
+\`python\`
 
 -----
 
