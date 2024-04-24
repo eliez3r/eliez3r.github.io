@@ -10,8 +10,8 @@ article_header:
     src: /assets/img/hackerschool_logo.png
 
 ---
-
 [+ stdin](#){:.button.button--outline-success.button--pill}
+> cobolt / hacking exposed
 
 ```c
 /*
