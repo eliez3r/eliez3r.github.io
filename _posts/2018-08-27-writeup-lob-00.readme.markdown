@@ -4,6 +4,7 @@ tags: [LOB]
 author: eli_ez3r
 key: 20180827
 modify_date: 2018-08-27
+mathjax: false
 article_header:
   type: cover
   image:
