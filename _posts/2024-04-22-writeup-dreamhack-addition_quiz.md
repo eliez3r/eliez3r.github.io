@@ -2,7 +2,9 @@
 title: "[DreamHack] addition-quiz"
 tags: [dreamhack, pwntools, writeup, misc]
 author: eli_ez3r
-key: 20240422
+key: 20240000
+category: write-up
+date: 2024-04-22 00:00:00 +0900
 modify_date: 2024-04-22
 article_header:
   type: cover

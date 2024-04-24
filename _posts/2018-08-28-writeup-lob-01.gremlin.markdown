@@ -2,11 +2,10 @@
 title: "[LOB]Level01. gremlin"
 tags: [LOB, writeup]
 author: eli_ez3r
-key: 20180828
-layout: article
+key: 20180001
 category: write-up
 date: 2018-08-28 00:00:00 +0900
-modify_date: 2024-04-23
+modify_date: 2024-04-23 00:00:00 +0900
 article_header:
   type: cover
   image:

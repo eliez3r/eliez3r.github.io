@@ -2,7 +2,9 @@
 title: "[Web.kr]Level 05"
 tags: [wargame, webhacking.kr(old), writeup]
 author: eli_ez3r
-key: 20180903
+key: 20180030
+category: write-up
+date: 2018-09-03 03:00:00 +0900
 modify_date: 2018-09-03
 article_header:
   type: cover

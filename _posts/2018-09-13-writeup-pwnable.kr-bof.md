@@ -2,7 +2,9 @@
 title: "[pwnable.kr]Toddler/bof"
 tags: [pwnable.kr, Toddler's Bottle, writeup]
 author: eli_ez3r
-key: 20180913
+key: 20180052
+category: write-up
+date: 2018-09-13 00:00:00 +0900
 modify_date: 2018-09-13
 article_header:
   type: cover

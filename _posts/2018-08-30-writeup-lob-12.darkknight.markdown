@@ -2,7 +2,9 @@
 title: "[LOB]Level12. darkknight"
 tags: [LOB, writeup, FPO]
 author: eli_ez3r
-key: 20180830
+key: 20180012
+category: write-up
+date: 2018-08-30 02:00:00 +0900
 modify_date: 2019-11-14
 article_header:
   type: cover

@@ -2,7 +2,9 @@
 title: "[pwnable.kr]Toddler/fd"
 tags: [pwnable.kr, Toddler's Bottle, writeup, file discriptor]
 author: eli_ez3r
-key: 20189011
+key: 20180050
+category: write-up
+date: 2018-09-11 00:00:00 +0900
 modify_date: 2018-09-11
 article_header:
   type: cover

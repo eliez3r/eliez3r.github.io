@@ -2,7 +2,9 @@
 title: "[pwnable.kr]Toddler/collision"
 tags: [pwnable.kr, Toddler's Bottle, writeup]
 author: eli_ez3r
-key: 20180912
+key: 20180051
+category: write-up
+date: 2018-09-12 00:00:00 +0900
 modify_date: 2018-09-12
 article_header:
   type: cover

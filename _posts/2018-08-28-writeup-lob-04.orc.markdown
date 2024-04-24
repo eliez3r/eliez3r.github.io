@@ -2,7 +2,9 @@
 title: "[LOB]Level04. orc"
 tags: [LOB, writeup]
 author: eli_ez3r
-key: 20180828
+key: 20180004
+category: write-up
+date: 2018-08-28 04:00:00 +0900
 modify_date: 2019-10-07
 article_header:
   type: cover

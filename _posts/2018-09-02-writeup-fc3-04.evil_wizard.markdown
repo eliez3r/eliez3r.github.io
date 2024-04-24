@@ -2,7 +2,9 @@
 title: "[FC3]Level4. evil_wizard"
 tags: [Fedora Catle 3, writeup, GOT overwrite]
 author: eli_ez3r
-key: 20180902
+key: 20180025
+category: write-up
+date: 2018-09-02 04:00:00 +0900
 modify_date: 2018-09-02
 article_header:
   type: cover

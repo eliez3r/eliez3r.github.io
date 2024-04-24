@@ -2,7 +2,9 @@
 title: "Return To Library(RTL) 넌 뭐냐?"
 tags: [RTL, Return To Library, plt, got]
 author: eli_ez3r
-key: 20191111
+key: 20190004
+category: study
+date: 2019-11-11 00:00:00 +0900
 modify_date: 2019-11-11
 article_header:
   type: cover

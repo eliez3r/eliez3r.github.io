@@ -2,7 +2,9 @@
 title: "[FC3]Level5. dark_stone"
 tags: [Fedora Catle 3, writeup, GOT overwrite, remote]
 author: eli_ez3r
-key: 20180902
+key: 20180026
+category: write-up
+date: 2018-09-02 05:00:00 +0900
 modify_date: 2018-09-02
 article_header:
   type: cover

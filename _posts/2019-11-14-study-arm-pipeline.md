@@ -2,7 +2,9 @@
 title: "ARM의 Pipeline"
 tags: [arm, pipeline, assembly]
 author: eli_ez3r
-key: 20191114
+key: 20190005
+category: study
+date: 2019-11-14 00:00:00 +0900
 modify_date: 2019-11-14
 article_header:
   type: cover

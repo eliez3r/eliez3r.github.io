@@ -2,7 +2,9 @@
 title: "SFP(Stack Frame Pointer) Overflow"
 tags: [SFP, FPO, 1Byte Overflow]
 author: eli_ez3r
-key: 20191017
+key: 20190001
+category: study
+date: 2019-10-17 00:00:00 +0900
 modify_date: 2019-10-17
 article_header:
   type: cover

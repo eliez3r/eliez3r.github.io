@@ -2,7 +2,9 @@
 title: "PLT와 GOT를 파헤쳐보자"
 tags: [plt, got, static link, dynamic link, linking]
 author: eli_ez3r
-key: 20191115
+key: 20190007
+category: study
+date: 2019-11-15 01:00:00 +0900
 modify_date: 2019-11-15
 article_header:
   type: cover

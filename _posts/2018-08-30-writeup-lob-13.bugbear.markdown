@@ -2,7 +2,9 @@
 title: "[LOB]Level13. bugbear"
 tags: [LOB, writeup, RTL]
 author: eli_ez3r
-key: 20180830
+key: 20180013
+category: write-up
+date: 2018-08-30 03:00:00 +0900
 modify_date: 2018-08-30
 article_header:
   type: cover

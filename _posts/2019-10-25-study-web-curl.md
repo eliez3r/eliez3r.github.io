@@ -2,7 +2,9 @@
 title: "웹 취약점 점검 도구로써의 cURL 사용법"
 tags: [curl, HTTP header, HTTP method, manual, telnet, 웹취약점분석]
 author: eli_ez3r
-key: 20191025
+key: 20190003
+category: study
+date: 2019-10-25 01:00:00 +0900
 modify_date: 2021-02-26
 article_header:
   type: cover

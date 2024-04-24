@@ -2,7 +2,9 @@
 title: "[LOB]Level10. skeleton"
 tags: [LOB, writeup]
 author: eli_ez3r
-key: 20180830
+key: 20180010
+category: write-up
+date: 2018-08-30 00:00:00 +0900
 modify_date: 2019-11-13
 article_header:
   type: cover

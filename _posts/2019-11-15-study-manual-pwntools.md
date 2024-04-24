@@ -2,7 +2,9 @@
 title: "[python]pwntools 정리"
 tags: [python, manual, pwntools]
 author: eli_ez3r
-key: 20191115
+key: 20190006
+category: study
+date: 2019-11-15 00:00:00 +0900
 modify_date: 2019-11-15
 article_header:
   type: cover

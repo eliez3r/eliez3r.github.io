@@ -2,7 +2,9 @@
 title: "[LOB]Level07. orge"
 tags: [LOB, writeup]
 author: eli_ez3r
-key: 20180829
+key: 20180007
+category: write-up
+date: 2018-08-29 02:00:00 +0900
 modify_date: 2019-11-13
 article_header:
   type: cover

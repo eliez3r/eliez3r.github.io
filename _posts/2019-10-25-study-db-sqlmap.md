@@ -2,7 +2,9 @@
 title: "SQL Injection 분석도구 SQLMap 사용법"
 tags: [database, sqlmap, manual, sql injection, pentesterlab, 웹취약점분석]
 author: eli_ez3r
-key: 20191025
+key: 20190002
+category: study
+date: 2019-10-25 00:00:00 +0900
 modify_date: 2019-10-25
 article_header:
   type: cover

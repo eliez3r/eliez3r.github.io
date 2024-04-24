@@ -2,7 +2,9 @@
 title: "[Plaid CTF 2013] ROPasaurusrex"
 tags: [ROPasaurusrex, Plaid CTF 2013, writeup]
 author: eli_ez3r
-key: 20180910
+key: 20180049
+category: write-up
+date: 2018-09-10 00:00:00 +0900
 modify_date: 2024-04-24
 article_header:
   type: cover

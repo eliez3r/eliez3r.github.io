@@ -2,7 +2,9 @@
 title: "스택프레임(Stack Frame) 이란?"
 tags: [stack, frame, prolog, epilog]
 author: eli_ez3r
-key: 20191016
+key: 20190000
+category: study
+date: 2019-10-16 00:00:00 +0900
 modify_date: 2019-10-16
 article_header:
   type: cover

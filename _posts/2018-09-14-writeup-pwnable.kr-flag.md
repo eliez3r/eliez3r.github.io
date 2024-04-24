@@ -2,7 +2,9 @@
 title: "[pwnable.kr]Toddler/flag"
 tags: [pwnable.kr, Toddler's Bottle, writeup]
 author: eli_ez3r
-key: 20180914
+key: 20180053
+category: write-up
+date: 2018-09-14 00:00:00 +0900
 modify_date: 2018-09-14
 article_header:
   type: cover
