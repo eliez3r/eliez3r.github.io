@@ -4,6 +4,7 @@ tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180828
 modify_date: 2024-04-23
+mathjax: false
 article_header:
   type: cover
   image:
