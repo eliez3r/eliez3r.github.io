@@ -3,6 +3,9 @@ title: "[LOB]Level03. goblin"
 tags: [LOB, writeup]
 author: eli_ez3r
 key: 20180828
+layout: article
+category: write-up
+date: 2018-08-28 00:00:00 +0900
 modify_date: 2024-04-24
 article_header:
   type: cover
