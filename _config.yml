@@ -8,7 +8,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: en # the language of your site, default as "en"
+lang: kor # the language of your site, default as "en"
 timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
@@ -155,8 +155,12 @@ analytics:
 
   ## Google Analytics
   google:
-    tracking_id : UA-133503906-1 # Google Analytics id for the site
+    tracking_id: UA-133503906-1 # Google Analytics id for the site
     anonymize_ip: false # Anonymize IP tracking for Analytics
+
+  ## Naver Analytic
+  naver:
+    tracking_id: a5605cdd6e9c00 # Naver Analytics id for the site
 
 
 ## => Build

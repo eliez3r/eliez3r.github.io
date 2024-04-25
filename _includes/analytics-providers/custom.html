@@ -1,3 +1,13 @@
 <!-- start custom analytics snippet -->
-
+{%- if site.analytics.naver.tracking_id -%}
+    <!-- Naver site tag (wcslog.js) - Naver Analytics -->
+    <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+    <script type="text/javascript">
+        if(!wcs_add) var wcs_add = {};
+        wcs_add["wa"] = "'{{ site.analytics.naver.tracking_id }}";
+        if(window.wcs) {
+            wcs_do();
+        }
+    </script>
+{%- endif -%}
 <!-- end custom analytics snippet -->
