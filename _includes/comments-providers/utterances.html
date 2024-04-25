@@ -1,0 +1,9 @@
+{%- if page.key and site.comments.utterances.repo -%}
+<script src="https://utteranc.es/client.js"
+  repo='{{ site.comments.utterances.repo }}'
+  issue-term="pathname"
+  theme='{{ site.comments.utterances.theme }}'
+  crossorigin="anonymous"
+  async>
+</script>
+{%- endif -%}

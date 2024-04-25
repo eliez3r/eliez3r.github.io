@@ -1,0 +1,5 @@
+{%- if jekyll.environment != 'development' -%}
+  {%- if site.adsense.provider == 'google' -%}
+    {%- include adsense-providers/google.html -%}
+  {%- endif -%}
+{% endif %}

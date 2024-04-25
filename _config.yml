@@ -8,7 +8,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 
 ## => Language and Timezone
 ##############################
-lang: kor # the language of your site, default as "en"
+lang: ko # the language of your site, default as "en"
 timezone: # see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the available values
 
 
@@ -100,7 +100,13 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: disqus # false (default), "disqus", "gitalk", "valine", "custom"
+  provider: utterances # false (default), "utterances", "disqus", "gitalk", "valine", "custom"
+
+  ## utterances
+  utterances:
+    repo        : "eliez3r/comments"
+    theme       : "github-light"
+    issue-term  : "pathname"
 
   ## Disqus
   disqus:
@@ -125,6 +131,15 @@ comments:
     visitor     : # false (default)
     meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
 
+
+## adsense
+adsense:
+  provider: google # "google"
+
+  ## google Adsense
+  google:
+    data-ad-client: ca-pub-4873069368741218
+    data-ad-slot: 9606900003
 
 ## => Pageview
 ##############################
@@ -151,7 +166,7 @@ search:
 ## => Analytics
 ##############################
 analytics:
-  provider: google # false (default), "google", "custom"
+  provider: google # false (default), "google", "naver", "custom"
 
   ## Google Analytics
   google:

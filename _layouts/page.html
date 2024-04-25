@@ -174,9 +174,7 @@ layout: base
               <img class="article__header--cover" src="{{ _header_image_src }}"></img>
             {%- endif -%}
           {%- endif -%}
-
         {%- endif -%}
-
 
         {%- if _full_width == false -%}
           <div class ="main">
@@ -214,6 +212,7 @@ layout: base
                       <section class="page__comments d-print-none">{%- include comments.html -%}</section>
                     {%- endif -%}
                 </article>
+                {%- include adsense.html -%}
                 {%- include main/bottom/custom.html -%}
               </div>
             </div>
