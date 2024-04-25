@@ -1,4 +1,4 @@
-{%- if jekyll.environment == 'development' -%}
+{%- if jekyll.environment != 'development' -%}
   {%- if site.comments.provider == 'utterances' -%}
     {%- include comments-providers/utterances.html -%}
   {%- elsif site.comments.provider == 'disqus' -%}
