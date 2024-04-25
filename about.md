@@ -4,8 +4,6 @@ title: "About"
 modify_date: 2024-04-19
 ---
 
-
-
 ## Name
 > 사랑하는 두 여자를 모시고 살고 있습니다.
 <div class="item">
