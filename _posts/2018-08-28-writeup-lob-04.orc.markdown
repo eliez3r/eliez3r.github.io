@@ -13,6 +13,9 @@ article_header:
 ---
 
 [+ EggHunter](#){:.button.button--outline-success.button--pill}
+> goblin / hackers proof
+
+-----
 
 ```c
 /*
