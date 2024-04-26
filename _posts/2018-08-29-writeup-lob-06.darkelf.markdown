@@ -75,6 +75,7 @@ argv[1]의 크기를 제한하고 있으니 argv[2]에 쉘코드를 넣거나, a
 buffer 주소가 아닌 argv[1]의 주소를 이용해도 된다.
 
 - buffer 배열 크기 40byte
+- 환경변수 영역 0으로 초기화 (egghunter)
 - RET 첫 1byte '\xbf'로 시작
 - **argv[1] 48byte 길이 미만**
 - buffer 배열 40byte 0으로 초기화
