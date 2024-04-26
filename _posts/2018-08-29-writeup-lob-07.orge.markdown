@@ -5,7 +5,7 @@ author: eli_ez3r
 key: 20180007
 category: write-up
 date: 2018-08-29 02:00:00 +0900
-modify_date: 2019-11-13
+modify_date: 2024-04-26
 article_header:
   type: cover
   image:
@@ -13,6 +13,9 @@ article_header:
 ---
 
 [+ Check argv[0]](#){:.button.button--outline-success.button--pill}
+> darkelf / kernel crashed
+
+-----
 
 ```c
 /*
@@ -95,6 +98,12 @@ shell에는 다음과 같은 기능(?)이 있다.
 이를 이용하여 길이를 77바이트로 만들면 될것 같다.
 
 나머지 문제 풀이법은 darkelf와 같다.
+
+- buffer 배열 크기 40byte
+- 환경변수 영역 0으로 초기화 (egghunter)
+- RET 첫 1byte '\xbf'로 시작
+- **argv[1] 48byte 길이 미만**
+- buffer 배열 40byte 0으로 초기화
 
 ------
 
