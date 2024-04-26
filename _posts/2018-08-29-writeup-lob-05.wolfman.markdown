@@ -74,6 +74,8 @@ orc문제와 똑같아 보이지만 마지막에 buffer hunter라고 해서 buff
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/01.png" width="600px">{:.rounded.shadow}
 
+> argv[1] 주소를 이용해서 문제를 푸는 방법도 있다. buffer배열이 0으로 초기화 되지만, argv[1]의 값을 저장하고 있는 스택 공간은 초기화되지 않기 때문...
+
 ------
 
 ### 0x02. Exploit
