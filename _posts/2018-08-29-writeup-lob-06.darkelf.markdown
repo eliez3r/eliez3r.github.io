@@ -71,9 +71,15 @@ main(int argc, char *argv[])
 
 wolfman 문제에서 추가된 부분은 argv[1]의 크기가 48보다 크면 안된다. 그리고 buffer가 0으로 초기화 된다.
 
-쉽게 생각하면 된다. argv[1]의 크기를 제한하고 있으니 argv[2]에 넣으면 된다.
+argv[1]의 크기를 제한하고 있으니 argv[2]에 쉘코드를 넣거나, argv[1]에 쉘코드를 넣고,  
+buffer 주소가 아닌 argv[1]의 주소를 이용해도 된다.
 
-> 사실 argv[1] 크기가 40이라 쉘코드가 충분히 들어가기 때문에, argv[1]에 쉘코드를 넣어도 풀수 있다.
+- buffer 배열 크기 40byte
+- RET 첫 1byte '\xbf'로 시작
+- **argv[1] 48byte 길이 미만**
+- buffer 배열 40byte 0으로 초기화
+
+**이번엔 argv[2]에 shellcode를 넣고 문제를 풀어보겠다.**
 
 ------
 
@@ -86,8 +92,7 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 argv[2]에 NOP슬라이드와 쉘코드를 넣기 위해 core덤프를 통해 해당 주소를 구해오자.
 
 
-
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/01.png" width="800px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/01.png" width="850px">{:.rounded.shadow}
 
 <img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/02.png" width="600px">{:.rounded.shadow}
 
@@ -95,7 +100,7 @@ argv[2]의 주소는 0xbffffbde로 확인되었다.
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/03.png" width="800px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/03.png" width="850px">{:.rounded.shadow}
 
 
 
