@@ -44,6 +44,9 @@ cobolt 문제와 다른점은 cobolt에서는 main함수의 argv로 사용자에
 gets를 이용하여 사용자가 입력한 값을 buffer배열로 복사할때 복사되는 크기가 정해져있지 않아 **BoF(Buffer OverFlow) 취약점**이 존재한다.
 {:.info}
 
+- buffer 배열 크기 16byte
+- fgets를 이용하여 사용자 입력값 입력
+
 ------
 
 ### 0x02. Dynamic Analysis
