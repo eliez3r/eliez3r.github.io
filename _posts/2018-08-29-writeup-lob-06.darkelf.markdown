@@ -5,7 +5,7 @@ author: eli_ez3r
 key: 20180006
 category: write-up
 date: 2018-08-29 01:00:00 +0900
-modify_date: 2019-11-13
+modify_date: 2024--04-26
 article_header:
   type: cover
   image:
@@ -13,6 +13,9 @@ article_header:
 ---
 
 [+ Check Length of argv[1]](#){:.button.button--outline-success.button--pill}
+> wolfman / love eyuna
+
+-----
 
 ```c
 /*
