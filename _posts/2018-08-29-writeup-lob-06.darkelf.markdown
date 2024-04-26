@@ -78,6 +78,7 @@ buffer 주소가 아닌 argv[1]의 주소를 이용해도 된다.
 - 환경변수 영역 0으로 초기화 (egghunter)
 - RET 첫 1byte '\xbf'로 시작
 - **argv[1] 48byte 길이 미만**
+- strcpy를 이용하여 argv[1] 인자 값을 buffer 배열로 복사
 - buffer 배열 40byte 0으로 초기화
 
 **이번엔 argv[2]에 shellcode를 넣고 문제를 풀어보겠다.**

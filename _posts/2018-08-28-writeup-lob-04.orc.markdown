@@ -93,6 +93,7 @@ main함수를 디스어셈하면 0x80으로 시작되는 영역에 프로그램 
 
 - buffer 배열 크기 40byte
 - **환경변수 영역 0으로 초기화 (egghunter)**
+- strcpy를 이용하여 argv[1] 인자 값을 buffer 배열로 복사
 - **RET 첫 1byte '\xbf'로 시작**
 
 ------
