@@ -5,7 +5,7 @@ author: eli_ez3r
 key: 20180006
 category: write-up
 date: 2018-08-29 01:00:00 +0900
-modify_date: 2024--04-26
+modify_date: 2024-04-26
 article_header:
   type: cover
   image:
@@ -87,15 +87,15 @@ argv[2]에 NOP슬라이드와 쉘코드를 넣기 위해 core덤프를 통해 �
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829014308881.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/01.png" width="800px">{:.rounded.shadow}
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829015830365.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/02.png" width="600px">{:.rounded.shadow}
 
 argv[2]의 주소는 0xbffffbde로 확인되었다.
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/image-20180829014955949.png" width="800px">
+<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/03.png" width="800px">{:.rounded.shadow}
 
 
 
