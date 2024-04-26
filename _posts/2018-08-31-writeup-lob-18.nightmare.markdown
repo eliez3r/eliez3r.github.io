@@ -55,7 +55,7 @@ main(int argc, char *argv[])
 
 ### 0x01. Analysis
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/18.nightmare/image-20180727182321698.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/18.nightmare/image-20180727182321698.png" width="600px">
 
 strcpy = 0x8048410
 

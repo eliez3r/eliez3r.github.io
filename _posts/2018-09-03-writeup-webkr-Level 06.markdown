@@ -12,7 +12,7 @@ article_header:
     src: 
 ---
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 06/B2AE219F-AC72-4011-AA48-75D1CB29645F.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 06/B2AE219F-AC72-4011-AA48-75D1CB29645F.png" width="400px">
 
 ```php
 <?php 
@@ -107,9 +107,9 @@ if($decode_id=="admin" && $decode_pw=="admin")
 
 > 소스코드에서 base64로 인코딩하고 숫자들을 일정 특수문자로 바꾸는데, 어쩌피 다시 원상태로 치환 시키게 되고, base64는 본래 특수문자가 없는 암호문이여서 그대로 넣어주면 된다.
 
-![B2CC6AEA-A950-4077-8D1E-E59D9ECDC339](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 06/B2CC6AEA-A950-4077-8D1E-E59D9ECDC339.png)
+![B2CC6AEA-A950-4077-8D1E-E59D9ECDC339](http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 06/B2CC6AEA-A950-4077-8D1E-E59D9ECDC339.png)
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 06/FE670E40-13F7-4DFA-BDEB-79AC98531466.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 06/FE670E40-13F7-4DFA-BDEB-79AC98531466.png" width="400px">
 

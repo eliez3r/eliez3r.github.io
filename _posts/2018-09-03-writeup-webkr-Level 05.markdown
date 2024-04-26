@@ -12,7 +12,7 @@ article_header:
     src: 
 ---
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729140333626.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729140333626.png" width="400px">
 
 Login 버튼과 Join 버튼이 존재한다. 소스코드를 보자.
 
@@ -37,15 +37,15 @@ Login 버튼과 Join 버튼이 존재한다. 소스코드를 보자.
 
 'Login' 버튼을 눌러보자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729140610737.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729140610737.png" width="300px">
 
 로그인 창이 뜨길래 'test' 값을 둘다 넣어 login해보았다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729140712120.png" width="200px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729140712120.png" width="200px">
 
 admin으로 로그인해야 되는 것 같다. 그래서 admin으로 로그인 해봤다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729140804866.png" width="200px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729140804866.png" width="200px">
 
 
 
@@ -53,13 +53,13 @@ admin으로 로그인해야 되는 것 같다. 그래서 admin으로 로그인 �
 
 그래서 이것 저것 코드살펴보고 하다가 처음 화면에서 'Login' 버튼을 누르면 mem/login.php 로 이동되는 것을 보고 혹시 디렉토리 노출 취약점이 있나 싶어 접속해보았다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729141259268.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729141259268.png" width="400px">
 
 '혹시나' 가 '역시나'로 바뀌는 순간이였다. 😏
 
 login.php는 우리가 접속했던 페이지이고, join.php 파일을 열어보았다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729141531176.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729141531176.png" width="500px">
 
 "access_denied"라는 경고창이 뜬다. join.php 파일을 다운받아서 소스코드를 살펴보았다.
 
@@ -194,13 +194,13 @@ if (eval(document.'U'+'R'+'L').indexOf(mode+'='+1) == -1) {
 
 위 두가지를 설정하고 다시 접속해 보았다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729142057566.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729142057566.png" width="400px">
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729142130490.png" width="200px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729142130490.png" width="200px">
 
 회원가입할 수 있는 폼 페이지가 불러졌다. 이제 	admin으로 계정을 만들려고 했다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729142228262.png" width="200px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729142228262.png" width="200px">
 
 admin 계정이 이미 존재한다고 떴다.
 
@@ -208,7 +208,7 @@ admin 계정이 이미 존재한다고 떴다.
 
 결론은 id를 입력받는 길이가 '5'로 정해져 있는데 개발자모드로 이를 수정하고 id를 'admin(공백)'으로 생성한다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729142415762.png" width="100px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729142415762.png" width="100px">
 
 가입에 성공하였다.
 
@@ -216,5 +216,5 @@ admin 계정이 이미 존재한다고 떴다.
 
 이는 로그인 시 id값을 5자리만 확인하는 취약점 때문인것 같다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 05/image-20180729142557323.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 05/image-20180729142557323.png" width="400px">
 

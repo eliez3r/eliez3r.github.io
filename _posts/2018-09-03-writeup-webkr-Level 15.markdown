@@ -12,7 +12,7 @@ article_header:
     src: 
 ---
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 15/DC7DAE26-507F-442B-88B9-060A5EB66AE6.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 15/DC7DAE26-507F-442B-88B9-060A5EB66AE6.png" width="500px">
 
 level 15 버튼을 누르면 "Access_Denied"라는 알림창이 뜨고 들어가 지지 않는다.
 
@@ -20,7 +20,7 @@ level 15 버튼을 누르면 "Access_Denied"라는 알림창이 뜨고 들어가
 
 fiddler를 통해 캡처를 해보았다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 15/B85FA2F7-55F2-40EF-8903-6863DE5ACAD8.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 15/B85FA2F7-55F2-40EF-8903-6863DE5ACAD8.png" width="400px">
 
 패킷에 브레이크 포인트를 걸고 하나씩 보내보니
 

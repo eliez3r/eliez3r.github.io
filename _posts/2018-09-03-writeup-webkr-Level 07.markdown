@@ -12,9 +12,9 @@ article_header:
     src: 
 ---
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180729233649699.png" width="150px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180729233649699.png" width="150px">
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180729233740588.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180729233740588.png" width="400px">
 
 
 
@@ -109,7 +109,7 @@ union을 이용하세요
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180729234506533.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180729234506533.png" width="500px">
 
 없는거 맞나 싶다. ㅋㅋㅋㅋ 다음 코드를 살펴보자.
 
@@ -222,13 +222,13 @@ if($data[0]==2)
 
 예를들면 다음과 같다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180729235548415.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180729235548415.png" width="300px">
 
 
 
 서로 다른 레코드가 담긴 테이블이 2개가 있다. 이때 Union을 이용하면, 한번의 쿼리로 다른 테이블의 값을 추출할 수 있다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180729235818938.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180729235818938.png" width="300px">
 
 위 사진과 같이 한번의 쿼리로 test2와 test3에서 id의 값을 추출하였다.
 
@@ -236,19 +236,19 @@ if($data[0]==2)
 
 다음 예시도 살펴보자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180730000349195.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180730000349195.png" width="400px">
 
 test3의 테이블에서 where절을 이용하여 'guest'를 추출하고 있다.
 
 역시 Union과 select를 이용하면 어떻게 되는지 살펴보자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180730000514308.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180730000514308.png" width="500px">
 
 select 'admin' 을 붙였더니 'admin'도 출력되었다.
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180730000934101.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180730000934101.png" width="400px">
 
 실제 select 명령어는 입력한 값을 그대로 출력해 준다.
 
@@ -256,7 +256,7 @@ select 'admin' 을 붙였더니 'admin'도 출력되었다.
 
 ‼️ 여기서 중요한 점은 우리는 data[0]값을 '2'로 만들어야 된다는 점. 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180730001138181.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180730001138181.png" width="500px">
 
 따라서 위 사진 예제와 같이 where절 앞부분에 거짓정보를 넣고 select로 입력한 값이 나오게 하면 될 것같다.
 
@@ -280,7 +280,7 @@ $go 부분에 `-1) union select (2` 라고 넣게 되면 lv에 -1이란 값은 �
 
 
 
-![image-20180730002537484](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 07/image-20180730002537484.png)
+![image-20180730002537484](http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 07/image-20180730002537484.png)
 
 읭? 뭥미....
 

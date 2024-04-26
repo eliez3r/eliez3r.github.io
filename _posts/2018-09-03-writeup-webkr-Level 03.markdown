@@ -12,19 +12,19 @@ article_header:
     src: 
 ---
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729124055653.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729124055653.png" width="300px">
 
 네모로직 문제가 나왔다. 네모칸을 클릭하면 검정색으로 변하게 된다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729124158722.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729124158722.png" width="300px">
 
 매우 쉬운 네모로직이므로 풀고 'gogo'버튼을 눌러 보았다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729124254460.png" width="200px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729124254460.png" width="200px">
 
 이름 입력 받는 창이 나오게 되고 입력하고 'write'를 누르면,
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729124346824.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729124346824.png" width="400px">
 
 내 아이피와 아이디, 그리고 answer값이 표시된다.
 
@@ -60,28 +60,28 @@ function go()
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729125433928.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729125433928.png" width="500px">
 
 크롬 개발자 모드에서 살펴보니 사용자 입력받는 페이지에서 넘겨지는 value값이 지정되어 있었다.
 
 그래서 이부분을 수정하여 SQL Injection을 하였다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729125822366.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729125822366.png" width="600px">
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729125919666.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729125919666.png" width="500px">
 'no hack'이라는 문자열이 출력됬다.
 
 필터링이 걸려 있는 것 같다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729130042082.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729130042082.png" width="600px">
 
 '=' 에 필터링이 되어 있나 싶어 'true'로 바꿨더니 똑같이 'no hack' 이라고 떳다.
 
 이번엔 'or'를 바꿔 보았다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729130255990.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729130255990.png" width="600px">
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 03/image-20180729130329941.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 03/image-20180729130329941.png" width="600px">
 
 'or'를 '||' 으로 바꾸고 보내니 문제가 풀렸다.
 

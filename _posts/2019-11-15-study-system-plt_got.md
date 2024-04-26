@@ -43,13 +43,13 @@ article_header:
 
 예를들어, 소스안에는 printf함수를 호출하는 코드가 있고 include 한 헤더파일에는 printf의 선언이 있다. 소스파일을 실행파일로 만들기 위해서 아래와 같은 ‘컴파일(compile)’ 과정을 거친다.
 
-![GNU C 컴파일 과정](http://eliez3r.synology.me/assets/img/study/system/plt and got/1.png)
+![GNU C 컴파일 과정](http://eliez3r.synology.me/assets/blog/study/system/plt and got/1.png)
 
 컴파일을 통해 오브젝트 파일이 생성된다. 하지만 오브젝트파일은 그 자체로 실행 불가능하다. 이유는 printf의 구현 코드를 모르기 때문이다. printf를 호출 했을 때 어떤 코드를 실행해야 하는지 우리가 작성한 코드만 가지고서는 아무것도 알 수 없다.
 
 오브젝트 파일을 실행 가능하게 만들기 위해서는 printf의 실행 코드를 찾아서 오브젝트 파일과 연결시켜 주어야 한다. printf의 실행코드는 printf의 구현 코드를 컴파일한 오브젝트 파일로, 이런 오브젝트 파일들이 모여있는 곳을 **라이브러리(Library)**라고 한다.
 
-![소스파일이 실행파일이 되기까지](http://eliez3r.synology.me/assets/img/study/system/plt and got/2.png)
+![소스파일이 실행파일이 되기까지](http://eliez3r.synology.me/assets/blog/study/system/plt and got/2.png)
 
 이렇게 라이브러리 등 필요한 **오브젝트 파일들을 연결시키는 작업을 링킹(Linking)**이라고 한다.
 이렇게 링크 과정까지 마치면 최종적인 실행파일이 생기게 된다.
@@ -58,7 +58,7 @@ article_header:
 
 -----
 
-![Static Link방식을 통한 실행파일 생성](http://eliez3r.synology.me/assets/img/study/system/plt and got/3.png)
+![Static Link방식을 통한 실행파일 생성](http://eliez3r.synology.me/assets/blog/study/system/plt and got/3.png)
 
 **Static Link 방식**은 파일 생성시 라이브러리 내용을 포함한 실행파일을 만든다. gcc옵션 중 `static`옵션을 적용하면 Static Link 방식으로 컴파일 된다.
 
@@ -72,7 +72,7 @@ test: ELF 64-bit LSB executable, x86-64, version 1 (GNU/Linux), statically linke
 
 -----
 
-![dynamic linking](http://eliez3r.synology.me/assets/img/study/system/plt and got/4.png)
+![dynamic linking](http://eliez3r.synology.me/assets/blog/study/system/plt and got/4.png)
 
 **Dynamic Link 방식**은 공유 라이브러리를 사용한다. 라이브러리를 하나의 메모리 공간에 맵핑하고 여러 프로그램에서 공유하여 사용하게 된다.
 
@@ -92,7 +92,7 @@ test: ELF 64-bit LSB pie executable x86-64, version 1 (SYSV), dynamically linked
 
 Static Link 방식으로 컴파일 하면 라이브러리가 프로그램 내부에 있기 때문에 함수의 주소를 알아오는 과정이 필요 없지만, **Dynamic Link 방식으로 컴파일 하면 라이브러리가 프로그램 외부에 존재하기 때문에 함수의 주소를 알아오는 과정이 필요하다.**
 
-![PLT와 GOT의 호출관계](http://eliez3r.synology.me/assets/img/study/system/plt and got/5.png)
+![PLT와 GOT의 호출관계](http://eliez3r.synology.me/assets/blog/study/system/plt and got/5.png)
 
 Dynamic Link 방식으로 프로그램이 만들어지면 함수를 호출 할 때 **PLT**를 참조하게 된다. PLT에서는 **GOT로 점프**를 하는데, **GOT에 라이브러리에 존재하는 실제 함수의 주소가 쓰여있어서 함수를 호출**하게 된다.
 
@@ -207,7 +207,7 @@ End of assembler dump.
 
 `_dl_runtime_resolve` 함수는 `_dl_fixup`이라는 함수를 부른다. 이 함수는 eax와 edx값을 인자로 받아오는데 다음 그림을 살펴보자.
 
-![6](http://eliez3r.synology.me/assets/img/study/system/plt and got/6.png)
+![6](http://eliez3r.synology.me/assets/blog/study/system/plt and got/6.png)
 
 지금까지 PUSH 된 값들에 따른 스택의 상태이다. reloc_offset(ox10)을 PUSH했고 link_map 구조체(0xf7ffd940)를 PUSH 했다.
 
@@ -221,6 +221,6 @@ STRTAB내에 있는 함수이름의 주소를 넘겨주며` _dl_lookup_symbol_x`
 
 다시 _dl_fixup함수로 돌아오면, **SYMTAB 내의 실제 함수의 오프셋과 라이브러리 시작 주소를 더해 실제 함수의 주소를 알아내고 GOT에 기록**한다.
 
-![7](http://eliez3r.synology.me/assets/img/study/system/plt and got/7.png)
+![7](http://eliez3r.synology.me/assets/blog/study/system/plt and got/7.png)
 
 -----

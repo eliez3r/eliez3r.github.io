@@ -119,7 +119,7 @@ asm에서 함수의 리턴 값은 `r0`로 들어간다. key1함수의 리턴 값
 
 `pc`는 실행되는 명령어의 주소를 가리킨다. 때문에 `0x8cdc`를 가리킬 것 같지만 ARM에서는 다르다.([ARM의 Pipeline]( https://eliez3r.github.io/post/2019/11/14/study-arm-pipeline.html ) 를 참조하자.)
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/pwnable.kr/leg/1.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/pwnable.kr/leg/1.png" width="600px">
 
 
 

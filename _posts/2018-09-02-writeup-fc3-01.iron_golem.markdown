@@ -91,7 +91,7 @@ ASCII-Armor로 설정되어 있으므로 라이브러리 주소를 사용할 수
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/1.iron_golem/image-20180807115944736.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/fc3/1.iron_golem/image-20180807115944736.png" width="500px">
 
 
 
@@ -148,7 +148,7 @@ got영역의 주소를 보면 0x08049618임을 확인 할 수 있다.
 
 따라서 우리도 이거에 맞춰서 .got.plt주소의 -8한 값을 넘겨주어야 EBP가 우리가 원하는 값으로 셋팅이 된다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/1.iron_golem/image-20180807135423025.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/fc3/1.iron_golem/image-20180807135423025.png" width="500px">
 
 위와 같이 메모리상태가 되게 되면 execl("\x01") 함수가 실행되는 형태가 된다.
 
@@ -260,7 +260,7 @@ payload += p32(execl + 0x3)
 os.execv(target, (target, payload[:-1]))
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/fc3/1.iron_golem/image-20180807141835619.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/fc3/1.iron_golem/image-20180807141835619.png" width="600px">
 
 
 

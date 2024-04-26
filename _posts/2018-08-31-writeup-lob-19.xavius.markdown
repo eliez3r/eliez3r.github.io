@@ -91,7 +91,7 @@ main()
 
 stdin에 대해 살펴보자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802124706226.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/19.xavius/image-20180802124706226.png" width="400px">
 
 
 
@@ -99,13 +99,13 @@ fgets에서 값을 가져오는 부분을 보면 stdin의 주소를 알 수 있�
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802125145631.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/19.xavius/image-20180802125145631.png" width="400px">
 
 
 
 해당 주소를 따라가면 \x40주소 영역에 주소가 들어있다.(stdin@@GLIBC_2.0) 이라고 되어있다.
 
-![image-20180802125342227](http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802125342227.png)
+![image-20180802125342227](http://eliez3r.synology.me/assets/blog/writeup/lob/19.xavius/image-20180802125342227.png)
 
 
 
@@ -115,7 +115,7 @@ fgets에서 값을 가져오는 부분을 보면 stdin의 주소를 알 수 있�
 
 
 
-![image-20180802130439045](http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802130439045.png)
+![image-20180802130439045](http://eliez3r.synology.me/assets/blog/writeup/lob/19.xavius/image-20180802130439045.png)
 
 printf 함수에 브레이크를 걸고 값을 입력한 뒤에 다시 살펴보면 std+4, std+8, std+12 등이 변했다.
 
@@ -123,13 +123,13 @@ stdin 구조체에 따라 보면, std+4는 어디까지 읽었는지, stdin+8은
 
 그러면 stdin+12의 주소를 살펴보자.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802130810548.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/19.xavius/image-20180802130810548.png" width="300px">
 
 입력한 값이 들어 있음을 알 수 있다.
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/19.xavius/image-20180802131232591.png" width="700px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/19.xavius/image-20180802131232591.png" width="700px">
 
 실제 메모리 맵을 살펴보면, 해당 영역은 실행 권한이 존재하지 않는다. 하지만 maps에 대한 정보는 100% 정확하지 않다는 얘기를 들어서 시도해 보았다.
 

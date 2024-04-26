@@ -12,13 +12,13 @@ article_header:
     src: 
 ---
 
-![4](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 23/image-20180726154434963.png)
+![4](http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 23/image-20180726154434963.png)
 
 `<sciprt>alert(1);</script>` 를 넣는 것이 미션이란다. 
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 23/image-20180726154848452.png" width="300px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 23/image-20180726154848452.png" width="300px">
 
 그래서 넣어보았다. "no hack"이라고 출력된다. 앞서 푼 문제들로 추정해 봤을 때, 필터링이 있는 것 같았다. 그래서 어떤 문자가 필터링 되는지 여러가지 문자들을 넣어 보았다.
 

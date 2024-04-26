@@ -31,13 +31,13 @@ function sub(){ if(login.pw.value==unlock){ alert("Password is "+unlock/10); }el
 </script>
 ```
 
-![573E6EAB-9DF1-4715-978F-E02B2EE3D3B3](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 17/573E6EAB-9DF1-4715-978F-E02B2EE3D3B3.png)
+![573E6EAB-9DF1-4715-978F-E02B2EE3D3B3](http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 17/573E6EAB-9DF1-4715-978F-E02B2EE3D3B3.png)
 
  unlock 값과 패스워드가 같으면 끝.
 
 계산은... 크롬이 대신 해준다.
 
-![F84ADA0F-7476-48D2-A33E-6835D16C2114](http://eliez3r.synology.me/assets/img/writeup/webkr/Level 17/F84ADA0F-7476-48D2-A33E-6835D16C2114.png)
+![F84ADA0F-7476-48D2-A33E-6835D16C2114](http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 17/F84ADA0F-7476-48D2-A33E-6835D16C2114.png)
 
 
 

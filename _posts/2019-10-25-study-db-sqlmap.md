@@ -12,7 +12,7 @@ article_header:
     src: 
 ---
 
-![logo](http://eliez3r.synology.me/assets/img/study/db/sqlmap/logo.png){:.border.rounded}
+![logo](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/logo.png){:.border.rounded}
 
 ## 0x00. 개요
 
@@ -149,9 +149,9 @@ sqlmap 실습을 위해서 [PentesterLab의 From SQL Injection to Shell 훈련�
 [경고]실제 서버를 공격하여 생기는 법적 책임은 공격자 본인에게 있음을 경고합니다. 
 {:.warning} 
 
- ![Image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/1.png){:.border.rounded}
+ ![Image](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/1.png){:.border.rounded}
 
-![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/2.png){:.border.rounded}
+![image](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/2.png){:.border.rounded}
 
 SQL Injection to Shell 훈련장의 접속화면이다. 이미지를 보여주는 cat.php의 id변수를 대상으로 sqlmap을 이용하여 SQL Injection 취약점 점검을 진행한다.
 
@@ -169,7 +169,7 @@ SQL Injection 취약점이 존재하면 실제 관리자 계정 탈취까지 가
 sqlmap -u "http://192.168.23.131/cat.php?id=1"
 ```
 
- ![img](http://eliez3r.synology.me/assets/img/study/db/sqlmap/3.png){:.border.rounded}  
+ ![img](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/3.png){:.border.rounded}  
 
 기본적인 점검에서 id변수가 취약하며, OS정보와 Web Application정보, DBMS정보등을 알아오는 것을 알 수 있다.
 
@@ -202,7 +202,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbms=mysql
 sqlmap -u "http://192.168.23.131/cat.php?id=1" --dbs
 ```
 
-![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/4.png){:.border.rounded} 
+![image](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/4.png){:.border.rounded} 
 
 `--dbs`의 옵션으로 현재 웹 어플리케이션("cat.php")이 접근할 수 있는 MySQL 데이터베이스 이름을 모두 조회하였다. 조회된 데이터 베이스 중 `information_schema`는 MySQL의 시스템 카탈로그(System Catalog)이다. 따라서 이 서비스에서 사용하는 데이터베이스는 `photoblog`임을 알 수 있다.
 
@@ -226,7 +226,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" --cookie="security=low; PHPSESSID
 sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog --tables
 ```
 
-![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/5.png){:.border.rounded} 
+![image](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/5.png){:.border.rounded} 
 
 `--tables` 옵션을 사용하여 categories, pictures, users 3개의 테이블 이름을 찾아내었다.
 
@@ -240,7 +240,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog --tables
 sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users --columns
 ```
 
-![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/6.png){:.border.rounded} 
+![image](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/6.png){:.border.rounded} 
 
 users 테이블은 id, login, password 3개 컬럼(column)으로 구성되어 있음을 확인하였다.
 
@@ -256,7 +256,7 @@ users테이블의 모든 내용들을 덤프해보자.
 sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users --dump
 ```
 
-![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/7.png){:.border.rounded} 
+![image](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/7.png){:.border.rounded} 
 
 user는 `admin` 계정이 존재하고 패스워드는 hash값으로 되어있지만, 해당 해쉬값이 P4ssw0rd 임을 알려준다.
 
@@ -278,7 +278,7 @@ sqlmap -u "http://192.168.23.131/cat.php?id=1" -D photoblog -T users -C "login,p
 
 ### 2. POST 방식 입력 값 점검
 
-![image](http://eliez3r.synology.me/assets/img/study/db/sqlmap/8.png){:.border.rounded}
+![image](http://eliez3r.synology.me/assets/blog/study/db/sqlmap/8.png){:.border.rounded}
 
 위 그림은 SQL Injection to Shell 훈련장의 관리자 페이지 접속화면이다. ID/PW를 이용하여 로그인하는 페이지이며 POST방식으로 구현되어 있다.
 

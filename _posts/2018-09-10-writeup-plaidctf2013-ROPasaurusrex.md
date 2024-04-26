@@ -269,7 +269,7 @@ root@ubuntu  ~# objdump -h ropasaurusrex | grep bss
 
 
 [*] 위 정보를 다른 방법으로 구하는 방법. 
- <img src="http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231757695.png" width="600px">{:.rounded.shadow}
+ <img src="http://eliez3r.synology.me/assets/blog/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231757695.png" width="600px">{:.rounded.shadow}
 {:.info}
 
 <br>
@@ -277,13 +277,13 @@ root@ubuntu  ~# objdump -h ropasaurusrex | grep bss
 이제 pop-pop-pop-ret 가젯만 구하면 된다.  
 ropper를 이용하여 가젯을 구하면 쉽지만, ropper가 없는 환경 일 수 있으니 objdump로 구하는 방법을 소개하겠다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231705197.png" width="600px">{:.rounded.shadow}
+<img src="http://eliez3r.synology.me/assets/blog/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231705197.png" width="600px">{:.rounded.shadow}
 
 위에서 나온 가젯들 중 pop-pop-pop-ret이 연속적인 주소로 된 것을 고르면 된다. 
 
 0x080484b6를 사용하면 될 것 같다.
 
-<img src="http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231440053.png" width="600px">{:.rounded.shadow}  
+<img src="http://eliez3r.synology.me/assets/blog/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826231440053.png" width="600px">{:.rounded.shadow}  
 ropper는 좀 더 이쁘게 보여진다.
 {:.info}
 
@@ -397,7 +397,7 @@ p.send(p32(system_addr))
 
 p.interactive()
 ```
-<img src="http://eliez3r.synology.me/assets/img/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826232159051.png" width="500px">{:.rounded.shadow}  
+<img src="http://eliez3r.synology.me/assets/blog/writeup/plaid_ctf_2013/ROPasaurusrex/image-20180826232159051.png" width="500px">{:.rounded.shadow}  
 
 <br>
 

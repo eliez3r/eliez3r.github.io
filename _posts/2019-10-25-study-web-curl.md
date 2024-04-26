@@ -12,7 +12,7 @@ article_header:
     src: 
 ---
 
-![Image](http://eliez3r.synology.me/assets/img/study/web/curl/1.jpg)
+![Image](http://eliez3r.synology.me/assets/blog/study/web/curl/1.jpg)
 
 ## 0x00. 개요
 
@@ -42,7 +42,7 @@ cURL을 이용한 취약점 점검 대상은 [메모지.com](http://www.memozee.
 
 ### (1) 서버의 HTTP 응답헤더 확인 (-I)
 
-![Image](http://eliez3r.synology.me/assets/img/study/web/curl/2.png){:.border.rounded}
+![Image](http://eliez3r.synology.me/assets/blog/study/web/curl/2.png){:.border.rounded}
 
 `-I` 옵션으로 서버응답 헤더를 점검할 수 있다.
 
@@ -50,7 +50,7 @@ cURL을 이용한 취약점 점검 대상은 [메모지.com](http://www.memozee.
 
 ### (2) 서버가 허용하는 HTTP Method 목록 확인 (-v -X OPTIONS)
 
-![Image](http://eliez3r.synology.me/assets/img/study/web/curl/3.png){:.border.rounded}
+![Image](http://eliez3r.synology.me/assets/blog/study/web/curl/3.png){:.border.rounded}
 
 > Apache 웹서버에서는 /icons, /cgi-bin 등의 디렉토리가 Alias로 지정되기 때문에 기본 웹 경로(DocumentRoot)와는 다른 결과를 보여주기도 한다. 또는 기본 웹 경로에서는 OPTIONS, TRACE 등의 HTTP Method가 허용되지 않으나 이러한 디렉토리에서는 허용되기도 하므로 취약점 점검 시에 고려해야 한다.
 
@@ -58,7 +58,7 @@ cURL을 이용한 취약점 점검 대상은 [메모지.com](http://www.memozee.
 
 ### (3) TRACE Method 점검 (-v -X TRACE)
 
-![Image](http://eliez3r.synology.me/assets/img/study/web/curl/4.png){:.border.rounded}
+![Image](http://eliez3r.synology.me/assets/blog/study/web/curl/4.png){:.border.rounded}
 
 `-v -X TRACE` 옵션으로 HTTP 요청헤더가 응답 내용에 출력되는지 확인한다.
 
@@ -72,7 +72,7 @@ MS 윈도우 등과 같이 cURL이 설치되어 있지 않은 경우에는 telne
 
 ### (1) telnet을 이용한 TRACE 메소드 점검
 
-![Image](http://eliez3r.synology.me/assets/img/study/web/curl/5.png){:.border.rounded}
+![Image](http://eliez3r.synology.me/assets/blog/study/web/curl/5.png){:.border.rounded}
 
 telnet을 이용한 TRACE 메소드 점검방법이다. 녹색 부분은 사용자가 직접 입력해 주어야 하는 내용이다.
 

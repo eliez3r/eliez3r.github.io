@@ -68,7 +68,7 @@ problem_child 함수를 보면 strncpy함수를 통해 main함수 argv[1] 인자
 
 일단 main함수에서 problem_child를 호출하고 buffer배열까지 공간을 할당하게 되었을 때에 스택의 구조는 다음과 같다.
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571214325423.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571214325423.png" width="600px">
 
 SFP 1byte가 Overwrite 됐을 때 프로그램이 어떻게 흘러가는지 알아보자.
 
@@ -92,13 +92,13 @@ problem_child 함수내의 leave가 실행되기 직전에 스택 상태이다.
 
 이를 보기쉽게 그림으로 표시하면 다음과 같다. (검정색은 해당 스택의 주소, 파랑색은 해당 스택에 저장된 값, 빨강색은 사용자가 입력한 값)
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571278048851.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571278048851.png" width="600px">
 
 problem_child SFP의 값을 보면 마지막에 **0x43**이 들어간 것을 볼수있다. 이는 argv[1]의 마지막 byte의 값이 "C(0x43)"이기 때문에 strncpy를 하면서 덮여씌워진 것이다.
 
 그럼 이상태에서 함수 에필로그를 진행하면 레지스트리 값이 어떻게 변하는지 살펴보자.
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571214379330.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571214379330.png" width="600px">
 
 problem_child 함수의 에필로그가 시작하기 직전에 eip, ebp, esp 레지의 상태값이다.
 
@@ -110,11 +110,11 @@ leave명령어를 2단계로 쪼개서 사진으로 살펴보자.
 
 ### 1) problem_child 함수의 leave
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571214508497.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571214508497.png" width="600px">
 
 `mov esp, ebp`를 실행하면 esp값이 ebp의 값과 동일하게 된다.
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571214637643.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571214637643.png" width="600px">
 
 `pop ebp`를 하면 esp가 가리키는 곳의 값을 ebp로 넣고 esp는 4byte증가하게 된다.
 
@@ -126,7 +126,7 @@ leave명령어를 2단계로 쪼개서 사진으로 살펴보자.
 
 그리고 ret는 `pop eip`, `jmp eip`로 진행되어진다.
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571214850448.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571214850448.png" width="600px">
 
 `pop eip` 명령에 의해서 eip에 esp가 가리키던 값 `0x0804849e`값이 들어가고 esp를 pop명령어에 의해 4byte 증가하게 된다. 그리고 jmp eip 명령어를 통해 프로그램이 `0x0804849e` 주소를 실행하게 된다.
 
@@ -145,7 +145,7 @@ Dump of assembler code for function main:
 
 ### 3) main함수에서 problem_child함수 스택 정리
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571215063447.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571215063447.png" width="600px">
 
 `add %esp, 4` 명령어를 수행하게 되면 esp값은 4가 증가하게 된다.
 
@@ -155,11 +155,11 @@ Dump of assembler code for function main:
 
 ### 4) main 함수의 leave
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571275687784.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571275687784.png" width="600px">
 
 `mov esp, ebp`명령에 의해서 esp값이 `0xbffffc43`으로 바뀐다.
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571276328187.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571276328187.png" width="600px">
 
 `pop ebp`명령으로 esp가 가리키고 있는 값(0xfffc7440)이 ebp에 들어가게 된다. 스택의 정확한 값들을 살펴보면 다음과 같다.
 
@@ -172,11 +172,11 @@ Dump of assembler code for function main:
 
 ### 5) main 함수의 ret
 
-<img src="http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/1571276427498.png" width="600px">
+<img src="http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/1571276427498.png" width="600px">
 
 그리고 `pop eip` 명령을 통해 esp가 가리키고 있던 주소(0xbffffc47)의 값 `0x00a970bf` 값이 eip로 들어가고 esp는 4증가한다.  그리고 최종적으로 `jmp eip`를 통해 해당 주소로 점프해 명령을 수행하게 된다.
 
-![](http://eliez3r.synology.me/assets/img/study/system/SFP Overflow/gif.GIF){: width="70%" height="70%"}
+![](http://eliez3r.synology.me/assets/blog/study/system/SFP Overflow/gif.GIF){: width="70%" height="70%"}
 
 -----
 
