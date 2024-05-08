@@ -97,7 +97,7 @@ modify_date: 2024-04-19
 - **KG에듀원(KG ITBANK)**, WEB/App Penetration testing
 - **다올투자증권(DAOL Investment&Securities)**, WEB/MTS/HTS Penetration testing
 - **천재교과서(CHUNJAETEXTBOOK)**, WEB Penetration testing
-- **신한DS(Shinhan DS)**, Web/App Penetration testing
+- **신한DS(Shinhan DS)**, Web/App/CS Penetration testing
 
 ------
 
